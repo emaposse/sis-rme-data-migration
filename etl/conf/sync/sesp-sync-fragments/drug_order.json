@@ -1,0 +1,177 @@
+{
+  "applyCondition": "table_name='drug_order'",
+  "srcConf": {
+    "template": {
+      "name": "sisrme_src_ds",
+      "parameters": {
+        "aliases_prefix": "drug_order",
+        "main_output_template_name": "drug_order_ds_from_json"
+      }
+    },
+    "extraObjectDataSource": [
+      {
+        "name": "posologia_src_ds",
+        "objectFields": [
+          {
+            "name": "posologia",
+            "transformer": "FAST_SQL_TRANSFORMER(query:dose_frequency_to_posologia.sql, name:fast_sql_on_posologia_src_ds,onMultipleSrcObjectsFound:USE_LAST,onNullTransformedValue:SET_TO_NULL)",
+            "applyCondition": "drug_order_src_ds.frequency != null"
+          },
+          {
+            "name": "posologia",
+            "value": "0-0-1",
+            "applyCondition": "drug_order_src_ds.frequency = null"
+          }
+        ]
+      }
+    ],
+    "excludedFieldsFromObjectDesc": [
+      "entity_payload"
+    ]
+  },
+  "dstConf": [
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "drug_order",
+          "src_patient_uuid": "drug_order_patient_src_ds.uuid",
+          "dst_aliases_prefix": "prescricao_grouping",
+          "concept_id": "165252",
+          "value_field": "value_text",
+          "value": "Formulacao, Quantidade e Posologia",
+          "obs_datetime": "drug_order_orders_src_ds.date_created",
+          "date_created": "drug_order_orders_src_ds.date_created",
+          "voided": "drug_order_orders_src_ds.voided",
+          "date_voided": "drug_order_orders_src_ds.date_voided",
+          "void_reason": "drug_order_orders_src_ds.void_reason",
+          "uuid": "drug_order_orders_src_ds.uuid",
+          "encounter_type_id": "18",
+          "location_id": "@dst_location_id",
+          "filter_condition": "drug_order_orders_src_ds.order_type_id = 11",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "drug_order",
+          "src_patient_uuid": "drug_order_patient_src_ds.uuid",
+          "dst_aliases_prefix": "formulacao",
+          "concept_id": "165256",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:drug_order_orders_src_ds.concept_id,extra_condition:mapping_group=\"drug_concept\")",
+          "obs_datetime": "drug_order_orders_src_ds.date_created",
+          "date_created": "drug_order_orders_src_ds.date_created",
+          "voided": "drug_order_orders_src_ds.voided",
+          "date_voided": "drug_order_orders_src_ds.date_voided",
+          "void_reason": "drug_order_orders_src_ds.void_reason",
+          "uuid": "COALESCE_TRANSFORMER(FAST_SQL_TRANSFORMER(query:select uuid from ${dst_db}.obs exists_obs WHERE exists_obs.concept_id = formulacao_obs_dst_ds.concept_id and  formulacao_obs_dst_ds.encounter_id = exists_obs.encounter_id,onMultipleSrcObjectsFound:USE_LAST,name:fast_sql_on_formulacao_uuid,onNullTransformedValue:SET_TO_NULL), FAST_SQL_TRANSFORMER(select uuid()) )",
+          "encounter_type_id": "18",
+          "location_id": "@dst_location_id",
+          "filter_condition": "drug_order_orders_src_ds.order_type_id = 11",
+          "obs_group_id_transformer": "PARENT_ON_DEMAND_TRANSFORMER(obs,on_demand_check_condition:uuid=drug_order_orders_src_ds.uuid, template:on_demand_sync_simple_obs, template_param_main_src_aliases_prefix:drug_order, template_param_src_patient_uuid:drug_order_patient_src_ds.uuid, template_param_main_dst_aliases_prefix:droga,template_param_aliases_prefix:inner_prescricao_grouping_01, template_param_concept_id:165252, template_param_obs_datetime:drug_order_orders_src_ds.date_created, template_param_location_id:formulacao_obs_dst_ds.location_id, template_param_encounter_type_id:18, template_param_uuid:drug_order_orders_src_ds.uuid)"
+        },
+        "override": [
+          {
+            "path": "onConflict",
+            "type": "OVERRIDE",
+            "value": "PATCH_EXISTING"
+          },
+          {
+            "path": "patchFields",
+            "type": "OVERRIDE",
+            "value": [
+              "value_coded"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "drug_order",
+          "src_patient_uuid": "drug_order_patient_src_ds.uuid",
+          "dst_aliases_prefix": "droga",
+          "concept_id": "165256",
+          "value_field": "value_drug",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:MARK_RECORD_AS_FAILED,input:drug_order_src_ds.drug_id,extra_condition:mapping_group=\"drug\")",
+          "obs_datetime": "drug_order_orders_src_ds.date_created",
+          "date_created": "drug_order_orders_src_ds.date_created",
+          "voided": "drug_order_orders_src_ds.voided",
+          "date_voided": "drug_order_orders_src_ds.date_voided",
+          "void_reason": "drug_order_orders_src_ds.void_reason",
+          "uuid": "formulacao_obs_dst_ds.uuid",
+          "encounter_type_id": "18",
+          "location_id": "@dst_location_id",
+          "filter_condition": "drug_order_orders_src_ds.order_type_id = 11",
+          "obs_group_id_transformer": "PARENT_ON_DEMAND_TRANSFORMER(obs,on_demand_check_condition:uuid=drug_order_orders_src_ds.uuid, template:on_demand_sync_simple_obs, template_param_main_src_aliases_prefix:drug_order, template_param_src_patient_uuid:drug_order_patient_src_ds.uuid, template_param_main_dst_aliases_prefix:droga,template_param_aliases_prefix:inner_prescricao_grouping_02, template_param_concept_id:165252, template_param_obs_datetime:drug_order_orders_src_ds.date_created, template_param_location_id:droga_obs_dst_ds.location_id, template_param_encounter_type_id:18, template_param_uuid:drug_order_orders_src_ds.uuid)"
+        },
+        "override": [
+          {
+            "path": "onConflict",
+            "type": "OVERRIDE",
+            "value": "PATCH_EXISTING"
+          },
+          {
+            "path": "patchFields",
+            "type": "OVERRIDE",
+            "value": [
+              "value_drug"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "drug_order",
+          "src_patient_uuid": "drug_order_patient_src_ds.uuid",
+          "dst_aliases_prefix": "quantidade_precrita",
+          "concept_id": "1715",
+          "value_field": "value_numeric",
+          "value": "drug_order_src_ds.quantity",
+          "obs_datetime": "drug_order_orders_src_ds.date_created",
+          "date_created": "drug_order_orders_src_ds.date_created",
+          "voided": "drug_order_orders_src_ds.voided",
+          "date_voided": "drug_order_orders_src_ds.date_voided",
+          "void_reason": "drug_order_orders_src_ds.void_reason",
+          "uuid": "COALESCE_TRANSFORMER(FAST_SQL_TRANSFORMER(query:select uuid from ${dst_db}.obs exists_obs WHERE exists_obs.concept_id = quantidade_precrita_obs_dst_ds.concept_id and  quantidade_precrita_obs_dst_ds.encounter_id = exists_obs.encounter_id,name:fast_sql_on_quantidade_precrita,onMultipleSrcObjectsFound:USE_LAST,onNullTransformedValue:SET_TO_NULL), FAST_SQL_TRANSFORMER(select uuid()) )",
+          "encounter_type_id": "18",
+          "location_id": "@dst_location_id",
+          "filter_condition": "drug_order_orders_src_ds.order_type_id = 11",
+          "obs_group_id_transformer": "PARENT_ON_DEMAND_TRANSFORMER(obs,on_demand_check_condition:uuid=drug_order_orders_src_ds.uuid, template:on_demand_sync_simple_obs, template_param_main_src_aliases_prefix:drug_order, template_param_src_patient_uuid:drug_order_patient_src_ds.uuid, template_param_main_dst_aliases_prefix:quantidade_precrita,template_param_aliases_prefix:inner_prescricao_grouping_03, template_param_concept_id:165252, template_param_obs_datetime:drug_order_orders_src_ds.date_created, template_param_location_id:quantidade_precrita_obs_dst_ds.location_id, template_param_encounter_type_id:18, template_param_uuid:drug_order_orders_src_ds.uuid)"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "drug_order",
+          "src_patient_uuid": "drug_order_patient_src_ds.uuid",
+          "dst_aliases_prefix": "posologia",
+          "concept_id": "1711",
+          "value_field": "value_text",
+          "value": "posologia_src_ds.posologia",
+          "obs_datetime": "drug_order_orders_src_ds.date_created",
+          "date_created": "drug_order_orders_src_ds.date_created",
+          "voided": "drug_order_orders_src_ds.voided",
+          "date_voided": "drug_order_orders_src_ds.date_voided",
+          "void_reason": "drug_order_orders_src_ds.void_reason",
+          "uuid": "COALESCE_TRANSFORMER(FAST_SQL_TRANSFORMER(query:select uuid from ${dst_db}.obs exists_obs WHERE exists_obs.concept_id = posologia_obs_dst_ds.concept_id and posologia_obs_dst_ds.encounter_id = exists_obs.encounter_id,name:fast_sql_on_posologia_uuid,onMultipleSrcObjectsFound:USE_LAST,onNullTransformedValue:SET_TO_NULL), FAST_SQL_TRANSFORMER(select uuid()) )",
+          "encounter_type_id": "18",
+          "location_id": "@dst_location_id",
+          "filter_condition": "drug_order_orders_src_ds.order_type_id = 11",
+          "obs_group_id_transformer": "PARENT_ON_DEMAND_TRANSFORMER(obs,on_demand_check_condition:uuid=drug_order_orders_src_ds.uuid, template:on_demand_sync_simple_obs, template_param_main_src_aliases_prefix:drug_order, template_param_src_patient_uuid:drug_order_patient_src_ds.uuid, template_param_main_dst_aliases_prefix:posologia,template_param_aliases_prefix:inner_prescricao_grouping_04, template_param_concept_id:165252, template_param_obs_datetime:drug_order_orders_src_ds.date_created, template_param_location_id:posologia_obs_dst_ds.location_id, template_param_encounter_type_id:18, template_param_uuid:drug_order_orders_src_ds.uuid)"
+        }
+      }
+    }
+  ]
+}

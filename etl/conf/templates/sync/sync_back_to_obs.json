@@ -1,0 +1,131 @@
+{
+  "name": "sync_back_to_obs",
+  "parameters": [
+    "filter_condition",
+    "src_aliases_prefix",
+    "dst_aliases_prefix",
+    "encounter_type_id",
+    "obs_group_id_transformer"
+  ],
+  "template": {
+    "tableName": "obs",
+    "tableAlias": "${dst_aliases_prefix}_obs_dst_ds",
+    "onConflict": "UPDATE_EXISTING",
+    "applyCondition": "${filter_condition}",
+    "ignoreNoDstIssue": true,
+    "useAsDataSource": true,
+    "mappingResolutionStrategy": "MANUAL_THEN_AUTO",
+    "unmappedFieldBehavior": "ABORT_PROCESS",
+    "allowDuplicateDestinationMappings": true,
+    "ignorableFields": [
+      "accession_number",
+      "value_group_id",
+      "value_coded_name_id",
+      "value_drug",
+      "value_modifier",
+      "value_complex",
+      "previous_version",
+      "form_namespace_and_path",
+      "interpretation",
+      "order_id"
+    ],
+    "preferredDataSource": [
+      "${src_aliases_prefix}_src_ds"
+    ],
+    "mapping": [
+      {
+        "dstField": "concept_id",
+        "transformer": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:${src_aliases_prefix}_src_ds.concept_id,extra_condition:mapping_group=\"concept\")"
+      },
+      {
+        "dstField": "value_coded",
+        "transformer": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:${src_aliases_prefix}_src_ds.value_coded,extra_condition:mapping_group=\"concept\")"
+      },
+      {
+        "srcField": "${src_aliases_prefix}_location_dst_ds.location_id",
+        "dstField": "location_id"
+      },
+      {
+        "srcField": "${src_aliases_prefix}_src_ds.obs_datetime",
+        "dstField": "obs_datetime"
+      },
+      {
+        "srcField": "${src_aliases_prefix}_src_ds.status",
+        "dstField": "status",
+        "applyCondition":"${src_aliases_prefix}_src_ds.status in (\"FINAL\", \"AMENDED\")"
+      },   
+      {
+        "srcValue": "FINAL",
+        "dstField": "status",
+        "applyCondition":"${src_aliases_prefix}_src_ds.status not in (\"FINAL\", \"AMENDED\")"
+      },      
+      {
+        "comments": "used_for_override_patient_mapping",
+        "template": {
+          "name": "dst_patient_mapped_to_patient_placeholder",
+          "parameters": {
+            "dst_patient_field": "person_id",
+            "src_patient_uuid": "${src_aliases_prefix}_patient_src_ds.uuid"
+          }
+        }
+      },
+      {
+        "template": {
+          "name": "dst_encounter_mapped_to_encounter_placeholder",
+          "parameters": {
+            "dst_encounter_field": "encounter_id",
+            "dst_patient_id": "${dst_aliases_prefix}_obs_dst_ds.person_id",
+            "dst_encounter_type_id": "${encounter_type_id}",
+            "encounter_datetime": "DATE_TRANSFORMER(input:${dst_aliases_prefix}_obs_dst_ds.obs_datetime,operation:START_OF_DAY)",
+            "uuid": "UUID_ON_DEMAND_TRANSFORMER(table_name:encounter,lookup_condition:encounter_type=${encounter_type_id} and patient_id = ${dst_aliases_prefix}_obs_dst_ds.person_id and encounter_datetime = DATE_TRANSFORMER(input:${dst_aliases_prefix}_obs_dst_ds.obs_datetime,operation:START_OF_DAY))"          
+          }
+        },
+        "applyCondition": "${encounter_type_id} != 53"
+      },
+      {
+        "template": {
+          "name": "dst_encounter_mapped_to_encounter_placeholder",
+          "parameters": {
+            "dst_encounter_field": "encounter_id",
+            "dst_patient_id": "${dst_aliases_prefix}_obs_dst_ds.person_id",
+            "dst_encounter_type_id": "${encounter_type_id}",
+            "encounter_datetime": "DATE_TRANSFORMER(input:${dst_aliases_prefix}_obs_dst_ds.obs_datetime,operation:START_OF_DAY)",
+            "uuid": "UUID_ON_DEMAND_TRANSFORMER(table_name:encounter,lookup_condition:encounter_type=${encounter_type_id} and patient_id = ${dst_aliases_prefix}_obs_dst_ds.person_id)"
+          }
+        },
+        "applyCondition": "${encounter_type_id} = 53"
+      },
+      {
+        "transformer": "${obs_group_id_transformer}",
+        "dstField": "obs_group_id",
+        "nullValueBehavior": "IGNORE"
+      },
+      {
+        "template": {
+          "name": "dst_user_mapped_to_user_placeholder",
+          "parameters": {
+            "dst_user_field": "creator",
+            "src_user_uuid": "${src_aliases_prefix}_creator_src_ds.uuid",
+            "src_username": "${src_aliases_prefix}_creator_src_ds.username",
+            "apply_condition": ""
+          }
+        }
+      },
+      {
+        "template": {
+          "name": "dst_user_mapped_to_user_placeholder",
+          "parameters": {
+            "dst_user_field": "voided_by",
+            "src_user_uuid": "${src_aliases_prefix}_voided_by_src_ds.uuid",
+            "src_username": "${src_aliases_prefix}_voided_by_src_ds.username",
+            "apply_condition": "${voided} = 1"
+          }
+        }
+      },
+      {
+        "srcField": "${src_aliases_prefix}_src_ds.uuid",
+        "dstField": "uuid"
+      }
+    ]
+  }
+}

@@ -1,0 +1,277 @@
+{
+  "formatVersion": 2,
+  "key": {
+    "logicalDatabaseId": "openmrs_2_6_sisrme",
+    "databaseDialect": "",
+    "catalog": "",
+    "schema": "",
+    "tableName": "drug_order"
+  },
+  "columns": [
+    {
+      "name": "drug_inventory_id",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "dosing_type",
+      "dataType": "VARCHAR",
+      "length": 255,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "as_needed_condition",
+      "dataType": "VARCHAR",
+      "length": 255,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "num_refills",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "dosing_instructions",
+      "dataType": "TEXT",
+      "length": 21845,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "duration",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "duration_units",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "quantity_units",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "route",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "dose_units",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "brand_name",
+      "dataType": "VARCHAR",
+      "length": 255,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "dispense_as_written",
+      "dataType": "BIT",
+      "length": 1,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "equivalent_daily_dose",
+      "dataType": "DOUBLE",
+      "length": 22,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "orders_id",
+      "dataType": "BIGINT",
+      "length": 19,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "units",
+      "dataType": "VARCHAR",
+      "length": 255,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "drug_non_coded",
+      "dataType": "VARCHAR",
+      "length": 255,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "order_id",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "dose",
+      "dataType": "DOUBLE",
+      "length": 22,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "as_needed",
+      "dataType": "SMALLINT",
+      "length": 5,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "quantity",
+      "dataType": "DOUBLE",
+      "length": 22,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "frequency",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "complex",
+      "dataType": "BIT",
+      "length": 1,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "drug_id",
+      "dataType": "BIGINT",
+      "length": 19,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "prn",
+      "dataType": "BIT",
+      "length": 1,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    }
+  ],
+  "primaryKey": {
+    "name": "pk",
+    "columns": [
+      {
+        "name": "order_id",
+        "dataType": "INT"
+      }
+    ],
+    "manuallyConfigured": true
+  },
+  "uniqueKeys": [
+    {
+      "name": "orders_uuid_index",
+      "columns": [
+        {
+          "name": "uuid",
+          "dataType": "CHAR"
+        }
+      ],
+      "manuallyConfigured": false
+    }
+  ],
+  "importedForeignKeys": [
+    {
+      "name": "drug_order_frequency_fk",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "order_frequency",
+      "mappings": [
+        {
+          "childColumn": "frequency",
+          "parentColumn": "order_frequency_id"
+        }
+      ]
+    },
+    {
+      "name": "extends_order",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "orders",
+      "mappings": [
+        {
+          "childColumn": "order_id",
+          "parentColumn": "order_id"
+        }
+      ]
+    }
+  ],
+  "exportedForeignKeys": []
+}

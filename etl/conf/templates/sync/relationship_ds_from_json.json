@@ -1,0 +1,22 @@
+{
+  "name": "relationship_ds_from_json",
+  "template": {
+    "fields": [
+      "relationship_id",
+      "person_a",
+      "relationship",
+      "person_b",
+      "creator",
+      "date_created",
+      "voided",
+      "voided_by",
+      "date_voided",
+      "void_reason",
+      "uuid",
+      "date_changed",
+      "changed_by",
+      "start_date",
+      "end_date"
+    ]
+  }
+}

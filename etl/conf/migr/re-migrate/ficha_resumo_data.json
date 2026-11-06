@@ -1,0 +1,588 @@
+{
+  "originAppLocationCode": "${location_name}",
+  "etlRootDirectory": "${etl_root_dir}",
+  "syncStageSchema": "data_migration_stage_area",
+  "childConfigFilePath": "${etl_root_dir}/conf/migr/prep_consulta_inicial_migration.json",
+  "templatesDir": "templates/migr/*.json",
+  "mainConnInfo": {
+    "dataBaseUserName": "${srcUserName}",
+    "dataBaseUserPassword": "${srcUserPassword}",
+    "connectionURI": "${srcConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "srcConnInfo": {
+    "dataBaseUserName": "${srcUserName}",
+    "dataBaseUserPassword": "${srcUserPassword}",
+    "connectionURI": "${srcConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "maxActiveConnections": "${maxActiveConnections}",
+    "maxIdleConnections": "${maxIdleConnections}",
+    "minIdleConnections": "${minIdleConnections}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "dstConnInfo": {
+    "dataBaseUserName": "${dstUserName}",
+    "dataBaseUserPassword": "${dstUserPassword}",
+    "connectionURI": "${dstConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "databaseSchemaPath": "sis-rme-empty-db.sql",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "maxActiveConnections": "${maxActiveConnections}",
+    "maxIdleConnections": "${maxIdleConnections}",
+    "minIdleConnections": "${minIdleConnections}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "validators": [
+    {
+      "name": "dst_location_is_hiv_department",
+      "connectionToUse": "dstConnInfo",
+      "value": {
+        "name": "hiv_destination_location_id",
+        "dataType": "int",
+        "transformer": "FAST_SQL_TRANSFORMER(select service_concept_id from ${dst_db}.clinical_service where location_id = ${hiv_destination_location_id} and service_concept_id = 6274)"
+      },
+      "rule": {
+        "type": "EQUALS",
+        "expectedValue": 6274
+      },
+      "message": "The provided destination location ${hiv_destination_location_id} does not represent a valid hiv  department",
+      "phase": "BEFORE_LOAD",
+      "behavior": "ABORT_PROCESS"
+    },
+    {
+      "name": "dst_tarv_service",
+      "connectionToUse": "dstConnInfo",
+      "value": {
+        "name": "dst_tarv_service_id",
+        "dataType": "int",
+        "transformer": "FAST_SQL_TRANSFORMER(select service_concept_id from ${dst_db}.clinical_service where clinical_service_id = ${dst_tarv_service_id} and location_id = ${hiv_destination_location_id})"
+      },
+      "rule": {
+        "type": "EQUALS",
+        "expectedValue": 6274
+      },
+      "message": "The provided dst_tarv_service_id ${dst_tarv_service_id} does not represent a valid tarv service with department ${hiv_destination_location_id}",
+      "phase": "BEFORE_LOAD",
+      "behavior": "ABORT_PROCESS"
+    }
+  ],
+  "dataModel": {
+    "template": {
+      "name": "data_model_for_${dataModelType}_objects"
+    }
+  },
+  "ignoreAllStartupScripts": "${ignoreAllStartupScripts}",
+  "ignorableStartupScripts": [
+    "delete_duplicated_encounters.sql",
+    "delete_invalid_patient_identifiers.sql",
+    "move_sync_msg_delete_operation.sql",
+    "sync_data_structure.sql"
+  ],
+  "operations": [
+    {
+      "template": {
+        "name": "etl_operations_for_${dataModelType}_datamodel"
+      }
+    }
+  ],
+  "params": {
+    "dst_db": "${dst_db}",
+    "location_to_migrate": "${src_location_list}",
+    "dst_location_id": "${hiv_destination_location_id}",
+    "src_encounter_type_id": 53,
+    "obs_profissao": "1459",
+    "obs_escolaridade": "1443",
+    "obs_confidente_nome": "1740",
+    "obs_confidente_parantesco": "23704",
+    "obs_confidente_telefone": "6224",
+    "obs_confidente_endereco": "2067",
+    "obs_contact_situation_concept_id": "23782",
+    "obs_contact_situation_nome": "23778",
+    "obs_contact_situation_parentesco": "23704",
+    "obs_contact_situation_idade": "23777",
+    "obs_contact_situation_nid": "23781",
+    "obs_contact_situation_hiv_test": "23779",
+    "generic_obs_concepts": "1459,1443,23782",
+    "obs_confidente_all": "1740,23704,6224,23778",
+    "obs_contact_situation_all": "23778,23704,23777,23781,23779",
+    "obs_allergy_groupping_concepts_id": "1669,23897",
+    "obs_allergy_on_drugs": "1605",
+    "obs_allergy_on_drugs_other": "1517",
+    "obs_allergy_on_drugs_all": "1605,1517",
+    "conditions_concept_id": "1406",
+    "conditions_other_concept_id": "1649",
+    "cd4_absoluto_concept_id": "1695",
+    "cd4_quantitativo_concept_id": "730",
+    "cd4_semi_quantitativo_concept_id": "165515",
+    "cd4_absoluto_no_inicio_concept_id": "23896",
+    "cd4_quantitativo_no_inicio_concept_id": "165359",
+    "cd4_semi_quantitativo_no_inicio_concept_id": "165519",
+    "clinical_non_groupped_concept_id": "23884,23891,23985,165308,5706,6413,23895,1504,1190,23893,23811,1982,5356,23898,165235,23808",
+    "clinical_transformed_concept_id": "6332,23783",
+    "clinical_groupped_concept_id": "21190,1792,21187,1792,21188,1792,6272,6193",
+    "clinical_groupping_concept_id": "23898,165235,165236,23899",
+    "clinical_regime_1a_linha_concept_id": "23898",
+    "clinical_regime_2a_linha_concept_id": "165235",
+    "clinical_regime_3a_linha_concept_id": "165236",
+    "data_abertura_ficha_concept_id": "23891",
+    "hiv_pcr_test_concept_id": "1030",
+    "hiv_rapid_test_concept_id": "1040",
+    "tipo_test_hiv_concept_id": "22772",
+    "data_inicio_pre_tarv_concept_id": "23808",
+    "keypop_concept_id": "23703",
+    "medidas_antropometricas_concept_list": "5089,5090,1343,1342,23738,6336,2152,6374",
+    "tb_condition_concept_id": "23761",
+    "tb_concept_list": "23758,1766",
+    "its_screening_concept_list": "6258",
+    "conditions_concept_list": "174,1406,1649",
+    "lab_test_request_concept_list": "23722,23860",
+    "lab_test_result_concept_list": "856,1305,1695,730,165515,1692,1694,1693,887,1011,1299,23723,23774,165349,23951,165185,23952,165520,307,165185,12,2094,703,1649",
+    "gaac_criancas_reveladas_concept_id": "23753",
+    "gaac_pais_e_cuidadores_concept_id": "23755",
+    "gaac_adolescentes_revelados_concept_id": "23757",
+    "gaac_mae_para_mae_concept_id": "23759",
+    "gaac_mae_mentora_concept_id": "24031",
+    "gaac_adolescente_e_jovem_mentor_concept_id": "165324",
+    "gaac_homem_campeao_concept_id": "165325",
+    "gaac_outro_grupo_de_apoio_concept_id": "23772",
+    "estadio_oms_actual_concept_id": "5356",
+    "estado_mdc_concept_id": "165323",
+    "modo_dispensa_estado_mdc_concept_id": "165174",
+    "estado_do_mdc_estado_mdc_concept_id": "165322",
+    "rapid_test_concept_id": "1040",
+    "lactante_concept_id": "6332",
+    "gravida_concept_id": "1982",
+    "data_da_ultima_mestruacao_concept_id": "1465",
+    "data_da_gravidez_concept_id": "1600",
+    "data_data_proxima_consulta_concept_id": "1410",
+    "tarv_service_id": "${dst_tarv_service_id}",
+    "admission_reason_other_concept_id": "202208",
+    "default_provider_id": "1",
+    "default_medical_speciality_concept_id": "233552"
+  },
+  "defaultSourceTable": "person",
+  "defaultExceptionBehavior": "${defaultExceptionBehavior}",
+  "defaultInconsistencyBehavior": "${defaultInconsistencyBehavior}",
+  "comments": {
+    "defaultInconsistencyBehavior": "MARK_RECORD_AS_FAILED",
+    "defaultInconsistencyBehavior_": "ABORT_PROCESS"
+  },
+  "relatedEtlSrcTables": [
+    "person",
+    "patient",
+    "users",
+    "provider",
+    "location"
+  ],
+  "etlItemConfiguration": [
+    {
+      "template": {
+        "name": "encounter_joined_with_obs_to_encounter_and_obs",
+        "parameters": {
+          "visit_type_id": "48",
+          "program_id": "${tarv_program_id}",
+          "concept_list": "@clinical_groupping_concept_id,@clinical_non_groupped_concept_id",
+          "encounter_filter_obs_concept_list": "@clinical_groupping_concept_id,@clinical_non_groupped_concept_id",
+          "location_list": "@location_to_migrate",
+          "dst_location_id": "@dst_location_id",
+          "aliases_prefix": "consulta_inicial",
+          "src_encounter_type_id": "@src_encounter_type_id",
+          "dst_encounter_type_id": "147",
+          "grouped_concept_list": "@clinical_groupped_concept_id",
+          "order_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "extra_condition": "${included_patient_extra_condition} and not exists (select * from ${dst_db}.encounter dstEnc inner join ${dst_db}.person dstPerson on dstEnc.encounter_type = 147 and dstEnc.patient_id = dstPerson.person_id inner join person srcPerson on srcPerson.uuid = dstPerson.uuid where srcPerson.person_id = consulta_inicial_encounter_src_ds.patient_id)"
+        },
+        "override": [
+          {
+            "path": "dstConf.mapping",
+            "type": "DELETE_ON_LIST",
+            "match": {
+              "dstField": "uuid"
+            }
+          }
+        ]
+      },
+      "childItemConf": [
+        {
+          "srcConf": {
+            "tableName": "obs",
+            "tableAlias": "consulta_inicial_obs_gravida_e_sector_src_ds",
+            "joinExtraCondition": "concept_id in (@clinical_transformed_concept_id) and ${included_person_extra_condition}"
+          },
+          "dstConf": [
+            {
+              "tableName": "obs",
+              "tableAlias": "consulta_inicial_obs_gravida_e_sector_dst_ds",
+              "preferredDataSource": [
+                "consulta_inicial_obs_gravida_e_sector_src_ds"
+              ],
+              "ignorableFields": [
+                "obs_group_id",
+                "previous_version",
+                "order_group_id"
+              ],
+              "mapping": [
+                {
+                  "dstField": "concept_id",
+                  "relationshipResolutionStrategy": "SKIP",
+                  "transformer": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sesp_value,sisrme_value,on_missing:USE_INPUT,input:concept_id,extra_condition:mapping_group=\"concept\")"
+                },
+                {
+                  "srcField": "value_coded",
+                  "dstField": "value_coded",
+                  "relationshipResolutionStrategy": "SKIP"
+                },
+                {
+                  "srcField": "consulta_inicial_encounter_dst_ds.location_id",
+                  "dstField": "location_id"
+                },
+                {
+                  "srcField": "consulta_inicial_encounter_dst_ds.encounter_id",
+                  "dstField": "encounter_id"
+                },
+                {
+                  "srcField": "consulta_inicial_encounter_dst_ds.patient_id",
+                  "dstField": "person_id"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "srcConf": {
+            "tableName": "obs",
+            "tableAlias": "consulta_inicial_data_inicio_pre_tarv_src_ds",
+            "joinExtraCondition": "voided = 0 and concept_id in (@data_inicio_pre_tarv_concept_id) and ${included_person_extra_condition}"
+          },
+          "dstConf": [
+            {
+              "tableName": "obs",
+              "tableAlias": "consulta_inicial_data_inicio_pre_tarv_dst_ds",
+              "preferredDataSource": [
+                "consulta_inicial_data_inicio_pre_tarv_src_ds"
+              ],
+              "ignorableFields": [
+                "obs_group_id",
+                "previous_version",
+                "order_group_id"
+              ],
+              "mapping": [
+                {
+                  "srcValue": "233948",
+                  "dstField": "concept_id",
+                  "relationshipResolutionStrategy": "SKIP"
+                },
+                {
+                  "srcField": "comments",
+                  "dstField": "value_text"
+                },
+                {
+                  "srcField": "consulta_inicial_encounter_dst_ds.location_id",
+                  "dstField": "location_id"
+                },
+                {
+                  "srcField": "consulta_inicial_encounter_dst_ds.encounter_id",
+                  "dstField": "encounter_id"
+                },
+                {
+                  "srcField": "consulta_inicial_encounter_dst_ds.patient_id",
+                  "dstField": "person_id"
+                },
+                {
+                  "dstField": "uuid",
+                  "transformer": "FAST_SQL_TRANSFORMER(select uuid())"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "template": {
+            "name": "obs_to_efeitos_colaterais",
+            "parameters": {
+              "parent_aliases_prefix": "consulta_inicial"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "srcConf": {
+        "tableName": "obs",
+        "tableAlias": "hiv_test_",
+        "extraConditionForExtract": "${included_person_extra_condition} and hiv_test_.voided = 0 and (hiv_test_.concept_id = @hiv_rapid_test_concept_id or hiv_test_.concept_id = @tipo_test_hiv_concept_id) and 1 = (select 1 from encounter hiv_test_encounter where hiv_test_encounter.encounter_type = @src_encounter_type_id and hiv_test_encounter.voided = 0 and hiv_test_encounter.location_id in (@location_to_migrate) and  hiv_test_.encounter_id = hiv_test_encounter.encounter_id  limit 1)"
+      },
+      "dstConf": [
+        {
+          "tableName": "obs",
+          "disabled": true,
+          "ignorableFields": [
+            "order_group_id"
+          ]
+        }
+      ],
+      "childItemConf": [
+        {
+          "applyCondition": "value_coded = @hiv_rapid_test_concept_id or concept_id = @hiv_rapid_test_concept_id",
+          "template": {
+            "name": "encounter_joined_with_obs_to_lab_result",
+            "parameters": {
+              "visit_type_id": "48",
+              "program_id": "${tarv_program_id}",
+              "aliases_prefix": "hiv_rapid_test",
+              "concept_list": "@hiv_rapid_test_concept_id",
+              "location_list": "@location_to_migrate",
+              "dst_location_id": "@dst_location_id",
+              "src_encounter_type_id": "@src_encounter_type_id",
+              "dst_encounter_type_id": "117",
+              "dst_order_encounter_type_id": "169",
+              "order_type_id": 22,
+              "extra_condition": "${included_patient_extra_condition}"
+            }
+          }
+        },
+        {
+          "applyCondition": "value_coded = @hiv_pcr_test_concept_id",
+          "template": {
+            "name": "encounter_joined_with_obs_to_lab_result",
+            "parameters": {
+              "visit_type_id": "48",
+              "program_id": "${tarv_program_id}",
+              "aliases_prefix": "hiv_pcr_test",
+              "concept_list": "@hiv_pcr_test_concept_id",
+              "location_list": "@location_to_migrate",
+              "dst_location_id": "@dst_location_id",
+              "src_encounter_type_id": "@src_encounter_type_id",
+              "dst_encounter_type_id": "117",
+              "dst_order_encounter_type_id": "116",
+              "order_type_id": 2,
+              "extra_condition": "${included_patient_extra_condition}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "template": {
+        "name": "obs_to_person_attribute",
+        "parameters": {
+          "aliases_prefix": "profissao",
+          "concept_list": "@obs_profissao",
+          "location_list": "@location_to_migrate",
+          "person_attribute_type_id": "55",
+          "src_encounter_type_id": "@src_encounter_type_id",
+          "value": "profissao_obs_src_ds.value_text",
+          "value_field_is_date": false,
+          "extra_condition": "${included_person_extra_condition}"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "obs_to_person_attribute",
+        "parameters": {
+          "aliases_prefix": "escolaridade",
+          "concept_list": "@obs_escolaridade",
+          "location_list": "@location_to_migrate",
+          "person_attribute_type_id": "60",
+          "src_encounter_type_id": "@src_encounter_type_id",
+          "value": "escolaridade_obs_src_ds.value_coded",
+          "value_field_is_date": false,
+          "extra_condition": "${included_person_extra_condition}"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "obs_to_person_complex_attribute",
+        "parameters": {
+          "aliases_prefix": "contact_situation",
+          "concept_list": "@obs_contact_situation_concept_id",
+          "location_list": "@location_to_migrate",
+          "src_encounter_type_id": "@src_encounter_type_id",
+          "person_attribute_type_id": "110",
+          "extra_condition": "${included_person_extra_condition} and encounter_id = 41065"
+        }
+      },
+      "childItemConf": [
+        {
+          "template": {
+            "name": "child_obs_to_person_attribute",
+            "parameters": {
+              "aliases_prefix": "confidente",
+              "parent_aliases_prefix": "contact_situation",
+              "person_attribute_type_id": "110"
+            }
+          }
+        },
+        {
+          "srcConf": {
+            "template": {
+              "name": "src_obs_joined_with_grouping_obs",
+              "parameters": {
+                "aliases_prefix": "contact_situation_child",
+                "concept_list": "@obs_contact_situation_all"
+              }
+            }
+          },
+          "dstConf": [
+            {
+              "template": {
+                "name": "dst_person_complex_attribute_detail_from_obs",
+                "parameters": {
+                  "src_aliases_prefix": "contact_situation_child",
+                  "dst_aliases_prefix": "confidente_name",
+                  "src_object_condition": "concept_id = @obs_contact_situation_nome",
+                  "attribute_key": "contact_situation.name.text",
+                  "attribute_value": "contact_situation_child_obs_src_ds.value_text"
+                }
+              }
+            },
+            {
+              "template": {
+                "name": "dst_person_complex_attribute_detail_from_obs",
+                "parameters": {
+                  "src_aliases_prefix": "contact_situation_child",
+                  "dst_aliases_prefix": "confidente_parentesco",
+                  "src_object_condition": "concept_id = @obs_contact_situation_parentesco",
+                  "attribute_key": "contact_situation.relationship_type.concept.concept_id",
+                  "attribute_value": "contact_situation_child_obs_src_ds.value_coded"
+                }
+              }
+            },
+            {
+              "template": {
+                "name": "dst_person_complex_attribute_detail_from_obs",
+                "parameters": {
+                  "src_aliases_prefix": "contact_situation_child",
+                  "dst_aliases_prefix": "confidente_idade",
+                  "src_object_condition": "concept_id = @obs_contact_situation_idade",
+                  "attribute_key": "contact_situation.age.numeric",
+                  "attribute_value": "contact_situation_child_obs_src_ds.value_numeric"
+                }
+              }
+            },
+            {
+              "template": {
+                "name": "dst_person_complex_attribute_detail_from_obs",
+                "parameters": {
+                  "src_aliases_prefix": "contact_situation_child",
+                  "dst_aliases_prefix": "confidente_nid",
+                  "src_object_condition": "concept_id = @obs_contact_situation_nid",
+                  "attribute_key": "contact_situation.nid.text",
+                  "attribute_value": "contact_situation_child_obs_src_ds.value_text"
+                }
+              }
+            },
+            {
+              "template": {
+                "name": "dst_person_complex_attribute_detail_from_obs",
+                "parameters": {
+                  "src_aliases_prefix": "contact_situation_child",
+                  "dst_aliases_prefix": "confidente_hiv_status",
+                  "src_object_condition": "concept_id = @obs_contact_situation_hiv_test",
+                  "attribute_key": "contact_situation.hiv_status.concept.concept_id",
+                  "attribute_value": "contact_situation_child_obs_src_ds.value_coded"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "template": {
+        "name": "encounter_joined_with_obs_to_person_complex_attribute_and_person_attribute",
+        "parameters": {
+          "aliases_prefix": "contacto_referencia",
+          "concept_list": "@obs_confidente_nome,@obs_confidente_parantesco,@obs_confidente_telefone,@obs_confidente_endereco",
+          "location_list": "@location_to_migrate",
+          "src_encounter_type_id": "@src_encounter_type_id",
+          "person_attribute_type_id": "109",
+          "extra_condition": "${included_patient_extra_condition}"
+        }
+      },
+      "childItemConf": [
+        {
+          "srcConf": {
+            "tableName": "obs",
+            "tableAlias": "contacto_referencia_inner_obs_src_ds",
+            "joinExtraCondition": "concept_id in (@obs_confidente_nome,@obs_confidente_parantesco,@obs_confidente_telefone,@obs_confidente_endereco) and voided = 0 and obs_group_id is null",
+            "comments": "Os dados do confidente nao estao agrupados e como o conceito para obs_confidente_parantesco ocorre tambem na situacao familiar,entao aqui consideramos obs_group_id is null",
+            "joinFields": [
+              {
+                "srcField": "encounter_id",
+                "dstField": "encounter_id"
+              }
+            ]
+          },
+          "dstConf": [
+            {
+              "template": {
+                "name": "dst_person_complex_attribute_detail_from_obs",
+                "parameters": {
+                  "src_aliases_prefix": "contacto_referencia_inner",
+                  "dst_aliases_prefix": "contacto_referencia_nome",
+                  "src_object_condition": "concept_id = @obs_confidente_nome",
+                  "attribute_key": "sisrme.reference_contact_information.full_name.text",
+                  "attribute_value": "contacto_referencia_inner_obs_src_ds.value_text"
+                }
+              }
+            },
+            {
+              "template": {
+                "name": "dst_person_complex_attribute_detail_from_obs",
+                "parameters": {
+                  "src_aliases_prefix": "contacto_referencia_inner",
+                  "dst_aliases_prefix": "contacto_referencia_parantesco",
+                  "src_object_condition": "concept_id = @obs_confidente_parantesco",
+                  "attribute_key": "sisrme.reference_contact_information.relationship_type.concept.concept_id",
+                  "attribute_value": "contacto_referencia_inner_obs_src_ds.value_coded"
+                }
+              }
+            },
+            {
+              "template": {
+                "name": "dst_person_complex_attribute_detail_from_obs",
+                "parameters": {
+                  "src_aliases_prefix": "contacto_referencia_inner",
+                  "dst_aliases_prefix": "contacto_referencia_type",
+                  "src_object_condition": "concept_id = @obs_confidente_nome",
+                  "attribute_key": "sisrme.reference_contact_information.type_of_contact_person.concept.concept_id",
+                  "attribute_value": "FAST_SQL_TRANSFORMER(SELECT 2033)"
+                }
+              }
+            },
+            {
+              "template": {
+                "name": "dst_person_complex_attribute_detail_from_obs",
+                "parameters": {
+                  "src_aliases_prefix": "contacto_referencia_inner",
+                  "dst_aliases_prefix": "contacto_referencia_endereco",
+                  "src_object_condition": "concept_id = @obs_confidente_endereco",
+                  "attribute_key": "sisrme.reference_contact_information.address.text",
+                  "attribute_value": "contacto_referencia_inner_obs_src_ds.value_text"
+                }
+              }
+            },
+            {
+              "template": {
+                "name": "dst_person_complex_attribute_detail_from_obs",
+                "parameters": {
+                  "src_aliases_prefix": "contacto_referencia_inner",
+                  "dst_aliases_prefix": "contacto_referencia_telefone",
+                  "src_object_condition": "concept_id = @obs_confidente_telefone",
+                  "attribute_key": "sisrme.reference_contact_information.phone_number.numeric",
+                  "attribute_value": "contacto_referencia_inner_obs_src_ds.value_text"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

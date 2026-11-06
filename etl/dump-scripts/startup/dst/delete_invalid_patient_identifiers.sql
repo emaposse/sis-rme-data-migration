@@ -1,0 +1,1 @@
+delete from patient_identifier where identifier_type>=20;

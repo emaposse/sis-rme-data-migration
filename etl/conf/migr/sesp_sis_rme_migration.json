@@ -1,0 +1,76 @@
+{
+  "originAppLocationCode": "${location_name}",
+  "etlRootDirectory": "${etl_root_dir}",
+  "syncStageSchema": "data_migration_stage_area",
+  "childConfigFilePath": "${etl_root_dir}/conf/migr/patient_demografic_migration.json",
+  "templatesDir": "templates/migr/*.json",
+  "mainConnInfo": {
+    "dataBaseUserName": "${srcUserName}",
+    "dataBaseUserPassword": "${srcUserPassword}",
+    "connectionURI": "${srcConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "srcConnInfo": {
+    "dataBaseUserName": "${srcUserName}",
+    "dataBaseUserPassword": "${srcUserPassword}",
+    "connectionURI": "${srcConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "maxActiveConnections": "${maxActiveConnections}",
+    "maxIdleConnections": "${maxIdleConnections}",
+    "minIdleConnections": "${minIdleConnections}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "dstConnInfo": {
+    "dataBaseUserName": "${dstUserName}",
+    "dataBaseUserPassword": "${dstUserPassword}",
+    "connectionURI": "${dstConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "databaseSchemaPath": "sis-rme-empty-db.sql",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "maxActiveConnections": "${maxActiveConnections}",
+    "maxIdleConnections": "${maxIdleConnections}",
+    "minIdleConnections": "${minIdleConnections}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "dataModel": {
+    "template": {
+      "name": "data_model_for_${dataModelType}_objects"
+    }
+  },
+  "ignoreAllStartupScripts": "${ignoreAllStartupScripts}",
+  "ignorableStartupScripts": [
+    "delete_duplicated_encounters.sql",
+    "delete_invalid_patient_identifiers.sql",
+    "move_sync_msg_delete_operation.sql",
+    "sync_data_structure.sql"
+  ],
+  "operations": [
+    {
+      "template": {
+        "name": "etl_operations_for_${dataModelType}_datamodel"
+      }
+    }
+  ],
+  "params": {},
+  "defaultExceptionBehavior": "LOG",
+  "defaultInconsistencyBehavior": "MARK_RECORD_AS_FAILED",
+  "relatedEtlSrcTables": [
+    "person",
+    "patient",
+    "users",
+    "provider",
+    "location"
+  ],
+  "defaultSourceTable": "person",
+  "etlItemConfiguration": [
+    {
+      "disabled": true,
+      "srcConf": {
+        "tableName": "person"
+      }
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "name": "on_demand_order_group",
+  "parameters": [
+    "encounter_id",
+    "patient_id"
+  ],
+  "template": {
+    "srcConf": {
+      "tableName": "encounter",
+      "tableAlias": "on_demand_encounter_for_order_group_src_ds",
+      "joinFields": [
+        {
+          "srcField": "encounter_id",
+          "dstField": "encounter_id"
+        }
+      ]
+    },
+    "dstConf": [
+      {
+        "tableName": "order_group",
+        "tableAlias": "on_demand_order_group_src_ds",
+        "onConflict": "UPDATE_EXISTING",
+        "mapping": [
+          {
+            "srcValue": "Migrated from sesp db.",
+            "dstField": "notes"
+          },
+          {
+            "dstField": "uuid",
+            "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:order_group,lookup_condition:encounter_id=${encounter_id})"
+          },
+          {
+            "srcField": "${patient_id}",
+            "dstField": "patient_id"
+          },
+          {
+            "srcField": "${encounter_id}",
+            "dstField": "encounter_id"
+          }
+        ],
+        "ignorableFields": [
+          "order_set_id",
+          "changed_by",
+          "date_changed",
+          "order_set_id"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "encounter_diagnosis_ds_from_json",
+  "template": {
+    "fields": [
+      "diagnosis_id",
+      "diagnosis_coded",
+      "diagnosis_non_coded",
+      "diagnosis_coded_name",
+      "encounter_id",
+      "location_id",
+      "patient_id",
+      "condition_id",
+      "certainty",
+      "rank",
+      "uuid",
+      "creator",
+      "date_created",
+      "changed_by",
+      "date_changed",
+      "voided",
+      "voided_by",
+      "date_voided",
+      "void_reason"
+    ]
+  }
+}

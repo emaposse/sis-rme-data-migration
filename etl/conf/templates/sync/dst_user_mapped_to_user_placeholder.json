@@ -1,0 +1,14 @@
+{
+  "name": "dst_user_mapped_to_user_placeholder",
+  "parameters": [
+    "dst_user_field",
+    "src_user_uuid",
+    "src_username",
+    "apply_condition"
+  ],
+  "template": {
+    "applyCondition": "${apply_condition}",
+    "dstField": "${dst_user_field}",
+    "transformer": "PARENT_ON_DEMAND_LOAD_WITH_DEFAULTS_TRANSFORMER(users,on_demand_check_condition:uuid=${src_user_uuid},uuid:${src_user_uuid},username:${src_username})"
+  }
+}

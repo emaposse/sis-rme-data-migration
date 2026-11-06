@@ -1,0 +1,1 @@
+attribute_value = ${attribute_value} and attribute_key = ${attribute_key} and person_complex_attribute_id = (select pa.value from person_attribute pa where pa.person_id = ${person_id}  and pa.person_attribute_type_id = ${person_attribute_type_id} and pa.date_created = ${date_created} limit 1)

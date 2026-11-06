@@ -1,0 +1,189 @@
+{
+  "formatVersion": 2,
+  "key": {
+    "logicalDatabaseId": "openmrs_2_6_sisrme",
+    "databaseDialect": "",
+    "catalog": "",
+    "schema": "",
+    "tableName": "pharmacy_delivery_note"
+  },
+  "columns": [
+    {
+      "name": "delivery_note_id",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": true,
+      "timestamp": false
+    },
+    {
+      "name": "uuid",
+      "dataType": "CHAR",
+      "length": 36,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "document_number",
+      "dataType": "VARCHAR",
+      "length": 100,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "origin",
+      "dataType": "VARCHAR",
+      "length": 255,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "location_id",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "transaction_date",
+      "dataType": "DATETIME",
+      "length": 19,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "subscriber",
+      "dataType": "VARCHAR",
+      "length": 255,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "notes",
+      "dataType": "VARCHAR",
+      "length": 1000,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "creator",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "date_created",
+      "dataType": "DATETIME",
+      "length": 19,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "date_changed",
+      "dataType": "DATETIME",
+      "length": 19,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "voided",
+      "dataType": "BIT",
+      "length": 1,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "void_reason",
+      "dataType": "VARCHAR",
+      "length": 255,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "voided_by",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    }
+  ],
+  "primaryKey": {
+    "name": "pk",
+    "columns": [
+      {
+        "name": "delivery_note_id",
+        "dataType": "INT"
+      }
+    ],
+    "manuallyConfigured": true
+  },
+  "uniqueKeys": [
+    {
+      "name": "pharmacy_delivery_note_docnum_trxdate_unique",
+      "columns": [
+        {
+          "name": "document_number",
+          "dataType": "VARCHAR"
+        },
+        {
+          "name": "transaction_date",
+          "dataType": "DATETIME"
+        }
+      ],
+      "manuallyConfigured": false
+    },
+    {
+      "name": "pharmacy_delivery_note_uuid_unique",
+      "columns": [
+        {
+          "name": "uuid",
+          "dataType": "CHAR"
+        }
+      ],
+      "manuallyConfigured": false
+    }
+  ],
+  "importedForeignKeys": [
+    {
+      "name": "pharmacy_delivery_note_location_id_foreign",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "location",
+      "mappings": [
+        {
+          "childColumn": "location_id",
+          "parentColumn": "location_id"
+        }
+      ]
+    }
+  ],
+  "exportedForeignKeys": []
+}

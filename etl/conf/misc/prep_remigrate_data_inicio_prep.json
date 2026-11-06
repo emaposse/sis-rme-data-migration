@@ -1,0 +1,177 @@
+{
+  "originAppLocationCode": "${location_name}",
+  "etlRootDirectory": "${etl_root_dir}",
+  "syncStageSchema": "data_migration_stage_area",
+  "childConfigFilePath": "${etl_root_dir}/conf/migr/prep_consulta_seguimento_migration.json",
+  "templatesDir": "templates/migr/*.json",
+  "mainConnInfo": {
+    "dataBaseUserName": "${srcUserName}",
+    "dataBaseUserPassword": "${srcUserPassword}",
+    "connectionURI": "${srcConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "srcConnInfo": {
+    "dataBaseUserName": "${srcUserName}",
+    "dataBaseUserPassword": "${srcUserPassword}",
+    "connectionURI": "${srcConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "maxActiveConnections": "${maxActiveConnections}",
+    "maxIdleConnections": "${maxIdleConnections}",
+    "minIdleConnections": "${minIdleConnections}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "dstConnInfo": {
+    "dataBaseUserName": "${dstUserName}",
+    "dataBaseUserPassword": "${dstUserPassword}",
+    "connectionURI": "${dstConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "databaseSchemaPath": "sis-rme-empty-db.sql",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "maxActiveConnections": "${maxActiveConnections}",
+    "maxIdleConnections": "${maxIdleConnections}",
+    "minIdleConnections": "${minIdleConnections}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "validators": [
+    {
+      "name": "dst_location_is_smi_department",
+      "connectionToUse": "dstConnInfo",
+      "value": {
+        "name": "hiv_destination_location_id",
+        "dataType": "int",
+        "transformer": "FAST_SQL_TRANSFORMER(select service_concept_id from ${dst_db}.clinical_service where location_id = ${hiv_destination_location_id} and service_concept_id = 6274)"
+      },
+      "rule": {
+        "type": "EQUALS",
+        "expectedValue": 6274
+      },
+      "message": "The provided destination location ${hiv_destination_location_id} does not represent a valid hiv  department",
+      "phase": "BEFORE_LOAD",
+      "behavior": "ABORT_PROCESS"
+    },
+    {
+      "name": "dst_tarv_service",
+      "connectionToUse": "dstConnInfo",
+      "value": {
+        "name": "dst_tarv_service_id",
+        "dataType": "int",
+        "transformer": "FAST_SQL_TRANSFORMER(select service_concept_id from ${dst_db}.clinical_service where clinical_service_id = ${dst_tarv_service_id} and location_id = ${hiv_destination_location_id})"
+      },
+      "rule": {
+        "type": "EQUALS",
+        "expectedValue": 6274
+      },
+      "message": "The provided dst_tarv_service_id ${dst_tarv_service_id} does not represent a valid tarv service with department ${hiv_destination_location_id}",
+      "phase": "BEFORE_LOAD",
+      "behavior": "ABORT_PROCESS"
+    }
+  ],
+  "dataModel": {
+    "template": {
+      "name": "data_model_for_${dataModelType}_objects"
+    }
+  },
+  "ignoreAllStartupScripts": "${ignoreAllStartupScripts}",
+  "operations": [
+    {
+      "template": {
+        "name": "etl_operations_for_${dataModelType}_datamodel"
+      }
+    }
+  ],
+  "params": {
+    "dst_db": "${dst_db}",
+    "location_to_migrate": "${src_location_list}",
+    "dst_location_id": "${hiv_destination_location_id}",
+    "tarv_service_id": "${dst_tarv_service_id}",
+    "admission_reason_other_concept_id": "202208",
+    "default_provider_id": "1",
+    "default_medical_speciality_concept_id": "233552",
+    "src_encounter_type_id": "80",
+    "keypop_concept_id": "23703",
+    "keypop_other_concept_id": "5622",
+    "creatina_concept_id": "790",
+    "vdrl_concept_id": "299",
+    "hepatite_b_test_concept_id": "1322",
+    "its_screening_concept_list": "6258",
+    "its_diagnose_concept_id": "1080",
+    "rastreio_hiv": "1040",
+    "prep_initial_status_concept_id": "165296",
+    "prep_type_concept_id": "165516",
+    "prep_regimen_concept_id": "165213",
+    "prep_next_consultation_date_concept_id": "165228",
+    "prep_drug_quantity_concept_id": "165217",
+    "prep_contant_type_concept_id": "6309",
+    "prep_permanance_state_concept_id": "165292",
+    "prep_target_group_concept_id": "165196",
+    "prep_regime_concept_id": "165213",
+    "prep_prescription_order_type_id": "12",
+    "prep_prescription_encounter_type_id": "149",
+    "data_resultado_negativo_hiv_concept_id": "165194",
+    "lactante_concept_id": "6332",
+    "gestante_concept_id": "1982",
+    "data_inicio_prep_person_attribute_type_id": "117",
+    "data_inicio_prep_concept_id": "165211",
+    "estado_da_mulher_concept_id": "165223"
+  },
+  "defaultSourceTable": "person",
+  "defaultExceptionBehavior": "${defaultExceptionBehavior}",
+  "defaultInconsistencyBehavior": "${defaultInconsistencyBehavior}",
+  "stageRecordIssueBehavior": "${stageRecordIssueBehavior}",
+  "relatedEtlSrcTables": [
+    "person",
+    "patient",
+    "users",
+    "provider",
+    "location"
+  ],
+  "etlItemConfiguration": [
+    {
+      "template": {
+        "name": "encounter_joined_with_obs_to_prep_prescription",
+        "parameters": {
+          "visit_type_id": "48",
+          "program_id": "${prep_program_id}",
+          "concept_list": "@prep_regime_concept_id",
+          "location_list": "@location_to_migrate",
+          "aliases_prefix": "initial_prescription",
+          "src_encounter_type_id": "80",
+          "dst_encounter_type_id": "@prep_prescription_encounter_type_id",
+          "dst_location_id": "@dst_location_id",
+          "order_type_id": "@prep_prescription_order_type_id",
+          "prescription_header_script": "prep_prescription_header_data_ds.sql",
+          "prescription_item_script": "prep_prescription_item_data_ds.sql",
+          "encounter_uuid": "UUID_ON_DEMAND_TRANSFORMER(table_name:encounter,lookup_condition:encounter_type=@prep_prescription_encounter_type_id and patient_id = prescription_encounter_src_ds.patient_id and encounter_datetime = prescription_encounter_src_ds.encounter_datetime)",
+          "extra_condition": "${included_patient_extra_condition} and 1 = (select 1 as value from obs o where o.encounter_id = encounter_id and o.concept_id = @prep_regime_concept_id and o.value_coded in (165214,165215,165613) limit 1)",
+          "main_prescription_obs_condition": "concept_id = @prep_regime_concept_id and voided = 0",
+          "estado_prep_concept_id": "234492"
+        }
+      }
+    },    
+    {
+      "template": {
+        "name": "encounter_joined_with_obs_to_prep_prescription",
+        "parameters": {
+          "visit_type_id": "48",
+          "program_id": "${prep_program_id}",
+          "concept_list": "@prep_regime_concept_id",
+          "location_list": "@location_to_migrate",
+          "aliases_prefix": "seguimento_prescription",
+          "src_encounter_type_id": "81",
+          "dst_encounter_type_id": "@prep_prescription_encounter_type_id",
+          "dst_location_id": "@dst_location_id",
+          "order_type_id": "@prep_prescription_order_type_id",
+          "prescription_header_script": "prep_prescription_header_data_ds.sql",
+          "prescription_item_script": "prep_prescription_item_data_ds.sql",
+          "encounter_uuid": "UUID_ON_DEMAND_TRANSFORMER(table_name:encounter,lookup_condition:encounter_type=@prep_prescription_encounter_type_id and patient_id = prescription_encounter_src_ds.patient_id and encounter_datetime = prescription_encounter_src_ds.encounter_datetime)",
+          "extra_condition": "${included_patient_extra_condition} and 1 = (select 1 from obs o where o.encounter_id = encounter_id and o.concept_id = @prep_regime_concept_id and o.value_coded in (165214,165215,165613) limit 1)",
+          "main_prescription_obs_condition": "concept_id = @prep_regime_concept_id and voided = 0",
+          "estado_prep_concept_id": "234493"
+        }
+      }
+    }  
+  ]
+}

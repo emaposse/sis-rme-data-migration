@@ -1,0 +1,65 @@
+{
+  "name": "on_demand_encounter",
+  "extends": {
+    "name": "encounter_joined_with_obs_to_encounter",
+    "parameters": {
+      "aliases_prefix": "${aliases_prefix}_on_demand",
+      "patient_id": "${patient_id}",
+      "encounter_filter_obs_concept_list": "0",
+      "location_list": "0",
+      "src_encounter_type_id": "0",
+      "dst_location_id": "${dst_location_id}",
+      "dst_encounter_type_id": "${dst_encounter_type_id}",
+      "visit_type_id": "${visit_type_id}",
+      "program_id": "${program_id}",
+      "ignore_patient_id": false,
+      "ignore_location_list": true,
+      "ignore_src_encounter_type_id": true,
+      "ignore_encounter_filter_obs_concept_list": true,
+      "limitToOneResult": true,
+      "extra_condition": true
+    },
+    "override": [
+      {
+        "path": "srcConf.dynamicElements",
+        "type": "OVERRIDE",
+        "value": [
+          "${patient_id}"
+        ]
+      },
+      {
+        "path": "dstConf.mapping",
+        "type": "ADD_TO_LIST",
+        "match": {
+          "dstField": "creator"
+        },
+        "value": {
+          "srcField": "${creator}",
+          "dstField": "creator"
+        }
+      },
+      {
+        "path": "dstConf.mapping",
+        "type": "ADD_TO_LIST",
+        "match": {
+          "dstField": "encounter_datetime"
+        },
+        "value": {
+          "srcField": "${encounter_datetime}",
+          "dstField": "encounter_datetime"
+        }
+      }
+    ]
+  },
+  "parameters": [
+    "dst_encounter_type_id",
+    "visit_type_id",
+    "program_id",
+    "aliases_prefix",
+    "dst_location_id",
+    "patient_id",
+    "encounter_datetime",
+    "creator"
+  ],
+  "template": {}
+}

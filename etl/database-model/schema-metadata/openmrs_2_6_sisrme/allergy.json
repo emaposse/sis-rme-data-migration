@@ -1,0 +1,218 @@
+{
+  "formatVersion": 2,
+  "key": {
+    "logicalDatabaseId": "openmrs_2_6_sisrme",
+    "databaseDialect": "",
+    "catalog": "",
+    "schema": "",
+    "tableName": "allergy"
+  },
+  "columns": [
+    {
+      "name": "severity_concept_id",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "changed_by",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "date_changed",
+      "dataType": "DATETIME",
+      "length": 19,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "allergy_id",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": true,
+      "timestamp": false
+    },
+    {
+      "name": "patient_id",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "coded_allergen",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "non_coded_allergen",
+      "dataType": "VARCHAR",
+      "length": 255,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "allergen_type",
+      "dataType": "VARCHAR",
+      "length": 50,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "comments",
+      "dataType": "VARCHAR",
+      "length": 1024,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "creator",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "date_created",
+      "dataType": "DATETIME",
+      "length": 19,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "voided",
+      "dataType": "BIT",
+      "length": 1,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "voided_by",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "date_voided",
+      "dataType": "DATETIME",
+      "length": 19,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "void_reason",
+      "dataType": "VARCHAR",
+      "length": 255,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "uuid",
+      "dataType": "CHAR",
+      "length": 38,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    }
+  ],
+  "primaryKey": {
+    "name": "pk",
+    "columns": [
+      {
+        "name": "allergy_id",
+        "dataType": "INT"
+      }
+    ],
+    "manuallyConfigured": true
+  },
+  "uniqueKeys": [],
+  "importedForeignKeys": [
+    {
+      "name": "allergy_coded_allergen_fk",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "concept",
+      "mappings": [
+        {
+          "childColumn": "coded_allergen",
+          "parentColumn": "concept_id"
+        }
+      ]
+    },
+    {
+      "name": "allergy_patient_id_fk",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "patient",
+      "mappings": [
+        {
+          "childColumn": "patient_id",
+          "parentColumn": "patient_id"
+        }
+      ]
+    },
+    {
+      "name": "allergy_creator_fk",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "users",
+      "mappings": [
+        {
+          "childColumn": "creator",
+          "parentColumn": "user_id"
+        }
+      ]
+    },
+    {
+      "name": "allergy_voided_by_fk",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "users",
+      "mappings": [
+        {
+          "childColumn": "voided_by",
+          "parentColumn": "user_id"
+        }
+      ]
+    }
+  ],
+  "exportedForeignKeys": []
+}

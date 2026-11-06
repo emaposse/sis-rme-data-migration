@@ -1,0 +1,1 @@
+select location_id FROM sesp_sisrme_metadata_mapping mm INNER JOIN ${dst_db}.location l ON mm.sesp_value = l.uuid  AND mm.mapping_group = 'health-facility' AND mm.sisrme_value = ${aliases_prefix}_location_src_ds.parent_location

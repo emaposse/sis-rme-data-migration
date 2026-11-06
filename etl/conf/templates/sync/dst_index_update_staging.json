@@ -1,0 +1,39 @@
+{
+  "name": "dst_index_update_staging",
+  "parameters": [
+    "resource_type",
+    "record_uuid"
+  ],
+  "template": {
+    "tableName": "sesp_sisrme_index_update_staging",
+    "tableAlias": "index_update_staging_for_${resource_type}",
+    "onConflict": "UPDATE_EXISTING",
+    "unmappedFieldBehavior": "IGNORE",
+    "mapping": [
+      {
+        "srcValue": "${resource_type}",
+        "dstField": "resource_type"
+      },
+      {
+        "srcField": "${record_uuid}",
+        "dstField": "record_uuid"
+      },
+      {
+        "srcValue": "REINDEX",
+        "dstField": "operation_type"
+      },
+      {
+        "srcValue": "NOT_PROCESSED",
+        "dstField": "processing_state"
+      },
+      {
+        "srcValue": "0",
+        "dstField": "retry_count"
+      },
+      {
+        "dstField": "date_created",
+        "transformer": "DATE_TRANSFORMER(operation:NOW)"
+      }
+    ]
+  }
+}

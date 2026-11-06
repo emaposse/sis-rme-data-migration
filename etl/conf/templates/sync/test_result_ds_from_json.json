@@ -1,0 +1,34 @@
+{
+  "name": "test_result_ds_from_json",
+  "template": {
+    "fields": [
+      "test_result_id",
+      "order_id",
+      "concept_id",
+      "patient_id",
+      "encounter_id",
+      "location_id",
+      "sample_collection_date",
+      "result_date",
+      "value_numeric",
+      "value_coded",
+      "value_text",
+      "value_datetime",
+      "value_complex",
+      "value_modifier",
+      "status",
+      "interpretation",
+      "comments",
+      "previous_version",
+      "creator",
+      "date_created",
+      "changed_by",
+      "date_changed",
+      "voided",
+      "voided_by",
+      "date_voided",
+      "void_reason",
+      "uuid"
+    ]
+  }
+}

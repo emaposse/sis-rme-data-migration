@@ -1,0 +1,59 @@
+{
+  "name": "obs_joined_with_grouping_obs_to_obs",
+  "parameters": [
+    "concept_list",
+    "aliases_prefix",
+    "grouping_obs_dst_ds"
+  ],
+  "template": {
+    "srcConf": {
+      "tableName": "obs",
+      "tableAlias": "${aliases_prefix}_obs_src_ds",
+      "joinExtraCondition": "concept_id in (${concept_list}) and voided = 0",
+      "joinFields": [
+        {
+          "srcField": "obs_group_id",
+          "dstField": "obs_id"
+        }
+      ]
+    },
+    "dstConf": [
+      {
+        "tableName": "obs",
+        "tableAlias": "${aliases_prefix}_gropped_obs_dst_ds",
+        "onConflict": "UPDATE_EXISTING",
+        "preferredDataSource": [
+          "${aliases_prefix}_obs_src_ds"
+        ],
+        "ignorableFields": [
+          "previous_version",
+          "order_group_id"
+        ],
+        "mapping": [
+          {
+            "srcField": "${grouping_obs_dst_ds}.obs_id",
+            "dstField": "obs_group_id"
+          },
+          {
+            "srcField": "${grouping_obs_dst_ds}.location_id",
+            "dstField": "location_id"
+          },
+          {
+            "srcField": "${grouping_obs_dst_ds}.encounter_id",
+            "dstField": "encounter_id"
+          },
+          {
+            "dstField": "concept_id",
+            "relationshipResolutionStrategy": "SKIP",
+            "transformer": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sesp_value,sisrme_value,on_missing:USE_INPUT,input:concept_id,extra_condition:mapping_group=\"concept\")"
+          },
+          {
+            "dstField": "value_coded",
+            "relationshipResolutionStrategy": "SKIP",
+            "transformer": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sesp_value,sisrme_value,on_missing:USE_INPUT,input:value_coded,extra_condition:mapping_group=\"concept\")"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,265 @@
+{
+  "formatVersion": 2,
+  "key": {
+    "logicalDatabaseId": "openmrs_2_6_sisrme",
+    "databaseDialect": "",
+    "catalog": "",
+    "schema": "",
+    "tableName": "person_name"
+  },
+  "columns": [
+    {
+      "name": "person_name_id",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": true,
+      "timestamp": false
+    },
+    {
+      "name": "preferred",
+      "dataType": "BIT",
+      "length": 1,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "person_id",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "prefix",
+      "dataType": "VARCHAR",
+      "length": 50,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "given_name",
+      "dataType": "VARCHAR",
+      "length": 50,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "middle_name",
+      "dataType": "VARCHAR",
+      "length": 50,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "family_name_prefix",
+      "dataType": "VARCHAR",
+      "length": 50,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "family_name",
+      "dataType": "VARCHAR",
+      "length": 50,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "family_name2",
+      "dataType": "VARCHAR",
+      "length": 50,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "family_name_suffix",
+      "dataType": "VARCHAR",
+      "length": 50,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "degree",
+      "dataType": "VARCHAR",
+      "length": 50,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "creator",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "date_created",
+      "dataType": "DATETIME",
+      "length": 19,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "voided",
+      "dataType": "BIT",
+      "length": 1,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "voided_by",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "date_voided",
+      "dataType": "DATETIME",
+      "length": 19,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "void_reason",
+      "dataType": "VARCHAR",
+      "length": 255,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "changed_by",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "date_changed",
+      "dataType": "DATETIME",
+      "length": 19,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "uuid",
+      "dataType": "CHAR",
+      "length": 38,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    }
+  ],
+  "primaryKey": {
+    "name": "pk",
+    "columns": [
+      {
+        "name": "person_name_id",
+        "dataType": "INT"
+      }
+    ],
+    "manuallyConfigured": true
+  },
+  "uniqueKeys": [
+    {
+      "name": "person_name_uuid_index",
+      "columns": [
+        {
+          "name": "uuid",
+          "dataType": "CHAR"
+        }
+      ],
+      "manuallyConfigured": false
+    }
+  ],
+  "importedForeignKeys": [
+    {
+      "name": "name for person",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "person",
+      "mappings": [
+        {
+          "childColumn": "person_id",
+          "parentColumn": "person_id"
+        }
+      ]
+    },
+    {
+      "name": "FKE69F65353BBA19DF",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "users",
+      "mappings": [
+        {
+          "childColumn": "changed_by",
+          "parentColumn": "user_id"
+        }
+      ]
+    },
+    {
+      "name": "user_who_made_name",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "users",
+      "mappings": [
+        {
+          "childColumn": "creator",
+          "parentColumn": "user_id"
+        }
+      ]
+    },
+    {
+      "name": "user_who_voided_name",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "users",
+      "mappings": [
+        {
+          "childColumn": "voided_by",
+          "parentColumn": "user_id"
+        }
+      ]
+    }
+  ],
+  "exportedForeignKeys": []
+}

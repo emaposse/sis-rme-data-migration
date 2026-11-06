@@ -1,0 +1,21 @@
+{
+  "name": "appointment_ds_from_json",
+  "template": {
+    "fields": [
+      "appointment_id",
+      "patient_id",
+      "provider_id",
+      "reason_for_admission",
+      "referral_form_number",
+      "service_id",
+      "speciality_id",
+      "type_of_admission",
+      "status",
+      "notes",
+      "created_at",
+      "updated_at",
+      "appointment_date",
+      "encounter_type_list"
+    ]
+  }
+}

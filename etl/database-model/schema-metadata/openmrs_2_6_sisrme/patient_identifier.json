@@ -1,0 +1,253 @@
+{
+  "formatVersion": 2,
+  "key": {
+    "logicalDatabaseId": "openmrs_2_6_sisrme",
+    "databaseDialect": "",
+    "catalog": "",
+    "schema": "",
+    "tableName": "patient_identifier"
+  },
+  "columns": [
+    {
+      "name": "doc_id",
+      "dataType": "VARCHAR",
+      "length": 255,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "patient_identifier_id",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": true,
+      "timestamp": false
+    },
+    {
+      "name": "patient_id",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "identifier",
+      "dataType": "VARCHAR",
+      "length": 50,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "identifier_type",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "preferred",
+      "dataType": "BIT",
+      "length": 1,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "location_id",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "creator",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "date_created",
+      "dataType": "DATETIME",
+      "length": 19,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "voided",
+      "dataType": "BIT",
+      "length": 1,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "voided_by",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "date_voided",
+      "dataType": "DATETIME",
+      "length": 19,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "void_reason",
+      "dataType": "VARCHAR",
+      "length": 255,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "uuid",
+      "dataType": "CHAR",
+      "length": 38,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "date_changed",
+      "dataType": "DATETIME",
+      "length": 19,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "changed_by",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    }
+  ],
+  "primaryKey": {
+    "name": "pk",
+    "columns": [
+      {
+        "name": "patient_identifier_id",
+        "dataType": "INT"
+      }
+    ],
+    "manuallyConfigured": true
+  },
+  "uniqueKeys": [
+    {
+      "name": "patient_identifier_uuid_index",
+      "columns": [
+        {
+          "name": "uuid",
+          "dataType": "CHAR"
+        }
+      ],
+      "manuallyConfigured": false
+    }
+  ],
+  "importedForeignKeys": [
+    {
+      "name": "patient_identifier_ibfk_2",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "location",
+      "mappings": [
+        {
+          "childColumn": "location_id",
+          "parentColumn": "location_id"
+        }
+      ]
+    },
+    {
+      "name": "fk_patient_id_patient_identifier",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "patient",
+      "mappings": [
+        {
+          "childColumn": "patient_id",
+          "parentColumn": "patient_id"
+        }
+      ]
+    },
+    {
+      "name": "defines_identifier_type",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "patient_identifier_type",
+      "mappings": [
+        {
+          "childColumn": "identifier_type",
+          "parentColumn": "patient_identifier_type_id"
+        }
+      ]
+    },
+    {
+      "name": "identifier_creator",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "users",
+      "mappings": [
+        {
+          "childColumn": "creator",
+          "parentColumn": "user_id"
+        }
+      ]
+    },
+    {
+      "name": "identifier_voider",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "users",
+      "mappings": [
+        {
+          "childColumn": "voided_by",
+          "parentColumn": "user_id"
+        }
+      ]
+    },
+    {
+      "name": "patient_identifier_changed_by",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "users",
+      "mappings": [
+        {
+          "childColumn": "changed_by",
+          "parentColumn": "user_id"
+        }
+      ]
+    }
+  ],
+  "exportedForeignKeys": []
+}

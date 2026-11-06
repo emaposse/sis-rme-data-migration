@@ -1,0 +1,175 @@
+{
+  "name": "encounter_joined_with_obs_to_encounter",
+  "parameters": [
+    "aliases_prefix",
+    "patient_id",
+    "encounter_filter_obs_concept_list",
+    "location_list",
+    "src_encounter_type_id",
+    "dst_location_id",
+    "dst_encounter_type_id",
+    "visit_type_id",
+    "program_id",
+    "ignore_patient_id",
+    "ignore_src_encounter_type_id",
+    "ignore_encounter_filter_obs_concept_list",
+    "ignore_location_list",
+    "limitToOneResult",
+    "extra_condition"
+  ],
+  "template": {
+    "srcConf": {
+      "tableName": "encounter",
+      "tableAlias": "${aliases_prefix}_encounter_src_ds",
+      "extraConditionForExtract": "encounter_extra_condition_for_extract.sql",
+      "limitToOneResult": "${limitToOneResult}",
+      "queryOrderingInfo": {
+        "type": "ASC",
+        "fields": [
+          "patient_id, encounter_datetime"
+        ]
+      },
+      "extraTableDataSource": [
+        {
+          "tableName": "encounter_provider",
+          "tableAlias": "${aliases_prefix}_encounter_provider_src_ds"
+        }
+      ],
+      "extraObjectDataSource": [
+        {
+          "name": "${aliases_prefix}_location_src_ds",
+          "objectFields": [
+            {
+              "name": "location_id",
+              "value": "${dst_location_id}",
+              "relationshipResolutionStrategy": "SKIP",
+              "dataType": "int"
+            }
+          ]
+        }
+      ],
+      "extraQueryDataSource": [
+        {
+          "name": "${aliases_prefix}_aux_src_query_ds",
+          "query": "select 1 as value",
+          "comments": {
+            "comment": "this query datasource is just to guarantee that the extraQueryDataSource exists for override pupose"
+          }
+        }
+      ]
+    },
+    "dstConf": [
+      {
+        "tableName": "encounter",
+        "tableAlias": "${aliases_prefix}_encounter_dst_ds",
+        "onConflict": "UPDATE_EXISTING",
+        "preferredDataSource": [
+          "${aliases_prefix}_encounter_src_ds"
+        ],
+        "onMultipleDataSourceWithSameName": "USE_LAST",
+        "useAsDataSource": true,
+        "ignorableFields": [
+          "form_id"
+        ],
+        "mapping": [
+          {
+            "srcField": "${aliases_prefix}_location_src_ds.location_id",
+            "dstField": "location_id"
+          },
+          {
+            "srcValue": "${dst_encounter_type_id}",
+            "dstField": "encounter_type",
+            "relationshipResolutionStrategy": "VALIDATE_ONLY"
+          },
+          {
+            "dstField": "uuid",
+            "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:encounter,lookup_condition:encounter_type=${dst_encounter_type_id} and patient_id = ${aliases_prefix}_encounter_src_ds.patient_id and encounter_datetime = ${aliases_prefix}_encounter_src_ds.encounter_datetime)"
+          },
+          {
+            "dstField": "visit_id",
+            "transformer": "PARENT_ON_DEMAND_TRANSFORMER(visit,on_demand_check_condition:patient_id=${aliases_prefix}_encounter_src_ds.patient_id and date_started = ${aliases_prefix}_encounter_src_ds.encounter_datetime,template:on_demand_visit,template_param_location_id:${aliases_prefix}_location_src_ds.location_id,template_param_visit_date:${aliases_prefix}_encounter_src_ds.encounter_datetime,template_param_patient_id:${aliases_prefix}_encounter_src_ds.patient_id,template_param_visit_type_id:${visit_type_id},template_param_creator:${aliases_prefix}_encounter_src_ds.creator)"
+          }
+        ]
+      }
+    ],
+    "childItemConf": [
+      {
+        "srcConf": {
+          "tableName": "encounter",
+          "tableAlias": "${aliases_prefix}_encounter_for_provider_src_ds",
+          "joinFields": [
+            {
+              "srcField": "encounter_id",
+              "dstField": "encounter_id"
+            }
+          ]
+        },
+        "dstConf": [
+          {
+            "tableName": "encounter_provider",
+            "tableAlias": "${aliases_prefix}_encounter_provider_dst_ds",
+            "preferredDataSource": [
+              "${aliases_prefix}_encounter_dst_ds",
+              "${aliases_prefix}_encounter_provider_src_ds"
+            ],
+            "mapping": [
+              {
+                "dstField": "provider_id",
+                "transformer": "COALESCE_TRANSFORMER(${aliases_prefix}_encounter_provider_src_ds.provider_id,1)"
+              },
+              {
+                "srcField": "${aliases_prefix}_encounter_dst_ds.creator",
+                 "dstField": "creator"
+              },
+              {
+                "srcField": "${aliases_prefix}_encounter_dst_ds.date_created",
+                "dstField": "date_created"
+              },
+              {
+                "srcField": "${aliases_prefix}_encounter_dst_ds.voided",
+                "dstField": "voided"
+              },
+              {
+                "dstField": "uuid",
+                "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:encounter_provider,table_alias:${aliases_prefix}_on_demand_uuid_encounter_provider,lookup_condition:${aliases_prefix}_on_demand_uuid_encounter_provider.encounter_id=(select e.encounter_id from encounter e where e.patient_id = ${aliases_prefix}_encounter_dst_ds.patient_id and e.encounter_type = ${aliases_prefix}_encounter_dst_ds.encounter_type and e.encounter_datetime = ${aliases_prefix}_encounter_dst_ds.encounter_datetime limit 1))"
+              },
+              {
+                "dstField": "encounter_role_id",
+                "transformer": "COALESCE_TRANSFORMER(encounter_role_id,1)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "srcConf": {
+          "tableName": "encounter",
+          "tableAlias": "${aliases_prefix}_encounter_for_encounter_program_src_ds",
+          "joinFields": [
+            {
+              "srcField": "encounter_id",
+              "dstField": "encounter_id"
+            }
+          ]
+        },
+        "dstConf": [
+          {
+            "tableName": "encounter_program",
+            "tableAlias": "${aliases_prefix}_encounter_program_dst_ds",
+            "onConflict": "UPDATE_EXISTING",
+            "mapping": [
+              {
+                "srcValue": "${program_id}",
+                "dstField": "program_id"
+              },
+              {
+                "dstField": "uuid",
+                "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:encounter_program,table_alias:${aliases_prefix}_on_demand_uuid_encounter_program,lookup_condition:${aliases_prefix}_on_demand_uuid_encounter_program.encounter_id=${aliases_prefix}_encounter_dst_ds.encounter_id)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

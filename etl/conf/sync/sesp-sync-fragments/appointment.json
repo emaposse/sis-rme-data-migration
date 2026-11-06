@@ -1,0 +1,109 @@
+{
+  "applyCondition": "table_name='appointment'",
+  "srcConf": {
+    "template": {
+      "name": "sisrme_src_ds",
+      "parameters": {
+        "aliases_prefix": "appointment",
+        "main_output_template_name": "appointment_ds_from_json"
+      }
+    },
+    "excludedFieldsFromObjectDesc": [
+      "entity_payload"
+    ]
+  },
+  "dstConf": [
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "appointment",
+          "src_patient_uuid": "appointment_patient_src_ds.uuid",
+          "dst_aliases_prefix": "ficha_clinical_appointment",
+          "concept_id": "@data_proxima_consulta_concept_id",
+          "value_field": "value_datetime",
+          "value": "appointment_src_ds.appointment_date",
+          "obs_datetime": "appointment_src_ds.created_at",
+          "date_created": "appointment_src_ds.created_at",
+          "voided": "0",
+          "void_reason": "NULL_VALUE_TRANSFORMER()",
+          "uuid": "UUID_ON_DEMAND_TRANSFORMER(table_name:obs,lookup_condition:encounter_id = ficha_clinical_appointment_obs_dst_ds.encounter_id and concept_id = @data_proxima_consulta_concept_id)",
+          "encounter_type_id": "6",
+          "location_id": "@dst_location_id",
+          "filter_condition": "appointment_clinical_service_src_ds.service_concept_id = @tarv_service_concept_id and appointment_src_ds.encounter_type_list != null and 6 in (appointment_src_ds.encounter_type_list)",
+          "obs_group_id_transformer": "",
+          "date_voided": "NULL_VALUE_TRANSFORMER()"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "appointment",
+          "src_patient_uuid": "appointment_patient_src_ds.uuid",
+          "dst_aliases_prefix": "apss_appointment",
+          "concept_id": "@data_proxima_consulta_concept_id",
+          "value_field": "value_datetime",
+          "value": "appointment_src_ds.appointment_date",
+          "obs_datetime": "appointment_src_ds.created_at",
+          "date_created": "appointment_src_ds.created_at",
+          "voided": "0",
+          "void_reason": "NULL_VALUE_TRANSFORMER()",
+          "uuid": "UUID_ON_DEMAND_TRANSFORMER(table_name:obs,lookup_condition:encounter_id = apss_appointment_obs_dst_ds.encounter_id and concept_id = @data_proxima_consulta_concept_id)",
+          "encounter_type_id": "35",
+          "location_id": "@dst_location_id",
+          "filter_condition": "appointment_clinical_service_src_ds.service_concept_id = @tarv_service_concept_id and appointment_src_ds.encounter_type_list != null and 35 in (appointment_src_ds.encounter_type_list)",
+          "obs_group_id_transformer": "",
+          "date_voided": "NULL_VALUE_TRANSFORMER()"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "appointment",
+          "src_patient_uuid": "appointment_patient_src_ds.uuid",
+          "dst_aliases_prefix": "prep_appointment",
+          "concept_id": "@prep_data_proxima_consulta_concept_id",
+          "value_field": "value_datetime",
+          "value": "appointment_src_ds.appointment_date",
+          "obs_datetime": "appointment_src_ds.created_at",
+          "date_created": "appointment_src_ds.created_at",
+          "voided": "0",
+          "void_reason": "NULL_VALUE_TRANSFORMER()",
+          "uuid": "UUID_ON_DEMAND_TRANSFORMER(table_name:obs,lookup_condition:encounter_id = prep_appointment_obs_dst_ds.encounter_id and concept_id = @prep_data_proxima_consulta_concept_id)",
+          "encounter_type_id": "81",
+          "location_id": "@dst_location_id",
+          "filter_condition": "appointment_clinical_service_src_ds.service_concept_id = @prep_service_concept_id",
+          "obs_group_id_transformer": "",
+          "date_voided": "NULL_VALUE_TRANSFORMER()"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "appointment",
+          "src_patient_uuid": "appointment_patient_src_ds.uuid",
+          "dst_aliases_prefix": "ccr_appointment",
+          "concept_id": "@data_proxima_consulta_concept_id",
+          "value_field": "value_datetime",
+          "value": "appointment_src_ds.appointment_date",
+          "obs_datetime": "appointment_src_ds.created_at",
+          "date_created": "appointment_src_ds.created_at",
+          "voided": "0",
+          "void_reason": "NULL_VALUE_TRANSFORMER()",
+          "uuid": "UUID_ON_DEMAND_TRANSFORMER(table_name:obs,lookup_condition:encounter_id = ccr_appointment_obs_dst_ds.encounter_id and concept_id = @data_proxima_consulta_concept_id)",
+          "encounter_type_id": "93",
+          "location_id": "@dst_location_id",
+          "filter_condition": "appointment_clinical_service_src_ds.service_concept_id = @ccr_service_concept_id",
+          "obs_group_id_transformer": "",
+          "date_voided": "NULL_VALUE_TRANSFORMER()"
+        }
+      }
+    }
+  ]
+}

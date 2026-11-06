@@ -1,0 +1,162 @@
+{
+  "formatVersion": 2,
+  "key": {
+    "logicalDatabaseId": "sisrme_sync_src_db",
+    "databaseDialect": "",
+    "catalog": "",
+    "schema": "",
+    "tableName": "sis_rme_sync_msg"
+  },
+  "columns": [
+    {
+      "name": "id",
+      "dataType": "BIGINT",
+      "length": 19,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": true,
+      "timestamp": false
+    },
+    {
+      "name": "table_name",
+      "dataType": "VARCHAR",
+      "length": 255,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "identifier",
+      "dataType": "VARCHAR",
+      "length": 255,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "origin_site_uuid",
+      "dataType": "VARCHAR",
+      "length": 38,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "entity_payload",
+      "dataType": "TEXT",
+      "length": 21845,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "operation",
+      "dataType": "VARCHAR",
+      "length": 20,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "date_created",
+      "dataType": "DATETIME",
+      "length": 23,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "date_sent",
+      "dataType": "DATETIME",
+      "length": 19,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "date_received",
+      "dataType": "DATETIME",
+      "length": 19,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "message_uuid",
+      "dataType": "VARCHAR",
+      "length": 38,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "processing_status",
+      "dataType": "CHAR",
+      "length": 21,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "processing_date",
+      "dataType": "DATETIME",
+      "length": 19,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "processing_error",
+      "dataType": "TEXT",
+      "length": 21845,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "retry_count",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    }
+  ],
+  "primaryKey": {
+    "name": "pk",
+    "columns": [
+      {
+        "name": "id",
+        "dataType": "BIGINT"
+      }
+    ],
+    "manuallyConfigured": true
+  },
+  "uniqueKeys": [
+    {
+      "name": "unq_sync_message",
+      "columns": [
+        {
+          "name": "message_uuid",
+          "dataType": "VARCHAR"
+        }
+      ],
+      "manuallyConfigured": false
+    }
+  ],
+  "importedForeignKeys": [],
+  "exportedForeignKeys": []
+}

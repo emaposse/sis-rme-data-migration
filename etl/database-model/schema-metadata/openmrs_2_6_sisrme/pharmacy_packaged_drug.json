@@ -1,0 +1,199 @@
+{
+  "formatVersion": 2,
+  "key": {
+    "logicalDatabaseId": "openmrs_2_6_sisrme",
+    "databaseDialect": "",
+    "catalog": "",
+    "schema": "",
+    "tableName": "pharmacy_packaged_drug"
+  },
+  "columns": [
+    {
+      "name": "updated_at",
+      "dataType": "DATETIME",
+      "length": 19,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "created_at",
+      "dataType": "DATETIME",
+      "length": 19,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "pharmacy_packaged_drug_id",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": true,
+      "timestamp": false
+    },
+    {
+      "name": "pharmacy_package_id",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "order_id",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "pharmacy_transaction_id",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "quantity_dispensed",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "next_pickup_date",
+      "dataType": "DATETIME",
+      "length": 19,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "creator",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "date_created",
+      "dataType": "DATETIME",
+      "length": 19,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "voided",
+      "dataType": "BIT",
+      "length": 1,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "void_reason",
+      "dataType": "VARCHAR",
+      "length": 255,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "voided_by",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "uuid",
+      "dataType": "CHAR",
+      "length": 36,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    }
+  ],
+  "primaryKey": {
+    "name": "pk",
+    "columns": [
+      {
+        "name": "pharmacy_packaged_drug_id",
+        "dataType": "INT"
+      }
+    ],
+    "manuallyConfigured": true
+  },
+  "uniqueKeys": [
+    {
+      "name": "pharmacy_packaged_drug_unq_uuid",
+      "columns": [
+        {
+          "name": "uuid",
+          "dataType": "CHAR"
+        }
+      ],
+      "manuallyConfigured": false
+    }
+  ],
+  "importedForeignKeys": [
+    {
+      "name": "pharmacy_packaged_drug_order_id_foreign",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "orders",
+      "mappings": [
+        {
+          "childColumn": "order_id",
+          "parentColumn": "order_id"
+        }
+      ]
+    },
+    {
+      "name": "pharmacy_packaged_drug_pharmacy_package_id_foreign",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "pharmacy_package",
+      "mappings": [
+        {
+          "childColumn": "pharmacy_package_id",
+          "parentColumn": "pharmacy_package_id"
+        }
+      ]
+    },
+    {
+      "name": "pharmacy_packaged_drug_pharmacy_transaction_id_foreign",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "pharmacy_transaction",
+      "mappings": [
+        {
+          "childColumn": "pharmacy_transaction_id",
+          "parentColumn": "pharmacy_transaction_id"
+        }
+      ]
+    }
+  ],
+  "exportedForeignKeys": []
+}

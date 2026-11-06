@@ -1,0 +1,252 @@
+{
+  "patient_id": 56,
+  "encounters": [
+    {
+      "visit_id": 53,
+      "location_id": 900006,
+      "encounter_type_id": 35,
+      "provider_id": 1,
+      "encounter_datetime": "2026-03-25",
+      "encounter_role_id": 1,
+      "obs": [
+        {
+          "concept_uuid": "690532e7-2947-415e-b84e-ef7c867ceba1",
+          "value_coded": 1115
+        },
+        {
+          "value_coded": 1066,
+          "concept_id": 233768
+        },
+        {
+          "value_coded": 1065,
+          "concept_id": 233769
+        },
+        {
+          "value_coded": 1065,
+          "concept_id": 233770
+        },
+        {
+          "value_text": "Observacoes motivo da consulta",
+          "concept_id": 231276
+        },
+        {
+          "concept_uuid": "cf9090e1-790a-4c9b-b81d-ece91dc3f6d8",
+          "value_datetime": "2026-03-26"
+        },
+        {
+          "value_coded": 1065,
+          "concept_id": 233771
+        },
+        {
+          "concept_uuid": "6106a026-b62d-445c-b7ca-9077bd05e218",
+          "value_coded": 1956
+        },
+        {
+          "concept_uuid": "6106a026-b62d-445c-b7ca-9077bd05e218",
+          "value_coded": 1995
+        },
+        {
+          "concept_uuid": "6106a026-b62d-445c-b7ca-9077bd05e218",
+          "value_coded": 233865
+        },
+        {
+          "value_coded": 1065,
+          "concept_id": 233772
+        },
+        {
+          "concept_uuid": "e2297477-2ca5-4eae-8abf-6b69b5c351b0",
+          "value_coded": 6338
+        },
+        {
+          "value_coded": 1065,
+          "concept_id": 233773
+        },
+        {
+          "value_coded": 1065,
+          "concept_id": 233774
+        },
+        {
+          "value_coded": 1066,
+          "concept_id": 233775
+        },
+        {
+          "value_coded": 1066,
+          "concept_id": 233776
+        },
+        {
+          "value_coded": 1065,
+          "concept_id": 233777
+        },
+        {
+          "value_coded": 1065,
+          "concept_id": 233778
+        },
+        {
+          "value_coded": 1066,
+          "concept_id": 233779
+        },
+        {
+          "value_coded": 1065,
+          "concept_id": 233780
+        },
+        {
+          "value_coded": 233700,
+          "concept_id": 233781
+        },
+        {
+          "value_datetime": "2026-03-19",
+          "concept_id": 233783
+        },
+        {
+          "value_coded": 1065,
+          "concept_id": 6317
+        },
+        {
+          "value_coded": 1066,
+          "concept_id": 6318
+        },
+        {
+          "value_coded": 1066,
+          "concept_id": 6319
+        },
+        {
+          "value_coded": 1065,
+          "concept_id": 6320
+        },
+        {
+          "value_coded": 1065,
+          "concept_id": 5271
+        },
+        {
+          "value_coded": 1066,
+          "concept_id": 6321
+        },
+        {
+          "value_coded": 1065,
+          "concept_id": 6322
+        },
+        {
+          "value_coded": 1065,
+          "concept_id": 1048
+        },
+        {
+          "concept_uuid": "dbf852ab-697f-4c92-a546-74e5301de419",
+          "value_coded": 1930
+        },
+        {
+          "value_coded": 1065,
+          "concept_id": 23779
+        },
+        {
+          "concept_uuid": "5f651165-054f-4a2d-a83d-996a8de8eb87",
+          "value_text": "Nome do gestor de ARV"
+        },
+        {
+          "concept_uuid": "e1d7ae98-1d5f-11e0-b929-000c29ad1d07",
+          "value_coded": 970
+        },
+        {
+          "concept_uuid": "1cf17e9e-81c5-4f0f-9985-64779b7375a1",
+          "value_numeric": 12
+        },
+        {
+          "concept_uuid": "983773e6-d42c-4ad3-89a7-9191a8b8d52b",
+          "value_coded": 1749
+        },
+        {
+          "concept_uuid": "69207f66-c4ba-4775-a57c-feea5b9133ac",
+          "value_numeric": 25
+        },
+        {
+          "value_numeric": 10,
+          "concept_id": 233897
+        },
+        {
+          "value_numeric": 12,
+          "concept_id": 233898
+        },
+        {
+          "value_coded": 1065,
+          "concept_id": 23716
+        }
+      ]
+    }
+  ],
+  "person_attribute": [
+    {
+      "person_attribute_type_uuid": "95d18ec5-8a12-4fe4-9bad-53399400f248",
+      "value": 232851
+    },
+    {
+      "person_attribute_type_uuid": "95d18ec5-8a12-4fe4-9bad-53399400f248",
+      "value": 190
+    },
+    {
+      "person_attribute_type_uuid": "3bf0afed-a2a9-11f0-9718-0242ac130002",
+      "value": [
+        {
+          "attribute_key": "key_pop.concept.concept_id",
+          "attribute_value": "1377"
+        },
+        {
+          "attribute_key": "key_pop.state.concept.concept_id",
+          "attribute_value": "1257"
+        }
+      ]
+    },
+    {
+      "person_attribute_type_uuid": "3bf0afed-a2a9-11f0-9718-0242ac130002",
+      "value": [
+        {
+          "attribute_key": "key_pop.concept.concept_id",
+          "attribute_value": "20454"
+        },
+        {
+          "attribute_key": "key_pop.state.concept.concept_id",
+          "attribute_value": "1256"
+        }
+      ]
+    },
+    {
+      "person_attribute_type_uuid": "3bf0afed-a2a9-11f0-9718-0242ac130002",
+      "value": [
+        {
+          "attribute_key": "key_pop.concept.concept_id",
+          "attribute_value": "20426"
+        },
+        {
+          "attribute_key": "key_pop.state.concept.concept_id",
+          "attribute_value": "1257"
+        }
+      ]
+    },
+    {
+      "person_attribute_type_uuid": "4ef99006-f0d0-405d-b6e1-0bc54a46459c",
+      "value": 1256
+    },
+    {
+      "person_attribute_type_uuid": "ff35eaa9-3af2-4335-93b3-3049448b54fa",
+      "value": 1267
+    },
+    {
+      "person_attribute_type_uuid": "c93fb9d4-15a6-458e-81da-8cc45e550b33",
+      "value": 1257
+    },
+    {
+      "person_attribute_type_uuid": "12a01cef-d408-496f-a918-71bcf8793daf",
+      "value": 1257
+    },
+    {
+      "person_attribute_type_uuid": "a241e600-6992-41ba-acdb-9d1b293bbecb",
+      "value": 1256
+    },
+    {
+      "person_attribute_type_uuid": "5c41ee9a-c313-420d-9148-e1f23a96682a",
+      "value": 1257
+    },
+    {
+      "person_attribute_type_uuid": "7b00e6c7-bfe8-4c0e-a611-7fc29b489c65",
+      "value": "Outro Grupo de apoio, APSS"
+    }
+  ]
+}

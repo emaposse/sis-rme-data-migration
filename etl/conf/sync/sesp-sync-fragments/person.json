@@ -1,0 +1,68 @@
+{
+  "applyCondition": "table_name='person'",
+  "srcConf": {
+    "template": {
+      "name": "sisrme_src_ds",
+      "parameters": {
+        "aliases_prefix": "person",
+        "main_output_template_name": "person_ds_from_json"
+      }
+    },
+    "excludedFieldsFromObjectDesc": [
+      "entity_payload"
+    ]
+  },
+  "dstConf": [
+    {
+      "tableName": "person",
+      "onConflict": "UPDATE_EXISTING",
+      "preferredDataSource": [
+        "person_src_ds"
+      ],
+      "mapping": [
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "creator",
+              "src_user_uuid": "person_creator_src_ds.uuid",
+              "src_username": "person_creator_src_ds.username",
+              "apply_condition": ""
+            }
+          }
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "changed_by",
+              "src_user_uuid": "person_changed_by_src_ds.uuid",
+              "src_username": "person_changed_by_src_ds.username",
+              "apply_condition": "person_src_ds.changed_by != null"
+            }
+          }
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "voided_by",
+              "src_user_uuid": "person_voided_by_src_ds.uuid",
+              "src_username": "person_voided_by_src_ds.username",
+              "apply_condition": "person_src_ds.voided = 1"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "template": {
+        "name": "dst_index_update_staging",
+        "parameters": {
+          "resource_type": "person",
+          "record_uuid": "person_src_ds.uuid"
+        }
+      }
+    }      
+  ]
+}

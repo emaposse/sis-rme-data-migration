@@ -1,0 +1,18 @@
+{
+  "name": "patient_ds_from_json",
+  "template": {
+    "fields": [
+      "patient_id",
+      "creator",
+      "date_created",
+      "changed_by",
+      "date_changed",
+      "voided",
+      "voided_by",
+      "date_voided",
+      "void_reason",
+      "allergy_status",
+      "uuid"
+    ]
+  }
+}

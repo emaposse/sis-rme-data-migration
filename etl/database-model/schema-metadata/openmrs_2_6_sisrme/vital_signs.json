@@ -1,0 +1,267 @@
+{
+  "formatVersion" : 2,
+  "key" : {
+    "logicalDatabaseId" : "openmrs_2_6_sisrme",
+    "databaseDialect" : "",
+    "catalog" : "",
+    "schema" : "",
+    "tableName" : "vital_signs"
+  },
+  "columns" : [ {
+    "name" : "heart_rate",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "respiratory_rate",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "oxygen_saturation",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "pulse_type",
+    "dataType" : "CHAR",
+    "length" : 13,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "pulse_bpm",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "pulse_state",
+    "dataType" : "CHAR",
+    "length" : 9,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "pulse_amplitude",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "vital_signs_id",
+    "dataType" : "BIGINT UNSIGNED",
+    "length" : 20,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : true,
+    "timestamp" : false
+  }, {
+    "name" : "patient_id",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "encounter_id",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "location_id",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "temperature",
+    "dataType" : "DECIMAL",
+    "length" : 4,
+    "decimalDigits" : 1,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "blood_pressure_systolic",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "blood_pressure_diastolic",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "creator",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "date_created",
+    "dataType" : "TIMESTAMP",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "changed_by",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "date_changed",
+    "dataType" : "TIMESTAMP",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "voided",
+    "dataType" : "BIT",
+    "length" : 1,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "voided_by",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "void_reason",
+    "dataType" : "TEXT",
+    "length" : 21845,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "date_voided",
+    "dataType" : "TIMESTAMP",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "uuid",
+    "dataType" : "VARCHAR",
+    "length" : 255,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  } ],
+  "primaryKey" : {
+    "name" : "pk",
+    "columns" : [ {
+      "name" : "vital_signs_id",
+      "dataType" : "BIGINT UNSIGNED"
+    } ],
+    "manuallyConfigured" : true
+  },
+  "uniqueKeys" : [ {
+    "name" : "vital_signs_uuid_unique",
+    "columns" : [ {
+      "name" : "uuid",
+      "dataType" : "VARCHAR"
+    } ],
+    "manuallyConfigured" : false
+  } ],
+  "importedForeignKeys" : [ {
+    "name" : "vital_signs_encounter_id_foreign",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "encounter",
+    "mappings" : [ {
+      "childColumn" : "encounter_id",
+      "parentColumn" : "encounter_id"
+    } ]
+  }, {
+    "name" : "vital_signs_location_id_foreign",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "location",
+    "mappings" : [ {
+      "childColumn" : "location_id",
+      "parentColumn" : "location_id"
+    } ]
+  }, {
+    "name" : "vital_signs_patient_id_foreign",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "patient",
+    "mappings" : [ {
+      "childColumn" : "patient_id",
+      "parentColumn" : "patient_id"
+    } ]
+  }, {
+    "name" : "vital_signs_changed_by_foreign",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "users",
+    "mappings" : [ {
+      "childColumn" : "changed_by",
+      "parentColumn" : "user_id"
+    } ]
+  }, {
+    "name" : "vital_signs_creator_foreign",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "users",
+    "mappings" : [ {
+      "childColumn" : "creator",
+      "parentColumn" : "user_id"
+    } ]
+  }, {
+    "name" : "vital_signs_voided_by_foreign",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "users",
+    "mappings" : [ {
+      "childColumn" : "voided_by",
+      "parentColumn" : "user_id"
+    } ]
+  } ],
+  "exportedForeignKeys" : [ ]
+}

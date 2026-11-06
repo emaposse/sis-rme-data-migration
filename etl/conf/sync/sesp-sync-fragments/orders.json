@@ -1,0 +1,63 @@
+{
+  "applyCondition": "table_name='orders'",
+  "srcConf": {
+    "template": {
+      "name": "sisrme_src_ds",
+      "parameters": {
+        "aliases_prefix": "orders",
+        "main_output_template_name": "orders_ds_from_json"
+      }
+    },
+    "excludedFieldsFromObjectDesc": [
+      "entity_payload"
+    ]
+  },
+  "dstConf": [
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "orders",
+          "src_patient_uuid": "orders_patient_src_ds.uuid",
+          "dst_aliases_prefix": "coded_order_reason",
+          "concept_id": "23722",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:orders_src_ds.concept_id,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "COALESCE_TRANSFORMER(orders_src_ds.scheduled_date, orders_src_ds.date_created)",
+          "date_created": "orders_src_ds.date_created",
+          "voided": "orders_src_ds.voided",
+          "void_reason": "orders_src_ds.void_reason",
+          "uuid": "orders_src_ds.uuid",
+          "encounter_type_id": "6",
+          "location_id": "@dst_location_id",
+          "filter_condition": "orders_encounter_src_ds.encounter_type = 116 AND orders_src_ds.concept_id IN (856,1695,1692,1694,1693,887,1011,1299,23723,23774,23951,23952,307,12,2094)",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "orders_encounter_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "orders",
+          "src_patient_uuid": "orders_patient_src_ds.uuid",
+          "dst_aliases_prefix": "non_coded_order_reason",
+          "concept_id": "23860",
+          "value_field": "value_text",
+          "value": "orders_src_ds.order_reason_non_coded",
+          "obs_datetime": "COALESCE_TRANSFORMER(orders_src_ds.scheduled_date, orders_src_ds.date_created)",
+          "date_created": "orders_src_ds.date_created",
+          "voided": "orders_src_ds.voided",
+          "void_reason": "orders_src_ds.void_reason",
+          "uuid": "orders_src_ds.uuid",
+          "encounter_type_id": "6",
+          "location_id": "@dst_location_id",
+          "filter_condition": "orders_src_ds.order_reason_non_coded != null",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "orders_encounter_src_ds.date_voided"
+        }
+      }
+    }
+  ]
+}

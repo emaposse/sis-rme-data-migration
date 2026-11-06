@@ -1,0 +1,53 @@
+{
+  "formatVersion" : 2,
+  "key" : {
+    "logicalDatabaseId" : "openmrs_2_6_sesp",
+    "databaseDialect" : "",
+    "catalog" : "",
+    "schema" : "",
+    "tableName" : "privilege"
+  },
+  "columns" : [ {
+    "name" : "privilege",
+    "dataType" : "VARCHAR",
+    "length" : 255,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "description",
+    "dataType" : "TEXT",
+    "length" : 21845,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "uuid",
+    "dataType" : "CHAR",
+    "length" : 38,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  } ],
+  "primaryKey" : {
+    "name" : "pk",
+    "columns" : [ {
+      "name" : "privilege",
+      "dataType" : "VARCHAR"
+    } ],
+    "manuallyConfigured" : true
+  },
+  "uniqueKeys" : [ {
+    "name" : "privilege_uuid_index",
+    "columns" : [ {
+      "name" : "uuid",
+      "dataType" : "CHAR"
+    } ],
+    "manuallyConfigured" : false
+  } ],
+  "importedForeignKeys" : [ ],
+  "exportedForeignKeys" : [ ]
+}

@@ -1,0 +1,77 @@
+{
+  "applyCondition": "table_name='relationship'",
+  "srcConf": {
+    "template": {
+      "name": "sisrme_src_ds",
+      "parameters": {
+        "aliases_prefix": "relationship",
+        "main_output_template_name": "relationship_ds_from_json"
+      }
+    },
+    "excludedFieldsFromObjectDesc": [
+      "entity_payload"
+    ]
+  },
+  "dstConf": [
+    {
+      "tableName": "relationship",
+      "onConflict": "UPDATE_EXISTING",
+      "preferredDataSource": [
+        "relationship_src_ds"
+      ],
+      "mapping": [
+        {
+          "template": {
+            "name": "dst_person_mapped_to_person_placeholder",
+            "parameters": {
+              "dst_person_field": "person_a",
+              "src_person_uuid": "relationship_person_a_src_ds.uuid"
+            }
+          }
+        },
+        {
+          "template": {
+            "name": "dst_person_mapped_to_person_placeholder",
+            "parameters": {
+              "dst_person_field": "person_b",
+              "src_person_uuid": "relationship_person_b_src_ds.uuid"
+            }
+          }
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "creator",
+              "src_user_uuid": "relationship_creator_src_ds.uuid",
+              "src_username": "relationship_creator_src_ds.username",
+              "apply_condition": ""
+            }
+          }
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "changed_by",
+              "src_user_uuid": "relationship_changed_by_src_ds.uuid",
+              "src_username": "relationship_changed_by_src_ds.username",
+              "apply_condition": "relationship_src_ds.changed_by != null"
+            }
+          }
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "voided_by",
+              "src_user_uuid": "relationship_voided_by_src_ds.uuid",
+              "src_username": "relationship_voided_by_src_ds.username",
+              "apply_condition": "relationship_src_ds.voided_by != null"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "applyCondition": "table_name='allergy'",
+  "srcConf": {
+    "template": {
+      "name": "sisrme_src_ds",
+      "parameters": {
+        "aliases_prefix": "allergy",
+        "main_output_template_name": "allergy_ds_from_json"
+      }
+    },
+    "excludedFieldsFromObjectDesc": [
+      "entity_payload"
+    ]
+  },
+  "dstConf": [
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "allergy",
+          "src_patient_uuid": "allergy_patient_src_ds.uuid",
+          "dst_aliases_prefix": "coded_allergen",
+          "concept_id": "1605",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:allergy_src_ds.coded_allergen,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "allergy_src_ds.date_created",
+          "date_created": "allergy_src_ds.date_created",
+          "voided": "allergy_src_ds.voided",
+          "void_reason": "allergy_src_ds.void_reason",
+          "uuid": "allergy_src_ds.uuid",
+          "encounter_type_id": "53",
+          "location_id": "@dst_location_id",
+          "filter_condition": "allergy_src_ds.coded_allergen != null",
+          "obs_group_id_transformer": "PARENT_ON_DEMAND_TRANSFORMER(obs,on_demand_check_condition:on_demand_obs_check_condition.sql,template:on_demand_sync_simple_obs, template_param_main_src_aliases_prefix:allergy, template_param_src_patient_uuid:allergy_patient_src_ds.uuid, template_param_main_dst_aliases_prefix:coded_allergen,template_param_aliases_prefix:allergy_obs_group, template_param_concept_id:23897, template_param_obs_datetime:coded_allergen_obs_dst_ds.obs_datetime, template_param_location_id:coded_allergen_obs_dst_ds.location_id, template_param_encounter_type_id:53, template_param_uuid:FAST_SQL_TRANSFORMER(select uuid()),encounter_id:coded_allergen_obs_dst_ds.encounter_id)",
+          "date_voided": "allergy_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "allergy",
+          "src_patient_uuid": "allergy_patient_src_ds.uuid",
+          "dst_aliases_prefix": "non_coded_allergen",
+          "concept_id": "1517",
+          "value_field": "value_text",
+          "value": "allergy_src_ds.non_coded_allergen",
+          "obs_datetime": "allergy_src_ds.date_created",
+          "date_created": "allergy_src_ds.date_created",
+          "voided": "allergy_src_ds.voided",
+          "void_reason": "allergy_src_ds.void_reason",
+          "uuid": "allergy_src_ds.uuid",
+          "encounter_type_id": "53",
+          "location_id": "@dst_location_id",
+          "filter_condition": "allergy_src_ds.non_coded_allergen != null",
+          "obs_group_id_transformer": "PARENT_ON_DEMAND_TRANSFORMER(obs,on_demand_check_condition:on_demand_obs_check_condition.sql,template:on_demand_sync_simple_obs, template_param_main_src_aliases_prefix:allergy, template_param_src_patient_uuid:allergy_patient_src_ds.uuid, template_param_main_dst_aliases_prefix:non_coded_allergen,template_param_aliases_prefix:allergy_obs_group, template_param_concept_id:23897, template_param_obs_datetime:non_coded_allergen_obs_dst_ds.obs_datetime, template_param_location_id:non_coded_allergen_obs_dst_ds.location_id, template_param_encounter_type_id:53, template_param_uuid:FAST_SQL_TRANSFORMER(select uuid()),table_alias:on_demand_no_coded_allergy,encounter_id:non_coded_allergen_obs_dst_ds.encounter_id)",
+          "date_voided": "allergy_src_ds.date_voided"
+        }
+      }
+    }
+  ]
+}

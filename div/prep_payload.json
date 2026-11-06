@@ -1,0 +1,185 @@
+{
+  "patient_id": 157504,
+  "encounters": [
+    {
+      "patient_id": 157504,
+      "visit_id": 352282,
+      "location_id": 900007,
+      "provider_id": 149981,
+      "encounter_role_id": 1,
+      "encounter_datetime": "2026-09-11",
+      "encounter_type_uuid": "prep_follow_up_consultation.encounter_type.uuid",
+      "obs": [
+        {
+          "value_coded": 1066,
+          "concept_id": 234496
+        },
+        {
+          "value_coded": 1066,
+          "concept_id": 1933
+        },
+        {
+          "value_coded": 14458,
+          "concept_id": 234290
+        },
+        {
+          "value_numeric": 45,
+          "concept_id": 231372
+        },
+        {
+          "value_numeric": 50,
+          "concept_id": 231321
+        },
+        {
+          "value_datetime": "2026-05-03",
+          "concept_id": 231373
+        },
+        {
+          "value_datetime": "2026-07-05",
+          "concept_id": 231339
+        },
+        {
+          "value_numeric": 32,
+          "concept_id": 231308
+        },
+        {
+          "concept_uuid": "ec3c09b4-67ba-11f0-a740-d071c8948e0c",
+          "value_numeric": 32
+        },
+        {
+          "concept_uuid": "e1e482ee-1d5f-11e0-b929-000c29ad1d07",
+          "value_coded": 1065
+        },
+        {
+          "concept_uuid": "bc4fe755-fc8f-49b8-9956-baf2477e8313",
+          "value_coded": 1065
+        },
+        {
+          "value_coded": 1065,
+          "concept_id": 165221
+        },
+        {
+          "value_coded": 1065,
+          "concept_id": 165222
+        },
+        {
+          "concept_uuid": "3397b23a-5d7f-4312-9dd6-96950b5313f4",
+          "value_coded": 232851
+        },
+        {
+          "concept_uuid": "3397b23a-5d7f-4312-9dd6-96950b5313f4",
+          "value_coded": 190
+        }
+      ]
+    },
+    {
+      "visit_id": 352282,
+      "encounter_type_uuid": "7b5210a0-922c-40fc-9669-09df1c2d4d2d",
+      "encounter_id": null,
+      "obs": [
+        {
+          "concept_uuid": "79076a41-727e-4382-90b2-446b1d14d3ab",
+          "value_coded": 1065
+        },
+        {
+          "concept_uuid": "c7ac119c-d59d-474d-8334-0c5bdd2e9863",
+          "value_coded": 1040
+        },
+        {
+          "concept_uuid": "52dda3d2-075a-428f-b842-6515e87718d7",
+          "value_coded": 664
+        },
+        {
+          "concept_uuid": "292cbf00-6eda-4756-886f-295d4ee95fa5",
+          "value_datetime": "2026-09-06"
+        }
+      ]
+    },
+    {
+      "patient_id": 157504,
+      "visit_id": 352282,
+      "location_id": 900007,
+      "provider_id": 149981,
+      "encounter_role_id": 1,
+      "encounter_datetime": "2026-09-11",
+      "encounter_type_uuid": "prep_prescription.encounter_type.uuid",
+      "obs": [
+        {
+          "concept_uuid": "gp=prescription_notes.concept.uuid",
+          "value_text": "Notas"
+        },
+        {
+          "concept_uuid": "5911de51-12c2-4d1d-b210-e4c1bcb9e96a",
+          "value_coded": 165517
+        },
+        {
+          "concept_uuid": "48346f5f-724c-4ade-bc72-2acf61d3e098",
+          "value_coded": 234492
+        }
+      ],
+      "order": [
+        {
+          "drug_order": {
+            "drug_id": 189,
+            "dose": 1,
+            "dose_units": 21136,
+            "frequency": 1,
+            "route": 160243,
+            "duration": 1,
+            "duration_units": 1072,
+            "quantity": 1,
+            "dosing_instructions": null
+          }
+        }
+      ]
+    }
+  ],
+  "person_attribute": [
+    {
+      "person_attribute_type_uuid": "7f93a096-8b58-44c6-a3b4-10c9bdbd37cd",
+      "value": [
+        {
+          "attribute_key": "target_group.concept.concept_id",
+          "attribute_value": "6332"
+        }
+      ]
+    },
+    {
+      "person_attribute_type_uuid": "7f93a096-8b58-44c6-a3b4-10c9bdbd37cd",
+      "person_attribute_id": 87915,
+      "voided": true,
+      "void_reason": "removed",
+      "value": []
+    },
+    {
+      "person_attribute_type_uuid": "7f93a096-8b58-44c6-a3b4-10c9bdbd37cd",
+      "person_attribute_id": 87919,
+      "voided": true,
+      "void_reason": "removed",
+      "value": []
+    },
+    {
+      "person_attribute_type_uuid": "7f93a096-8b58-44c6-a3b4-10c9bdbd37cd",
+      "person_attribute_id": 88147,
+      "voided": true,
+      "void_reason": "removed",
+      "value": []
+    },
+    {
+      "person_attribute_type_uuid": "7f93a096-8b58-44c6-a3b4-10c9bdbd37cd",
+      "person_attribute_id": 88268,
+      "voided": true,
+      "void_reason": "removed",
+      "value": []
+    },
+    {
+      "person_attribute_type_uuid": "7f93a096-8b58-44c6-a3b4-10c9bdbd37cd",
+      "person_attribute_id": 91356,
+      "voided": true,
+      "void_reason": "removed",
+      "value": []
+    }
+  ],
+  "orders": [],
+  "service_id": 97
+}

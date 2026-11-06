@@ -1,0 +1,135 @@
+{
+  "name": "encounter_joined_with_obs_to_encounter_and_conditions",
+  "extends": {
+    "name": "encounter_joined_with_obs_to_encounter",
+    "parameters": {
+      "aliases_prefix": "${aliases_prefix}",
+      "patient_id": "0",
+      "encounter_filter_obs_concept_list": "${concept_list}",
+      "location_list": "${location_list}",
+      "dst_location_id": "${dst_location_id}",
+      "src_encounter_type_id": "${src_encounter_type_id}",
+      "dst_encounter_type_id": "${dst_encounter_type_id}",
+      "visit_type_id": "${visit_type_id}",
+      "program_id": "${program_id}",
+      "ignore_patient_id": true,
+      "ignore_location_list": false,
+      "ignore_src_encounter_type_id": false,
+      "ignore_encounter_filter_obs_concept_list": false,
+      "limitToOneResult": false,
+      "extra_condition": "${extra_condition}"
+    }
+  },
+  "parameters": [
+    "concept_list",
+    "location_list",
+    "src_encounter_type_id",
+    "dst_encounter_type_id",
+    "visit_type_id",
+    "program_id",
+    "aliases_prefix",
+    "dst_location_id",
+    "condition_src_field",
+    "extra_condition"
+  ],
+  "template": {
+    "childItemConf": [
+      {
+        "srcConf": {
+          "tableName": "obs",
+          "tableAlias": "${aliases_prefix}_obs_src_ds",
+          "joinExtraCondition": "concept_id in (${concept_list}) and voided = 0"
+        },
+        "dstConf": [
+          {
+            "tableName": "conditions",
+            "tableAlias": "${aliases_prefix}_conditions_dst_ds",
+            "onConflict": "UPDATE_EXISTING",
+            "preferredDataSource": [
+              "${aliases_prefix}_obs_src_ds",
+              "${aliases_prefix}_encounter_dst_ds"
+            ],
+            "ignorableFields": [
+              "additional_detail",
+              "condition_coded_name",
+              "verification_status",
+              "end_date",
+              "previous_version"
+            ],
+            "mapping": [
+              {
+                "srcField": "${condition_src_field}",
+                "dstField": "condition_coded",
+                "relationshipResolutionStrategy": "SKIP"
+              },
+              {
+                "srcField": "value_text",
+                "dstField": "condition_non_coded"
+              },
+              {
+                "srcField": "${aliases_prefix}_obs_src_ds.obs_datetime",
+                "dstField": "onset_date"
+              },
+              {
+                "dstField": "clinical_status",
+                "transformer": "FAST_SQL_TRANSFORMER(select if(${aliases_prefix}_obs_src_ds.value_coded = 1066, 'INACTIVE', 'ACTIVE') clinical_status  from obs where obs_id = ${aliases_prefix}_obs_src_ds.obs_id)"
+              },
+              {
+                "dstField": "uuid",
+                "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:conditions,lookup_condition:condition_coded=${condition_src_field} and onset_date=${aliases_prefix}_obs_src_ds.obs_datetime and patient_id=${aliases_prefix}_obs_src_ds.person_id )"
+              }
+            ]
+          }
+        ],
+        "childItemConf": [
+          {
+            "srcConf": {
+              "tableName": "obs",
+              "tableAlias": "${aliases_prefix}_great_child_obs_src_ds",
+              "joinFields": [
+                {
+                  "srcField": "obs_id",
+                  "dstField": "obs_id"
+                }
+              ]
+            },
+            "dstConf": [
+              {
+                "tableName": "encounter_diagnosis",
+                "onConflict": "UPDATE_EXISTING",
+                "preferredDataSource": [
+                  "${aliases_prefix}_encounter_dst_ds"
+                ],
+                "ignorableFields": [
+                  "diagnosis_coded_name"
+                ],
+                "mapping": [
+                  {
+                    "srcField": "${aliases_prefix}_conditions_dst_ds.condition_coded",
+                    "dstField": "diagnosis_coded"
+                  },
+                  {
+                    "srcField": "${aliases_prefix}_conditions_dst_ds.condition_non_coded",
+                    "dstField": "diagnosis_non_coded"
+                  },
+                  {
+                    "dstField": "certainty",
+                    "transformer": "FAST_SQL_TRANSFORMER(select if(${aliases_prefix}_great_child_obs_src_ds.value_coded = 1066, 'RULED_OUT', 'CONFIRMED') certainty from obs where obs_id = ${aliases_prefix}_great_child_obs_src_ds.obs_id)"
+                  },
+                  {
+                    "srcValue": "1",
+                    "dstField": "rank"
+                  },
+                  {
+                    "srcField": "${aliases_prefix}_great_child_obs_src_ds.uuid",
+                    "dstField": "uuid"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "applyCondition": "table_name='patient_identifier'",
+  "srcConf": {
+    "template": {
+      "name": "sisrme_src_ds",
+      "parameters": {
+        "aliases_prefix": "patient_identifier",
+        "main_output_template_name": "patient_identifier_ds_from_json"
+      }
+    },
+    "excludedFieldsFromObjectDesc": [
+      "entity_payload"
+    ]
+  },
+  "dstConf": [
+    {
+      "tableName": "patient_identifier",
+      "onConflict": "UPDATE_EXISTING",
+      "allowDuplicateDestinationMappings": true,
+      "applyCondition": "patient_identifier_src_ds.identifier_type < 20 or patient_identifier_src_ds.identifier_type = 30",
+      "ignoreNoDstIssue":true,
+      "ignorableFields": [
+        "patient_program_id"
+      ],
+      "preferredDataSource": [
+        "patient_identifier_src_ds"
+      ],
+      "mapping": [
+        {
+          "dstField": "identifier_type",
+          "transformer": "PARENT_ON_DEMAND_LOAD_WITH_DEFAULTS_TRANSFORMER(patient_identifier_type,on_demand_check_condition:patient_identifier_type_id=patient_identifier_src_ds.identifier_type,auto_increment_handling_type:IGNORE_SCHEMA_DEFINITION,patient_identifier_type_id:COALESCE_TRANSFORMER(patient_identifier_src_ds.identifier_type,patient_identifier_src_ds.identifier_type),uuid:patient_identifier_patient_identifier_type_src_ds.uuid)",
+          "applyCondition": "patient_identifier_src_ds.identifier_type < 20"
+        },
+        {
+          "srcValue": "2",
+          "dstField": "identifier_type",
+          "applyCondition": "patient_identifier_src_ds.identifier_type = 30"
+        },
+        {
+          "srcField": "patient_identifier_location_dst_ds.location_id",
+          "dstField": "location_id",
+          "applyCondition": "patient_identifier_src_ds.location_id != null"
+        },
+        {
+          "dstField": "location_id",
+          "transformer": "NULL_VALUE_TRANSFORMER()",
+          "applyCondition": "patient_identifier_src_ds.location_id = null"
+        },
+        {
+          "template": {
+            "name": "dst_patient_mapped_to_patient_placeholder",
+            "parameters": {
+              "dst_patient_field": "patient_id",
+              "src_patient_uuid": "patient_identifier_patient_src_ds.uuid"
+            }
+          }
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "creator",
+              "src_user_uuid": "patient_identifier_creator_src_ds.uuid",
+              "src_username": "patient_identifier_creator_src_ds.username",
+              "apply_condition": ""
+            }
+          }
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "voided_by",
+              "src_user_uuid": "patient_identifier_voided_by_src_ds.uuid",
+              "src_username": "patient_identifier_voided_by_src_ds.username",
+              "apply_condition": "patient_identifier_src_ds.voided = 1"
+            }
+          }
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "changed_by",
+              "src_user_uuid": "patient_identifier_changed_by_src_ds.uuid",
+              "src_username": "patient_identifier_changed_by_src_ds.username",
+              "apply_condition": "patient_identifier_src_ds.changed_by != null"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "template": {
+        "name": "dst_index_update_staging",
+        "parameters": {
+          "resource_type": "patient_identifier",
+          "record_uuid": "patient_identifier_src_ds.uuid"
+        }
+      }
+    }    
+  ]
+}

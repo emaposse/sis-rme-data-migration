@@ -1,0 +1,384 @@
+{
+  "patient_id": 52,
+  "encounters": [
+    {
+      "visit_id": 43,
+      "encounter_datetime": "2026-03-19",
+      "encounter_type_uuid": "c3e5ea34-43b6-486b-9e86-e8447ca8c046",
+      "encounter_id": null,
+      "obs": [
+        {
+          "concept_uuid": "794ef662-03bc-4e22-90ff-38742b82827a",
+          "value_coded": 1066
+        }
+      ]
+    },
+    {
+      "visit_id": 43,
+      "encounter_datetime": "2026-03-19",
+      "encounter_type_uuid": "b69f938c-4c51-412e-bda2-6be2a38804bf",
+      "encounter_id": null,
+      "obs": [
+        {
+          "value_coded": 1066,
+          "concept_id": 232616
+        },
+        {
+          "value_coded": 1066,
+          "concept_id": 23758
+        }
+      ]
+    },
+    {
+      "obs": [
+        {
+          "value_coded": 1066,
+          "concept_id": 231436
+        },
+        {
+          "value_coded": 1066,
+          "concept_id": 5706
+        },
+        {
+          "value_text": "queixa principal",
+          "concept_id": 231362
+        },
+        {
+          "value_text": "adasdasd",
+          "concept_id": 231332
+        },
+        {
+          "value_text": "dasdasdsad",
+          "concept_id": 231329
+        },
+        {
+          "value_text": "Estado geral ",
+          "concept_id": 231335
+        },
+        {
+          "value_coded": 231527,
+          "concept_id": 231313
+        },
+        {
+          "value_coded": 231529,
+          "concept_id": 231312
+        },
+        {
+          "value_coded": 231626,
+          "concept_id": 231311
+        },
+        {
+          "value_text": "123",
+          "concept_id": 231463
+        },
+        {
+          "value_text": "123",
+          "concept_id": 1121
+        },
+        {
+          "value_text": "123",
+          "concept_id": 231381
+        },
+        {
+          "value_text": "152",
+          "concept_id": 231386
+        },
+        {
+          "value_text": "147",
+          "concept_id": 231387
+        },
+        {
+          "value_text": "159",
+          "concept_id": 231384
+        },
+        {
+          "value_text": "123",
+          "concept_id": 231388
+        },
+        {
+          "value_text": "145",
+          "concept_id": 231389
+        },
+        {
+          "value_text": "Dede",
+          "concept_id": 1125
+        },
+        {
+          "value_text": "Poper",
+          "concept_id": 231464
+        },
+        {
+          "value_text": "14789",
+          "concept_id": 231390
+        },
+        {
+          "value_text": "13",
+          "concept_id": 231346
+        },
+        {
+          "value_text": "Reflexos",
+          "concept_id": 231393
+        },
+        {
+          "value_text": "Tonus",
+          "concept_id": 231323
+        },
+        {
+          "value_text": "Forca",
+          "concept_id": 231394
+        },
+        {
+          "value_text": "Marcha",
+          "concept_id": 231315
+        },
+        {
+          "value_text": "Fala",
+          "concept_id": 231299
+        },
+        {
+          "value_text": "Pupilas",
+          "concept_id": 231395
+        },
+        {
+          "value_text": "observacoes",
+          "concept_id": 231336
+        },
+        {
+          "concept_uuid": "e1e53c02-1d5f-11e0-b929-000c29ad1d07",
+          "value_coded": 1205
+        },
+        {
+          "concept_uuid": "e1d1a6d8-1d5f-11e0-b929-000c29ad1d07",
+          "value_coded": 190
+        },
+        {
+          "value_numeric": 123,
+          "concept_id": 5089
+        },
+        {
+          "value_numeric": 123,
+          "concept_id": 5090
+        },
+        {
+          "value_numeric": 123,
+          "concept_id": 5314
+        },
+        {
+          "value_numeric": 123,
+          "concept_id": 231377
+        },
+        {
+          "value_numeric": 123,
+          "concept_id": 1343
+        },
+        {
+          "value_coded": 231534,
+          "concept_id": 231378
+        },
+        {
+          "value_numeric": 81.3,
+          "concept_id": 201826
+        },
+        {
+          "value_coded": 8667,
+          "concept_id": 231379
+        },
+        {
+          "concept_uuid": "bebcfbe3-bb5b-4c5c-a41e-808fc4457fc3",
+          "child_obs": [
+            {
+              "concept_uuid": "40a9a12b-1205-4a55-bb93-caf15452bf61",
+              "value_coded": 165175
+            },
+            {
+              "concept_uuid": "fef178f2-d4c9-4035-9989-11c9afe81ea3",
+              "value_coded": 1256
+            }
+          ]
+        },
+        {
+          "concept_uuid": "bebcfbe3-bb5b-4c5c-a41e-808fc4457fc3",
+          "child_obs": [
+            {
+              "concept_uuid": "40a9a12b-1205-4a55-bb93-caf15452bf61",
+              "value_coded": 165183
+            },
+            {
+              "concept_uuid": "fef178f2-d4c9-4035-9989-11c9afe81ea3",
+              "value_coded": 1257
+            }
+          ]
+        },
+        {
+          "concept_uuid": "bebcfbe3-bb5b-4c5c-a41e-808fc4457fc3",
+          "child_obs": [
+            {
+              "concept_uuid": "40a9a12b-1205-4a55-bb93-caf15452bf61",
+              "value_coded": 23732,
+              "comments": "Outro MDS"
+            },
+            {
+              "concept_uuid": "fef178f2-d4c9-4035-9989-11c9afe81ea3",
+              "value_coded": 1258
+            }
+          ]
+        },
+        {
+          "concept_uuid": "618fc87d-7b1e-4030-899e-bdf97cd07b3b",
+          "child_obs": [
+            {
+              "concept_uuid": "c4d61165-f1bb-46e3-b472-4c57f29b379e",
+              "value_coded": "e1d058aa-1d5f-11e0-b929-000c29ad1d07"
+            },
+            {
+              "concept_uuid": "e1e07ece-1d5f-11e0-b929-000c29ad1d07",
+              "value_coded": 6292
+            },
+            {
+              "concept_uuid": "9f101953-229c-4744-8dc4-e155a2e5ccdc",
+              "value_coded": 1499
+            }
+          ]
+        },
+        {
+          "concept_uuid": "618fc87d-7b1e-4030-899e-bdf97cd07b3b",
+          "child_obs": [
+            {
+              "concept_uuid": "c4d61165-f1bb-46e3-b472-4c57f29b379e",
+              "value_coded": 1517,
+              "comments": "Medicamento efeito outro"
+            },
+            {
+              "concept_uuid": "e1e07ece-1d5f-11e0-b929-000c29ad1d07",
+              "value_coded": 6299
+            },
+            {
+              "concept_uuid": "9f101953-229c-4744-8dc4-e155a2e5ccdc",
+              "value_coded": 1499
+            }
+          ]
+        }
+      ],
+      "patient_id": 52,
+      "visit_id": 43,
+      "location_id": 1904,
+      "encounter_type_uuid": "art_initial_consultation.encounter_type.uuid",
+      "provider_id": 1,
+      "encounter_role_id": 1,
+      "encounter_datetime": "2026-03-19"
+    },
+    {
+      "patient_id": 52,
+      "visit_id": 43,
+      "location_id": 1904,
+      "encounter_type_uuid": "299e315b-ebb6-4048-9595-7dc5bc3866e7",
+      "provider_id": 1,
+      "encounter_role_id": 1,
+      "vital_sign": {
+        "temperature": 36,
+        "heart_rate": 36,
+        "respiratory_rate": 60,
+        "oxygen_saturation": 60,
+        "blood_pressure_systolic": 120,
+        "blood_pressure_diastolic": 80
+      },
+      "encounter_datetime": "2026-03-19"
+    },
+    {
+      "patient_id": 52,
+      "visit_id": 43,
+      "location_id": 1904,
+      "encounter_type_uuid": "dah.encounter_type.uuid",
+      "provider_id": 1,
+      "encounter_role_id": 1,
+      "obs": [
+        {
+          "value_coded": 1065,
+          "concept_id": 20294
+        },
+        {
+          "concept_uuid": "82215362-c2d0-42f2-b503-efa995225351",
+          "value_coded": 232951
+        },
+        {
+          "concept_id": 233906,
+          "child_obs": [
+            {
+              "concept_uuid": "afb34479-754a-40dd-9437-cc46f09ea782",
+              "value_coded": 165407
+            },
+            {
+              "concept_uuid": "3f63bbac-f1fd-4e5f-b818-c92e2378f5ff",
+              "value_datetime": "2026-03-18"
+            },
+            {
+              "concept_uuid": "14b7bec9-3ef0-4921-abdc-6d09eb367f70",
+              "value_datetime": "2026-03-20"
+            }
+          ]
+        }
+      ],
+      "encounter_datetime": "2026-03-19"
+    },
+    {
+      "visit_id": 43,
+      "encounter_type_gp": "diagnosis.encounter_type.uuid",
+      "diagnosis": [
+        {
+          "certainty": "PROVISIONAL",
+          "condition": {
+            "condition_coded": 20081,
+            "additional_detail": "Mais observacoes ",
+            "clinical_status": "ACTIVE",
+            "onset_date": "2026-03-19"
+          }
+        }
+      ],
+      "obs": []
+    }
+  ],
+  "allergies": [
+    {
+      "allergen": {
+        "uuid": "e1cf2944-1d5f-11e0-b929-000c29ad1d07"
+      },
+      "severity": {
+        "uuid": "1499AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      },
+      "reactions": [
+        {
+          "reaction": {
+            "uuid": "143264AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+          }
+        },
+        {
+          "reaction": {
+            "uuid": "159098AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+          }
+        }
+      ]
+    },
+    {
+      "allergen": {
+        "uuid": "Medicamento outro"
+      },
+      "severity": {
+        "uuid": "1498AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      },
+      "reactions": [
+        {
+          "reaction": {
+            "uuid": "143264AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+          }
+        },
+        {
+          "reaction": {
+            "uuid": "159098AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+          }
+        }
+      ]
+    }
+  ],
+  "person_attribute": [],
+  "conditions": []
+}

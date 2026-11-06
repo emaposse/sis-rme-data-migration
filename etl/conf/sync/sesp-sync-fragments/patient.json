@@ -1,0 +1,81 @@
+{
+  "applyCondition": "table_name='patient'",
+  "srcConf": {
+    "template": {
+      "name": "sisrme_src_ds",
+      "parameters": {
+        "aliases_prefix": "patient",
+        "main_output_template_name": "patient_ds_from_json"
+      }
+    },
+    "excludedFieldsFromObjectDesc": [
+      "entity_payload"
+    ]
+  },
+  "dstConf": [
+    {
+      "tableName": "patient",
+      "onConflict": "UPDATE_EXISTING",
+      "identifiedRecordAction": "UPDATE",
+      "preferredDataSource": [
+        "patient_src_ds"
+      ],
+      "mapping": [
+        {
+          "template": {
+            "name": "dst_person_mapped_to_person_placeholder",
+            "parameters": {
+              "dst_person_field": "patient_id",
+              "src_person_uuid": "patient_src_ds.uuid"
+            }
+          }
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "creator",
+              "src_user_uuid": "patient_creator_src_ds.uuid",
+              "src_username": "patient_creator_src_ds.username",
+              "apply_condition": ""
+            }
+          }
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "voided_by",
+              "src_user_uuid": "patient_voided_by_src_ds.uuid",
+              "src_username": "patient_voided_by_src_ds.username",
+              "apply_condition": "patient_src_ds.voided = 1"
+            }
+          }
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "changed_by",
+              "src_user_uuid": "patient_changed_by_src_ds.uuid",
+              "src_username": "patient_changed_by_src_ds.username",
+              "apply_condition": "patient_src_ds.changed_by != null"
+            }
+          }
+        }
+      ],
+      "ignorableFields": [
+        "dde_sync_pending"
+      ]
+    },
+    {
+      "template": {
+        "name": "dst_index_update_staging",
+        "parameters": {
+          "resource_type": "patient",
+          "record_uuid": "patient_src_ds.uuid"
+        }
+      }
+    }
+  ]
+}

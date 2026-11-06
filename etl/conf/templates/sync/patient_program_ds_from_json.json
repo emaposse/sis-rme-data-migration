@@ -1,0 +1,24 @@
+{
+  "name": "patient_program_ds_from_json",
+  "template": {
+    "fields": [
+      "patient_program_id",
+      "patient_id",
+      "program_id",
+      "date_enrolled",
+      "date_completed",
+      "creator",
+      "date_created",
+      "changed_by",
+      "date_changed",
+      "voided",
+      "voided_by",
+      "date_voided",
+      "void_reason",
+      "uuid",
+      "location_id",
+      "outcome_concept_id",
+      "idart"
+    ]
+  }
+}

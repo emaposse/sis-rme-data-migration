@@ -1,0 +1,286 @@
+{
+  "formatVersion": 2,
+  "key": {
+    "logicalDatabaseId": "openmrs_2_6_sisrme",
+    "databaseDialect": "",
+    "catalog": "",
+    "schema": "",
+    "tableName": "provider"
+  },
+  "columns": [
+    {
+      "name": "provider_id",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": true,
+      "timestamp": false
+    },
+    {
+      "name": "encounter_role_id",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "person_id",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "name",
+      "dataType": "VARCHAR",
+      "length": 255,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "identifier",
+      "dataType": "VARCHAR",
+      "length": 255,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "creator",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "date_created",
+      "dataType": "DATETIME",
+      "length": 19,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "changed_by",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "date_changed",
+      "dataType": "DATETIME",
+      "length": 19,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "retired",
+      "dataType": "BIT",
+      "length": 1,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "retired_by",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "date_retired",
+      "dataType": "DATETIME",
+      "length": 19,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "retire_reason",
+      "dataType": "VARCHAR",
+      "length": 255,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "uuid",
+      "dataType": "CHAR",
+      "length": 38,
+      "decimalDigits": 0,
+      "nullable": false,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "provider_role_id",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "role_id",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    },
+    {
+      "name": "speciality_id",
+      "dataType": "INT",
+      "length": 10,
+      "decimalDigits": 0,
+      "nullable": true,
+      "autoIncrement": false,
+      "timestamp": false
+    }
+  ],
+  "primaryKey": {
+    "name": "pk",
+    "columns": [
+      {
+        "name": "provider_id",
+        "dataType": "INT"
+      }
+    ],
+    "manuallyConfigured": true
+  },
+  "uniqueKeys": [
+    {
+      "name": "uuid",
+      "columns": [
+        {
+          "name": "uuid",
+          "dataType": "CHAR"
+        }
+      ],
+      "manuallyConfigured": false
+    }
+  ],
+  "importedForeignKeys": [
+    {
+      "name": "provider_role_id_fk",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "concept",
+      "mappings": [
+        {
+          "childColumn": "role_id",
+          "parentColumn": "concept_id"
+        }
+      ]
+    },
+    {
+      "name": "provider_speciality_id_fk",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "concept",
+      "mappings": [
+        {
+          "childColumn": "speciality_id",
+          "parentColumn": "concept_id"
+        }
+      ]
+    },
+    {
+      "name": "fk_provider_encounter_role",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "encounter_role",
+      "mappings": [
+        {
+          "childColumn": "encounter_role_id",
+          "parentColumn": "encounter_role_id"
+        }
+      ]
+    },
+    {
+      "name": "provider_person_id_fk",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "person",
+      "mappings": [
+        {
+          "childColumn": "person_id",
+          "parentColumn": "person_id"
+        }
+      ]
+    },
+    {
+      "name": "provider_ibfk_1",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "providermanagement_provider_role",
+      "mappings": [
+        {
+          "childColumn": "provider_role_id",
+          "parentColumn": "provider_role_id"
+        }
+      ]
+    },
+    {
+      "name": "provider_changed_by_fk",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "users",
+      "mappings": [
+        {
+          "childColumn": "changed_by",
+          "parentColumn": "user_id"
+        }
+      ]
+    },
+    {
+      "name": "provider_creator_fk",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "users",
+      "mappings": [
+        {
+          "childColumn": "creator",
+          "parentColumn": "user_id"
+        }
+      ]
+    },
+    {
+      "name": "provider_retired_by_fk",
+      "referencedCatalog": "",
+      "referencedSchema": "",
+      "referencedTable": "users",
+      "mappings": [
+        {
+          "childColumn": "retired_by",
+          "parentColumn": "user_id"
+        }
+      ]
+    }
+  ],
+  "exportedForeignKeys": []
+}

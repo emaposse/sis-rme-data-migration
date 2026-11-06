@@ -1,0 +1,158 @@
+{
+  "originAppLocationCode": "${location_name}",
+  "etlRootDirectory": "${etl_root_dir}",
+  "syncStageSchema": "data_migration_stage_area",
+  "templatesDir": "templates/migr/*.json",
+  "mainConnInfo": {
+    "dataBaseUserName": "${srcUserName}",
+    "dataBaseUserPassword": "${srcUserPassword}",
+    "connectionURI": "${srcConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "srcConnInfo": {
+    "dataBaseUserName": "${srcUserName}",
+    "dataBaseUserPassword": "${srcUserPassword}",
+    "connectionURI": "${srcConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "maxActiveConnections": "${maxActiveConnections}",
+    "maxIdleConnections": "${maxIdleConnections}",
+    "minIdleConnections": "${minIdleConnections}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "dstConnInfo": {
+    "dataBaseUserName": "${dstUserName}",
+    "dataBaseUserPassword": "${dstUserPassword}",
+    "connectionURI": "${dstConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "databaseSchemaPath": "sis-rme-empty-db.sql",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "maxActiveConnections": "${maxActiveConnections}",
+    "maxIdleConnections": "${maxIdleConnections}",
+    "minIdleConnections": "${minIdleConnections}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "validators": [
+    {
+      "name": "dst_location_is_smi_department",
+      "connectionToUse": "dstConnInfo",
+      "value": {
+        "name": "hiv_destination_location_id",
+        "dataType": "int",
+        "transformer": "FAST_SQL_TRANSFORMER(select service_concept_id from ${dst_db}.clinical_service where location_id = ${hiv_destination_location_id} and service_concept_id = 6274)"
+      },
+      "rule": {
+        "type": "EQUALS",
+        "expectedValue": 6274
+      },
+      "message": "The provided destination location ${hiv_destination_location_id} does not represent a valid hiv  department",
+      "phase": "BEFORE_LOAD",
+      "behavior": "ABORT_PROCESS"
+    },
+    {
+      "name": "dst_tarv_service",
+      "connectionToUse": "dstConnInfo",
+      "value": {
+        "name": "dst_tarv_service_id",
+        "dataType": "int",
+        "transformer": "FAST_SQL_TRANSFORMER(select service_concept_id from ${dst_db}.clinical_service where clinical_service_id = ${dst_tarv_service_id} and location_id = ${hiv_destination_location_id})"
+      },
+      "rule": {
+        "type": "EQUALS",
+        "expectedValue": 6274
+      },
+      "message": "The provided dst_tarv_service_id ${dst_tarv_service_id} does not represent a valid tarv service with department ${hiv_destination_location_id}",
+      "phase": "BEFORE_LOAD",
+      "behavior": "ABORT_PROCESS"
+    }
+  ],
+  "dataModel": {
+    "template": {
+      "name": "data_model_for_${dataModelType}_objects"
+    }
+  },
+  "ignoreAllStartupScripts": "${ignoreAllStartupScripts}",
+  "ignorableStartupScripts": [
+    "delete_duplicated_encounters.sql",
+    "delete_invalid_patient_identifiers.sql",
+    "move_sync_msg_delete_operation.sql",
+    "sync_data_structure.sql"
+  ],
+  "operations": [
+    {
+      "template": {
+        "name": "etl_operations_for_${dataModelType}_datamodel"
+      }
+    }
+  ],
+  "params": {
+    "dst_db": "${dst_db}",
+    "location_to_migrate": "${src_location_list}",
+    "dst_location_id": "${hiv_destination_location_id}",
+    "src_encounter_type_id": "90",
+    "dah_test_result_concept_list": "1695 ,730 ,165515 ,23952 ,165362 ,23951 ,165185,2094,165390",
+    "dah_concept_list": "507 ,165378 ,1413 ,165386 ,165405 ,165379 ,165380 ,165406 ,165407 ,165408 ,165409 ,165410 ,165411 ,165412 ,165413"
+  },
+  "defaultSourceTable": "person",
+  "defaultExceptionBehavior": "${defaultExceptionBehavior}",
+  "defaultInconsistencyBehavior": "${defaultInconsistencyBehavior}",
+  "stageRecordIssueBehavior": "${stageRecordIssueBehavior}",
+  "relatedEtlSrcTables": [
+    "person",
+    "patient",
+    "users",
+    "provider",
+    "location"
+  ],
+  "etlItemConfiguration": [
+    {
+      "disabled": false,
+      "template": {
+        "name": "encounter_joined_with_obs_to_lab_result",
+        "parameters": {
+          "visit_type_id": "48",
+          "program_id": "${tarv_program_id}",
+          "concept_list": "@dah_test_result_concept_list",
+          "location_list": "@location_to_migrate",
+          "dst_location_id": "@dst_location_id",
+          "aliases_prefix": "lab",
+          "src_encounter_type_id": "@src_encounter_type_id",
+          "dst_encounter_type_id": "117",
+          "dst_order_encounter_type_id": "116",
+          "order_type_id": 2,
+          "extra_condition": "${included_patient_extra_condition}"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "encounter_joined_with_obs_to_encounter_and_obs",
+        "parameters": {
+          "visit_type_id": "48",
+          "program_id": "${tarv_program_id}",
+          "concept_list": "@dah_concept_list",
+          "encounter_filter_obs_concept_list": "@dah_concept_list",
+          "location_list": "@location_to_migrate",
+          "dst_location_id": "@dst_location_id",
+          "aliases_prefix": "dha",
+          "src_encounter_type_id": "@src_encounter_type_id",
+          "dst_encounter_type_id": "90",
+          "grouped_concept_list": "0",
+          "order_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "extra_condition": "${included_patient_extra_condition}"
+        },
+        "override": [
+          {
+            "path": "dstConf.mapping",
+            "type": "DELETE_ON_LIST",
+            "match": {
+              "dstField": "uuid"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

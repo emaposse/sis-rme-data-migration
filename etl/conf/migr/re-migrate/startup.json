@@ -1,0 +1,134 @@
+{
+  "originAppLocationCode": "${location_name}",
+  "etlRootDirectory": "${etl_root_dir}",
+  "syncStageSchema": "data_migration_stage_area",
+  "childConfigFilePath": "${etl_root_dir}/conf/migr/re-migrate/demographics_data.json",
+  "templatesDir": "templates/migr/*.json",
+  "mainConnInfo": {
+    "dataBaseUserName": "${srcUserName}",
+    "dataBaseUserPassword": "${srcUserPassword}",
+    "connectionURI": "${srcConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "srcConnInfo": {
+    "dataBaseUserName": "${srcUserName}",
+    "dataBaseUserPassword": "${srcUserPassword}",
+    "connectionURI": "${srcConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "maxActiveConnections": "${maxActiveConnections}",
+    "maxIdleConnections": "${maxIdleConnections}",
+    "minIdleConnections": "${minIdleConnections}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "dstConnInfo": {
+    "dataBaseUserName": "${dstUserName}",
+    "dataBaseUserPassword": "${dstUserPassword}",
+    "connectionURI": "${dstConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "databaseSchemaPath": "sis-rme-empty-db.sql",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "maxActiveConnections": "${maxActiveConnections}",
+    "maxIdleConnections": "${maxIdleConnections}",
+    "minIdleConnections": "${minIdleConnections}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "dataModel": {
+    "template": {
+      "name": "data_model_for_${dataModelType}_objects"
+    }
+  },
+  "ignoreAllStartupScripts": "${ignoreAllStartupScripts}",
+  "ignorableStartupScripts": [
+    "delete_duplicated_encounters.sql",
+    "delete_invalid_patient_identifiers.sql",
+    "move_sync_msg_delete_operation.sql",
+    "sync_data_structure.sql"
+  ],
+  "operations": [
+    {
+      "template": {
+        "name": "etl_operations_for_${dataModelType}_datamodel"
+      }
+    }
+  ],
+  "params": {
+    "dst_db": "${dst_db}",
+    "tb_condition_concept_id": "23761",
+    "cd4_absoluto_concept_id": "1695",
+    "cd4_quantitativo_concept_id": "730",
+    "cd4_semi_quantitativo_concept_id": "165515",
+    "cd4_absoluto_no_inicio_concept_id": "23896",
+    "cd4_quantitativo_no_inicio_concept_id": "165359",
+    "cd4_semi_quantitativo_no_inicio_concept_id": "165519",
+    "location_to_migrate": "${src_location_list}",
+    "data_abertura_ficha_concept_id": "23891",
+    "dst_location_id": "${hiv_destination_location_id}",
+    "src_encounter_type_id": 53,
+    "hiv_pcr_test_concept_id": "1030",
+    "hiv_rapid_test_concept_id": "1040",
+    "tipo_test_hiv_concept_id": "22772",
+    "estadio_oms_actual_concept_id": "5356",
+    "estado_mdc_concept_id": "165323",
+    "modo_dispensa_estado_mdc_concept_id": "165174",
+    "estado_do_mdc_estado_mdc_concept_id": "165322",
+    "rapid_test_concept_id": "1040",
+    "lactante_concept_id": "6332",
+    "gravida_concept_id": "1982",
+    "data_data_proxima_consulta_concept_id": "1410",
+    "data_da_ultima_mestruacao_concept_id": "1465",
+    "data_da_gravidez_concept_id": "1600",
+    "tarv_service_id": "87",
+    "admission_reason_other_concept_id": "202208",
+    "default_provider_id": "1",
+    "default_medical_speciality_concept_id": "233549",
+    "obs_profissao": "1459",
+    "obs_escolaridade": "1443",
+    "obs_confidente_nome": "1740",
+    "obs_confidente_parantesco": "23704",
+    "obs_confidente_telefone": "6224",
+    "obs_confidente_endereco": "2067",
+    "obs_contact_situation_concept_id": "23782",
+    "obs_contact_situation_nome": "23778",
+    "obs_contact_situation_parentesco": "23704",
+    "obs_contact_situation_idade": "23777",
+    "obs_contact_situation_nid": "23781",
+    "generic_obs_concepts": "1459,1443,23782",
+    "obs_confidente_all": "1740,23704,6224,23778",
+    "obs_contact_situation_all": "23778,23704,23777,23781",
+    "obs_allergy_groupping_concepts_id": "1669,23897",
+    "obs_allergy_on_drugs": "1605",
+    "obs_allergy_on_drugs_other": "1517",
+    "obs_allergy_on_drugs_all": "1605,1517",
+    "conditions_concept_id": "1406",
+    "conditions_other_concept_id": "1649",
+    "clinical_non_groupped_concept_id": "23985,165308,5706,6413,23895,1504,1190,23893,23811,1982,5356,23898,165235,23808",
+    "clinical_transformed_concept_id": "6332,23783",
+    "clinical_groupped_concept_id": "21190,1792,21187,1792,21188,1792,6272,6193",
+    "clinical_groupping_concept_id": "23898,165235,165236,23899",
+    "clinical_regime_1a_linha_concept_id": "23898",
+    "clinical_regime_2a_linha_concept_id": "165235",
+    "clinical_regime_3a_linha_concept_id": "165236",
+    "data_inicio_pre_tarv_concept_id": "23808"
+  },
+  "defaultExceptionBehavior": "LOG",
+  "defaultInconsistencyBehavior": "MARK_RECORD_AS_FAILED",
+  "relatedEtlSrcTables": [
+    "person",
+    "patient",
+    "users",
+    "provider",
+    "location"
+  ],
+  "defaultSourceTable": "person",
+  "etlItemConfiguration": [
+    {
+      "disabled": true,
+      "srcConf": {
+        "tableName": "person"
+      }
+    }
+  ]
+}

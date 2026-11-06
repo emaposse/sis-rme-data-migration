@@ -1,0 +1,42 @@
+{
+  "name": "obs_to_person_complex_attribute",
+  "parameters": [
+    "concept_list",
+    "aliases_prefix",
+    "location_list",
+    "src_encounter_type_id",
+    "person_attribute_type_id",
+    "extra_condition"
+  ],
+  "template": {
+    "srcConf": {
+      "tableName": "obs",
+      "tableAlias": "${aliases_prefix}_obs_src_ds",
+      "extraConditionForExtract": "concept_id in (${concept_list}) and location_id in (${location_list}) and voided = 0 and ${extra_condition}",
+      "auxExtractTable": [
+        {
+          "tableName": "encounter",
+          "joinExtraCondition": "encounter_type = ${src_encounter_type_id} and voided = 0 and voided = 0 and location_id in (${location_list})",
+          "joinType": "INNER"
+        }
+      ]
+    },
+    "dstConf": [
+      {
+        "tableName": "person_complex_attribute",
+        "tableAlias": "${aliases_prefix}_person_complex_attribute_dst_ds",
+        "onConflict": "KEEP_EXISTING",
+        "ignorableFields": [
+          "changed_by",
+          "date_changed"
+        ],
+        "mapping": [
+          {
+            "srcField": "${aliases_prefix}_obs_src_ds.uuid",
+            "dstField": "uuid"
+          }
+        ]
+      }
+    ]
+  }
+}

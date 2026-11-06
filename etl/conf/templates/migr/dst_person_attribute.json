@@ -1,0 +1,33 @@
+{
+  "name": "dst_person_attribute",
+  "parameters": [
+    "aliases_prefix",
+    "person_attribute_type_id",
+    "value",
+    "uuid_transformer",
+    "uuid_src_field"
+  ],
+  "template": {
+    "tableName": "person_attribute",
+    "tableAlias": "${aliases_prefix}_person_attribute_dst_ds",
+    "mapping": [
+      {
+        "srcValue": "${person_attribute_type_id}",
+        "dstField": "person_attribute_type_id"
+      },
+      {
+        "srcField": "${value}",
+        "dstField": "value"
+      },
+      {
+        "srcField": "${uuid_src_field}",
+        "dstField": "uuid",
+        "transformer": "${uuid_transformer}"
+      }
+    ],
+    "ignorableFields": [
+      "changed_by",
+      "date_changed"
+    ]
+  }
+}

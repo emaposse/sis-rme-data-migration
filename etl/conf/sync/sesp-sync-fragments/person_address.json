@@ -1,0 +1,99 @@
+{
+  "applyCondition": "table_name='person_address'",
+  "srcConf": {
+    "template": {
+      "name": "sisrme_src_ds",
+      "parameters": {
+        "aliases_prefix": "person_address",
+        "main_output_template_name": "person_address_ds_from_json"
+      }
+    },
+    "excludedFieldsFromObjectDesc": [
+      "entity_payload"
+    ]
+  },
+  "dstConf": [
+    {
+      "tableName": "person_address",
+      "allowDuplicateDestinationMappings": true,
+      "onConflict": "UPDATE_EXISTING",
+      "preferredDataSource": [
+        "person_address_src_ds"
+      ],
+      "mapping": [
+        {
+          "template": {
+            "name": "dst_person_mapped_to_person_placeholder",
+            "parameters": {
+              "dst_person_field": "person_id",
+              "src_person_uuid": "person_address_person_src_ds.uuid"
+            }
+          }
+        },
+        {
+          "srcField": "person_address_county_district_src_ds.name",
+          "dstField": "county_district",
+          "applyCondition": "ETL_CONF_CHECK(conf_name:person_address_county_district_src_ds,operation:EXISTS)"
+        },
+        {
+          "srcField": "person_address_src_ds.county_district",
+          "dstField": "county_district",
+          "applyCondition": "ETL_CONF_CHECK(conf_name:person_address_county_district_src_ds,operation:DOES_NOT_EXIST)"
+        },
+        {
+          "srcField": "person_address_country_src_ds.name",
+          "dstField": "country",
+          "applyCondition": "ETL_CONF_CHECK(conf_name:person_address_country_src_ds,operation:EXISTS)"
+        },
+        {
+          "srcField": "person_address_src_ds.country",
+          "dstField": "country",
+          "applyCondition": "ETL_CONF_CHECK(conf_name:person_address_country_src_ds,operation:DOES_NOT_EXIST)"
+        },
+        {
+          "srcField": "person_address_state_province_src_ds.name",
+          "dstField": "state_province",
+          "applyCondition": "ETL_CONF_CHECK(conf_name:person_address_state_province_src_ds,operation:EXISTS)"
+        },
+        {
+          "srcField": "person_address_src_ds.state_province",
+          "dstField": "state_province",
+          "applyCondition": "ETL_CONF_CHECK(conf_name:person_address_state_province_src_ds,operation:DOES_NOT_EXIST)"
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "creator",
+              "src_user_uuid": "person_address_src_ds.uuid",
+              "src_username": "person_address_creator_src_ds.username",
+              "apply_condition": ""
+            }
+          }
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "changed_by",
+              "src_user_uuid": "person_address_src_ds.uuid",
+              "src_username": "person_address_creator_src_ds.username",
+              "apply_condition": "person_address_src_ds.changed_by != null"
+            }
+          }
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "voided_by",
+              "src_user_uuid": "person_address_src_ds.uuid",
+              "src_username": "person_address_creator_src_ds.username",
+              "apply_condition": "person_address_src_ds.voided_by != null"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

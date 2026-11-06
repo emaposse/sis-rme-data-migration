@@ -1,0 +1,16 @@
+{
+  "name": "src_obs_joined_with_obs",
+  "parameters": [
+    "aliases_prefix"
+  ],
+  "template": {
+    "tableName": "obs",
+    "tableAlias": "${aliases_prefix}_obs_src_ds",
+    "joinFields": [
+      {
+        "srcField": "obs_id",
+        "dstField": "obs_id"
+      }
+    ]
+  }
+}

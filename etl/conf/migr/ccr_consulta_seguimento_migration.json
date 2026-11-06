@@ -1,0 +1,419 @@
+{
+  "originAppLocationCode": "${location_name}",
+  "etlRootDirectory": "${etl_root_dir}",
+  "syncStageSchema": "data_migration_stage_area",
+  "childConfigFilePath": "${etl_root_dir}/conf/migr/ficha_resumo_migration.json",
+  "templatesDir": "templates/migr/*.json",
+  "verifyRecordAfterCreate": false,
+  "mainConnInfo": {
+    "dataBaseUserName": "${srcUserName}",
+    "dataBaseUserPassword": "${srcUserPassword}",
+    "connectionURI": "${srcConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "srcConnInfo": {
+    "dataBaseUserName": "${srcUserName}",
+    "dataBaseUserPassword": "${srcUserPassword}",
+    "connectionURI": "${srcConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "maxActiveConnections": "${maxActiveConnections}",
+    "maxIdleConnections": "${maxIdleConnections}",
+    "minIdleConnections": "${minIdleConnections}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "dstConnInfo": {
+    "dataBaseUserName": "${dstUserName}",
+    "dataBaseUserPassword": "${dstUserPassword}",
+    "connectionURI": "${dstConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "databaseSchemaPath": "sis-rme-empty-db.sql",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "maxActiveConnections": "${maxActiveConnections}",
+    "maxIdleConnections": "${maxIdleConnections}",
+    "minIdleConnections": "${minIdleConnections}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "validators": [
+    {
+      "name": "dst_location_is_smi_department",
+      "connectionToUse": "dstConnInfo",
+      "value": {
+        "name": "smi_destination_location_id",
+        "dataType": "int",
+        "transformer": "FAST_SQL_TRANSFORMER(select service_concept_id from ${dst_db}.clinical_service where location_id = ${smi_destination_location_id} and service_concept_id = 1872)"
+      },
+      "rule": {
+        "type": "EQUALS",
+        "expectedValue": 1872
+      },
+      "message": "The provided destination location ${smi_destination_location_id} does not represent a valid smi department",
+      "phase": "BEFORE_LOAD",
+      "behavior": "ABORT_PROCESS"
+    },
+    {
+      "name": "dst_ccr_service",
+      "connectionToUse": "dstConnInfo",
+      "value": {
+        "name": "dst_ccr_service_id",
+        "dataType": "int",
+        "transformer": "FAST_SQL_TRANSFORMER(select service_concept_id from ${dst_db}.clinical_service where clinical_service_id = ${dst_ccr_service_id} and location_id = ${smi_destination_location_id})"
+      },
+      "rule": {
+        "type": "EQUALS",
+        "expectedValue": 1872
+      },
+      "message": "The provided dst_ccr_service_id ${dst_ccr_service_id} does not represent a valid ccr service with department ${smi_destination_location_id}",
+      "phase": "BEFORE_LOAD",
+      "behavior": "ABORT_PROCESS"
+    }
+  ],
+  "dataModel": {
+    "template": {
+      "name": "data_model_for_${dataModelType}_objects"
+    }
+  },
+  "ignoreAllStartupScripts": "${ignoreAllStartupScripts}",
+  "ignorableStartupScripts": [
+    "delete_duplicated_encounters.sql",
+    "delete_invalid_patient_identifiers.sql",
+    "move_sync_msg_delete_operation.sql",
+    "sync_data_structure.sql"
+  ],
+  "operations": [
+    {
+      "template": {
+        "name": "etl_operations_for_${dataModelType}_datamodel"
+      }
+    }
+  ],
+  "params": {
+    "dst_db": "${dst_db}",
+    "location_to_migrate": "${src_location_list}",
+    "dst_location_id": "${smi_destination_location_id}",
+    "ccr_service_id": "${dst_ccr_service_id}",
+    "default_provider_id": "1",
+    "src_encounter_type_id": "93",
+    "nome_da_mae_concept_id": "1477",
+    "nome_do_pai_concept_id": "1485",
+    "local_trabalho_mae_concept_id": "1834",
+    "local_trabalho_pai_concept_id": "1835",
+    "confidente_concept_id": "2033",
+    "confidente_telefone": "6224",
+    "confidente_aceita_visita_concept_id": "2071",
+    "motivo_de_consulta_crianca_em_risco": "1874",
+    "peso_kg_concept_id": "5089",
+    "altura_cm_concept_id": "5090",
+    "peso_estatura_concept_id": "23756",
+    "perimetro_craniano": "165479",
+    "idade_gestacional_ao_parto": "6400",
+    "tipo_de_aleitamento": "1151",
+    "idade_de_desmame": "1510",
+    "contacto_tb": "1845",
+    "diarreia_concept_id": "16",
+    "tosse_concept_id": "107",
+    "febre_concept_id": "5945",
+    "contacto_exposicao_tb_concept_id": "20076",
+    "rede_mosquiteiras_concept_id": "22251",
+    "outro_historico_actual_concept_id": "165488",
+    "sinais_de_perigo_concept_id": "6398",
+    "palidez_palmar_concept_id": "1879",
+    "edema_concept_id": "460",
+    "candidiase_oral_concept_id": "5334",
+    "adenomegalia_concept_id": "1877",
+    "secrecao_no_ouvido_concept_id": "1878",
+    "desenvolvimento_psicomotor_concept_id": "1882",
+    "pcr_exame_teste_concept_id": "1030",
+    "teste_rapido_hiv_concept_id": "1040",
+    "aleitamento_materno_exclusivo_concept_id": "5526",
+    "aleitamento_artificial_concept_id": "5254",
+    "aleitamento_misto_concept_id": "6046",
+    "agregado_familiar_adultos": "1853",
+    "agregado_familiar_crianca": "1854",
+    "tipo_de_casa": "1858",
+    "fonte_de_agua": "1862",
+    "recebeu_rede_mosquiteira": "1863",
+    "latrina_sanitario": "1864",
+    "tipo_de_alta_ccr": "1873",
+    "keypop_concept_id": "23703",
+    "keypop_other_concept_id": "5622",
+    "lactante_concept_id": "6332",
+    "gestante_concept_id": "1982"
+  },
+  "defaultSourceTable": "person",
+  "defaultExceptionBehavior": "${defaultExceptionBehavior}",
+  "defaultInconsistencyBehavior": "${defaultInconsistencyBehavior}",
+  "relatedEtlSrcTables": [
+    "person",
+    "patient",
+    "users",
+    "provider",
+    "location"
+  ],
+  "etlItemConfiguration": [
+    {
+      "template": {
+        "name": "obs_joined_with_encounter_to_person_attribute",
+        "parameters": {
+          "aliases_prefix": "ccr_nome_mae",
+          "concept_list": "@nome_da_mae_concept_id",
+          "location_list": "@location_to_migrate",
+          "src_encounter_type_id": "@src_encounter_type_id",
+          "person_attribute_type_id": "4",
+          "value_field": "ccr_nome_mae_obs_src_ds.value_text",
+          "value_field_is_date": false,
+          "transformer": "",
+          "extra_condition": "${included_person_extra_condition}"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "obs_joined_with_encounter_to_person_attribute",
+        "parameters": {
+          "aliases_prefix": "ccr_nome_pai",
+          "concept_list": "@nome_do_pai_concept_id",
+          "location_list": "@location_to_migrate",
+          "src_encounter_type_id": "@src_encounter_type_id",
+          "person_attribute_type_id": "83",
+          "value_field": "ccr_nome_pai_obs_src_ds.value_text",
+          "value_field_is_date": false,
+          "transformer": "",
+          "extra_condition": "${included_person_extra_condition}"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "encounter_joined_with_obs_to_encounter_and_obs",
+        "parameters": {
+          "visit_type_id": "75",
+          "program_id": "${ccr_program_id}",
+          "concept_list": "@local_trabalho_mae_concept_id,@local_trabalho_pai_concept_id,@agregado_familiar_adultos,@agregado_familiar_crianca,@tipo_de_casa,@fonte_de_agua,@latrina_sanitario",
+          "encounter_filter_obs_concept_list": "@local_trabalho_mae_concept_id,@local_trabalho_pai_concept_id,@agregado_familiar_adultos,@agregado_familiar_crianca,@tipo_de_casa,@fonte_de_agua,@latrina_sanitario",
+          "location_list": "@location_to_migrate",
+          "dst_location_id": "@dst_location_id",
+          "aliases_prefix": "historico_social_e_comportamental",
+          "src_encounter_type_id": "@src_encounter_type_id",
+          "dst_encounter_type_id": "121",
+          "grouped_concept_list": "0",
+          "order_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "extra_condition": "${included_patient_extra_condition}"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "encounter_joined_with_obs_to_encounter_and_obs",
+        "parameters": {
+          "visit_type_id": "75",
+          "program_id": "${ccr_program_id}",
+          "concept_list": "@peso_kg_concept_id,@altura_cm_concept_id,@peso_estatura_concept_id,@perimetro_craniano",
+          "encounter_filter_obs_concept_list": "@peso_kg_concept_id,@altura_cm_concept_id,@peso_estatura_concept_id,@perimetro_craniano",
+          "location_list": "@location_to_migrate",
+          "dst_location_id": "@dst_location_id",
+          "aliases_prefix": "exame_fisico",
+          "src_encounter_type_id": "@src_encounter_type_id",
+          "dst_encounter_type_id": "142",
+          "grouped_concept_list": "0",
+          "order_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "extra_condition": "${included_patient_extra_condition}"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "encounter_joined_with_obs_to_encounter_and_obs",
+        "parameters": {
+          "visit_type_id": "75",
+          "program_id": "${ccr_program_id}",
+          "concept_list": "@idade_gestacional_ao_parto,@tipo_de_aleitamento,@idade_de_desmame,@teste_rapido_hiv_concept_id,@aleitamento_materno_exclusivo_concept_id,@aleitamento_artificial_concept_id,@aleitamento_misto_concept_id",
+          "encounter_filter_obs_concept_list": "@idade_gestacional_ao_parto,@tipo_de_aleitamento,@idade_de_desmame,@teste_rapido_hiv_concept_id,@aleitamento_materno_exclusivo_concept_id,@aleitamento_artificial_concept_id,@aleitamento_misto_concept_id",
+          "location_list": "@location_to_migrate",
+          "dst_location_id": "@dst_location_id",
+          "aliases_prefix": "historia_medica",
+          "src_encounter_type_id": "@src_encounter_type_id",
+          "dst_encounter_type_id": "120",
+          "grouped_concept_list": "0",
+          "order_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "extra_condition": "${included_patient_extra_condition}"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "encounter_joined_with_obs_to_encounter_and_obs",
+        "parameters": {
+          "visit_type_id": "75",
+          "program_id": "${ccr_program_id}",
+          "concept_list": "@contacto_tb,@diarreia_concept_id,@tosse_concept_id,@febre_concept_id,@contacto_exposicao_tb_concept_id,@rede_mosquiteiras_concept_id,@outro_historico_actual_concept_id,@sinais_de_perigo_concept_id",
+          "encounter_filter_obs_concept_list": "@contacto_tb,@diarreia_concept_id,@tosse_concept_id,@febre_concept_id,@contacto_exposicao_tb_concept_id,@rede_mosquiteiras_concept_id,@outro_historico_actual_concept_id,@sinais_de_perigo_concept_id",
+          "location_list": "@location_to_migrate",
+          "dst_location_id": "@dst_location_id",
+          "aliases_prefix": "anamnese",
+          "src_encounter_type_id": "@src_encounter_type_id",
+          "dst_encounter_type_id": "214",
+          "grouped_concept_list": "0",
+          "order_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "extra_condition": "${included_patient_extra_condition}"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "encounter_joined_with_obs_to_encounter_and_obs",
+        "parameters": {
+          "visit_type_id": "75",
+          "program_id": "${ccr_program_id}",
+          "concept_list": "@palidez_palmar_concept_id,@edema_concept_id,@candidiase_oral_concept_id,@adenomegalia_concept_id,@secrecao_no_ouvido_concept_id,@desenvolvimento_psicomotor_concept_id",
+          "encounter_filter_obs_concept_list": "@palidez_palmar_concept_id,@edema_concept_id,@candidiase_oral_concept_id,@adenomegalia_concept_id,@secrecao_no_ouvido_concept_id,@desenvolvimento_psicomotor_concept_id",
+          "location_list": "@location_to_migrate",
+          "dst_location_id": "@dst_location_id",
+          "aliases_prefix": "exame_segmentar",
+          "src_encounter_type_id": "@src_encounter_type_id",
+          "dst_encounter_type_id": "210",
+          "grouped_concept_list": "0",
+          "order_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "extra_condition": "${included_patient_extra_condition}"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "encounter_joined_with_obs_to_encounter_and_obs",
+        "parameters": {
+          "visit_type_id": "75",
+          "program_id": "${ccr_program_id}",
+          "concept_list": "@pcr_exame_teste_concept_id",
+          "encounter_filter_obs_concept_list": "@pcr_exame_teste_concept_id",
+          "location_list": "@location_to_migrate",
+          "dst_location_id": "@dst_location_id",
+          "aliases_prefix": "rastreio_hiv",
+          "src_encounter_type_id": "@src_encounter_type_id",
+          "dst_encounter_type_id": "184",
+          "grouped_concept_list": "0",
+          "order_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "extra_condition": "${included_patient_extra_condition}"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "encounter_joined_with_obs_to_encounter_and_obs",
+        "parameters": {
+          "visit_type_id": "75",
+          "program_id": "${ccr_program_id}",
+          "concept_list": "@recebeu_rede_mosquiteira",
+          "encounter_filter_obs_concept_list": "@recebeu_rede_mosquiteira",
+          "location_list": "@location_to_migrate",
+          "dst_location_id": "@dst_location_id",
+          "aliases_prefix": "prevencao_mulher_gravida",
+          "src_encounter_type_id": "@src_encounter_type_id",
+          "dst_encounter_type_id": "144",
+          "grouped_concept_list": "0",
+          "order_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "extra_condition": "${included_patient_extra_condition}"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "encounter_joined_with_obs_to_encounter_and_obs",
+        "parameters": {
+          "visit_type_id": "75",
+          "program_id": "${ccr_program_id}",
+          "concept_list": "@tipo_de_alta_ccr",
+          "encounter_filter_obs_concept_list": "@tipo_de_alta_ccr",
+          "location_list": "@location_to_migrate",
+          "dst_location_id": "@dst_location_id",
+          "aliases_prefix": "alta_medica",
+          "src_encounter_type_id": "@src_encounter_type_id",
+          "dst_encounter_type_id": "112",
+          "grouped_concept_list": "0",
+          "order_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "extra_condition": "${included_patient_extra_condition}"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "encounter_joined_with_obs_to_person_complex_attribute_and_person_attribute",
+        "parameters": {
+          "aliases_prefix": "contacto_referencia",
+          "concept_list": "@confidente_concept_id,@confidente_telefone,@confidente_aceita_visita_concept_id",
+          "location_list": "@location_to_migrate",
+          "src_encounter_type_id": "@src_encounter_type_id",
+          "person_attribute_type_id": "109",
+          "extra_condition": "${included_patient_extra_condition}"
+        }
+      },
+      "childItemConf": [
+        {
+          "srcConf": {
+            "tableName": "obs",
+            "tableAlias": "contacto_referencia_inner_obs_src_ds",
+            "joinExtraCondition": "concept_id in (@confidente_concept_id,@confidente_telefone,@confidente_aceita_visita_concept_id)",
+            "joinFields": [
+              {
+                "srcField": "encounter_id",
+                "dstField": "encounter_id"
+              }
+            ]
+          },
+          "dstConf": [
+            {
+              "template": {
+                "name": "dst_person_complex_attribute_detail_from_obs",
+                "parameters": {
+                  "src_aliases_prefix": "contacto_referencia_inner",
+                  "dst_aliases_prefix": "contacto_referencia_nome",
+                  "src_object_condition": "concept_id = @confidente_concept_id",
+                  "attribute_key": "sisrme.reference_contact_information.full_name.text",
+                  "attribute_value": "contacto_referencia_inner_obs_src_ds.value_text"
+                }
+              }
+            },
+            {
+              "template": {
+                "name": "dst_person_complex_attribute_detail_from_obs",
+                "parameters": {
+                  "src_aliases_prefix": "contacto_referencia_inner",
+                  "dst_aliases_prefix": "contacto_referencia_type",
+                  "src_object_condition": "concept_id = @confidente_concept_id",
+                  "attribute_key": "sisrme.reference_contact_information.type_of_contact_person.concept.concept_id",
+                  "attribute_value": "FAST_SQL_TRANSFORMER(SELECT 2033)"
+                }
+              }
+            },
+            {
+              "template": {
+                "name": "dst_person_complex_attribute_detail_from_obs",
+                "parameters": {
+                  "src_aliases_prefix": "contacto_referencia_inner",
+                  "dst_aliases_prefix": "contacto_referencia_telefone",
+                  "src_object_condition": "concept_id = @confidente_telefone",
+                  "attribute_key": "sisrme.reference_contact_information.phone_number.numeric",
+                  "attribute_value": "contacto_referencia_inner_obs_src_ds.value_text"
+                }
+              }
+            },
+            {
+              "template": {
+                "name": "dst_person_complex_attribute_detail_from_obs",
+                "parameters": {
+                  "src_aliases_prefix": "contacto_referencia_inner",
+                  "dst_aliases_prefix": "contacto_referencia_aceita_visita",
+                  "src_object_condition": "concept_id = @confidente_aceita_visita_concept_id",
+                  "attribute_key": "sisrme.reference_contact_information.homevisit_contact_method.concept.concept_id",
+                  "attribute_value": "contacto_referencia_inner_obs_src_ds.value_coded"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

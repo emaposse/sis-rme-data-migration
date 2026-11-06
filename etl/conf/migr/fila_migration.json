@@ -1,0 +1,137 @@
+{
+  "originAppLocationCode": "${location_name}",
+  "etlRootDirectory": "${etl_root_dir}",
+  "syncStageSchema": "data_migration_stage_area",
+  "childConfigFilePath": "${etl_root_dir}/conf/migr/elab_migration.json",
+  "templatesDir": "templates/migr/*.json",
+  "mainConnInfo": {
+    "dataBaseUserName": "${srcUserName}",
+    "dataBaseUserPassword": "${srcUserPassword}",
+    "connectionURI": "${srcConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "srcConnInfo": {
+    "dataBaseUserName": "${srcUserName}",
+    "dataBaseUserPassword": "${srcUserPassword}",
+    "connectionURI": "${srcConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "maxActiveConnections": "${maxActiveConnections}",
+    "maxIdleConnections": "${maxIdleConnections}",
+    "minIdleConnections": "${minIdleConnections}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "dstConnInfo": {
+    "dataBaseUserName": "${dstUserName}",
+    "dataBaseUserPassword": "${dstUserPassword}",
+    "connectionURI": "${dstConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "databaseSchemaPath": "sis-rme-empty-db.sql",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "maxActiveConnections": "${maxActiveConnections}",
+    "maxIdleConnections": "${maxIdleConnections}",
+    "minIdleConnections": "${minIdleConnections}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "validators": [
+    {
+      "name": "dst_location_is_smi_department",
+      "connectionToUse": "dstConnInfo",
+      "value": {
+        "name": "hiv_destination_location_id",
+        "dataType": "int",
+        "transformer": "FAST_SQL_TRANSFORMER(select service_concept_id from ${dst_db}.clinical_service where location_id = ${hiv_destination_location_id} and service_concept_id = 6274)"
+      },
+      "rule": {
+        "type": "EQUALS",
+        "expectedValue": 6274
+      },
+      "message": "The provided destination location ${hiv_destination_location_id} does not represent a valid hiv  department",
+      "phase": "BEFORE_LOAD",
+      "behavior": "ABORT_PROCESS"
+    },
+    {
+      "name": "dst_tarv_service",
+      "connectionToUse": "dstConnInfo",
+      "value": {
+        "name": "dst_tarv_service_id",
+        "dataType": "int",
+        "transformer": "FAST_SQL_TRANSFORMER(select service_concept_id from ${dst_db}.clinical_service where clinical_service_id = ${dst_tarv_service_id} and location_id = ${hiv_destination_location_id})"
+      },
+      "rule": {
+        "type": "EQUALS",
+        "expectedValue": 6274
+      },
+      "message": "The provided dst_tarv_service_id ${dst_tarv_service_id} does not represent a valid tarv service with department ${hiv_destination_location_id}",
+      "phase": "BEFORE_LOAD",
+      "behavior": "ABORT_PROCESS"
+    }
+  ],
+  "dataModel": {
+    "template": {
+      "name": "data_model_for_${dataModelType}_objects"
+    }
+  },
+  "ignoreAllStartupScripts": "${ignoreAllStartupScripts}",
+  "ignorableStartupScripts": [
+    "delete_duplicated_encounters.sql",
+    "delete_invalid_patient_identifiers.sql",
+    "move_sync_msg_delete_operation.sql",
+    "sync_data_structure.sql"
+  ],
+  "operations": [
+    {
+      "template": {
+        "name": "etl_operations_for_${dataModelType}_datamodel"
+      }
+    }
+  ],
+  "params": {
+    "dst_db": "${dst_db}",
+    "formulacao_concept_id": "1088",
+    "next_pickup_date_concept_id": "5096",
+    "dispense_mode_concept_id": "165174",
+    "location_to_migrate": "${src_location_list}",
+    "data_abertura_ficha_concept_id": "23891",
+    "dst_location_id": "${hiv_destination_location_id}",
+    "src_encounter_type_id": 18,
+    "dst_encounter_type_id": 17,
+    "arv_prescription_order_type_id": 11
+  },
+  "defaultSourceTable": "person",
+  "defaultExceptionBehavior": "${defaultExceptionBehavior}",
+  "defaultInconsistencyBehavior": "${defaultInconsistencyBehavior}",
+  "stageRecordIssueBehavior": "${stageRecordIssueBehavior}",
+  "relatedEtlSrcTables": [
+    "person",
+    "patient",
+    "users",
+    "provider",
+    "location"
+  ],
+  "etlItemConfiguration": [
+    {
+      "template": {
+        "name": "encounter_joined_with_obs_to_prescription",
+        "parameters": {
+          "visit_type_id": "48",
+          "program_id": "${tarv_program_id}",
+          "concept_list": "@formulacao_concept_id,@next_pickup_date_concept_id,@dispense_mode_concept_id",
+          "location_list": "@location_to_migrate",
+          "aliases_prefix": "prescription",
+          "src_encounter_type_id": "@src_encounter_type_id",
+          "dst_encounter_type_id": "@dst_encounter_type_id",
+          "dst_location_id": "@dst_location_id",
+          "order_type_id": "@arv_prescription_order_type_id",
+          "prescription_header_script": "fila_prescription_header_data_ds.sql",
+          "prescription_item_script": "fila_prescription_item_data_ds.sql",
+          "extra_condition": "${included_patient_extra_condition}",
+          "encounter_uuid": "prescription_encounter_src_ds.uuid",
+          "main_prescription_obs_condition": "concept_id = 165252 and voided = 0 and  1 = (select 1 from obs as prescription_child_obs_01 where prescription_child_obs_01.voided = 0 and prescription_child_obs_01.concept_id = 165256 and prescription_child_obs_01.obs_group_id = prescription_groupping_obs_ds.obs_id  limit 1)  and 1 = (select 1 from obs as prescription_child_obs  where prescription_child_obs.voided = 0 and prescription_child_obs.concept_id in (1715, 1711, 165263) and prescription_child_obs.obs_group_id = prescription_groupping_obs_ds.obs_id  limit 1)"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,218 @@
+{
+  "name": "encounter_joined_with_obs_to_prep_prescription",
+  "extends": {
+    "name": "encounter_joined_with_obs_to_prescription",
+    "parameters": {
+      "visit_type_id": "48",
+      "program_id": "${program_id}",
+      "concept_list": "${concept_list}",
+      "location_list": "${location_list}",
+      "aliases_prefix": "${aliases_prefix}",
+      "src_encounter_type_id": "${src_encounter_type_id}",
+      "dst_encounter_type_id": "${dst_encounter_type_id}",
+      "dst_location_id": "${dst_location_id}",
+      "order_type_id": "${order_type_id}",
+      "prescription_header_script": "prep_prescription_header_data_ds.sql",
+      "prescription_item_script": "prep_prescription_item_data_ds.sql",
+      "encounter_uuid": "UUID_ON_DEMAND_TRANSFORMER(table_name:encounter,lookup_condition:encounter_type=${dst_encounter_type_id} and patient_id = ${aliases_prefix}_encounter_src_ds.patient_id and encounter_datetime = ${aliases_prefix}_encounter_src_ds.encounter_datetime)",
+      "extra_condition": "${extra_condition}",
+      "main_prescription_obs_condition": "concept_id = @prep_regime_concept_id and voided = 0"
+    }
+  },
+  "parameters": [
+    "visit_type_id",
+    "program_id",
+    "concept_list",
+    "location_list",
+    "aliases_prefix",
+    "src_encounter_type_id",
+    "dst_encounter_type_id",
+    "dst_location_id",
+    "order_type_id",
+    "prescription_header_script",
+    "prescription_item_script",
+    "encounter_uuid",
+    "extra_condition",
+    "main_prescription_obs_condition",
+    "estado_prep_concept_id"
+  ],
+  "template": {
+    "childItemConf": [
+      {
+        "srcConf": {
+          "tableName": "obs",
+          "tableAlias": "tipo_prep_obs_src_ds",
+          "joinExtraCondition": "concept_id = @prep_type_concept_id"
+        },
+        "dstConf": [
+          {
+            "tableName": "obs",
+            "tableAlias": "tipo_prep_obs_dst_ds",
+            "onConflict": "UPDATE_EXISTING",
+            "ignorableFields": [
+              "obs_group_id",
+              "value_group_id",
+              "value_coded_name_id",
+              "value_drug",
+              "value_datetime",
+              "value_modifier",
+              "value_complex",
+              "previous_version",
+              "form_namespace_and_path",
+              "interpretation",
+              "order_group_id"
+            ],
+            "mapping":[
+              {
+                "srcField":"${aliases_prefix}_encounter_dst_ds.location_id",
+                "dstField":"location_id"
+              }              
+            ]
+          },
+          {
+            "tableName": "obs",
+            "tableAlias": "estado_prep_obs_dst_ds",
+            "unmappedFieldBehavior": "IGNORE",
+            "onConflict": "UPDATE_EXISTING",
+            "ignorableFields": [
+              "obs_group_id",
+              "value_group_id",
+              "value_coded_name_id",
+              "value_drug",
+              "value_datetime",
+              "value_modifier",
+              "value_complex",
+              "previous_version",
+              "form_namespace_and_path",
+              "interpretation",
+              "order_group_id"
+            ],
+            "mapping": [
+              {
+                "srcValue": "165230",
+                "dstField": "concept_id"
+              },
+              {
+                "srcValue": "${estado_prep_concept_id}",
+                "dstField": "value_coded"
+              },
+              {
+                "srcField":"${aliases_prefix}_encounter_dst_ds.location_id",
+                "dstField":"location_id"
+              },
+              {
+                "dstField": "uuid",
+                "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:obs,lookup_condition:encounter_id=${aliases_prefix}_encounter_dst_ds.encounter_id and concept_id = 165230)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "srcConf": {
+          "tableName": "encounter",
+          "tableAlias": "encounter_for_tipo_prep_src_ds",
+          "joinExtraCondition": "prep_extra_condition_for_auto_prep_type.sql"
+        },
+        "dstConf": [
+          {
+            "tableName": "obs",
+            "tableAlias": "tipo_prep_from_encounter_obs_dst_ds",
+            "mappingResolutionStrategy": "MANUAL_ONLY",
+            "onConflict": "UPDATE_EXISTING",
+            "mapping": [
+              {
+                "srcValue": "@prep_type_concept_id",
+                "dstField": "concept_id"
+              },
+              {
+                "srcValue": "165517",
+                "dstField": "value_coded"
+              },
+              {
+                "srcField": "encounter_for_tipo_prep_src_ds.encounter_datetime",
+                "dstField": "obs_datetime"
+              },
+              {
+                "dstField": "uuid",
+                "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:obs,lookup_condition:encounter_id=${aliases_prefix}_encounter_dst_ds.encounter_id and concept_id = @prep_type_concept_id)"
+              },
+              {
+                "srcField": "${aliases_prefix}_encounter_dst_ds.patient_id",
+                "dstField": "person_id"
+              },
+              {
+                "srcField": "${aliases_prefix}_encounter_dst_ds.location_id",
+                "dstField": "location_id"
+              },
+              {
+                "srcField": "${aliases_prefix}_encounter_dst_ds.creator",
+                "dstField": "creator"
+              },
+              {
+                "srcField": "${aliases_prefix}_encounter_dst_ds.voided",
+                "dstField": "voided"
+              },
+              {
+                "srcField": "${aliases_prefix}_encounter_dst_ds.date_created",
+                "dstField": "date_created"
+              },
+              {
+                "dstField": "status",
+                "transformer": "STRING_TRANSFORMER(input:(FINAL))"
+              }
+            ]
+          },
+          {
+            "tableName": "obs",
+            "tableAlias": "prep_estado_from_encounter_obs_dst_ds",
+            "mappingResolutionStrategy": "MANUAL_ONLY",
+            "onConflict": "UPDATE_EXISTING",
+            "mapping": [
+              {
+                "srcValue": "165230",
+                "dstField": "concept_id"
+              },
+              {
+                "srcValue": "${estado_prep_concept_id}",
+                "dstField": "value_coded"
+              },
+              {
+                "srcField": "encounter_for_tipo_prep_src_ds.encounter_datetime",
+                "dstField": "obs_datetime"
+              },
+              {
+                "dstField": "uuid",
+                "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:obs,lookup_condition:encounter_id=${aliases_prefix}_encounter_dst_ds.encounter_id and concept_id = 165230)"
+              },
+              {
+                "srcField": "${aliases_prefix}_encounter_dst_ds.patient_id",
+                "dstField": "person_id"
+              },
+              {
+                "srcField": "${aliases_prefix}_encounter_dst_ds.location_id",
+                "dstField": "location_id"
+              },
+              {
+                "srcField": "${aliases_prefix}_encounter_dst_ds.creator",
+                "dstField": "creator"
+              },
+              {
+                "srcField": "${aliases_prefix}_encounter_dst_ds.voided",
+                "dstField": "voided"
+              },
+              {
+                "srcField": "${aliases_prefix}_encounter_dst_ds.date_created",
+                "dstField": "date_created"
+              },
+              {
+                "dstField": "status",
+                "transformer": "STRING_TRANSFORMER(input:(FINAL))"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

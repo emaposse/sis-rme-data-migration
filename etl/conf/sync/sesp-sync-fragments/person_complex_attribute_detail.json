@@ -1,0 +1,617 @@
+{
+  "applyCondition": "table_name='person_complex_attribute_detail'",
+  "srcConf": {
+    "template": {
+      "name": "sisrme_src_ds",
+      "parameters": {
+        "aliases_prefix": "person_complex_attribute_detail",
+        "main_output_template_name": "person_complex_attribute_detail_ds_from_json"
+      }
+    },
+    "extraObjectDataSource": [
+      {
+        "name": "obs_datetime_src_ds",
+        "objectFields": [
+          {
+            "name": "obs_datetime",
+            "transformer": "COALESCE_TRANSFORMER(FAST_SQL_TRANSFORMER(query:select encounter_datetime from ${dst_db}.encounter e inner join ${dst_db}.person p on p.uuid = person_complex_attribute_detail_person_src_ds.uuid where e.encounter_type = 53 and e.patient_id  = p.person_id limit 1,onNullTransformedValue:SET_TO_NULL), person_complex_attribute_detail_src_ds.date_created)",
+            "applyCondition": "ETL_CONF_CHECK(conf_name:person_complex_attribute_detail_person_src_ds,operation:EXISTS)"
+          },
+          {
+            "name": "obs_datetime",
+            "transformer": "COALESCE_TRANSFORMER(FAST_SQL_TRANSFORMER(query:select encounter_datetime from ${dst_db}.encounter e inner join ${dst_db}.person p on p.uuid = person_complex_attribute_detail_patient_src_ds.uuid where e.encounter_type = 53 and e.patient_id  = p.person_id limit 1,onNullTransformedValue:SET_TO_NULL), person_complex_attribute_detail_src_ds.date_created)",
+            "applyCondition": "ETL_CONF_CHECK(conf_name:person_complex_attribute_detail_patient_src_ds,operation:EXISTS)"
+          }
+        ]
+      }
+    ],
+    "excludedFieldsFromObjectDesc": [
+      "entity_payload"
+    ]
+  },
+  "dstConf": [
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_complex_attribute_detail",
+          "src_patient_uuid": "person_complex_attribute_detail_patient_src_ds.uuid",
+          "dst_aliases_prefix": "reference_contact_information_full_name",
+          "concept_id": "1740",
+          "value_field": "value_text",
+          "value": "person_complex_attribute_detail_src_ds.attribute_value",
+          "obs_datetime": "person_complex_attribute_detail_src_ds.date_created",
+          "date_created": "person_complex_attribute_detail_src_ds.date_created",
+          "voided": "person_complex_attribute_detail_src_ds.voided",
+          "void_reason": "person_complex_attribute_detail_src_ds.void_reason",
+          "uuid": "person_complex_attribute_detail_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "53",
+          "filter_condition": "person_complex_attribute_detail_src_ds.attribute_key = \"sisrme.reference_contact_information.full_name.text\"",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_complex_attribute_detail_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_complex_attribute_detail",
+          "src_patient_uuid": "person_complex_attribute_detail_patient_src_ds.uuid",
+          "dst_aliases_prefix": "reference_contact_information_relationship_type",
+          "concept_id": "23704",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:person_complex_attribute_detail_src_ds.attribute_value,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "person_complex_attribute_detail_src_ds.date_created",
+          "date_created": "person_complex_attribute_detail_src_ds.date_created",
+          "voided": "person_complex_attribute_detail_src_ds.voided",
+          "void_reason": "person_complex_attribute_detail_src_ds.void_reason",
+          "uuid": "person_complex_attribute_detail_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "53",
+          "filter_condition": "person_complex_attribute_detail_src_ds.attribute_key = \"sisrme.reference_contact_information.relationship_type.concept.concept_id\"",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_complex_attribute_detail_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_complex_attribute_detail",
+          "src_patient_uuid": "person_complex_attribute_detail_patient_src_ds.uuid",
+          "dst_aliases_prefix": "reference_contact_information_phone_number",
+          "concept_id": "6224",
+          "value_field": "value_text",
+          "value": "person_complex_attribute_detail_src_ds.attribute_value",
+          "obs_datetime": "person_complex_attribute_detail_src_ds.date_created",
+          "date_created": "person_complex_attribute_detail_src_ds.date_created",
+          "voided": "person_complex_attribute_detail_src_ds.voided",
+          "void_reason": "person_complex_attribute_detail_src_ds.void_reason",
+          "uuid": "person_complex_attribute_detail_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "53",
+          "filter_condition": "person_complex_attribute_detail_src_ds.attribute_key = \"sisrme.reference_contact_information.phone_number.numeric\"",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_complex_attribute_detail_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_complex_attribute_detail",
+          "src_patient_uuid": "person_complex_attribute_detail_patient_src_ds.uuid",
+          "dst_aliases_prefix": "reference_contact_information_phone_number_02",
+          "concept_id": "6224",
+          "value_field": "value_text",
+          "value": "person_complex_attribute_detail_src_ds.attribute_value",
+          "obs_datetime": "person_complex_attribute_detail_src_ds.date_created",
+          "date_created": "person_complex_attribute_detail_src_ds.date_created",
+          "voided": "person_complex_attribute_detail_src_ds.voided",
+          "void_reason": "person_complex_attribute_detail_src_ds.void_reason",
+          "uuid": "person_complex_attribute_detail_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "53",
+          "filter_condition": "person_complex_attribute_detail_src_ds.attribute_key = \"sisrme.reference_contact_information.phone_number2.numeric\"",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_complex_attribute_detail_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_complex_attribute_detail",
+          "src_patient_uuid": "person_complex_attribute_detail_patient_src_ds.uuid",
+          "dst_aliases_prefix": "reference_contact_information_address",
+          "concept_id": "2067",
+          "value_field": "value_text",
+          "value": "person_complex_attribute_detail_src_ds.attribute_value",
+          "obs_datetime": "person_complex_attribute_detail_src_ds.date_created",
+          "date_created": "person_complex_attribute_detail_src_ds.date_created",
+          "voided": "person_complex_attribute_detail_src_ds.voided",
+          "void_reason": "person_complex_attribute_detail_src_ds.void_reason",
+          "uuid": "person_complex_attribute_detail_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "53",
+          "filter_condition": "person_complex_attribute_detail_src_ds.attribute_key = \"sisrme.reference_contact_information.address.text\"",
+          "obs_group_id_transformer": "",
+          "date_voided": "person_complex_attribute_detail_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_complex_attribute_detail",
+          "src_patient_uuid": "person_complex_attribute_detail_patient_src_ds.uuid",
+          "dst_aliases_prefix": "contact_situation_name",
+          "concept_id": "23778",
+          "value_field": "value_text",
+          "value": "person_complex_attribute_detail_src_ds.attribute_value",
+          "obs_datetime": "person_complex_attribute_detail_src_ds.date_created",
+          "date_created": "person_complex_attribute_detail_src_ds.date_created",
+          "voided": "person_complex_attribute_detail_src_ds.voided",
+          "void_reason": "person_complex_attribute_detail_src_ds.void_reason",
+          "uuid": "person_complex_attribute_detail_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "53",
+          "filter_condition": "person_complex_attribute_detail_src_ds.attribute_key = \"contact_situation.name.text\"",
+          "obs_group_id_transformer": "PARENT_ON_DEMAND_TRANSFORMER(obs,on_demand_check_condition:uuid=person_complex_attribute_detail_person_complex_attribute_src_ds.uuid, template:on_demand_sync_simple_obs, template_param_main_src_aliases_prefix:person_complex_attribute_detail, template_param_src_patient_uuid:person_complex_attribute_detail_patient_src_ds.uuid, template_param_main_dst_aliases_prefix:contact_situation_name,template_param_aliases_prefix:contact_situation_name_obs_group, template_param_concept_id:23782, template_param_obs_datetime:person_complex_attribute_detail_src_ds.date_created, template_param_location_id:contact_situation_name_obs_dst_ds.location_id, template_param_encounter_type_id:53, template_param_uuid:person_complex_attribute_detail_person_complex_attribute_src_ds.uuid)",
+          "date_voided": "person_complex_attribute_detail_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_complex_attribute_detail",
+          "src_patient_uuid": "person_complex_attribute_detail_patient_src_ds.uuid",
+          "dst_aliases_prefix": "contact_situation_relationship_type",
+          "concept_id": "23704",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:person_complex_attribute_detail_src_ds.attribute_value,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "person_complex_attribute_detail_src_ds.date_created",
+          "date_created": "person_complex_attribute_detail_src_ds.date_created",
+          "voided": "person_complex_attribute_detail_src_ds.voided",
+          "void_reason": "person_complex_attribute_detail_src_ds.void_reason",
+          "uuid": "person_complex_attribute_detail_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "53",
+          "filter_condition": "person_complex_attribute_detail_src_ds.attribute_key = \"contact_situation.relationship_type.concept.concept_id\"",
+          "obs_group_id_transformer": "PARENT_ON_DEMAND_TRANSFORMER(obs,on_demand_check_condition:uuid=person_complex_attribute_detail_person_complex_attribute_src_ds.uuid, template:on_demand_sync_simple_obs, template_param_main_src_aliases_prefix:person_complex_attribute_detail, template_param_src_patient_uuid:person_complex_attribute_detail_patient_src_ds.uuid, template_param_main_dst_aliases_prefix:contact_situation_relationship_type,template_param_aliases_prefix:contact_situation_relationship_type_obs_group, template_param_concept_id:23782, template_param_obs_datetime:person_complex_attribute_detail_src_ds.date_created, template_param_location_id:contact_situation_relationship_type_obs_dst_ds.location_id, template_param_encounter_type_id:53, template_param_uuid:person_complex_attribute_detail_person_complex_attribute_src_ds.uuid)",
+          "date_voided": "person_complex_attribute_detail_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_complex_attribute_detail",
+          "src_patient_uuid": "person_complex_attribute_detail_patient_src_ds.uuid",
+          "dst_aliases_prefix": "contact_situation_age",
+          "concept_id": "23777",
+          "value_field": "value_numeric",
+          "value": "person_complex_attribute_detail_src_ds.attribute_value",
+          "obs_datetime": "person_complex_attribute_detail_src_ds.date_created",
+          "date_created": "person_complex_attribute_detail_src_ds.date_created",
+          "voided": "person_complex_attribute_detail_src_ds.voided",
+          "void_reason": "person_complex_attribute_detail_src_ds.void_reason",
+          "uuid": "person_complex_attribute_detail_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "53",
+          "filter_condition": "person_complex_attribute_detail_src_ds.attribute_key = \"contact_situation.age.numeric\"",
+          "obs_group_id_transformer": "PARENT_ON_DEMAND_TRANSFORMER(obs,on_demand_check_condition:uuid=person_complex_attribute_detail_person_complex_attribute_src_ds.uuid, template:on_demand_sync_simple_obs, template_param_main_src_aliases_prefix:person_complex_attribute_detail, template_param_src_patient_uuid:person_complex_attribute_detail_patient_src_ds.uuid, template_param_main_dst_aliases_prefix:contact_situation_age,template_param_aliases_prefix:contact_situation_age_obs_group, template_param_concept_id:23782, template_param_obs_datetime:contact_situation_age_obs_dst_ds.obs_datetime, template_param_location_id:contact_situation_age_obs_dst_ds.location_id, template_param_encounter_type_id:53, template_param_uuid:person_complex_attribute_detail_person_complex_attribute_src_ds.uuid)",
+          "date_voided": "person_complex_attribute_detail_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_complex_attribute_detail",
+          "src_patient_uuid": "person_complex_attribute_detail_patient_src_ds.uuid",
+          "dst_aliases_prefix": "contact_situation_hiv_status",
+          "concept_id": "23779",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:person_complex_attribute_detail_src_ds.attribute_value,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "person_complex_attribute_detail_src_ds.date_created",
+          "date_created": "person_complex_attribute_detail_src_ds.date_created",
+          "voided": "person_complex_attribute_detail_src_ds.voided",
+          "void_reason": "person_complex_attribute_detail_src_ds.void_reason",
+          "uuid": "person_complex_attribute_detail_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "53",
+          "filter_condition": "person_complex_attribute_detail_src_ds.attribute_key = \"contact_situation.hiv_status.concept.concept_id\"",
+          "obs_group_id_transformer": "PARENT_ON_DEMAND_TRANSFORMER(obs,on_demand_check_condition:uuid=person_complex_attribute_detail_person_complex_attribute_src_ds.uuid, template:on_demand_sync_simple_obs, template_param_main_src_aliases_prefix:person_complex_attribute_detail, template_param_src_patient_uuid:person_complex_attribute_detail_patient_src_ds.uuid, template_param_main_dst_aliases_prefix:contact_situation_hiv_status,template_param_aliases_prefix:contact_situation_obs_group_on_hiv_status, template_param_concept_id:23782, template_param_obs_datetime:contact_situation_hiv_status_obs_dst_ds.obs_datetime, template_param_location_id:contact_situation_hiv_status_obs_dst_ds.location_id, template_param_encounter_type_id:53, template_param_uuid:person_complex_attribute_detail_person_complex_attribute_src_ds.uuid)",
+          "date_voided": "person_complex_attribute_detail_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_complex_attribute_detail",
+          "src_patient_uuid": "person_complex_attribute_detail_patient_src_ds.uuid",
+          "dst_aliases_prefix": "contact_situation_nid",
+          "concept_id": "23781",
+          "value_field": "value_text",
+          "value": "person_complex_attribute_detail_src_ds.attribute_value",
+          "obs_datetime": "person_complex_attribute_detail_src_ds.date_created",
+          "date_created": "person_complex_attribute_detail_src_ds.date_created",
+          "voided": "person_complex_attribute_detail_src_ds.voided",
+          "void_reason": "person_complex_attribute_detail_src_ds.void_reason",
+          "uuid": "person_complex_attribute_detail_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "53",
+          "filter_condition": "person_complex_attribute_detail_src_ds.attribute_key = \"contact_situation.nid.text\"",
+          "obs_group_id_transformer": "PARENT_ON_DEMAND_TRANSFORMER(obs,on_demand_check_condition:uuid=person_complex_attribute_detail_person_complex_attribute_src_ds.uuid, template:on_demand_sync_simple_obs, template_param_main_src_aliases_prefix:person_complex_attribute_detail, template_param_src_patient_uuid:person_complex_attribute_detail_patient_src_ds.uuid, template_param_main_dst_aliases_prefix:contact_situation_age,template_param_aliases_prefix:contact_situation_obs_group_on_nid, template_param_concept_id:23782, template_param_obs_datetime:contact_situation_nid_obs_dst_ds.obs_datetime, template_param_location_id:contact_situation_nid_obs_dst_ds.location_id, template_param_encounter_type_id:53, template_param_uuid:person_complex_attribute_detail_person_complex_attribute_src_ds.uuid)",
+          "date_voided": "person_complex_attribute_detail_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_complex_attribute_detail",
+          "src_patient_uuid": "person_complex_attribute_detail_patient_src_ds.uuid",
+          "dst_aliases_prefix": "key_pop",
+          "concept_id": "23703",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:person_complex_attribute_detail_src_ds.attribute_value,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "person_complex_attribute_detail_src_ds.date_created",
+          "date_created": "person_complex_attribute_detail_src_ds.date_created",
+          "voided": "person_complex_attribute_detail_src_ds.voided",
+          "void_reason": "person_complex_attribute_detail_src_ds.void_reason",
+          "uuid": "person_complex_attribute_detail_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "6",
+          "filter_condition": "person_complex_attribute_detail_src_ds.attribute_key = \"key_pop.concept.concept_id\"",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_complex_attribute_detail_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_complex_attribute_detail",
+          "src_patient_uuid": "person_complex_attribute_detail_patient_src_ds.uuid",
+          "dst_aliases_prefix": "key_pop_comments",
+          "concept_id": "5622",
+          "value_field": "value_text",
+          "value": "person_complex_attribute_detail_src_ds.attribute_value",
+          "obs_datetime": "person_complex_attribute_detail_src_ds.date_created",
+          "date_created": "person_complex_attribute_detail_src_ds.date_created",
+          "voided": "person_complex_attribute_detail_src_ds.voided",
+          "void_reason": "person_complex_attribute_detail_src_ds.void_reason",
+          "uuid": "person_complex_attribute_detail_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "6",
+          "filter_condition": "person_complex_attribute_detail_src_ds.attribute_key = \"key_pop.other_comments.text\"",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_complex_attribute_detail_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "identifiedRecordAction": "PATCH_UPDATE",
+      "patchFields": [
+        "value_coded",
+        "obs_datetime",
+        "value_datetime",
+        "uuid"
+      ],
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_complex_attribute_detail",
+          "src_patient_uuid": "person_complex_attribute_detail_patient_src_ds.uuid",
+          "dst_aliases_prefix": "tarv_transferred_in",
+          "concept_id": "1369",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:1065,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "DATE_TRANSFORMER(input:person_complex_attribute_detail_src_ds.attribute_value,operation:PARSE)",
+          "date_created": "person_complex_attribute_detail_src_ds.date_created",
+          "voided": "person_complex_attribute_detail_src_ds.voided",
+          "void_reason": "person_complex_attribute_detail_src_ds.void_reason",
+          "uuid": "person_complex_attribute_detail_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "53",
+          "filter_condition": "person_complex_attribute_detail_src_ds.attribute_key = \"tarv_transferred_in.transfer_date.date\"",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_complex_attribute_detail_src_ds.date_voided"
+        },
+        "override": [
+          {
+            "path": "mapping",
+            "type": "ADD_TO_LIST",
+            "value": {
+              "dstField": "obs_id",
+              "transformer": "FAST_SQL_TRANSFORMER(query:select obs_id from ${dst_db}.obs ob where ob.encounter_id = tarv_transferred_in_obs_dst_ds.encounter_id and ob.concept_id = 1369 limit 1,onNullTransformedValue:SET_TO_NULL)",
+              "nullValueBehavior": "IGNORE"
+            }
+          },
+          {
+            "path": "ignorableFields",
+            "type": "ADD_TO_LIST",
+            "value": "comments"
+          }
+        ]
+      }
+    },
+    {
+      "identifiedRecordAction": "PATCH_UPDATE",
+      "patchFields": [
+        "comments"
+      ],
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_complex_attribute_detail",
+          "src_patient_uuid": "person_complex_attribute_detail_patient_src_ds.uuid",
+          "dst_aliases_prefix": "tarv_transferred_in_location",
+          "concept_id": "1369",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:1065,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "person_complex_attribute_detail_src_ds.date_created",
+          "date_created": "person_complex_attribute_detail_src_ds.date_created",
+          "voided": "person_complex_attribute_detail_src_ds.voided",
+          "void_reason": "person_complex_attribute_detail_src_ds.void_reason",
+          "uuid": "person_complex_attribute_detail_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "53",
+          "filter_condition": "person_complex_attribute_detail_src_ds.attribute_key = \"tarv_transferred_in.health_facility_origin.location.location_id\"",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_complex_attribute_detail_src_ds.date_voided"
+        },
+        "override": [
+          {
+            "path": "mapping",
+            "type": "ADD_TO_LIST",
+            "value": {
+              "dstField": "obs_id",
+              "transformer": "FAST_SQL_TRANSFORMER(query:select obs_id from ${dst_db}.obs ob where ob.encounter_id = tarv_transferred_in_location_obs_dst_ds.encounter_id and ob.concept_id = 1369 limit 1,onNullTransformedValue:SET_TO_NULL)",
+              "nullValueBehavior": "IGNORE"
+            }
+          },
+          {
+            "path": "mapping",
+            "type": "UPDATE_ON_LIST",
+            "match": {
+              "dstField": "uuid"
+            },
+            "value": {
+              "dstField": "uuid",
+              "transformer": "COALESCE_TRANSFORMER(FAST_SQL_TRANSFORMER(select uuid from ${dst_db}.obs ob where ob.encounter_id = tarv_transferred_in_location_obs_dst_ds.encounter_id and ob.concept_id = 1369 and comments=\"Sync SIS-RME -> SESP\" limit 1), person_complex_attribute_detail_location_src_ds.uuid)",
+              "nullValueBehavior": "IGNORE"
+            }
+          },
+          {
+            "path": "ignorableFields",
+            "type": "OVERRIDE",
+            "value": [
+              "accession_number",
+              "value_group_id",
+              "value_coded_name_id",
+              "value_drug",
+              "value_modifier",
+              "value_complex",
+              "previous_version",
+              "form_namespace_and_path",
+              "order_id",
+              "value_datetime"
+            ]
+          },
+          {
+            "path": "mapping",
+            "match": {
+              "dstField": "comments"
+            },
+            "type": "UPDATE_ON_LIST",
+            "value": {
+              "srcField": "person_complex_attribute_detail_location_src_ds.name",
+              "dstField": "comments"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_complex_attribute_detail",
+          "src_patient_uuid": "person_complex_attribute_detail_patient_src_ds.uuid",
+          "dst_aliases_prefix": "meio_contacto_consent_to_be_contacted",
+          "concept_id": "6306",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:1065,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "person_complex_attribute_detail_src_ds.date_created",
+          "date_created": "person_complex_attribute_detail_src_ds.date_created",
+          "voided": "person_complex_attribute_detail_src_ds.voided",
+          "void_reason": "person_complex_attribute_detail_src_ds.void_reason",
+          "uuid": "person_complex_attribute_detail_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "35",
+          "filter_condition": "person_complex_attribute_detail_person_attribute_src_ds.person_attribute_type_id = 103 and person_complex_attribute_detail_src_ds.attribute_key = \"patient.consent_to_be_contacted.concept.concept_id\"",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_complex_attribute_detail_person_attribute_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_complex_attribute_detail",
+          "src_patient_uuid": "person_complex_attribute_detail_patient_src_ds.uuid",
+          "dst_aliases_prefix": "meio_contacto_contact_method_telephone",
+          "concept_id": "6309",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:6307,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "person_complex_attribute_detail_src_ds.date_created",
+          "date_created": "person_complex_attribute_detail_src_ds.date_created",
+          "voided": "person_complex_attribute_detail_src_ds.voided",
+          "void_reason": "person_complex_attribute_detail_src_ds.void_reason",
+          "uuid": "person_complex_attribute_detail_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "35",
+          "filter_condition": "person_complex_attribute_detail_person_attribute_src_ds.person_attribute_type_id = 103 and person_complex_attribute_detail_src_ds.attribute_key = \"patient.contact_method_telephone.concept.concept_id\"",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_complex_attribute_detail_person_attribute_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_complex_attribute_detail",
+          "src_patient_uuid": "person_complex_attribute_detail_patient_src_ds.uuid",
+          "dst_aliases_prefix": "meio_contacto_contact_method_sms",
+          "concept_id": "6309",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:23719,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "person_complex_attribute_detail_src_ds.date_created",
+          "date_created": "person_complex_attribute_detail_src_ds.date_created",
+          "voided": "person_complex_attribute_detail_src_ds.voided",
+          "void_reason": "person_complex_attribute_detail_src_ds.void_reason",
+          "uuid": "person_complex_attribute_detail_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "35",
+          "filter_condition": "person_complex_attribute_detail_person_attribute_src_ds.person_attribute_type_id = 103 and person_complex_attribute_detail_src_ds.attribute_key = \"patient.contact_method_sms.concept.concept_id\"",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_complex_attribute_detail_person_attribute_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_complex_attribute_detail",
+          "src_patient_uuid": "person_complex_attribute_detail_patient_src_ds.uuid",
+          "dst_aliases_prefix": "meio_contacto_contact_method_homevisit",
+          "concept_id": "6309",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:2071,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "person_complex_attribute_detail_src_ds.date_created",
+          "date_created": "person_complex_attribute_detail_src_ds.date_created",
+          "voided": "person_complex_attribute_detail_src_ds.voided",
+          "void_reason": "person_complex_attribute_detail_src_ds.void_reason",
+          "uuid": "person_complex_attribute_detail_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "35",
+          "filter_condition": "person_complex_attribute_detail_person_attribute_src_ds.person_attribute_type_id = 103 and person_complex_attribute_detail_src_ds.attribute_key = \"patient.contact_method_homevisit.concept.concept_id\"",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_complex_attribute_detail_person_attribute_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_complex_attribute_detail",
+          "src_patient_uuid": "person_complex_attribute_detail_patient_src_ds.uuid",
+          "dst_aliases_prefix": "referencia_consent_to_be_contacted",
+          "concept_id": "6177",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:1065,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "person_complex_attribute_detail_src_ds.date_created",
+          "date_created": "person_complex_attribute_detail_src_ds.date_created",
+          "voided": "person_complex_attribute_detail_src_ds.voided",
+          "void_reason": "person_complex_attribute_detail_src_ds.void_reason",
+          "uuid": "person_complex_attribute_detail_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "35",
+          "filter_condition": "person_complex_attribute_detail_person_attribute_src_ds.person_attribute_type_id = 103 and person_complex_attribute_detail_src_ds.attribute_key = \"patient.consent_to_be_contacted.concept.concept_id\"",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_complex_attribute_detail_person_attribute_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_complex_attribute_detail",
+          "src_patient_uuid": "person_complex_attribute_detail_patient_src_ds.uuid",
+          "dst_aliases_prefix": "referencia_contact_method_telephone",
+          "concept_id": "23889",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:6307,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "person_complex_attribute_detail_src_ds.date_created",
+          "date_created": "person_complex_attribute_detail_src_ds.date_created",
+          "voided": "person_complex_attribute_detail_src_ds.voided",
+          "void_reason": "person_complex_attribute_detail_src_ds.void_reason",
+          "uuid": "person_complex_attribute_detail_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "35",
+          "filter_condition": "person_complex_attribute_detail_person_attribute_src_ds.person_attribute_type_id = 103 and person_complex_attribute_detail_src_ds.attribute_key = \"patient.contact_method_telephone.concept.concept_id\"",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_complex_attribute_detail_person_attribute_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_complex_attribute_detail",
+          "src_patient_uuid": "person_complex_attribute_detail_patient_src_ds.uuid",
+          "dst_aliases_prefix": "referencia_contact_method_sms",
+          "concept_id": "23889",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:23719,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "person_complex_attribute_detail_src_ds.date_created",
+          "date_created": "person_complex_attribute_detail_src_ds.date_created",
+          "voided": "person_complex_attribute_detail_src_ds.voided",
+          "void_reason": "person_complex_attribute_detail_src_ds.void_reason",
+          "uuid": "person_complex_attribute_detail_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "35",
+          "filter_condition": "person_complex_attribute_detail_person_attribute_src_ds.person_attribute_type_id = 103 and person_complex_attribute_detail_src_ds.attribute_key = \"patient.contact_method_sms.concept.concept_id\"",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_complex_attribute_detail_person_attribute_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_complex_attribute_detail",
+          "src_patient_uuid": "person_complex_attribute_detail_patient_src_ds.uuid",
+          "dst_aliases_prefix": "referencia_contact_method_homevisit",
+          "concept_id": "23889",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:2071,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "person_complex_attribute_detail_src_ds.date_created",
+          "date_created": "person_complex_attribute_detail_src_ds.date_created",
+          "voided": "person_complex_attribute_detail_src_ds.voided",
+          "void_reason": "person_complex_attribute_detail_src_ds.void_reason",
+          "uuid": "person_complex_attribute_detail_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "35",
+          "filter_condition": "person_complex_attribute_detail_person_attribute_src_ds.person_attribute_type_id = 103 and person_complex_attribute_detail_src_ds.attribute_key = \"patient.contact_method_homevisit.concept.concept_id\"",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "NULL_VALUE_TRANSFORMER()"
+        }
+      }
+    }
+  ]
+}

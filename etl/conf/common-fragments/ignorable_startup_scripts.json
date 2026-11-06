@@ -1,0 +1,9 @@
+[
+  "prepare_schema.sql",
+  "metadata_mapping.sql",
+  "move_sync_msg_delete_operation.sql",
+  "sync_data_structure.sql",
+  "delete_duplicated_encounters.sql",
+  "delete_invalid_patient_identifiers.sql",
+  "prepare_schema.sql"
+]

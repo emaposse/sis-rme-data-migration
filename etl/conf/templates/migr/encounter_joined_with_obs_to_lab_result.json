@@ -1,0 +1,110 @@
+{
+  "name": "encounter_joined_with_obs_to_lab_result",
+  "extends": {
+    "name": "encounter_joined_with_obs_to_encounter",
+    "parameters": {
+      "aliases_prefix": "${aliases_prefix}",
+      "patient_id": "0",
+      "encounter_filter_obs_concept_list": "${concept_list}",
+      "location_list": "${location_list}",
+      "dst_location_id": "${dst_location_id}",
+      "src_encounter_type_id": "${src_encounter_type_id}",
+      "dst_encounter_type_id": "${dst_encounter_type_id}",
+      "visit_type_id": "${visit_type_id}",
+      "program_id": "${program_id}",
+      "ignore_patient_id": true,
+      "ignore_location_list": false,
+      "ignore_src_encounter_type_id": false,
+      "ignore_encounter_filter_obs_concept_list": false,
+      "limitToOneResult": false,
+      "extra_condition": "${extra_condition}"
+    }
+  },
+  "parameters": [
+    "aliases_prefix",
+    "concept_list",
+    "location_list",
+    "src_encounter_type_id",
+    "dst_encounter_type_id",
+    "visit_type_id",
+    "program_id",
+    "dst_location_id",
+    "order_type_id",
+    "dst_order_encounter_type_id",
+    "extra_condition"
+  ],
+  "template": {
+    "childItemConf": [
+      {
+        "srcConf": {
+          "tableName": "obs",
+          "tableAlias": "${aliases_prefix}_result_obs_src_ds",
+          "joinExtraCondition": "concept_id in (${concept_list}) and voided = 0",
+          "extraObjectDataSource": [
+            {
+              "name": "${aliases_prefix}_transformed_result_concept_src_ds",
+              "objectFields": [
+                {
+                  "name": "concept_id",
+                  "transformer": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sesp_value,sisrme_value,on_missing:USE_INPUT,input:${aliases_prefix}_result_obs_src_ds.concept_id,extra_condition:mapping_group=\"concept\")",
+                  "relationshipResolutionStrategy": "SKIP",
+                  "dataType": "int"
+                }
+              ]
+            }
+          ]
+        },
+        "dstConf": [
+          {
+            "onConflict": "UPDATE_EXISTING",
+            "tableName": "test_result",
+            "tableAlias": "${aliases_prefix}_test_result_dst_ds",
+            "allowDuplicateDestinationMappings": true,
+            "preferredDataSource": [
+              "${aliases_prefix}_result_obs_src_ds"
+            ],
+            "ignorableFields": [
+              "sample_collection_date",
+              "previous_version",
+              "changed_by",
+              "date_changed",
+              "orders_id"
+            ],
+            "mapping": [
+              {
+                "dstField": "order_id",
+                "transformer": "PARENT_ON_DEMAND_TRANSFORMER(orders,on_demand_check_condition:on_demand_check_condition_sesp_sis_rme_order.sql,template:closest_previous_lab_order_request,template_param_dst_order_encounter_type_id:${dst_order_encounter_type_id},template_param_visit_type_id:${visit_type_id},template_param_program_id:${program_id},template_param_orderer:${aliases_prefix}_encounter_provider_src_ds.provider_id,template_param_aliases_prefix:${aliases_prefix}, template_param_order_type_id:${order_type_id}, template_param_creator:${aliases_prefix}_encounter_dst_ds.creator,template_param_location_id:${aliases_prefix}_encounter_dst_ds.location_id)",
+                "applyCondition": "${concept_id} != 165361"
+              },
+              {
+                "dstField": "order_id",
+                "transformer": "PARENT_ON_DEMAND_TRANSFORMER(orders,on_demand_check_condition:order_type_id=${order_type_id} and patient_id=${aliases_prefix}_encounter_dst_ds.patient_id and order_reason in (730, 1695) and scheduled_date<=${aliases_prefix}_result_obs_src_ds.obs_datetime,template:closest_previous_lab_order_request,template_param_dst_order_encounter_type_id:${dst_order_encounter_type_id},template_param_visit_type_id:${visit_type_id},template_param_program_id:${program_id},template_param_orderer:${aliases_prefix}_encounter_provider_src_ds.provider_id,template_param_aliases_prefix:${aliases_prefix}, template_param_order_type_id:${order_type_id}, template_param_creator:${aliases_prefix}_encounter_dst_ds.creator,template_param_location_id:${aliases_prefix}_encounter_dst_ds.location_id)",
+                "applyCondition": "${concept_id} = 165361"
+              },
+              {
+                "srcField": "${aliases_prefix}_encounter_dst_ds.patient_id",
+                "dstField": "patient_id"
+              },
+              {
+                "srcField": "${aliases_prefix}_encounter_dst_ds.encounter_id",
+                "dstField": "encounter_id"
+              },
+              {
+                "srcField": "${aliases_prefix}_encounter_dst_ds.location_id",
+                "dstField": "location_id"
+              },
+              {
+                "srcField": "${aliases_prefix}_result_obs_src_ds.obs_datetime",
+                "dstField": "result_date"
+              },
+              {
+                "srcValue": "Migrado do SESP",
+                "dstField": "comments"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "name": "grouped_obs_to_allergy",
+  "parameters": [
+    "concept_list",
+    "aliases_prefix",
+    "location_list",
+    "grouping_concept_id",
+    "src_encounter_type_id",
+    "extra_condition"
+  ],
+  "template": {
+    "srcConf": {
+      "tableName": "obs",
+      "tableAlias": "${aliases_prefix}_obs_src_ds",
+      "extraConditionForExtract": "concept_id in (${concept_list}) and obs_group_id is not null and voided = 0 and location_id in (${location_list}) and ${extra_condition}",
+      "auxExtractTable": [
+        {
+          "tableName": "obs",
+          "tableAlias": "${aliases_prefix}_aux_extract_obs_group_within_obs_src_ds",
+          "joinExtraCondition": "concept_id in (${grouping_concept_id}) and voided = 0",
+          "joinFields": [
+            {
+              "srcField": "obs_id",
+              "dstField": "obs_group_id"
+            }
+          ],
+          "auxExtractTable": [
+            {
+              "tableName": "encounter",
+              "tableAlias": "${aliases_prefix}_aux_extract_encounter_within_obs_src_ds",
+              "joinExtraCondition": "encounter_type = ${src_encounter_type_id} and voided = 0",
+              "joinType": "INNER"
+            }
+          ]
+        }
+      ]
+    },
+    "dstConf": [
+      {
+        "tableName": "allergy",
+        "tableAlias": "${aliases_prefix}_dst_ds",
+        "onConflict": "UPDATE_EXISTING",
+        "preferredDataSource": [
+          "${aliases_prefix}_obs_src_ds"
+        ],
+        "mapping": [
+          {
+            "srcField": "person_id",
+            "dstField": "patient_id"
+          },
+          {
+            "srcValue": "DRUG",
+            "dstField": "allergen_type"
+          },
+          {
+            "dstField": "coded_allergen",
+            "transformer": "COALESCE_TRANSFORMER(value_coded,concept_id)"
+          },
+          {
+            "srcField": "value_text",
+            "dstField": "non_coded_allergen"
+          },
+          {
+            "srcField": "${aliases_prefix}_obs_src_ds.uuid",
+            "dstField": "uuid"
+          }
+        ],
+        "ignorableFields": [
+          "changed_by",
+          "date_changed",
+          "severity_concept_id"
+        ]
+      }
+    ]
+  }
+}

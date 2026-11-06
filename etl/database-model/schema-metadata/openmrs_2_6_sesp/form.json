@@ -1,0 +1,209 @@
+{
+  "formatVersion" : 2,
+  "key" : {
+    "logicalDatabaseId" : "openmrs_2_6_sesp",
+    "databaseDialect" : "",
+    "catalog" : "",
+    "schema" : "",
+    "tableName" : "form"
+  },
+  "columns" : [ {
+    "name" : "form_id",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : true,
+    "timestamp" : false
+  }, {
+    "name" : "name",
+    "dataType" : "VARCHAR",
+    "length" : 255,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "version",
+    "dataType" : "VARCHAR",
+    "length" : 50,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "build",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "published",
+    "dataType" : "BIT",
+    "length" : 1,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "description",
+    "dataType" : "TEXT",
+    "length" : 21845,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "encounter_type",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "template",
+    "dataType" : "MEDIUMTEXT",
+    "length" : 5592405,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "xslt",
+    "dataType" : "MEDIUMTEXT",
+    "length" : 5592405,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "creator",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "date_created",
+    "dataType" : "DATETIME",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "changed_by",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "date_changed",
+    "dataType" : "DATETIME",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "retired",
+    "dataType" : "BIT",
+    "length" : 1,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "retired_by",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "date_retired",
+    "dataType" : "DATETIME",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "retired_reason",
+    "dataType" : "VARCHAR",
+    "length" : 255,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "uuid",
+    "dataType" : "CHAR",
+    "length" : 38,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  } ],
+  "primaryKey" : {
+    "name" : "pk",
+    "columns" : [ {
+      "name" : "form_id",
+      "dataType" : "INT"
+    } ],
+    "manuallyConfigured" : true
+  },
+  "uniqueKeys" : [ {
+    "name" : "form_uuid_index",
+    "columns" : [ {
+      "name" : "uuid",
+      "dataType" : "CHAR"
+    } ],
+    "manuallyConfigured" : false
+  } ],
+  "importedForeignKeys" : [ {
+    "name" : "form_ibfk_1",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "encounter_type",
+    "mappings" : [ {
+      "childColumn" : "encounter_type",
+      "parentColumn" : "encounter_type_id"
+    } ]
+  }, {
+    "name" : "form_ibfk_2",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "users",
+    "mappings" : [ {
+      "childColumn" : "creator",
+      "parentColumn" : "user_id"
+    } ]
+  }, {
+    "name" : "form_ibfk_3",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "users",
+    "mappings" : [ {
+      "childColumn" : "changed_by",
+      "parentColumn" : "user_id"
+    } ]
+  }, {
+    "name" : "form_ibfk_4",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "users",
+    "mappings" : [ {
+      "childColumn" : "retired_by",
+      "parentColumn" : "user_id"
+    } ]
+  } ],
+  "exportedForeignKeys" : [ ]
+}

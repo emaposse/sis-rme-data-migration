@@ -1,0 +1,64 @@
+{
+  "name": "pharmacy_transaction_on_demand",
+  "parameters": [
+    "aliases_prefix"
+  ],
+  "template": {
+    "srcConf": {
+      "tableName": "obs",
+      "tableAlias": "${aliases_prefix}_obs_transaction_src_ds",
+      "joinFields": [
+        {
+          "srcField": "obs_id",
+          "dstField": "obs_id"
+        }
+      ],
+      "extraQueryDataSource": [
+        {
+          "name": "${aliases_prefix}_batch_src_ds",
+          "query": "select concat('sesp_mig_batch_', ${aliases_prefix}_sisrme_drug_ds.drug_id) as batch_number, uuid() as uuid",
+          "dynamicElements": [
+            "${aliases_prefix}_sisrme_drug_ds.drug_id"
+          ]
+        }
+      ]
+    },
+    "dstConf": [
+      {
+        "tableName": "pharmacy_transaction",
+        "tableAlias": "${aliases_prefix}_pharmacy_transaction_dst_ds",
+        "onConflict": "KEEP_EXISTING",
+        "useAsDataSource": true,
+        "ignoreNoDstIssue": true,
+        "ignorableFields": [
+          "delivery_note_id",
+          "document_number",
+          "subscriber",
+          "origin"
+        ],
+        "mapping": [
+          {
+            "dstField": "uuid",
+            "transformer": "FAST_SQL_TRANSFORMER(select uuid())"
+          },
+          {
+            "transformer": "COALESCE_TRANSFORMER(${aliases_prefix}_item_data_src_ds.specified_qty, ${aliases_prefix}_item_data_src_ds.calculated_qty)",
+            "dstField": "quantity"
+          },
+          {
+            "dstField": "batch_id",
+            "transformer": "PARENT_ON_DEMAND_TRANSFORMER(pharmacy_batch,on_demand_check_condition:drug_id = ${aliases_prefix}_sisrme_drug_ds.drug_id,drug_id:${aliases_prefix}_sisrme_drug_ds.drug_id,batch_number:${aliases_prefix}_batch_src_ds.batch_number,expiry_date:, balance:0,quantity:0, uuid:${aliases_prefix}_pharmacy_transaction_dst_ds.uuid)"
+          },
+          {
+            "srcValue": "233583",
+            "dstField": "transaction_type_id"
+          },
+          {
+            "srcValue": "Migrado do SESP",
+            "dstField": "notes"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,260 @@
+{
+  "formatVersion" : 2,
+  "key" : {
+    "logicalDatabaseId" : "openmrs_2_6_sisrme",
+    "databaseDialect" : "",
+    "catalog" : "",
+    "schema" : "",
+    "tableName" : "appointment"
+  },
+  "columns" : [ {
+    "name" : "appointment_id",
+    "dataType" : "INT UNSIGNED",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : true,
+    "timestamp" : false
+  }, {
+    "name" : "patient_id",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "visit_id",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "provider_id",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "reason_for_admission",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "referral_form_number",
+    "dataType" : "VARCHAR",
+    "length" : 50,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "service_id",
+    "dataType" : "BIGINT UNSIGNED",
+    "length" : 20,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "speciality_id",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "type_of_admission",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "status",
+    "dataType" : "VARCHAR",
+    "length" : 255,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "notes",
+    "dataType" : "TEXT",
+    "length" : 21845,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "created_at",
+    "dataType" : "TIMESTAMP",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "updated_at",
+    "dataType" : "TIMESTAMP",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "appointment_date",
+    "dataType" : "DATETIME",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "voided",
+    "dataType" : "BIT",
+    "length" : 1,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "void_reason",
+    "dataType" : "VARCHAR",
+    "length" : 255,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "voided_by",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "date_voided",
+    "dataType" : "DATETIME",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "creator",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "date_created",
+    "dataType" : "DATETIME",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "uuid",
+    "dataType" : "CHAR",
+    "length" : 38,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  } ],
+  "primaryKey" : {
+    "name" : "pk",
+    "columns" : [ {
+      "name" : "appointment_id",
+      "dataType" : "INT UNSIGNED"
+    } ],
+    "manuallyConfigured" : true
+  },
+  "uniqueKeys" : [ {
+    "name" : "appointment_uuid_unique",
+    "columns" : [ {
+      "name" : "uuid",
+      "dataType" : "CHAR"
+    } ],
+    "manuallyConfigured" : false
+  } ],
+  "importedForeignKeys" : [ {
+    "name" : "appointment_service_id_foreign",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "clinical_service",
+    "mappings" : [ {
+      "childColumn" : "service_id",
+      "parentColumn" : "clinical_service_id"
+    } ]
+  }, {
+    "name" : "appointment_reason_for_admission_foreign",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "concept",
+    "mappings" : [ {
+      "childColumn" : "reason_for_admission",
+      "parentColumn" : "concept_id"
+    } ]
+  }, {
+    "name" : "appointment_speciality_id_foreign",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "concept",
+    "mappings" : [ {
+      "childColumn" : "speciality_id",
+      "parentColumn" : "concept_id"
+    } ]
+  }, {
+    "name" : "appointment_type_of_admission_foreign",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "concept",
+    "mappings" : [ {
+      "childColumn" : "type_of_admission",
+      "parentColumn" : "concept_id"
+    } ]
+  }, {
+    "name" : "appointment_patient_id_foreign",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "patient",
+    "mappings" : [ {
+      "childColumn" : "patient_id",
+      "parentColumn" : "patient_id"
+    } ]
+  }, {
+    "name" : "appointment_provider_id_foreign",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "provider",
+    "mappings" : [ {
+      "childColumn" : "provider_id",
+      "parentColumn" : "provider_id"
+    } ]
+  }, {
+    "name" : "appointment_creator_foreign",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "users",
+    "mappings" : [ {
+      "childColumn" : "creator",
+      "parentColumn" : "user_id"
+    } ]
+  } ],
+  "exportedForeignKeys" : [ ]
+}

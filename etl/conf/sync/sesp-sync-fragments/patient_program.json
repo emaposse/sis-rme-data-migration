@@ -1,0 +1,108 @@
+{
+  "applyCondition": "table_name='patient_program'",
+  "srcConf": {
+    "template": {
+      "name": "sisrme_src_ds",
+      "parameters": {
+        "aliases_prefix": "patient_program",
+        "main_output_template_name": "patient_program_ds_from_json"
+      }
+    },
+    "excludedFieldsFromObjectDesc": [
+      "entity_payload"
+    ]
+  },
+  "dstConf": [
+    {
+      "tableName": "patient_program",
+      "onConflict": "UPDATE_EXISTING",
+      "allowDuplicateDestinationMappings": true,
+      "applyCondition": "patient_program_src_ds.program_id in (1,2,3,4,5,30,6,7,28,8,6,29,9,25)",
+      "ignoreNoDstIssue": true,
+      "preferredDataSource": [
+        "patient_program_src_ds"
+      ],
+      "mapping": [
+        {
+          "dstField": "program_id",
+          "transformer": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:patient_program_src_ds.program_id,extra_condition:mapping_group=\"patient_program\")"
+        },
+        {
+          "srcField": "patient_program_location_dst_ds.location_id",
+          "dstField": "location_id",
+          "applyCondition": "patient_program_src_ds.location_id != null"
+        },
+        {
+          "dstField": "location_id",
+          "transformer": "NULL_VALUE_TRANSFORMER()",
+          "applyCondition": "patient_program_src_ds.location_id = null"
+        },
+        {
+          "template": {
+            "name": "dst_patient_mapped_to_patient_placeholder",
+            "parameters": {
+              "dst_patient_field": "patient_id",
+              "src_patient_uuid": "patient_program_patient_src_ds.uuid"
+            }
+          }
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "creator",
+              "src_user_uuid": "patient_program_creator_src_ds.uuid",
+              "src_username": "patient_program_creator_src_ds.username",
+              "apply_condition": ""
+            }
+          }
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "voided_by",
+              "src_user_uuid": "patient_program_voided_by_src_ds.uuid",
+              "src_username": "patient_program_voided_by_src_ds.username",
+              "apply_condition": "patient_program_src_ds.voided = 1"
+            }
+          }
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "changed_by",
+              "src_user_uuid": "patient_program_changed_by_src_ds.uuid",
+              "src_username": "patient_program_changed_by_src_ds.username",
+              "apply_condition": "patient_program_src_ds.changed_by != null"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "patient_program",
+          "src_patient_uuid": "patient_program_patient_src_ds.uuid",
+          "dst_aliases_prefix": "abertura_ficha",
+          "concept_id": "23891",
+          "value_field": "value_datetime",
+          "value": "patient_program_src_ds.date_enrolled",
+          "obs_datetime": "patient_program_src_ds.date_created",
+          "date_created": "patient_program_src_ds.date_created",
+          "voided": "patient_program_src_ds.voided",
+          "void_reason": "patient_program_src_ds.void_reason",
+          "uuid": "patient_program_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "53",
+          "filter_condition": "patient_program_src_ds.program_id in (1,2,3,4,5,30,6,7,28,8,6,29,9,25)",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "patient_program_src_ds.date_voided"
+        }
+      }
+    }
+  ]
+}

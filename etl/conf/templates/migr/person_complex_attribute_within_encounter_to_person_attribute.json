@@ -1,0 +1,44 @@
+{
+  "name": "person_complex_attribute_within_encounter_to_person_attribute",
+  "parameters": [
+    "aliases_prefix",
+    "person_attribute_type_id"
+  ],
+  "template": {
+    "srcConf": {
+      "tableName": "encounter",
+      "tableAlias": "${aliases_prefix}_inner_encounter_src_ds",
+      "joinFields": [
+        {
+          "srcField": "encounter_id",
+          "dstField": "encounter_id"
+        }
+      ]
+    },
+    "dstConf": [
+      {
+        "tableName": "person_attribute",
+        "tableAlias": "${aliases_prefix}_person_attribute_dst_ds",
+        "onConflict": "UPDATE_EXISTING",
+        "mapping": [
+          {
+            "srcValue": "${person_attribute_type_id}",
+            "dstField": "person_attribute_type_id"
+          },
+          {
+            "srcField": "${aliases_prefix}_person_complex_attribute_dst_ds.person_complex_attribute_id",
+            "dstField": "value"
+          },
+          {
+            "dstField": "uuid",
+            "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:person_attribute,lookup_condition:person_attribute_type_id=${person_attribute_type_id} and person_id = ${aliases_prefix}_person_complex_attribute_dst_ds.person_id and value = ${aliases_prefix}_person_complex_attribute_dst_ds.person_complex_attribute_id)"
+          }
+        ],
+        "ignorableFields": [
+          "changed_by",
+          "date_changed"
+        ]
+      }
+    ]
+  }
+}

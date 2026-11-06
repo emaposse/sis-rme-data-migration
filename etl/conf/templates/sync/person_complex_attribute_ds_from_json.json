@@ -1,0 +1,16 @@
+{
+  "name": "person_complex_attribute_ds_from_json",
+  "template": {
+    "fields": [
+      "person_complex_attribute_id",
+      "person_id",
+      "creator",
+      "date_created",
+      "voided",
+      "voided_by",
+      "date_voided",
+      "void_reason",
+      "uuid"
+    ]
+  }
+}

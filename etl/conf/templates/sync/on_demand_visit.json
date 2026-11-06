@@ -1,0 +1,71 @@
+{
+  "name": "on_demand_visit",
+  "parameters": [
+    "patient_id",
+    "location_id",
+    "visit_date",
+    "visit_type_id",
+    "creator"
+  ],
+  "template": {
+    "srcConf": {
+      "tableName": "patient",
+      "tableAlias": "on_demand_visit_patient_src_ds",
+      "joinFields": [
+        {
+          "srcField": "patient_id",
+          "dstField": "patient_id"
+        }
+      ],
+      "doNotUseAsDatasource": true
+    },
+    "dstConf": [
+      {
+        "tableName": "visit",
+        "tableAlias": "on_demand_visit_dst_ds",
+        "ignorableFields": [
+          "indication_concept_id",
+          "changed_by",
+          "date_changed",
+          "voided_by",
+          "date_voided",
+          "void_reason"
+        ],
+        "mapping": [
+          {
+            "srcValue": "${visit_type_id}",
+            "dstField": "visit_type_id"
+          },
+          {
+            "srcField": "${location_id}",
+            "dstField": "location_id"
+          },
+          {
+            "srcField": "${visit_date}",
+            "dstField": "date_stopped"
+          },
+          {
+            "srcField": "${visit_date}",
+            "dstField": "date_started"
+          },
+          {
+            "dstField": "uuid",
+            "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:visit,lookup_condition:patient_id=${patient_id} and visit_type_id=${visit_type_id} and location_id=${location_id} and date_started=${visit_date})"
+          },
+          {
+            "srcField": "${patient_id}",
+            "dstField": "patient_id"
+          },
+          {
+            "srcField": "0",
+            "dstField": "voided"
+          },
+          {
+            "srcField": "${creator}",
+            "dstField": "creator"
+          }
+        ]
+      }
+    ]
+  }
+}

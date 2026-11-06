@@ -1,0 +1,71 @@
+{
+  "applyCondition": "table_name='conditions'",
+  "srcConf": {
+    "template": {
+      "name": "sisrme_src_ds",
+      "parameters": {
+        "aliases_prefix": "conditions",
+        "main_output_template_name": "conditions_ds_from_json"
+      }
+    },
+    "excludedFieldsFromObjectDesc": [
+      "entity_payload"
+    ]
+  },
+  "dstConf": [
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "conditions",
+          "src_patient_uuid": "conditions_patient_src_ds.uuid",
+          "dst_aliases_prefix": "coded_condition",
+          "concept_id": "1406",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:conditions_src_ds.condition_coded,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "conditions_src_ds.date_created",
+          "date_created": "conditions_src_ds.date_created",
+          "voided": "conditions_src_ds.voided",
+          "void_reason": "conditions_src_ds.void_reason",
+          "uuid": "conditions_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "53",
+          "filter_condition": "conditions_src_ds.condition_coded not in (223, 5993, 5995, 864, 902, 12611, 6747, 23761, 1649)",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "conditions_src_ds.date_voided"
+        },
+        "comments": {
+          "its": "223, 5993, 5995, 864, 902, 12611, 6747, 23761",
+          "tb_activo": "23761",
+          "outros_diagnosticos_nao_codificados": "1649"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "conditions",
+          "src_patient_uuid": "conditions_patient_src_ds.uuid",
+          "dst_aliases_prefix": "non_coded_condition",
+          "concept_id": "1649",
+          "value_field": "value_text",
+          "value": "Desconhecido",
+          "obs_datetime": "conditions_src_ds.date_created",
+          "date_created": "conditions_src_ds.date_created",
+          "voided": "conditions_src_ds.voided",
+          "void_reason": "conditions_src_ds.void_reason",
+          "uuid": "conditions_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "53",
+          "filter_condition": "conditions_src_ds.condition_coded = 1649",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "conditions_src_ds.date_voided"
+        },
+        "comments": {
+          "outros_diagnosticos_nao_codificados": "1649"
+        }
+      }
+    }
+  ]
+}

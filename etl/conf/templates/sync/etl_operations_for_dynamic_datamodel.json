@@ -1,0 +1,33 @@
+{
+  "name": "etl_operations_for_dynamic_datamodel",
+  "parameters": [],
+  "template": {
+    "operationType": "DB_PREPARATION",
+    "processingBatch": 1,
+    "processingMode": "SERIAL",
+    "parallelProcessingStrategy": "SINGLE_THREAD",
+    "disableMultithreadingSearch": true,
+    "totalCountStrategy": "COUNT_ONCE",
+    "skipFinalDataVerification": true,
+    "finishOnNoRemainRecordsToProcess": true,
+    "etlItemConfigCodeBlackList": [
+      "sesp_sisrme_index_update_staging_to_openmrs_search_index"
+    ],    
+    "child": {
+      "identifier":"sync-processor",
+      "operationType": "ETL",
+      "processingBatch": "${processingBatch}",
+      "processingMode": "SERIAL",
+      "parallelProcessingStrategy": "${parallelProcessingStrategy}",
+      "disableMultithreadingSearch": false,
+      "useMysqlInsertIgnore": false,
+      "useSharedConnectionPerThread": false,
+      "finishOnNoRemainRecordsToProcess": true,
+      "skipFinalDataVerification": true,
+      "maxSupportedProcessors": "${maxSupportedProcessors}",
+      "afterEtlActionType": "MOVE_TO_STAGE_AREA_ON_NO_ERROR",
+      "totalCountStrategy": "COUNT_ALWAYS",
+      "mustRestartInTheEnd": true
+    }
+  }
+}

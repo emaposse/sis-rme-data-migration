@@ -1,0 +1,11 @@
+{
+  "name": "dst_patient_mapped_to_patient_placeholder",
+  "parameters": [
+    "dst_patient_field",
+    "src_patient_uuid"
+  ],
+  "template": {
+    "dstField": "${dst_patient_field}",
+    "transformer": "PARENT_ON_DEMAND_LOAD_WITH_DEFAULTS_TRANSFORMER(patient,on_demand_check_condition:patient_id = (select p.person_id from person p  where p.uuid = ${src_patient_uuid}),patient_id:PARENT_ON_DEMAND_LOAD_WITH_DEFAULTS_TRANSFORMER(person,on_demand_check_condition:uuid = ${src_patient_uuid}, uuid:${src_patient_uuid}))"
+  }
+}

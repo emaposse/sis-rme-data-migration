@@ -1,0 +1,73 @@
+{
+  "applyCondition": "table_name='patient_state'",
+  "srcConf": {
+    "template": {
+      "name": "sisrme_src_ds",
+      "parameters": {
+        "aliases_prefix": "patient_state",
+        "main_output_template_name": "patient_state_ds_from_json"
+      }
+    },
+    "excludedFieldsFromObjectDesc": [
+      "entity_payload"
+    ]
+  },
+  "dstConf": [
+    {
+      "tableName": "patient_state",
+      "onConflict": "UPDATE_EXISTING",
+      "applyCondition": "patient_state_patient_program_src_ds.program_id in (1,2,3,4,5,30,6,7,28,8,6,29,9,25)",
+      "ignoreNoDstIssue": true,
+      "preferredDataSource": [
+        "patient_state_src_ds"
+      ],
+      "mapping": [
+        {
+          "dstField": "patient_program_id",
+          "transformer": "PARENT_ON_DEMAND_LOAD_WITH_DEFAULTS_TRANSFORMER(patient_program,on_demand_check_condition:uuid = patient_state_patient_program_src_ds.uuid,uuid:patient_state_patient_program_src_ds.uuid)"
+        },
+        {
+          "dstField": "state",
+          "transformer": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:MARK_RECORD_AS_FAILED,input:patient_state_src_ds.state,extra_condition:mapping_group=\"program_workflow_state\")"
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "creator",
+              "src_user_uuid": "patient_state_creator_src_ds.uuid",
+              "src_username": "patient_state_creator_src_ds.username",
+              "apply_condition": ""
+            }
+          }
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "voided_by",
+              "src_user_uuid": "patient_state_voided_by_src_ds.uuid",
+              "src_username": "patient_state_voided_by_src_ds.username",
+              "apply_condition": "patient_state_src_ds.voided = 1"
+            }
+          }
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "changed_by",
+              "src_user_uuid": "patient_state_changed_by_src_ds.uuid",
+              "src_username": "patient_state_changed_by_src_ds.username",
+              "apply_condition": "patient_state_src_ds.changed_by != null"
+            }
+          }
+        }
+      ],
+      "ignorableFields": [
+        "encounter_id",
+        "form_namespace_and_path"
+      ]
+    }
+  ]
+}

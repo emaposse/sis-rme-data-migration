@@ -1,0 +1,1 @@
+${table_alias}.order_id = (select o.order_id from orders o where  o.order_type_id = ${order_type_id} and o.concept_id = ${concept_id} and o.encounter_id = ${encounter_id} limit 1)

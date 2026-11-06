@@ -1,0 +1,34 @@
+{
+  "name": "dst_person_complex_attribute_detail_from_obs",
+  "parameters": [
+    "src_aliases_prefix",
+    "dst_aliases_prefix",
+    "src_object_condition",
+    "attribute_key",
+    "attribute_value"
+  ],
+  "template": {
+    "tableName": "person_complex_attribute_detail",
+    "tableAlias": "${dst_aliases_prefix}_person_complex_attribute_detail_dst_ds",
+    "applyCondition": "${src_object_condition}",
+    "onConflict": "UPDATE_EXISTING",
+    "mapping": [
+      {
+        "srcValue": "${attribute_key}",
+        "dstField": "attribute_key"
+      },
+      {
+        "srcField": "${attribute_value}",
+        "dstField": "attribute_value"
+      },
+      {
+        "srcField": "${src_aliases_prefix}_obs_src_ds.uuid",
+        "dstField": "uuid"
+      }
+    ],
+    "ignorableFields": [
+      "changed_by",
+      "date_changed"
+    ]
+  }
+}

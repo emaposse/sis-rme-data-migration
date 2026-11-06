@@ -1,0 +1,76 @@
+{
+  "name": "obs_next_consultation_date_to_appointment",
+  "parameters": [
+    "parent_aliases_prefix",
+    "next_consultation_date_concept_id",
+    "service_id",
+    "extra_condition"
+  ],
+  "template": {
+    "srcConf": {
+      "tableName": "obs",
+      "tableAlias": "${parent_aliases_prefix}_proxima_consulta_obs_src_ds",
+      "joinExtraCondition": "concept_id in (${next_consultation_date_concept_id})",
+      "joinFields": [
+        {
+          "srcField": "encounter_id",
+          "dstField": "encounter_id"
+        }
+      ]
+    },
+    "dstConf": [
+      {
+        "tableName": "appointment",
+        "tableAlias": "${parent_aliases_prefix}_appointment_dst_ds",
+        "onConflict": "UPDATE_EXISTING",
+        "preferredDataSource": [
+          "${parent_aliases_prefix}_encounter_dst_ds",
+          "${parent_aliases_prefix}_proxima_consulta_obs_src_ds"
+        ],
+        "ignorableFields": [
+          "referral_form_number",
+          "type_of_admission",
+          "updated_at"
+        ],
+        "mapping": [
+          {
+            "srcValue": "@default_provider_id",
+            "dstField": "provider_id",
+            "relationshipResolutionStrategy": "SKIP"
+          },
+          {
+            "srcValue": "@admission_reason_other_concept_id",
+            "dstField": "reason_for_admission",
+            "relationshipResolutionStrategy": "SKIP"
+          },
+          {
+            "srcValue": "Criado na migracao de dados",
+            "dstField": "notes"
+          },
+          {
+            "srcValue": "${service_id}",
+            "dstField": "service_id",
+            "relationshipResolutionStrategy": "SKIP"
+          },
+          {
+            "srcValue": "@default_medical_speciality_concept_id",
+            "dstField": "speciality_id",
+            "relationshipResolutionStrategy": "SKIP"
+          },
+          {
+            "srcValue": "Scheduled",
+            "dstField": "status"
+          },
+          {
+            "srcField": "value_datetime",
+            "dstField": "appointment_date"
+          },
+          {
+            "srcField": "obs_datetime",
+            "dstField": "created_at"
+          }         
+        ]
+      }
+    ]
+  }
+}

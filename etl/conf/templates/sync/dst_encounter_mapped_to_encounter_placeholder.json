@@ -1,0 +1,14 @@
+{
+  "name": "dst_encounter_mapped_to_encounter_placeholder",
+  "parameters": [
+    "dst_encounter_field",
+    "dst_patient_id",
+    "dst_encounter_type_id",
+    "encounter_datetime",
+    "uuid"
+  ],
+  "template": {
+    "dstField": "${dst_encounter_field}",
+    "transformer": "PARENT_ON_DEMAND_LOAD_WITH_DEFAULTS_TRANSFORMER(encounter,on_demand_check_condition:encounter_id = (select distinct(encounter_id) from encounter e where e.encounter_type=${dst_encounter_type_id} and e.patient_id=${dst_patient_id} and date(encounter_datetime)= date(${encounter_datetime}) limit 1),patient_id:${dst_patient_id},encounter_type:${dst_encounter_type_id},encounter_datetime:DATE_TRANSFORMER(input:${encounter_datetime},operation:START_OF_DAY),uuid:${uuid})"
+  }
+}

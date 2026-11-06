@@ -1,0 +1,451 @@
+{
+  "originAppLocationCode": "${location_name}",
+  "etlRootDirectory": "${etl_root_dir}",
+  "syncStageSchema": "data_migration_stage_area",
+  "childConfigFilePath": "${etl_root_dir}/conf/migr/re-migrate/ficha_resumo_data.json",
+  "templatesDir": "templates/migr/*.json",
+  "mainConnInfo": {
+    "dataBaseUserName": "${srcUserName}",
+    "dataBaseUserPassword": "${srcUserPassword}",
+    "connectionURI": "${srcConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "srcConnInfo": {
+    "dataBaseUserName": "${srcUserName}",
+    "dataBaseUserPassword": "${srcUserPassword}",
+    "connectionURI": "${srcConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "maxActiveConnections": "${maxActiveConnections}",
+    "maxIdleConnections": "${maxIdleConnections}",
+    "minIdleConnections": "${minIdleConnections}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "dstConnInfo": {
+    "dataBaseUserName": "${dstUserName}",
+    "dataBaseUserPassword": "${dstUserPassword}",
+    "connectionURI": "${dstConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "databaseSchemaPath": "sis-rme-empty-db.sql",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "maxActiveConnections": "${maxActiveConnections}",
+    "maxIdleConnections": "${maxIdleConnections}",
+    "minIdleConnections": "${minIdleConnections}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "defaultSourceTable": "person",
+  "dataModel": {
+    "template": {
+      "name": "data_model_for_${dataModelType}_objects"
+    }
+  },
+  "ignoreAllStartupScripts": "${ignoreAllStartupScripts}",
+  "ignorableStartupScripts": [
+    "delete_duplicated_encounters.sql",
+    "delete_invalid_patient_identifiers.sql",
+    "move_sync_msg_delete_operation.sql",
+    "sync_data_structure.sql"
+  ],
+  "operations": [
+    {
+      "template": {
+        "name": "etl_operations_for_${dataModelType}_datamodel"
+      }
+    }
+  ],
+  "params": {
+    "dst_db": "${dst_db}",
+    "dst_location_id": "${hiv_destination_location_id}",
+    "location_to_migrate": "${src_location_list}",
+    "local_nascimento_person_attr": "2",
+    "nacionalidade_person_attr": "3",
+    "estado_civil_person_attr": "5",
+    "organizacao_person_attr": "10",
+    "nome_mae_person_attr": "4",
+    "num_telefone_person_attr": "9",
+    "num_cartao_person_attr": "12",
+    "num_telefone2_person_attr": "30",
+    "non_tranformable_person_attrs": "4,9,12,30",
+    "yes_concept_id": "1065"
+  },
+  "defaultExceptionBehavior": "${defaultExceptionBehavior}",
+  "defaultInconsistencyBehavior": "${defaultInconsistencyBehavior}",
+  "etlItemConfiguration": [
+    {
+      "srcConf": {
+        "tableName": "person",
+        "tableAlias": "missing_person_src_ds",
+        "extraConditionForExtract": "voided = 0 and not exists (select * from ${dst_db}.person p where p.uuid =  missing_person_src_ds.uuid)",
+        "auxExtractTable": [
+          {
+            "tableName": "patient",
+            "tableAlias": "missing_patient_src_ds",
+            "joinExtraCondition": "voided = 0"
+          }
+        ],
+        "extraQueryDataSource": [
+          {
+            "name": "tarv_start_date_src_ds",
+            "script": "tarv_start_date.sql",
+            "required": false
+          }
+        ]
+      },
+      "dstConf": [
+        {
+          "tableName": "person",
+          "tableAlias": "missing_person_dst_ds",
+          "preferredDataSource": [
+            "missing_person_src_ds"
+          ]
+        },
+        {
+          "tableName": "patient",
+          "tableAlias": "missing_patient_dst_ds",
+          "ignorableFields": [
+            "dde_sync_pending"
+          ],
+          "preferredDataSource": [
+            "missing_patient_src_ds"
+          ]
+        }
+      ],
+      "childItemConf": [
+        {
+          "relatedParentDstConfName": "missing_person_dst_ds",
+          "srcConf": {
+            "tableName": "person_address",
+            "onConflict": "UPDATE_EXISTING",
+            "joinExtraCondition": "voided=0 and ${included_person_extra_condition}",
+            "parents": [
+              {
+                "tableName": "users",
+                "defaultValueDueInconsistency": 1
+              }
+            ]
+          },
+          "dstConf": [
+            {
+              "tableName": "person_address",
+              "mapping": [
+                {
+                  "dstField": "county_district",
+                  "transformer": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sisrme_staging_value,input:county_district,extra_condition:mapping_group=\"district\",on_missing:USE_INPUT)"
+                },
+                {
+                  "dstField": "state_province",
+                  "transformer": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sesp_value,sisrme_staging_value,input:state_province,extra_condition:mapping_group=\"province\",on_missing:USE_INPUT)"
+                },
+                {
+                  "dstField": "country",
+                  "transformer": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sesp_value,sisrme_staging_value,input:country,extra_condition:mapping_group=\"country\",on_missing:USE_INPUT)"
+                },
+                {
+                  "srcField": "state_province",
+                  "dstField": "address7"
+                },
+                {
+                  "srcField": "county_district",
+                  "dstField": "address15"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "relatedParentDstConfName": "missing_person_dst_ds",
+          "srcConf": {
+            "tableName": "person_name",
+            "joinExtraCondition": "voided = 0 and ${included_person_extra_condition}",
+            "onConflict": "UPDATE_EXISTING",
+            "parents": [
+              {
+                "tableName": "users",
+                "defaultValueDueInconsistency": 1
+              }
+            ]
+          }
+        },
+        {
+          "relatedParentDstConfName": "missing_person_dst_ds",
+          "srcConf": {
+            "tableName": "relationship",
+            "tableAlias": "relationship_src_ds",
+            "onConflict": "UPDATE_EXISTING",
+            "joinExtraCondition": "voided = 0 and ${included_person_b_extra_condition}",
+            "joinFields": [
+              {
+                "srcField": "person_b",
+                "dstField": "person_id"
+              }
+            ],
+            "parents": [
+              {
+                "tableName": "users",
+                "defaultValueDueInconsistency": 1
+              }
+            ]
+          },
+          "dstConf": [
+            {
+              "tableName": "relationship",
+              "mapping": [
+                {
+                  "srcField": "missing_person_dst_ds.person_id",
+                  "dstField": "person_b"
+                },
+                {
+                  "srcField": "relationship_src_ds.person_a",
+                  "dstField": "person_a"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "relatedParentDstConfName": "missing_person_dst_ds",
+          "srcConf": {
+            "tableName": "person_attribute",
+            "extraConditionForExtract": "voided=0 and value  <> '' and person_attribute_type_id in (@non_tranformable_person_attrs) and ${included_person_extra_condition}",
+            "onConflict": "UPDATE_EXISTING"
+          }
+        },
+        {
+          "relatedParentDstConfName": "missing_person_dst_ds",
+          "srcConf": {
+            "tableName": "person_attribute",
+            "onConflict": "UPDATE_EXISTING",
+            "extraConditionForExtract": "voided=0 and value  <> '' and person_attribute_type_id in (@local_nascimento_person_attr, @nacionalidade_person_attr)",
+            "extraObjectDataSource": [
+              {
+                "name": "mapped_data",
+                "objectFields": [
+                  {
+                    "name": "value",
+                    "transformer": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sesp_value,sisrme_value,input:value,on_missing:MARK_RECORD_AS_FAILED)"
+                  }
+                ]
+              }
+            ]
+          },
+          "dstConf": [
+            {
+              "tableName": "person_attribute",
+              "ignoreNoDstIssue": true,
+              "preferredDataSource": [
+                "mapped_data"
+              ]
+            }
+          ]
+        },
+        {
+          "relatedParentDstConfName": "missing_person_dst_ds",
+          "applyCondition": "ETL_CONF_CHECK(conf_name:tarv_start_date_src_ds,operation:EXISTS)",
+          "srcConf": {
+            "tableName": "person"
+          },
+          "dstConf": [
+            {
+              "template": {
+                "name": "dst_person_attribute",
+                "parameters": {
+                  "aliases_prefix": "data_inicio_tarv",
+                  "person_attribute_type_id": "111",
+                  "value": "tarv_start_date_src_ds.data_inicio_tarv",
+                  "uuid_transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:person_attribute,lookup_condition:person_attribute_type_id=111 and person_id = missing_person_dst_ds.patient_id and value = tarv_start_date_src_ds.data_inicio_tarv)",
+                  "uuid_src_field": ""
+                },
+                "override": [
+                  {
+                    "path": "mapping",
+                    "type": "ADD_TO_LIST",
+                    "value": {
+                      "srcField": "missing_person_dst_ds.person_id",
+                      "dstField": "person_id"
+                    }
+                  }
+                ]
+              },
+              "onMissingRequiredSrcObject": "MARK_RECORD_AS_FAILED",
+              "onConflict": "UPDATE_EXISTING"
+            }
+          ]
+        },
+        {
+          "relatedParentDstConfName": "missing_patient_dst_ds",
+          "srcConf": {
+            "tableName": "patient_identifier",
+            "onConflict": "UPDATE_EXISTING",
+            "joinExtraCondition": "voided=0 and ${included_patient_extra_condition}",
+            "joinFields":[
+              {
+                "srcField":"patient_id",
+                "dstField":"person_id"
+              }
+            ],
+            "parents": [
+              {
+                "tableName": "patient"
+              },
+              {
+                "tableName": "location"
+              },
+              {
+                "tableName": "users",
+                "defaultValueDueInconsistency": 1
+              }
+            ],
+            "observationDateFields": [
+              "date_changed",
+              "date_voided"
+            ]
+          },
+          "dstConf": [
+            {
+              "tableName": "patient_identifier",
+              "ignorableFields": [
+                "doc_id"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "srcConf": {
+        "tableName": "patient",
+        "tableAlias": "patient_for_enrollment_ds",
+        "onConflict": "UPDATE_EXISTING",
+        "extraConditionForExtract": "patient_id in (select src_.person_id from prod_sisrme_cs_polana.person dst_ inner join  prod_sesp_openmrs_cs_polana.person src_ on src_.uuid = dst_.uuid where dst_.person_id >= 20168)",
+        "missingRequiredObjectBehavior":"MARK_RECORD_AS_FAILED",
+        "auxExtractTable":[
+          
+        ],
+        "extraQueryDataSource": [
+          {
+            "name": "enrollment_src_ds",
+            "script": "tarv_program_enroll.sql",
+            "required": true,
+            "onMultipleSrcObjectsFound": "USE_FIRST"
+          }
+        ]
+      },
+      "dstConf": [
+        {
+          "tableName": "person_complex_attribute",
+          "tableAlias": "person_complex_attribute_dst_ds",
+          "applyCondition": "@date_transferred != null",
+          "ignoreNoDstIssue":true,
+          "ignorableFields": [
+            "changed_by",
+            "date_changed"
+          ],
+          "mapping": [
+            {
+              "srcField": "patient_id",
+              "dstField": "person_id"
+            },
+            {
+              "dstField": "uuid",
+              "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:person_complex_attribute,lookup_condition:person_complex_attribute_id = (select value from person_attribute p where p.person_attribute_type_id=112 and p.person_id = patient_for_enrollment_ds.patient_id))"
+            }
+          ]
+        }
+      ],
+      "childItemConf": [
+        {
+          "relatedParentDstConfName": "person_complex_attribute_dst_ds",
+          "applyCondition": "ETL_CONF_CHECK(conf_name:enrollment_src_ds,operation:EXISTS)",
+          "srcConf": {
+            "tableName": "patient",
+            "tableAlias": "inner_patient_for_enrollment_src_ds",
+            "joinFields": [
+              {
+                "srcField": "patient_id",
+                "dstField": "patient_id"
+              }
+            ],
+            "extraObjectDataSource": [
+              {
+                "name": "enrolment_transfere_health_facility_src_ds",
+                "objectFields": [
+                  {
+                    "name": "health_facility_id",
+                    "transformer": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sesp_value,sisrme_value,on_missing:MARK_RECORD_AS_FAILED,input:enrollment_src_ds.transferred_from_location_uuid,extra_condition:mapping_group=\"health-facility\")"
+                  }
+                ],
+                "applyCondition": "enrollment_src_ds.transferred_from_location_uuid != null"
+              }
+            ]
+          },
+          "dstConf": [
+            {
+              "ignoreNoDstIssue":true,
+              "template": {
+                "name": "dst_person_attribute",
+                "parameters": {
+                  "aliases_prefix": "enrollment",
+                  "person_attribute_type_id": "112",
+                  "value": "person_complex_attribute_id",
+                  "uuid_src_field": "",
+                  "uuid_transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:person_attribute,lookup_condition:person_attribute_type_id=112 and person_id = patient_for_enrollment_ds.patient_id and value = person_complex_attribute_dst_ds.person_complex_attribute_id)"
+                }
+              },
+              "preferredDataSource": [
+                "person_complex_attribute_dst_ds"
+              ],
+              "onMissingRequiredSrcObject": "MARK_RECORD_AS_FAILED"
+            },
+            {
+              "ignoreNoDstIssue":true,
+              "template": {
+                "name": "dst_person_complex_attribute_detail",
+                "parameters": {
+                  "aliases_prefix": "date_transferred",
+                  "src_object_condition": "@date_transferred != null",
+                  "attribute_key": "tarv_transferred_in.transferred.concept.concept_id",
+                  "attribute_value": "@yes_concept_id",
+                  "person_attribute_type_id": "112",
+                  "person_id": "person_complex_attribute_dst_ds.person_id",
+                  "person_attribute_date_created": "person_complex_attribute_dst_ds.date_created"
+                }
+              }
+            },
+            {
+              "ignoreNoDstIssue":true,
+              "template": {
+                "name": "dst_person_complex_attribute_detail",
+                "parameters": {
+                  "aliases_prefix": "transfere_date",
+                  "src_object_condition": "@date_transferred != null",
+                  "attribute_key": "tarv_transferred_in.transfer_date.date",
+                  "attribute_value": "DATE_TRANSFORMER(input:enrollment_src_ds.date_transferred,operation:FORMAT,output_format:yyyy-MM-dd)",
+                  "person_attribute_type_id": "112",
+                  "person_id": "person_complex_attribute_dst_ds.person_id",
+                  "person_attribute_date_created": "person_complex_attribute_dst_ds.date_created"
+                }
+              }
+            },
+            {
+              "ignoreNoDstIssue":true,
+              "template": {
+                "name": "dst_person_complex_attribute_detail",
+                "parameters": {
+                  "aliases_prefix": "transferred_from_location",
+                  "src_object_condition": "@transferred_from_location_uuid != null",
+                  "attribute_key": "tarv_transferred_in.health_facility_origin.location.location_id",
+                  "attribute_value": "enrolment_transfere_health_facility_src_ds.health_facility_id",
+                  "person_attribute_type_id": "112",
+                  "person_id": "person_complex_attribute_dst_ds.person_id",
+                  "person_attribute_date_created": "person_complex_attribute_dst_ds.date_created"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

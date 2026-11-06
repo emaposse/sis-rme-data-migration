@@ -1,0 +1,1362 @@
+"province";"distric";"health_facility";"location_id";"uuid"
+;Inhambane;CS Balane ( Urbano );1143;"42312383-0057-45df-940c-361245d9d54d"
+;Inhambane;CS Conguiane;1141;"471ec9ec-1eba-4148-a5a0-52ff04c90106"
+;Inhambane;CS Guiua;1140;"826d427b-7824-4db4-8dbf-a5cf88e86751"
+;Inhambane;CS Ilha de Inhambane;1142;a96873d4-d84e-48cd-8e8d-d3302a6427ef
+;Inhambane;CS Macucune;1144;"2b8e457d-d1cd-4f5a-a9e6-53669144621a"
+;Inhambane;CS Muelé;1139;"2b6e934c-d8a2-4087-994b-69c88c34a9de"
+;Inhambane;CS Salela;1145;"3e218de2-4e3a-4851-9757-60ecb5e79d21"
+;Inhambane;HP Inhambane;1138;"8f968aed-d78e-4c9c-bac2-7e304c92da6b"
+;Manica;CS 4º Congresso;968;dea9eafd-cd30-486b-8391-805c371e4bfd
+;Manica;CS Chazuca;967;da2f763f-8f6e-4bc3-bb89-67738e1b795d
+;Manica;CS Chicamba;966;"02ca59d4-227f-4d4f-bbff-0e214ecd617f"
+;Manica;CS Chinhagore;969;"7f69b6a6-dc89-4b7c-af40-e5e6665c2e22"
+;Manica;CS Chinhambuzi;958;"4ea9474f-136c-4a88-92bd-2b903a258715"
+;Manica;CS Chitunga;961;b988df66-598f-4b08-a554-d35bb2ac55c7
+;Manica;CS Guindingue;956;d54ed66f-69d1-485b-ae89-984e3546a7e1
+;Manica;CS Jecua Missão;962;a5444f48-22bc-4b45-80a8-85641f92c716
+;Manica;CS Machipanda;957;"447bc5cb-6cd2-42b6-bf3a-4f245c3aa74d"
+;Manica;CS Mavonde;963;e3bd3ca5-c139-4569-bcbc-66cef47cf17e
+;Manica;CS Messica;960;"0bb86de7-9ab3-4a41-9c69-b78476b621df"
+;Manica;CS Mundonguara;964;"0abf1d54-d671-4d67-92ab-4378799c46e5"
+;Manica;CS Nhamaxato;953;"3701b659-2fab-428e-9e5c-079bd9e463b2"
+;Manica;CS Penhalonga;954;"4734227c-3c8c-4bd0-a3df-24d475e90799"
+;Manica;CS Zonue Tabaco;955;"3b93aef1-2267-4df6-a70c-626db4527fad"
+;Manica;HD Manica;959;"792b28cf-255e-4614-a477-ba0e92a78f95"
+;Manica;PS Munene;965;fc488f80-5583-4c2d-a424-761407e03b87
+;Tete;CS Canjanda;802;"36d2181c-cc02-45a3-ab17-0918b1c50bd7"
+;Tete;CS Degue;810;e1289924-e647-4f88-8671-1e54460ac4dd
+;Tete;CS Mpadue;808;"106b8a07-3265-4958-8619-65634a555ca6"
+;Tete;CS Nº 1 - Bairro Magaia;807;"7b945359-b79a-481d-94d8-c1c432dd3a02"
+;Tete;CS Nº 2 - Bairro Matundo;811;e154db01-cafc-4116-93fe-3fd4a57f3d54
+;Tete;CS Nº 3 - Bairro Manyanga;803;"14a72dda-7b0f-4977-884b-13fceb93f016"
+;Tete;CS Nº 4 - Bairro Muthemba;809;"15f0a31b-237f-4209-b4d6-a92930c35803"
+;Tete;HP Tete;805;a410d82d-9515-4506-94bb-80e090a9e6e4
+;Tete;PS Base Aérea;804;"998c6ad2-618f-4752-8b0b-cdc6b03924fe"
+;Tete;PS Cadeia;806;"98d10c80-ec09-4b1a-8252-9fecd198f91f"
+Cabo Delgado;Ancuabe;CS Ancuabe;312;"9ff460bf-7232-4c18-9ccf-9719be302b2e"
+Cabo Delgado;Ancuabe;CS Mariri;314;"3b6383cb-eff4-4f53-8bc4-067fad247a9a"
+Cabo Delgado;Ancuabe;CS Metoro;317;"66752750-bd67-4b20-907e-8efd9c26ea3e"
+Cabo Delgado;Ancuabe;CS Meza;316;"5ca8f57e-dac9-4ed0-8562-7b062a33148f"
+Cabo Delgado;Ancuabe;CS Minhewene;313;"3c811f15-6917-4fe0-b020-4a51b4dd9c55"
+Cabo Delgado;Ancuabe;CS Ngewe;315;"16bccc27-833b-42f9-881a-7143cd291e0b"
+Cabo Delgado;Balama;CS Balama;323;d5257759-8fb0-4904-9736-d0594c5cd7d2
+Cabo Delgado;Balama;CS Impiri;318;"9820ecb2-0356-46ab-b3bd-7b0161d533ce"
+Cabo Delgado;Balama;CS KueKue;319;acf2a1ce-3805-415d-836b-32d4e9cebc41
+Cabo Delgado;Balama;CS Mavala;320;fc81ee50-fac2-4e40-a24a-6498bd3e5f86
+Cabo Delgado;Balama;CS Metata;322;"2229f092-aade-4de9-b541-ce9ed98d6a3d"
+Cabo Delgado;Balama;CS Murripa;324;"3fc76eba-a404-4444-be90-2e29d7e3f623"
+Cabo Delgado;Balama;CS Ntete;321;"883f3e87-e558-4511-9f42-6fd1096e2b5f"
+Cabo Delgado;Chiure;CS Chiure Velho;332;df9b6945-e89e-4acf-a734-8b591c82a4fc
+Cabo Delgado;Chiure;CS Katapua;330;"69a3a6c2-f7d3-4212-b931-43d928137e8f"
+Cabo Delgado;Chiure;CS M'mala;328;c15b3849-16a2-45ba-a907-0273c0650cd1
+Cabo Delgado;Chiure;CS Mazeze;329;"05d4ce07-2982-4ed5-807f-8d58c4c0ac2a"
+Cabo Delgado;Chiure;CS Muege;327;d1e318ad-c6ae-484d-9d22-cdf88bdf4f45
+Cabo Delgado;Chiure;CS Nakoto;326;fbc41c89-615a-45ef-926b-06f8455b6df5
+Cabo Delgado;Chiure;CS Namogelia;333;"009f6b1e-d86a-4c93-9865-4298274013d8"
+Cabo Delgado;Chiure;CS Ocua;325;debac70e-d3a8-4d05-ae0f-20b300fbb7ce
+Cabo Delgado;Chiure;HD Chiure;334;"370364f6-d693-4155-8e77-badbf4b4e67c"
+Cabo Delgado;Chiure;PS Bilibiza;331;"2e41e7b9-fc49-4e25-8866-8327c352924d"
+Cabo Delgado;Ibo;CS Ibo;337;f6b108c6-3ae7-4621-8379-5c929dda204c
+Cabo Delgado;Ibo;CS Matemo;336;f3ff1bdb-bb79-46ef-a345-d857547df105
+Cabo Delgado;Ibo;CS QUirimba;335;"65c0e218-d5c5-4f0b-99a3-a171f0485881"
+Cabo Delgado;Macomia;CS  Macomia;339;f0298d77-f3fc-475e-a175-6139b108d9b4
+Cabo Delgado;Macomia;CS Chai;338;"5d782cec-80eb-4717-8b79-08626e229e49"
+Cabo Delgado;Macomia;CS Mucojo;340;"30fc3b77-49d6-44e3-a046-7ee1163f57b5"
+Cabo Delgado;Macomia;CS Naunde;344;f0155191-0fea-457a-944c-c55105742493
+Cabo Delgado;Macomia;CS Nguida;343;b5a68590-9189-46eb-b5f1-2952c2664ac2
+Cabo Delgado;Macomia;CS Piquewe;341;"94c591ce-9438-493f-bb3f-685c7ca6e934"
+Cabo Delgado;Macomia;CS Quaterajo;342;d58f1918-18cf-4a29-b47b-19a7a39d3f24
+Cabo Delgado;Mecufi;CS Mecufi;345;f3775878-1b79-43f5-ad7e-daa36ecf02a0
+Cabo Delgado;Mecufi;CS Murrebue;346;"87af25eb-6c09-4a07-907f-6e84b8d369e7"
+Cabo Delgado;Mecufi;CS Natuco;347;"8ab2c33c-5236-4dab-b922-dc3d545556f8"
+Cabo Delgado;Meluco;CS Imbada;352;ed5ebe52-3f48-47f1-96e3-c5a3d46a1003
+Cabo Delgado;Meluco;CS Meluco;348;"2ff533b2-0102-4de5-a451-688348c8f602"
+Cabo Delgado;Meluco;CS Minhanha;350;"4f399e29-8be5-4045-ab78-9f725d0b57af"
+Cabo Delgado;Meluco;CS Muaguide;349;"8f85bd88-f523-48cd-a5c2-cf354dc8cc41"
+Cabo Delgado;Meluco;CS Raiva;351;"65649219-bef9-4385-98c4-50d89505c92a"
+Cabo Delgado;Metuge;CS Metuge;404;"133e5774-9fed-4021-b3da-f63b4e9b25b4"
+Cabo Delgado;Metuge;CS Mieze;401;fdf24aa5-3aaa-475d-98ba-d3a77682439a
+Cabo Delgado;Metuge;CS Nacuta;400;aeef8e53-827e-446f-8724-75dd0b1e748b
+Cabo Delgado;Metuge;CS Nanlia;402;"3ded3493-ea32-4f2f-af4e-99b777042259"
+Cabo Delgado;Metuge;CS Ntessa;403;af6120df-2f2b-488c-b825-7457689b65da
+Cabo Delgado;Mocimboa da Praia;CS Diaca;355;c848df43-cbd6-4314-9249-baf8c8edad24
+Cabo Delgado;Mocimboa da Praia;CS Mangoma;354;cd3f83fa-1274-43f5-b10e-ef27b244253d
+Cabo Delgado;Mocimboa da Praia;CS Mbau;353;"35d9debd-fa19-46f4-8936-c2a5054de529"
+Cabo Delgado;Mocimboa da Praia;CS Quelimane;356;f7ee3636-fe6d-4db1-9ebe-7afef6fe1c47
+Cabo Delgado;Mocimboa da Praia;HR Mocimboa da Praia;357;"02f801c6-ed9a-4fa5-ba6d-a9552d227419"
+Cabo Delgado;Montepuez;CS Linde;360;f7f4d7d8-ee80-4757-a2be-eb593d101f7f
+Cabo Delgado;Montepuez;CS Mapupulo;362;"912e6d4b-6c74-4792-aaea-5aeb912f4d64"
+Cabo Delgado;Montepuez;CS Mirate;366;a235d3c0-2796-4f49-aa0b-13d0ecd124f3
+Cabo Delgado;Montepuez;CS Montepuez;358;"36215709-284d-443f-a3d8-d0bf2d817faa"
+Cabo Delgado;Montepuez;CS Nairoto;359;"11c09bcd-e0bc-4113-850d-7e8051db68a7"
+Cabo Delgado;Montepuez;CS Namanhumbiri;365;e187ddcf-3fb5-47c9-aec5-6ccd79812cfc
+Cabo Delgado;Montepuez;CS Namueto;364;"19f56747-2493-485d-8e80-1b81a326d1d4"
+Cabo Delgado;Montepuez;CS Niuhula;361;edcaad54-d23b-4922-b0ee-0d896ebb9a4b
+Cabo Delgado;Montepuez;CS Nropa;363;"13065796-29d4-4c2a-9e7f-eab169b7f71a"
+Cabo Delgado;Montepuez;HR Montepuez;367;cfac8bb5-9331-4700-8a09-121957413563
+Cabo Delgado;Mueda;CS Chapa;372;f3cc2abf-1f84-408c-bb52-2b396a7490ff
+Cabo Delgado;Mueda;CS Chilinde;369;"96ff191c-e74e-43fb-843c-ae5aef1531ac"
+Cabo Delgado;Mueda;CS Imbuo;374;"9477db67-5b15-49b8-b7db-fcb9d9909a02"
+Cabo Delgado;Mueda;CS M'peme;371;"9b57d73c-150b-4480-973d-fdcceb8c779c"
+Cabo Delgado;Mueda;CS Namatil;373;ade384e7-ba77-4e72-aab5-4bc242cf69ab
+Cabo Delgado;Mueda;CS Negomano;370;"13810d44-b120-423c-b5ef-9cd32f10f7bd"
+Cabo Delgado;Mueda;CS Ngapa;368;"8dcba753-cf49-4f83-aa72-78c293be8d51"
+Cabo Delgado;Mueda;HR Mueda;375;f0013fd9-42e7-4d61-836d-50b2b3307ef7
+Cabo Delgado;Muidumbe;CS Chitunda;380;a70574ec-d27f-434d-be6f-61df94a2d5ce
+Cabo Delgado;Muidumbe;CS Miangalewa;376;"78b9bde5-c885-48f8-8f58-2f07fcf6a489"
+Cabo Delgado;Muidumbe;CS Miteda;378;"3be4247d-e4a7-476a-8722-e4b317fba607"
+Cabo Delgado;Muidumbe;CS Muambula;381;"6b3867d3-eca6-4006-b5f3-a50bd376bd8a"
+Cabo Delgado;Muidumbe;CS Muatide;379;"781ba879-dbcf-456a-a021-a8b3ab9f7b53"
+Cabo Delgado;Muidumbe;CS Namacamde;377;"0eb2a69d-5042-4e87-89f4-5631cae2cc5a"
+Cabo Delgado;Namuno;CS Hucula;387;d9bb6657-2523-42da-b86e-9b4c4120625d
+Cabo Delgado;Namuno;CS Machoca;384;"87475d11-8b72-47d1-87b9-f1f74db3735c"
+Cabo Delgado;Namuno;CS Meloco;388;"2d464d1a-7938-4455-9400-98127ddda3c4"
+Cabo Delgado;Namuno;CS Namrapa (EP2);382;a8ff55b0-cb34-481f-9f5b-932ece618fb7
+Cabo Delgado;Namuno;CS Namuno;383;"82510988-4476-42bb-9803-b36923d96d40"
+Cabo Delgado;Namuno;CS Ncumpe;385;"56fb6c1d-0588-4740-914f-217693e4b3be"
+Cabo Delgado;Namuno;CS Papai;386;"5e52da81-c631-48d8-84ea-224256dd1a42"
+Cabo Delgado;Nangade;CS Muhia;392;a187efea-0e95-4fb1-afbf-9b78f97e5094
+Cabo Delgado;Nangade;CS N'tamba;390;"5b6b4421-ba6f-45d0-9f1c-d26373df6b8a"
+Cabo Delgado;Nangade;CS N'toli;391;"78c6155c-38d1-4a7b-a17b-182d53d1ebad"
+Cabo Delgado;Nangade;CS Nangade;393;ddf873fe-d5d1-44bc-8701-89842aed125f
+Cabo Delgado;Nangade;CS Nkonga;389;d1c326f9-4d53-4d78-93b2-616129d68bdd
+Cabo Delgado;Palma;CS Maganja;399;"4bd489ca-e783-4758-a10e-d0745b1537a4"
+Cabo Delgado;Palma;CS Muite;397;"37983e50-1868-40b8-b50b-daafc75f24dc"
+Cabo Delgado;Palma;CS Olumbe;398;"900220bd-1ee9-4146-aea3-7237995ae474"
+Cabo Delgado;Palma;CS Palma;396;fd2466b6-d92b-4c8a-b775-7f4165efde39
+Cabo Delgado;Palma;CS Pundanhari;394;"25a68463-c389-4927-8a92-f9eb74ff41ca"
+Cabo Delgado;Palma;CS Quionga;395;"972d70a5-72fe-4c7a-895b-123bf38f00f6"
+Cabo Delgado;Pemba;CS B. Cariocó;309;d9dbdd26-4603-4da8-8812-612166ea928d
+Cabo Delgado;Pemba;CS B. Cimento;311;ac003052-12b2-40f7-9883-4b7f820cdb76
+Cabo Delgado;Pemba;CS B. Eduardo Mondlane;308;"4c1a12ef-0f06-4041-806c-339c1c55c7a7"
+Cabo Delgado;Pemba;CS B. Ingonane;302;cdf5e51c-722b-41d1-8f84-7a9320189cfb
+Cabo Delgado;Pemba;CS B. Muxara;306;ca7316af-0d8c-4bb8-bb82-b4a526f65e1e
+Cabo Delgado;Pemba;CS Chuiba;304;"6baf8a70-a215-4227-90c1-2d9cd358c3f7"
+Cabo Delgado;Pemba;CS Mahate;307;f50d461c-0f58-4321-b661-6a78a9b0c30d
+Cabo Delgado;Pemba;CS Natite;303;f6a5b9ad-1854-478d-82a4-f379f5fbab7f
+Cabo Delgado;Pemba;CS Paquite;305;"57325491-bfdc-4abc-9713-593240757e47"
+Cabo Delgado;Pemba;HP Pemba;310;f158d20a-79b1-493c-aa2d-41dcb857285f
+Cabo Delgado;Quissanga;CS Bilibiza;407;ac732736-adc4-4c24-aacd-8a24c8f8a387
+Cabo Delgado;Quissanga;CS Cagembe;410;c171ea2b-6fd0-4841-9663-78cb480bcf9d
+Cabo Delgado;Quissanga;CS Nacoba;409;"647cc11b-33f1-4d28-8e0d-1e04c43f006e"
+Cabo Delgado;Quissanga;CS Namaluco;406;"47feeecf-e884-4424-8899-98621bee79a7"
+Cabo Delgado;Quissanga;CS Quissanga;405;"39ed0ce9-0fc0-4944-9239-73c58169a5c5"
+Cabo Delgado;Quissanga;CS Tororo;408;"1a347284-44d3-42b8-84ec-0457a5a454ca"
+Gaza;Bilene;CS Incaia;1269;a1c01fd6-0ae4-4cfb-8bbb-8754f687f290
+Gaza;Bilene;CS Macia;1265;"07c46fb5-5fe1-4463-84be-45fa1f4208a4"
+Gaza;Bilene;CS Mamonho;1267;"386b346f-64cf-41f7-bf1f-4d21378600bf"
+Gaza;Bilene;CS Mangol;1275;"8eacafac-1405-4709-879d-76bbad634ee9"
+Gaza;Bilene;CS Mazivila;1271;"2f9ef966-2014-4f09-b630-d30f7e70f3a4"
+Gaza;Bilene;CS Messano;1272;"2b89e913-ce98-41de-aa2d-602a71179325"
+Gaza;Bilene;CS Olombe;1273;e4f53283-9aaa-4864-b2c1-e5db577467c7
+Gaza;Bilene;CS Praia de Bilene;1266;"5f11ad10-fad4-48dd-9b77-bfa95131f08f"
+Gaza;Bilene;CS Tuane;1274;"3076734a-481a-446c-870a-ff59647d6ddd"
+Gaza;Chibuto;CS Alto Changane;1279;"0faafa67-d408-40d6-a1c0-1ef4ace1af99"
+Gaza;Chibuto;CS Celula Mussavene;1286;"89a32795-83b8-4797-87b2-c489f536d247"
+Gaza;Chibuto;CS Chaimite;1283;bf70cfe7-927e-42b8-bce0-5df12e40f2a7
+Gaza;Chibuto;CS Changanine;1289;f9d2d2b0-4272-4837-a536-30b9a62386c0
+Gaza;Chibuto;CS Chibuto;1278;dbb5dd83-128b-4ff2-83ad-d571e30479b0
+Gaza;Chibuto;CS Chimundo;1284;"89b0cb4b-3338-4320-9643-bd6b4a2e2d60"
+Gaza;Chibuto;CS Chipadja;1280;"803874a7-dbf9-4d5c-8821-4ecd71b4961c"
+Gaza;Chibuto;CS Coca Missava;1287;"3d3249c4-e242-4a66-b537-c3cc2317184e"
+Gaza;Chibuto;CS Malehice;1281;"5b8aa36d-db1e-4524-9e35-3d9d69a5d451"
+Gaza;Chibuto;CS Maqueze;1276;"6898a2a6-467c-4587-a613-1142230d708e"
+Gaza;Chibuto;CS Meboi;1290;"20f96167-f235-4ff5-aae9-1c320cb3e926"
+Gaza;Chibuto;CS Mukhotwene;1288;"0005f7ed-4386-4fa9-882b-f1cfe628aa05"
+Gaza;Chibuto;CS Muxaxane;1282;"890b1410-2e43-40cd-8bbe-3dea152d39c5"
+Gaza;Chibuto;CS Nwavaquene;1285;"7f58ccf9-7a03-40d7-aeac-ef06e79def96"
+Gaza;Chibuto;HR Chibuto;1277;"25da1180-7441-46bb-a813-f3bfe70323a7"
+Gaza;Chicualacuala;CS Chicualacuala;1298;"14f5fae0-f928-40be-9c4e-7926e40041d6"
+Gaza;Chicualacuala;CS Litlatla;1297;b3553e1c-1098-417f-b8a1-54051d576ea1
+Gaza;Chicualacuala;CS Mahatlane;1292;"2dad6411-8231-4fbc-a0a7-9f5d5d674a37"
+Gaza;Chicualacuala;PS Pafuri;1296;e9510d0d-e149-44b7-8218-de614e8375ae
+Gaza;Chigubo;CS Dindiza;1301;a096895b-3de6-4557-b337-b949a4b9e8ac
+Gaza;Chigubo;CS Nhanale;1304;"7e7d1df6-7e1e-46e9-9114-86c23a4185e9"
+Gaza;Chigubo;CS Saute;1299;c2b128e7-b6b6-4d62-8bb2-9186ecaf0fd7
+Gaza;Chigubo;CS Zinhane;1300;"2441e1bb-e7f0-4f80-b77a-2ecbb6ab2fae"
+Gaza;Chigubo;PS Cubo;1303;"8c6eeeda-f317-4839-ac4d-bb82edc408b3"
+Gaza;Chockwe;CS Carmelo;1314;"1df9470d-7e68-4b09-82fe-9015c40e2816"
+Gaza;Chockwe;CS Chalucuane;1317;"3676a1be-c66b-4a90-8ed2-3466893666fb"
+Gaza;Chockwe;CS Chokwé;1308;"28657473-8c40-40e1-b5fd-3a9867ee84ab"
+Gaza;Chockwe;CS Conhane;1319;"029fb396-3647-4daf-b9cf-b294fecfc59f"
+Gaza;Chockwe;CS Hokwe;1318;"542592b4-13a6-4e3b-a0d9-f4f9b4a34650"
+Gaza;Chockwe;CS Lionde;1322;"0133aa0f-ba55-425d-9c70-50f704c62da7"
+Gaza;Chockwe;CS Manjangue;1305;ab0dced5-886d-41ca-8d17-71e586f253e9
+Gaza;Chockwe;CS Muianga;1309;"41a794a5-9be1-4d24-abb0-79cb2f40a88e"
+Gaza;Chockwe;CS Tlawene;1312;"5be2593c-7f48-420f-84cf-4296f11ee9c2"
+Gaza;Chockwe;CS Urbano 3º Bairro;1315;"3512d1fa-2481-4dce-b2b3-5ddb17ea4151"
+Gaza;Chockwe;CS Xilembene;1321;fc2b56e0-e922-4117-b3b8-a3f89e02e373
+Gaza;Chockwe;HR Chokwé;1307;bb22bada-1292-41f4-945e-5712d3817d6d
+Gaza;Chockwe;PS Chiaquelane;1320;c5905722-0397-4295-87dd-c39151fff255
+Gaza;Chockwe;PS Chiguidela;1306;"55475a08-d68e-4dfe-bb8c-6f8c62030a73"
+Gaza;Chockwe;PS Cumba;1316;"6676a59a-87a9-421f-ab46-4274ab2199ed"
+Gaza;Chockwe;PS Machua;1313;"9c3e7db0-100c-4fb9-912f-8c050bd38641"
+Gaza;Chockwe;PS Mapapa;1310;"96c1de61-c5ed-4bb0-8153-2117bcca8efb"
+Gaza;Chockwe;PS Massavasse;1323;"92d05df4-75c1-484d-9946-874d94bb0f29"
+Gaza;Chockwe;PS Wachicoloane;1311;"175202f2-7860-409b-a693-eaf08fa4f4b2"
+Gaza;Chongoene;CS Banhine;1371;bea56f97-f636-497b-b524-8542ff40e8af
+Gaza;Chongoene;CS Bungane;1382;d2957729-4a7c-4983-ad1b-9a60d36ccaea
+Gaza;Chongoene;CS Chongoene;1374;cfdf6ac3-f110-4b90-9fa9-2c4b996de292
+Gaza;Chongoene;CS Cucuine;1352;da07ee77-2e01-4521-aaf9-e4e10572a9bc
+Gaza;Chongoene;CS Maciene;1377;a833ac56-e2f1-4cd6-9943-34d5df4585ae
+Gaza;Chongoene;CS Macupulane;1348;c0ffe1e1-a1f7-443b-abd1-2aefbda14918
+Gaza;Chongoene;CS Mangunze;1349;a0f9a609-222b-4907-90e1-af2ad492c852
+Gaza;Chongoene;CS Matsinhane;1353;"5dd0716a-c36a-4945-b670-d5a9b935f4a9"
+Gaza;Chongoene;CS Nhacutse;1375;b0915d5e-9e79-444a-ab36-2132ab001661
+Gaza;Chongoene;CS Siaia;1378;"2819481f-a2ca-40f8-90b3-6c7557189e74"
+Gaza;Chongoene;PS Ndambine 2000;1384;a78f94f2-ef4e-49cb-a21e-1af4bffca087
+Gaza;Chongoene;PS Nhamavila;1381;d068e0ca-a2de-45ac-99df-326021579ce7
+Gaza;Guijá;CS Chibabel;1326;f67ed263-dfbd-418c-9168-b46e6e099fcf
+Gaza;Guijá;CS Chimbembe;1327;f267a0fc-c069-497d-910c-ba1b933efdcd
+Gaza;Guijá;CS Chinhacanine;1328;d432deec-d326-400b-a06d-dce81ff7720b
+Gaza;Guijá;CS Chivonguene;1329;f3412193-f21d-4788-a55f-f118987f3843
+Gaza;Guijá;CS Guija;1324;"8a15193e-2ac6-4c0f-9126-bee4d11e574d"
+Gaza;Guijá;CS Mpelane;1331;aac5db9e-4e25-4fe8-b70b-086f21decdaf
+Gaza;Guijá;CS Mubanguene;1330;"05956e45-0c52-4fe8-88d9-1fd5e753a13a"
+Gaza;Guijá;CS Nalazi;1332;de3bb6fe-0723-4d6b-bcad-a606d3626f9b
+Gaza;Guijá;PS Mbalavala;1325;a2a67fb5-a8d0-47f2-b492-8ee0cb87eb18
+Gaza;Limpopo;CS Chicumbane;1370;bf07872c-096f-4e0f-87d4-4df0b857e662
+Gaza;Limpopo;CS Chipenhe;1373;"8f86b612-1fef-4180-9a10-2cb0109c5290"
+Gaza;Limpopo;CS Chissano;1268;"22fedd52-bd4d-4e4c-91fe-4658aac2916e"
+Gaza;Limpopo;CS Julius Nyerere;1376;"63f96655-0258-4038-a40a-d55e43b7bd45"
+Gaza;Limpopo;CS Licilio;1270;ad4879d5-1a1e-4dd5-86e1-4aebf9678f50
+Gaza;Limpopo;CS Vladimir Lenine;1380;"64f0c51a-a304-410d-a1e3-d1460e8eba6b"
+Gaza;Limpopo;CS Zongoene;1379;"19d929ac-f2e6-418e-a7ac-2041970b7dfa"
+Gaza;Mabalane;CS Combomune;1335;"9b7a15aa-65f0-4b8a-8bad-fe4fe687f9d2"
+Gaza;Mabalane;CS Mabalane;1334;"00ca62da-d407-4618-ab33-1f9c83559836"
+Gaza;Mabalane;CS Mabomo;1336;"4f4ab2f2-c5b9-4a90-a378-561240f53315"
+Gaza;Mabalane;CS Pfukwe;1339;ffdcf564-1f57-4727-8063-0f4b85073c68
+Gaza;Mabalane;CS Tsocate;1338;a1e5ca8a-998a-4bc4-99e0-5c0ff8282b35
+Gaza;Mabalane;PS Macarrale;1333;f7d6cde4-b91f-4f69-8d48-904ed3d0bb34
+Gaza;Mabalane;PS Nhimbainwe B;1337;"6793aea3-454a-4b99-ad7b-57963d744164"
+Gaza;Mandlakazi;CS Banguene;1343;"7c5ca3b5-273f-4945-9b2c-a0d36d3245bf"
+Gaza;Mandlakazi;CS Betula;1346;"963bf508-a85c-4c56-bf53-63808d18e121"
+Gaza;Mandlakazi;CS Chibondzane;1357;d7458ac9-80a0-4a75-a916-d37f5c71778f
+Gaza;Mandlakazi;CS Chidenguele;1341;e6c10cc4-f40a-42d8-ba0e-64bbfe70bc2a
+Gaza;Mandlakazi;CS Denguine;1342;"711b13e4-9121-43ad-a2a0-5114a1a0a3f9"
+Gaza;Mandlakazi;CS Incadine;1358;bc89f671-ef88-4d97-ab29-cb9f66a69567
+Gaza;Mandlakazi;CS Laranjeiras;1355;"5869c032-a676-43bb-9b2d-cf088ce324fe"
+Gaza;Mandlakazi;CS Macasselane;1359;"0fc0aa66-473a-4168-a3a4-339808e61f91"
+Gaza;Mandlakazi;CS Macuacua;1347;"97be8e58-da4e-46a8-935f-a2e1a65c4da4"
+Gaza;Mandlakazi;CS Mandlakazi;1360;f725920c-fdfc-498a-817c-44b9c4323e3d
+Gaza;Mandlakazi;CS Manhique;1350;"162678cd-05cd-46ba-a40d-36d71827b4e8"
+Gaza;Mandlakazi;CS Mausse;1354;"800118ef-58b5-442f-b661-cd2ea209b797"
+Gaza;Mandlakazi;CS Mussavelane;1344;"543d3ffa-a2ee-46f7-be58-f7686eaf5114"
+Gaza;Mandlakazi;CS Muzamane;1351;a027f3d1-3b80-4cb2-8695-f3f7ba5027d4
+Gaza;Mandlakazi;CS Tavane;1356;"2065ac57-7290-4878-807d-31b8367b0f27"
+Gaza;Mandlakazi;HR Mandlakazi;1340;daf6d110-539a-4cbf-a2b3-916deeb3b557
+Gaza;Mapai;CS Machaila;1302;"504c8577-c41c-4d3f-8bf0-9d59666f7d88"
+Gaza;Mapai;CS Mapai;1293;"7785353b-194d-4c84-845c-7430d0023ea5"
+Gaza;Mapai;CS Mepuzi;1295;"06d83faf-12e5-46b8-b56f-cbe2e8410d0f"
+Gaza;Mapai;PS Chidulo;1291;"935ba17a-b9ac-44cf-8086-842f530d2141"
+Gaza;Mapai;PS Mapai Ngala;1294;"6b31e045-701a-422b-8496-408c51dedeb1"
+Gaza;Massangena;CS Massangena;1361;"14e95d47-20ee-4bd2-a0d5-dc4e06896457"
+Gaza;Massangena;CS Mavue;1362;"921137c8-b9ba-4501-9678-c3016f7a5b81"
+Gaza;Massingir;CS Massingir;1363;"067b3b3e-a610-4291-9256-892fd86d4586"
+Gaza;Massingir;CS Mucatine;1368;df98c1ab-82a5-4367-89cc-5c6ecd1f784a
+Gaza;Massingir;PS Chibotane;1365;b583aa48-5e5e-4d50-ba36-1345a43374cd
+Gaza;Massingir;PS Macaringue;1369;ab3f993a-b256-47c6-a9fa-f8fbce334a21
+Gaza;Massingir;PS Machamba;1366;"953a6f92-7650-47d6-a2ca-56e964c00d12"
+Gaza;Massingir;PS Mavodze;1367;e050dd61-7f72-444f-9c3f-dd051de35be8
+Gaza;Massingir;PS Zulo;1364;"35556060-5a61-4d43-986e-bf15a730b368"
+Gaza;Xai-Xai;CS Chilaulane;1372;"50def9f6-808b-4d35-8866-7a8319fda172"
+Gaza;Xai-Xai;CS Cidade de Xai - Xai;1261;"6e832db8-b057-4b59-874c-1604c8cc12ad"
+Gaza;Xai-Xai;CS Marien Nguabi;1260;a0f66c23-5982-4b95-8299-83d5ee6e2448
+Gaza;Xai-Xai;CS Patrice Lumumba;1262;"2b183064-e2cf-42a8-968e-8441e1466a21"
+Gaza;Xai-Xai;CS Zimilene;1383;f86237b1-3d74-4bf1-81a5-6d70aab2b9dd
+Gaza;Xai-Xai;HP Xai Xai;1259;ed6581d0-84eb-4bf1-b62c-07fd73f9d662
+Gaza;Xai-Xai;PS Marien Nguabi;1264;"0ed02e1f-12bd-4f6c-8ce6-85283d916525"
+Gaza;Xai-Xai;PS Praia;1263;"80106537-1017-4e33-a11c-8bee9628bc01"
+Inhambane;Funhalouro;CS Funhalouro;1149;"37b9ff50-705b-471d-879c-9bee0b691b3c"
+Inhambane;Funhalouro;CS Manhiça;1147;a554ed31-f0b4-4fb7-9e96-6f3410bece81
+Inhambane;Funhalouro;CS Mavume;1148;"5ed80972-8a3e-466a-84b9-62743fef5a77"
+Inhambane;Funhalouro;CS Tomé;1146;"5a548136-a761-4883-83c6-3612bd3dd412"
+Inhambane;Funhalouro;CS Tsenane;1150;"36c737c2-ff6a-40f1-8538-39c6e72cd591"
+Inhambane;Govuro;CS Doane;1155;"82c6d1ef-e92a-472d-b7e5-adc033240e6e"
+Inhambane;Govuro;CS Jofane;1156;f69b24ad-496f-4f02-b178-a2f8a8a42a73
+Inhambane;Govuro;CS Luido;1151;fc92241d-d03b-440a-854d-94817cb916f9
+Inhambane;Govuro;CS Maluvane;1152;a9dba38f-1ff9-4350-8b2e-b0e1c6941a06
+Inhambane;Govuro;CS Nova Mambone;1153;"1e0ac558-9b6d-44dc-9c6e-732222f28374"
+Inhambane;Govuro;CS Pande;1154;"227a7fcd-9368-4f56-a8a5-4aca4fab26d3"
+Inhambane;Homoine;CS  Maganda;1163;"544a5624-21fc-481d-8341-68b98c380569"
+Inhambane;Homoine;CS Chinjiguir;1166;"8890416b-fe90-42e7-a6f9-6d412b66432c"
+Inhambane;Homoine;CS Homoine;1167;"105a08ce-b0d9-43b9-a5b5-9ac597548beb"
+Inhambane;Homoine;CS Inhamussua;1158;"650a6a86-57c7-4b1d-92c8-87a68c2e591f"
+Inhambane;Homoine;CS Madumo;1160;"5f0573da-4fde-432b-b064-914cf29f3b84"
+Inhambane;Homoine;CS Mafuiane;1165;"468875e5-18f1-46cd-8ebb-ce2360fff236"
+Inhambane;Homoine;CS Maiaice;1164;bc25cf84-1a12-4bd5-894f-ad644e953beb
+Inhambane;Homoine;CS Marrengo;1162;"63e76b86-1185-4d84-99a0-7ba661469cbc"
+Inhambane;Homoine;CS Maxamal;1159;"1ccb54c9-8f2d-4beb-b38b-a326791d2a0a"
+Inhambane;Homoine;CS Pembe;1168;"05f9f115-43f1-4cc9-87c0-4879e44ce51f"
+Inhambane;Homoine;CS Quengue;1161;"10c27a8f-5cd2-4348-ad8e-b7589c7ab51f"
+Inhambane;Homoine;PS Benhane;1157;e4e8ae80-e8a2-4832-9ec2-7e02b82cfe66
+Inhambane;Inharrime;CS Chacane;1175;"0a1ca293-e6e5-4991-a2c3-25dee7b86753"
+Inhambane;Inharrime;CS Chongola;1176;"98bc6faa-f598-47f0-ad18-38db31398072"
+Inhambane;Inharrime;CS Inharrime;1173;b9fe3e75-2a74-4cec-b8c7-84ecdffd9c2f
+Inhambane;Inharrime;CS Mejoote;1172;"48c9e9cd-e46c-4157-bec5-1aacf9c59733"
+Inhambane;Inharrime;CS Mocumbi;1171;dd7fbd2e-db6e-46f4-b5e6-d271fd14955a
+Inhambane;Inharrime;CS Nhapadiane;1169;b4433b40-55e6-462c-8867-fd911de74ff0
+Inhambane;Inharrime;CS Sihane;1177;"709378b7-e5a1-49f3-a359-337366db8d28"
+Inhambane;Inharrime;PS Coguno;1170;"953f9505-8270-48e6-bfa4-7d80dc3a3a15"
+Inhambane;Inharrime;PS Inhamachafo;1174;"2e0cb045-f2ab-42dc-9bd8-3f061a685175"
+Inhambane;Inharrime;PS Mafassane;1178;"3f84eb08-ceb9-42f8-9bcc-0d7bd7e45fb9"
+Inhambane;Inhassoro;CS Bazaruto;1181;"704e9574-e714-4b1d-92b3-98a65b13f915"
+Inhambane;Inhassoro;CS Cometela;1183;"075fff3a-8902-4aa7-8518-0f77be990ae6"
+Inhambane;Inhassoro;CS Inhassoro;1179;b3a28b44-c8fd-4ca5-b86d-d685cc163045
+Inhambane;Inhassoro;CS Macovane;1180;"2ad89961-89fc-4b2b-8bba-72324a7c8e07"
+Inhambane;Inhassoro;CS Mangugumete;1182;"12881b57-1855-4451-965c-abef97128e43"
+Inhambane;Inhassoro;CS Napela;1184;"3264f840-26dc-43b1-a1b5-eb9e037ef9a6"
+Inhambane;Jangamo;CS Cumbana;1186;"74f3e6c1-ef27-4f21-a054-35ca18554920"
+Inhambane;Jangamo;CS Jangamo;1187;"462713b0-cf63-46a3-85ad-18cf7a4372b5"
+Inhambane;Jangamo;CS Ligogo;1185;"4e61ee8e-4b3d-492d-b0b1-9c95bd410673"
+Inhambane;Jangamo;CS Massavane;1191;c1d37fde-a9e7-4593-8630-e93656eba802
+Inhambane;Jangamo;CS Nhancodja;1188;a9b981c1-f151-4b61-adde-51ae6452f325
+Inhambane;Jangamo;CS Ravene;1189;"49ad2d16-600d-4376-bcce-932441b48659"
+Inhambane;Jangamo;PS Mutamba;1190;"3c07e2b8-43c8-4932-a1ff-41293b7f34b7"
+Inhambane;Mabote;CS Mabote;1192;eb59c684-1a82-4abd-9ec9-d5a4f1a2d705
+Inhambane;Mabote;CS Maculuve;1193;d391e708-2dcc-4faf-b79d-a874723e5764
+Inhambane;Mabote;CS Mussengue;1196;"31faf4f0-b166-4053-bd7f-5e20e02baf98"
+Inhambane;Mabote;CS Papatane;1197;"0bf5e024-ba8e-4dc3-824f-712ccab2cbcd"
+Inhambane;Mabote;CS Tunguane;1194;"7c804f11-38b5-4f1a-9d83-e1733180d0ef"
+Inhambane;Mabote;CS Zimane;1195;"35f81c68-e95c-46c7-ae23-17b019d1de50"
+Inhambane;Massinga;CS Balata;1202;f8078247-5a52-44f5-9f70-ced12430e98e
+Inhambane;Massinga;CS Cangela;1201;d963c688-0d2a-49fe-bb5f-b16aa6eca9f4
+Inhambane;Massinga;CS Chicomo;1210;"2ebaeef6-3d15-4b9d-aadd-99eba3d07c53"
+Inhambane;Massinga;CS Chihunze;1211;"402b22d3-48e1-4913-8d44-b9e9ac6e6209"
+Inhambane;Massinga;CS Chtuane;1209;"5c995491-c693-4546-86b4-05a8018b950a"
+Inhambane;Massinga;CS Inhaloi;1207;a8a78b04-506c-4fda-baf5-c14e5fd5da0d
+Inhambane;Massinga;CS Mangonha;1200;df0cfad3-3ed6-4f76-8207-a1aaa0392b11
+Inhambane;Massinga;CS Massinga;1198;c86d009c-ed9c-41c1-9253-47792db23416
+Inhambane;Massinga;CS Muchungo;1208;"3519a667-5336-4ebb-8f17-fc26deee4da8"
+Inhambane;Massinga;CS Murie;1205;"943e8dc7-7e3f-421e-854d-5d602b84775a"
+Inhambane;Massinga;CS Muvamba;1199;"2db4c572-b49b-4da1-8b09-583e3cbe0083"
+Inhambane;Massinga;CS Nhachengue;1206;c43448d9-b064-43a4-821a-ed7af040fa4d
+Inhambane;Massinga;CS Rio das Pedras;1204;"750bd4dd-9dd3-42de-97a4-62e68c766dce"
+Inhambane;Massinga;HD Massinga;1203;b99592be-0159-48e6-9c7d-09691a3ff280
+Inhambane;Maxixe;CS Agostinho Neto;1212;"2f267005-c5c0-47c9-971d-d6dc2b6ee495"
+Inhambane;Maxixe;CS Bembe;1216;bdd39215-64fe-4802-8bc3-2bd64c64cce0
+Inhambane;Maxixe;CS Chicuque;1214;f59e15e2-21af-4954-81d2-af549dc74f38
+Inhambane;Maxixe;CS Cuguana;1218;ab957b40-0ac7-4e5f-9878-03994dfb6f91
+Inhambane;Maxixe;CS Dambo;1217;"698dce51-fbb1-4220-ae46-63ef8010237f"
+Inhambane;Maxixe;CS Mabil;1213;"7d53b352-b2cd-4a96-a352-e8beaa96fc91"
+Inhambane;Maxixe;CS Macuamene;1219;a5b54364-6747-436e-8448-3c1ec6941304
+Inhambane;Maxixe;CS Manhala;1220;"4e4e62fb-a485-4aea-8446-9080ad5ee9f9"
+Inhambane;Maxixe;CS Maxixe;1215;"9475df17-77b6-4cfc-bd87-3a3d3614e95a"
+Inhambane;Maxixe;CS Tinga Tinga;1222;fda066db-839a-4543-8ebd-cb44fe1cd3ff
+Inhambane;Maxixe;HR Chicuque;1221;"36db8018-478b-43b5-aaac-2049de5b01a1"
+Inhambane;Morrumbene;CS Barrane;1223;"919c420e-97c2-4a18-8123-47f948082758"
+Inhambane;Morrumbene;CS Cambine;1230;a28d9c88-15d5-435f-9dc5-5cc592dc9b8e
+Inhambane;Morrumbene;CS Gotite;1231;"6bed5791-604c-45d5-acd2-91277427d454"
+Inhambane;Morrumbene;CS Magumbo;1229;"6a5cea98-e48c-4d08-86ca-163497cda6e9"
+Inhambane;Morrumbene;CS Mahangue;1228;"14a4ce13-6675-470f-833f-73538a679473"
+Inhambane;Morrumbene;CS Maivene;1226;cf710cf7-e8f7-45d4-942d-f92ae6bc8785
+Inhambane;Morrumbene;CS Matacalane;1225;b48b5b59-9cb2-4fdc-a432-69638c1bfa38
+Inhambane;Morrumbene;CS Mocodoene;1224;dcf16bf6-f50f-46de-a19d-5bbd02e9a82e
+Inhambane;Morrumbene;CS Morrumbene;1232;d54dc2c6-6e91-468a-8cfb-93bb8cb4017a
+Inhambane;Morrumbene;CS Sitila;1227;e1e1d9bb-9492-496e-b601-70c34372e182
+Inhambane;Panda;CS Inhassune;1234;"70730e81-3bb8-4475-ad1e-b0d7bd6abd85"
+Inhambane;Panda;CS Jojo;1233;"952c77d2-1ff3-4987-873b-8d7a228aaf39"
+Inhambane;Panda;CS Massalane;1235;"18ae2a8f-c20f-4959-81ef-d0e1a990565a"
+Inhambane;Panda;CS Mawayela;1236;"50859012-5a83-462b-8928-f412ba07b3fc"
+Inhambane;Panda;CS Panda;1237;"32551149-6833-4ab1-9329-478e07c17c72"
+Inhambane;Vilanculos;CS Belane;1245;"52d246be-6d57-4827-ac3b-fd0629810400"
+Inhambane;Vilanculos;CS Chibuene;1239;"25033942-26c8-454f-a67e-6380e1242157"
+Inhambane;Vilanculos;CS Machaniça;1243;"45090d07-c721-4605-9457-6c0139a762a5"
+Inhambane;Vilanculos;CS Macunhe;1247;cdd6d41f-5d0f-4939-bd06-8075cc5e4fe5
+Inhambane;Vilanculos;CS Mapinhane;1246;"29611b0e-4c50-43bb-b567-5981eae7f010"
+Inhambane;Vilanculos;CS Muabsa;1241;bc7b05d3-5b8c-41e0-a968-cae0ad3e2a71
+Inhambane;Vilanculos;CS Pambara;1244;"719e476e-81dc-47fe-bc73-7e27b829eea2"
+Inhambane;Vilanculos;CS Quewene;1240;"9133ff9a-fcda-4504-928f-dcf8aea0377d"
+Inhambane;Vilanculos;CS Vialanculos;1242;"7d18f1ea-2d55-45f8-ae9d-d6d129fdd6b7"
+Inhambane;Vilanculos;HR Vilanculos;1238;c822c1ec-45cf-4694-ad02-9915bdeb3c15
+Inhambane;Zavala;CS Banguza;1249;"7703cf8f-67d4-40e1-8b4f-462036eb82c3"
+Inhambane;Zavala;CS Cala;1250;"0b198cc2-7dd8-40ca-a52c-832e1265eea4"
+Inhambane;Zavala;CS Guilundo;1248;"5847a456-c8bc-4174-8147-27d28a71bca1"
+Inhambane;Zavala;CS Maculuva;1257;f8f86bc5-34ee-422c-a432-5dafa2863ce8
+Inhambane;Zavala;CS Maundene;1251;"1809706d-bcdd-4ef4-b4c3-9079b8fce48e"
+Inhambane;Zavala;CS Mavila;1255;"8d42c0ce-f81d-4c5d-8012-a5dc592594bf"
+Inhambane;Zavala;CS Muane;1256;"2abdc83d-407c-4285-a283-1fc5ff0d2e69"
+Inhambane;Zavala;CS Quissico;1253;"873040f8-75b1-4e3a-b264-d408c9c89059"
+Inhambane;Zavala;CS Zandamele;1252;"20a1bd1b-eccd-4656-bbe7-34e552913758"
+Inhambane;Zavala;HD Quissico;1258;c7a02bce-11c2-4f2b-a455-b5558e5563e0
+Inhambane;Zavala;PS Chipole;1254;ab6da904-6750-4b7f-b465-ec542e4583d0
+Manica;Bárue;CS Barauro;911;"0c7c7a02-05ba-471c-8f0e-683483eadb3d"
+Manica;Bárue;CS Cagore;919;ccffa60d-a121-40c4-ac11-21ef837b29f4
+Manica;Bárue;CS Catandica;914;"9669647a-9a8f-47b3-894f-75e36934d99f"
+Manica;Bárue;CS Chuala;913;eaf94827-6c14-4e7b-8910-9f85c1f379fb
+Manica;Bárue;CS Cruz. Macossa;918;"246923d1-c4fe-4132-8706-f34d5a8bbe38"
+Manica;Bárue;CS Honde;920;f12773fd-6fbd-41c9-9f99-56cfad491dc8
+Manica;Bárue;CS Munene;923;d878dfaf-384e-41d1-bb03-6a7f3e755747
+Manica;Bárue;CS Mussianharo;912;f33b05a5-e2d6-4b36-a9b4-b1e23cf70743
+Manica;Bárue;CS Nhampassa;917;"7f528712-6da9-4beb-8d1c-b4edc3bcdde2"
+Manica;Bárue;CS Nhassacara;916;f6f369b8-4432-4dd4-90cb-0f4c536166aa
+Manica;Bárue;CS Nhazonia;921;f2e1b574-d224-4960-8375-89f84f91c202
+Manica;Bárue;CS Phanze;915;"213dd138-ac9a-4d80-98eb-66130b87fae3"
+Manica;Bárue;CS Serra Choa;922;a8431250-5427-40fd-8f0b-d23fc129eb98
+Manica;Chimoio;CS 1º de Maio;909;ef25fbed-828c-4d48-b97b-9cd354775cd7
+Manica;Chimoio;CS 7 De Abril;910;dd6f1dbb-ec97-4c74-b5ec-2e9bff3bca74
+Manica;Chimoio;CS Chissui;908;e41577e3-6bf1-43b2-91c5-893f9e3d5156
+Manica;Chimoio;CS Eduardo Mondlane;907;"038259a2-9834-4439-9d09-598bdd010c7c"
+Manica;Chimoio;CS Nhamaonha;906;"04df233b-78ef-427c-a109-7b0af78f141a"
+Manica;Chimoio;CS Vila Nova;1521;"0d157001-25eb-4e50-8b33-9ea68e850bac"
+Manica;Gondola;CS Amatongas;927;b3903ac7-1f3a-4a2b-866d-59c3593f0b8a
+Manica;Gondola;CS Chipindaumwe;926;"257eb741-7052-4093-8328-79ec108d1bf1"
+Manica;Gondola;CS Inchope;924;ea1b8e5c-1037-41c2-84f9-b12e8c4dff7f
+Manica;Gondola;CS Muda Serração;928;b4924246-5c55-44d4-844e-8787fc39c907
+Manica;Gondola;CS Mutocoma;929;"9c8e686c-86d9-40da-b697-322313e6cb40"
+Manica;Gondola;HD Gondola;925;aafe055c-7e47-487a-be66-011bff9de9da
+Manica;Guro;CS Bunga;930;fe52d0e5-3dd3-4e74-880a-9ae84bfdf245
+Manica;Guro;CS Chivuli;931;"7ef7d5c1-36cb-472c-8570-b99539f74c63"
+Manica;Guro;CS Guro - Sede;932;"1d78a31c-4941-4c8b-b6ed-d4fc72219682"
+Manica;Guro;CS Mandie;933;"629fbed5-d5de-45e6-a30e-ffd5d743dd96"
+Manica;Guro;CS Mungari;934;a7110aae-8eea-4974-94fa-e6e58a77d611
+Manica;Guro;CS Nhamassonge;935;f71ccd4b-56e9-4c38-a9f2-358e62e31b73
+Manica;Guro;CS Nhansana;936;"29797ef1-7b8f-4c0b-9bb0-976a2f1523db"
+Manica;Guro;CS Tchetcha;937;"2af162d8-e256-4755-9578-5b8779aeedd9"
+Manica;Guro;CS Thanda;938;"5b8fabcc-bf3b-41b7-8ba0-84bcecc1d145"
+Manica;Machaze;CS Bassane;948;"88275405-a3b7-4b1e-8db7-295bcdb70f11"
+Manica;Machaze;CS Chipopopo;940;d684d181-ee02-4c8a-b46a-ef15ba60d7f1
+Manica;Machaze;CS Chipudji;939;"0cce9e03-4cc5-41dc-9d08-73c5603bf2f2"
+Manica;Machaze;CS Chitobe;942;"73c09a80-8c7e-4bb9-8d9e-4b181107e883"
+Manica;Machaze;CS Mavende;947;"65ca90f9-4f48-4318-8ece-ee1e626b8207"
+Manica;Machaze;CS Mazwissanga;943;"72b4a171-1086-4c6b-b73e-f71df65c3343"
+Manica;Machaze;CS Mutefo;946;"08c13534-6f20-452b-a3e4-1d116ea468e3"
+Manica;Machaze;CS Sambassoca;945;"989d6767-5aef-4394-997e-e14a3c9de95c"
+Manica;Machaze;CS Save;944;"86143980-9a59-4b43-a909-d3f34c229cfc"
+Manica;Machaze;CS Thimbi - Thimbi;941;cb2ad935-7062-4ba4-a50e-9df7d5a053dd
+Manica;Macossa;CS Macossa;952;dfd5e17a-a2c0-454b-b97d-1f218b21f33d
+Manica;Macossa;CS Massangazi;951;a710760b-d346-469c-93de-c6d3823c487a
+Manica;Macossa;CS Nguawala;949;ed212dd0-2d0d-4979-a782-83edf0ac6b58
+Manica;Macossa;CS Nhamagua;950;ae31dcb9-73fc-4794-8e67-5e973c128dc2
+Manica;Mossurize;CS Chaiva;977;"7c2ad8e2-3626-4008-affc-856597de3fcd"
+Manica;Mossurize;CS Chiurairue;971;"8f9c948a-93e2-495e-9144-2ed31c1626ee"
+Manica;Mossurize;CS Dacata;972;"2669cb0e-dda6-426a-85ff-1d39a926d98b"
+Manica;Mossurize;CS Garagua;978;"1ccff804-70da-4f5a-b0f4-6dcfce85a84b"
+Manica;Mossurize;CS Gunhe;976;"69a46e31-9057-4976-9777-d6678dd2e02b"
+Manica;Mossurize;CS Macuo;975;fa7e4dc6-6def-4feb-806a-903dcfd7ca18
+Manica;Mossurize;CS Mude;973;"055a8bdb-19b9-4719-92ad-ebe158c37201"
+Manica;Mossurize;CS Mupengo;974;dbff9637-6dee-45a7-83fd-9869856c7981
+Manica;Mossurize;HD Espungabera;970;"46a00462-b433-49c1-a492-24fbc9ede343"
+Manica;Sussundenga;CS Darue;986;de7e7af3-c083-4585-aaa5-ff2bdadc0f91
+Manica;Sussundenga;CS Dombe;982;aba74f15-64bf-4e43-9e88-09bf53178ee6
+Manica;Sussundenga;CS Mavuzi;979;"0c5a78cf-7d1c-4ed7-be1f-ce9066b8619e"
+Manica;Sussundenga;CS Munhinga;980;"035e472b-22b9-4dd2-abfd-5fb00e7ed323"
+Manica;Sussundenga;CS Nhambamba;981;"0af46934-88df-4649-b234-c3fb2a14b235"
+Manica;Sussundenga;CS Rotanda;985;"90a4f94f-f384-42ac-8a8d-b1e96c1220c5"
+Manica;Sussundenga;CS Sembezea;983;"1ef8b2f9-fb76-488f-9e81-a01ae352e25f"
+Manica;Sussundenga;CS Sussundenga;984;ad7d4d34-3da7-4618-9fb2-fba8bf1180e4
+Manica;Tambara;CS Búzua;991;e7773568-46f3-43c3-acdd-ec4688f6f6cb
+Manica;Tambara;CS Campange;992;"028b88b7-508d-4c70-bc7f-0fe636524290"
+Manica;Tambara;CS Nhacafula;990;"0211375b-783c-4391-a83e-c6d884660a33"
+Manica;Tambara;CS Nhacalapho;988;bfd3df98-0ba5-41fe-96aa-0ee4ed3206c2
+Manica;Tambara;CS Nhacolo;989;"85e1aecb-3b65-46e1-bcfe-d7a555c63f26"
+Manica;Tambara;CS Sabeta;987;e6004538-1665-4b17-893f-daaae463b8a4
+Maputo Cidade;Kamavota;CS 1º de Junho;1501;"323f74fa-3a86-4bd5-928c-8b5b45f92055"
+Maputo Cidade;Kamavota;CS Albazine;1503;"7bf925f2-862c-46c7-8fa8-e7c3976a73cd"
+Maputo Cidade;Kamavota;CS Chiango;1506;"51c75aee-b87c-403f-b879-7b5a0d1003f5"
+Maputo Cidade;Kamavota;CS Hulene;1505;"94a0a6c5-3794-4fb8-829a-ece0399ffbcb"
+Maputo Cidade;Kamavota;CS Mavalane;1508;"8dfbc535-b861-42ff-8b36-59df11d72eb4"
+Maputo Cidade;Kamavota;CS Pescadores;1504;"75393503-2818-40ac-b56c-e51ad599b8b9"
+Maputo Cidade;Kamavota;CS Romão;1507;"4bca4e1c-836a-4602-b4cf-21e7451da13b"
+Maputo Cidade;Kamavota;HG Mavalane;1502;"4af9abe4-121e-4a24-b23a-0b230f8c68f7"
+Maputo Cidade;Kamaxakeni;HG Polana Caniço;1500;"70ff8b79-b5fe-4b06-95a4-57fa746f7da0"
+Maputo Cidade;Kamubukwane;CS Bagamoio;1511;"1dac19e5-e5a3-467e-8217-754a728b51d5"
+Maputo Cidade;Kamubukwane;CS Inhagoia;1514;"349b8d4e-f123-4868-a765-babcf194a453"
+Maputo Cidade;Kamubukwane;CS Magoanine;1509;"94f6c82b-e30f-4bd1-ac4d-16857cc7b6a6"
+Maputo Cidade;Kamubukwane;CS Magoanine Tendas;1513;f7219c70-68a7-4f0d-a5d2-11ae82fcefae
+Maputo Cidade;Kamubukwane;CS Zimpeto;1510;"0bff30fa-70e4-4084-962c-d08608440059"
+Maputo Cidade;Kamubukwane;HPsi Infulene;1512;a8b39019-6713-4ca5-8a18-c328e6618f4a
+Maputo Cidade;Kanyaka;CS Inguane;1520;d07c7977-e4fa-49c3-9cca-9d49b7c3e8cb
+Maputo Cidade;Kanyaka;CS Inhaca;1519;"56f19a62-530a-4847-b7bd-430f575df44a"
+Maputo Cidade;Kanyaka;CS Muchina;1518;"351e8a8f-d17f-42f7-950e-4638e6927eb2"
+Maputo Cidade;Katembe;CS Catembe;1517;de93223b-3fdb-4746-bf5f-fbbe34b991ec
+Maputo Cidade;Katembe;CS Incassane;1516;aebe1b4f-3939-4515-9641-0ddcfdfd3699
+Maputo Cidade;Katembe;CS Mutsekua;1515;ba355fdf-368c-4889-aaad-63f5b5a20a25
+Maputo Cidade;Khampfumo;CS Alto Maé;1489;"5e42e055-08ec-4706-a19f-4e46d75f1584"
+Maputo Cidade;Khampfumo;CS Malhangalene;1492;"5e898ef8-9c45-49fc-a706-99fd137cf48e"
+Maputo Cidade;Khampfumo;CS Maxaquene;1488;cda80356-6a3a-4c3b-bf82-1859692f77c2
+Maputo Cidade;Khampfumo;CS Polana Cimento;1491;c48f7f9a-1178-4208-9e45-3afcc38ae1f8
+Maputo Cidade;Khampfumo;HC Maputo;1487;"0b2eb5fb-c27a-4ecc-a066-c17bf2e11def"
+Maputo Cidade;Khampfumo;HM Maputo;1493;b1ca1ad0-044b-4e72-b1c9-f31d403497b0
+Maputo Cidade;Khampfumo;PS Nº 2 Tribunal;1490;acbd83d8-3096-48e7-b9af-78cab0fd5178
+Maputo Cidade;Nlhamankulo;CS Chamanculo;1496;"5b39f13b-9054-4fac-87be-5b6413245370"
+Maputo Cidade;Nlhamankulo;CS José Macamo;1499;"0c8f57b4-0420-44cc-9be7-22383b64773b"
+Maputo Cidade;Nlhamankulo;CS Nº 14;1494;a2707b85-a88c-4f65-a450-14886ddcdf74
+Maputo Cidade;Nlhamankulo;DD;1497;"3ebcad3f-9951-4302-be41-d3d72f0439c5"
+Maputo Cidade;Nlhamankulo;HG Chamanculo;1495;de4dd00b-f11d-457c-8ac9-64142f4373f6
+Maputo Cidade;Nlhamankulo;HG José Macamo;1498;"4a70d2e5-8773-41b5-aea3-d25f8ef3bda5"
+Maputo Provincia;Boane;CS Beleluane;1414;dbbdf87e-7a3d-41f4-8e2b-2e14eb5e9cee
+Maputo Provincia;Boane;CS Boane;1412;"5a5eb784-cdfc-4164-ae2c-1e25c6c01167"
+Maputo Provincia;Boane;CS Campuane;1422;"23b59d76-b34e-475e-a655-e5ca6e168308"
+Maputo Provincia;Boane;CS Mabanja;1415;"8059287b-e19c-451c-9a37-d2bc8cc005cf"
+Maputo Provincia;Boane;CS Mahubo;1423;d14a3410-b5a7-43e3-8dd7-94d06d490f23
+Maputo Provincia;Boane;CS Massaca;1413;"7a662423-ba15-4338-8e32-41774640cac2"
+Maputo Provincia;Boane;CS Mulotana;1421;c84ccccd-b1f0-4dec-af72-2e9cc3700631
+Maputo Provincia;Boane;CS Picoco;1420;"4f9c70f4-70b7-40c0-8bda-aba1fac647a4"
+Maputo Provincia;Boane;PS Águas de Maputo;1419;efd3b418-c685-488a-b012-a7960b1357fa
+Maputo Provincia;Boane;PS Casa Gaiato;1418;"796efe02-b4ac-4721-af56-9f4e75bc3adc"
+Maputo Provincia;Boane;PS Matola-Rio;1416;cfeee3ae-7856-4451-b909-b8839055e451
+Maputo Provincia;Boane;PS Pequenos Libombos;1417;e92feb12-e4a0-4e22-8990-e80deb612874
+Maputo Provincia;Magude;CS Chichico;1432;"9d8198b2-eaa2-4837-91a1-6104bbc2aeaa"
+Maputo Provincia;Magude;CS Chicutso;1428;"7e22e1a1-3c54-4c52-9e90-1ad8d33f8fdb"
+Maputo Provincia;Magude;CS Facazissa;1431;df6ac95e-4ed8-4bc5-b27b-c5cc18de3547
+Maputo Provincia;Magude;CS Magude;1424;"851200f8-03ff-42e3-968b-723e11229d8c"
+Maputo Provincia;Magude;CS Mahel;1426;"9efe200b-863d-4111-bddc-9bfca54fe687"
+Maputo Provincia;Magude;CS Mapulanguene;1427;adfe5995-22f6-4af7-b2ca-e83664602f53
+Maputo Provincia;Magude;CS Moine;1429;e765f8d2-cf5b-4bb3-8ab8-1beb630c8598
+Maputo Provincia;Magude;CS Motaze;1430;f0195a2e-337e-4dfe-99ec-85c9642e2320
+Maputo Provincia;Magude;CS Panjane;1425;"71a8ae1d-d491-4785-ac53-117cba05c1e4"
+Maputo Provincia;Manhiça;CS 3 de Fevereiro;1443;"7993cb64-9a27-4936-ad0f-0cf35e4590f2"
+Maputo Provincia;Manhiça;CS Calanga;1447;"501a17c2-b9dc-4169-b4f3-2dcddd02df73"
+Maputo Provincia;Manhiça;CS Chibucutso;1441;"7e76312d-59f8-4da7-8581-b6c576e96774"
+Maputo Provincia;Manhiça;CS Ilha Josina;1444;e945a384-fade-48ff-9f91-d700382a0de3
+Maputo Provincia;Manhiça;CS Malavela;1438;"1e69bfbd-c59a-47c3-b67a-2339cabb7fea"
+Maputo Provincia;Manhiça;CS Maluana;1434;c83298d5-0ef1-47eb-a31c-72dc8ce32dfd
+Maputo Provincia;Manhiça;CS Maragra;1446;d62a6c24-d3d4-49e0-a12e-620786909d03
+Maputo Provincia;Manhiça;CS Mirona;1442;"66926261-c356-4f9e-a265-a5ba8425219b"
+Maputo Provincia;Manhiça;CS Mirrone;1448;f426fbd5-c7cc-4884-b531-e6c6f539feeb
+Maputo Provincia;Manhiça;CS Munguine;1436;"157f9746-6e19-46e8-8e91-c4d5aed6e5ed"
+Maputo Provincia;Manhiça;CS Nwamatibjana;1445;"1baa2f90-8632-40d0-ba0d-034cc19b89ef"
+Maputo Provincia;Manhiça;CS Taninga;1435;"35776037-9681-4d65-b678-762edc81b5dd"
+Maputo Provincia;Manhiça;CS Xinavane;1433;"35141138-8547-461f-b3d6-6c7ae7c4ef16"
+Maputo Provincia;Manhiça;HD Manhiça;1439;bbb32e29-fe4b-48cb-bf4a-93fd892008d2
+Maputo Provincia;Manhiça;HR Xinavane;1437;"9fe2bb3b-5503-40bf-8f12-6a65b71e65d7"
+Maputo Provincia;Manhiça;PS Chibututuine;1440;b872ce6d-b863-485a-8f7c-df326eaa981c
+Maputo Provincia;Marracuene;CS Abel Jafar;1457;c79ec262-519b-4b7b-a3b7-397eaf842b6f
+Maputo Provincia;Marracuene;CS Machubo;1455;"642fd61b-0e53-4166-aaa2-f09606f0e727"
+Maputo Provincia;Marracuene;CS Mali;1456;dfb89cee-1cd5-464b-b5b4-930a9c22aff0
+Maputo Provincia;Marracuene;CS Marracuene;1454;"8deca0aa-31b6-4e96-9461-a9ae05a52c05"
+Maputo Provincia;Marracuene;CS Matalane;1451;"01ffe17e-d767-4982-b79c-7a3b9cc0aa55"
+Maputo Provincia;Marracuene;CS Michafutene;1452;"222d20dd-6e5e-4402-ba23-38ffe1f307f1"
+Maputo Provincia;Marracuene;CS Mumemo;1450;"067ab831-756f-4fb2-8c02-994d4516161f"
+Maputo Provincia;Marracuene;CS Nhongonhane;1449;"0a416861-c816-4ff0-bed9-705296bd9802"
+Maputo Provincia;Marracuene;CS Ricatla;1453;a6bf8ea7-87be-4860-9fac-2f068b5c3a51
+Maputo Provincia;Matola;CS  Unidade A;1393;"6c6399f2-3870-421c-9174-ec7f7e7dde67"
+Maputo Provincia;Matola;CS Bedene;1399;"95dcc6ad-0087-4281-97e3-27fa90b2766c"
+Maputo Provincia;Matola;CS Boquisso;1405;"41a8d265-8421-4f36-aa56-21b9b7d563c5"
+Maputo Provincia;Matola;CS Khongolote;1408;"00d48708-9f11-42c0-9f99-cef6c703cd5f"
+Maputo Provincia;Matola;CS Liberdade;1404;cf8eb87d-68d1-4dd1-8dcd-774739ff8423
+Maputo Provincia;Matola;CS Machava I;1411;"01016d74-53c6-4fe7-80e2-187e0c96515a"
+Maputo Provincia;Matola;CS Machava II;1385;"8f426d21-db0a-4057-825c-49b8a92e7289"
+Maputo Provincia;Matola;CS Matola;1401;a7b1095e-690e-4062-a474-e5c0e3d20d35
+Maputo Provincia;Matola;CS Matola Gare;1402;e33a34cf-749d-4780-9fc9-8aef03e700b4
+Maputo Provincia;Matola;CS Matola II;1410;ab0e3fba-d605-493f-a2cf-fa98c017b7a4
+Maputo Provincia;Matola;CS Muhalaze;1397;ab421259-3b8f-4b14-97f2-2663558d9ce2
+Maputo Provincia;Matola;CS Ndlavela;1403;dfef91ff-34b8-4d26-905e-857ff370936d
+Maputo Provincia;Matola;CS Tsalala;1400;"7731ac81-4682-454f-b8af-2cd94303d0cc"
+Maputo Provincia;Matola;HG Machava;1390;"517b4c7b-8bbb-4a99-b787-8b85f23866df"
+Maputo Provincia;Matola;PS BO-Machava;1388;f28e17db-0c4d-451a-bb4a-537d1dda7b58
+Maputo Provincia;Matola;PS Cadeia Central;1396;"2a6ab3bf-604d-4746-bb55-43783f4dd877"
+Maputo Provincia;Matola;PS Cimentos;1389;d31fef44-9258-49d5-8e8c-403721f673d7
+Maputo Provincia;Matola;PS Clinica da Liberdade;1395;c773ac00-1460-4120-9846-56ad58560916
+Maputo Provincia;Matola;PS Clinica da Matola;1391;"998f310f-fb6f-4450-bb44-d5e5a8dcc9ce"
+Maputo Provincia;Matola;PS Dzovo;1387;"2955cf80-618b-4220-9273-dbb8d9a280e5"
+Maputo Provincia;Matola;PS Fomento;1394;"9e08f7bf-31d2-41f9-b80c-ea08a1db65dc"
+Maputo Provincia;Matola;PS Hanhane;1392;c5f084b3-2fe5-479d-b635-db9d7f082060
+Maputo Provincia;Matola;PS Km-25;1407;"622d8c26-e159-4499-83c4-0f2661015fd2"
+Maputo Provincia;Matola;PS Mapinhane;1409;f4692e6f-6cf9-447e-963f-d8d490647dce
+Maputo Provincia;Matola;PS Policia;1398;"2d863ad7-d6e8-43d5-a0b1-17e6bf15a181"
+Maputo Provincia;Matola;PS T.3;1406;"94223fbe-8a69-45a7-ab2e-8cfdb61f944b"
+Maputo Provincia;Matola;PS Zona Verde;1386;"2f18caac-cee9-475a-b618-835195190a94"
+Maputo Provincia;Matutine;CS Catuane;1458;"93d4886b-0694-42a6-8568-05cbb91fb353"
+Maputo Provincia;Matutine;CS Gueveza;1464;ec70e255-32dc-4e6a-aade-7c0197b02694
+Maputo Provincia;Matutine;CS Hindanne;1463;fc1f5b8f-19e1-463a-ba77-0a1bac446f59
+Maputo Provincia;Matutine;CS Mabilibili;1459;ad4c63db-000f-4e93-9d3c-8eb2ae7b09fe
+Maputo Provincia;Matutine;CS Manhangane;1469;b7c0cbc2-6f01-4a1b-886c-c71774a54488
+Maputo Provincia;Matutine;CS Matutuine;1465;"1899ef96-6dd5-485e-8dbe-3ced06f3b2e7"
+Maputo Provincia;Matutine;CS Mungazine;1466;"566362cf-9ef1-4584-8792-35e7f7aacd0d"
+Maputo Provincia;Matutine;CS Ndelane;1467;a9e08ac9-7759-4a0e-b7a2-2250cea63305
+Maputo Provincia;Matutine;CS Nsime;1470;d19db173-b0e7-45ad-8bb0-16a933141110
+Maputo Provincia;Matutine;CS Ponta do Ouro;1460;"753c0e90-ac5c-48bf-bb7f-9f146f1e99a2"
+Maputo Provincia;Matutine;CS Salamanga;1461;"16a30fb2-1e09-4b3b-8c60-98da32339899"
+Maputo Provincia;Matutine;CS Santa Maria;1468;"510a7d03-ce22-44e0-9d61-f677dab5c8ce"
+Maputo Provincia;Matutine;CS Zitundo;1462;cfa91197-d2f4-4cd3-907b-6184faec67b5
+Maputo Provincia;Moamba;CS Chinhanguanine;1473;"05284d40-314c-4aa7-91d0-8a12aa6176a1"
+Maputo Provincia;Moamba;CS Corumane;1471;"05c926af-b3dd-4d60-af79-48a8a9fa103c"
+Maputo Provincia;Moamba;CS Mahulane;1474;f164a096-a965-4337-a4c7-90dd5d78d406
+Maputo Provincia;Moamba;CS Moamba;1479;"2784ce7a-bbdf-45c1-b43d-ccc58bd27b2e"
+Maputo Provincia;Moamba;CS Pessene;1475;"2b1fa03a-080c-4f12-9855-1736d0fd122a"
+Maputo Provincia;Moamba;CS Ressano Garcia;1478;fe85a0e7-295a-46b7-817b-fe5b0a10c8ae
+Maputo Provincia;Moamba;CS Sabie;1477;e6a14660-37bd-466f-8b4b-b39e465e63fc
+Maputo Provincia;Moamba;CS Tenga;1476;b913fd21-f84d-4a71-9cba-7aa4e17fac68
+Maputo Provincia;Moamba;PS Chanculo;1472;eda35229-c0b7-48f4-a81f-c4689c75641b
+Maputo Provincia;Namaacha;CS Changalane;1481;"479af05b-ee94-4360-84c8-ac52d1b6002d"
+Maputo Provincia;Namaacha;CS Dibinduane;1483;f896a7e2-ba7d-4c6a-bf4a-da5d293f3b48
+Maputo Provincia;Namaacha;CS Kulula;1484;"3b7af0d6-aa9a-4a94-81de-7fb405182fd1"
+Maputo Provincia;Namaacha;CS Mahelane;1482;d6ca5d40-c8e4-4355-af60-9927673ea4e6
+Maputo Provincia;Namaacha;CS Namaacha;1480;"5eecc580-521f-4204-b619-1d9dc1e706d4"
+Maputo Provincia;Namaacha;CS Odete Mechisso;1486;"2d9a101f-c8be-4d52-9d16-eb78ce7e0570"
+Maputo Provincia;Namaacha;PS Wamongo;1485;"63fc560b-7746-42b5-a541-89ca0da5be32"
+Nampula;Angoche;CS Abue;438;"0709183f-cdc4-477b-aa18-2a077bdd0782"
+Nampula;Angoche;CS Catamoio;430;f9293a51-9905-498a-afe7-21d887174147
+Nampula;Angoche;CS Gelo;435;"910754b8-8214-4fe0-a1cd-35c5d0addfc8"
+Nampula;Angoche;CS Inguri;433;"166e517c-034d-441e-ab84-8c437cd53c55"
+Nampula;Angoche;CS Josina Machel;442;eb354c3a-9181-49d6-b914-7e38b68e8bab
+Nampula;Angoche;CS Malatane;429;a36e0322-6751-4915-a889-9a9ffe19f589
+Nampula;Angoche;CS Mepapata;441;"449575ca-ca1c-4e41-a363-154be0cceb7c"
+Nampula;Angoche;CS Mirrere;440;"7d29e14d-ade9-4990-a93e-66a4be54b3af"
+Nampula;Angoche;CS Mucual;443;"241beaa4-f426-41de-85b9-6271e539a473"
+Nampula;Angoche;CS Nacopa;431;"0bc460bc-152c-4504-8c46-0971656a7cc8"
+Nampula;Angoche;CS Namaponda;432;bed8ade8-5f2c-4053-801d-b01145b73abe
+Nampula;Angoche;CS Namitoria;439;"55495a3f-8f6e-4c1d-8c42-cae7c78a85fd"
+Nampula;Angoche;CS Napruma;426;f87ce2c6-4435-455c-bcc1-15a2527bec48
+Nampula;Angoche;CS Natir;437;"71670f89-e7f5-4b07-81d8-ec3f620f1f7f"
+Nampula;Angoche;CS Quelelene;436;ad2ff858-c369-4868-b5b1-06efe44b2e1b
+Nampula;Angoche;CS Quilua;427;"74b7451b-da28-43ad-ae0f-f977f881c974"
+Nampula;Angoche;CS Sangage;428;ef2764ce-8329-4b3a-b8ee-f6d6b3f993e7
+Nampula;Angoche;HR Angoche;434;aee806bc-265f-492e-883d-c3163121d857
+Nampula;Distrito de Nampula;CS 1 de Maio;415;"0b243ab0-d80d-4bd2-9045-8da642899577"
+Nampula;Distrito de Nampula;CS 25 de Setembro;413;d8ba7e92-32c7-4251-a5fe-2f3e95c21654
+Nampula;Distrito de Nampula;CS Anchilo;597;"2c7dc2eb-35de-49fb-abbc-1d6a27889bd3"
+Nampula;Distrito de Nampula;CS Maratene;587;f043905b-5362-4bc0-b8e6-b574fc765231
+Nampula;Distrito de Nampula;CS Mental;420;"284bb319-8b7e-4f1c-b345-09c7d77f1c8f"
+Nampula;Distrito de Nampula;CS Mucova;588;"8d79314b-764e-4b84-a743-b99817fdfeab"
+Nampula;Distrito de Nampula;CS Mucuache;425;ffef977e-bf52-46ee-b68b-b133a170c4c1
+Nampula;Distrito de Nampula;CS Muhala Expansão;419;c08161cb-dccc-40a5-bb41-9efde824c362
+Nampula;Distrito de Nampula;CS Mutavarex;423;"46feeeb0-9a95-4203-9e6d-cc16b07e1e1d"
+Nampula;Distrito de Nampula;CS Naholoco;593;"25d9180a-3221-4648-8ae2-8399fd89aa8b"
+Nampula;Distrito de Nampula;CS Namachilo (MOMALA);600;c3089d91-556c-4dbe-a842-5eafeb08e2b8
+Nampula;Distrito de Nampula;CS Namiconha;592;"93f077df-2891-442a-bf29-70561c2a7725"
+Nampula;Distrito de Nampula;CS Namicopo;417;"4691908c-211a-40af-9a6d-9caa4cccd74b"
+Nampula;Distrito de Nampula;CS Namutequeliua;422;f5b44a13-2043-4464-979d-9d90b545ad37
+Nampula;Distrito de Nampula;CS Napipine;416;"978e08dc-683a-4596-8348-ddb3018bf73b"
+Nampula;Distrito de Nampula;CS Niarro;424;c2a3034a-a579-41f5-a591-363522c6b539
+Nampula;Distrito de Nampula;CS O.T.M.;411;"24072d80-8461-43a6-8a23-2c7051cee8a8"
+Nampula;Distrito de Nampula;CS Penitenciaria;418;"6936c8b3-b66e-4feb-bb11-74db96f0c54f"
+Nampula;Distrito de Nampula;HC Nampula;421;"0d663df5-013a-4c47-9424-b22ffbee60b6"
+Nampula;Distrito de Nampula;HG Marrere;414;"2f051f2d-4c55-44cc-9884-c1863ae6bedd"
+Nampula;Distrito de Nampula;HM Nampula;412;"2b512283-ee32-470c-8bfe-a1821b97d350"
+Nampula;Erati;CS Jacoco;453;b6259c68-c036-4d7e-a7eb-619b75f04580
+Nampula;Erati;CS Kutua;448;f198faac-4c84-4be0-ba8d-5e475e7add6e
+Nampula;Erati;CS Mirrote;447;"47cf563b-99e6-456d-9748-bf9c9b1e3dd6"
+Nampula;Erati;CS Namiroa;452;"1082f61f-bc7b-4f34-b78c-c9468b34b3ff"
+Nampula;Erati;CS Odinepa;449;bc618f9d-df15-460b-8d1f-986e69904e0b
+Nampula;Erati;CS Samora Machel;450;"397ba8ae-e5e6-42eb-90ac-7f6240e700b5"
+Nampula;Erati;CS Tubruto (25 Junho);445;e5fe3505-6986-4b64-b974-933bc6b4cc23
+Nampula;Erati;HR Alua;444;aa42cb00-4dfe-47aa-acc6-89e5c24a89dd
+Nampula;Erati;HR Namapa;446;ac96c147-930d-439f-bb06-a68e60167ad6
+Nampula;Erati;PS Mantoge;451;ed8bcbe9-7dba-4ba8-b34a-bfb4e4020b5a
+Nampula;Ilha de Moçambique;CS Ilha de Moçambique;456;be72edaa-367d-43f8-b286-3fb2a48c0f1f
+Nampula;Ilha de Moçambique;CS Lumbo;457;"050299a6-41d2-45a1-959b-c46f23f80c5b"
+Nampula;Ilha de Moçambique;CS Macicate;458;d29fe52e-3b38-43e7-bca5-7fdafae93661
+Nampula;Ilha de Moçambique;CS Muchela (Sangage);455;deea1f78-5678-415f-b14c-043262a1dcf8
+Nampula;Ilha de Moçambique;PS Ampara;454;a8ca7656-bf1e-4424-b9df-cc9769b0fcc4
+Nampula;Lalaua;CS Lalaua;460;"64149ad7-e4e3-4d54-85cd-975d7222622c"
+Nampula;Lalaua;CS Lurio;463;"9011ba71-c316-4056-b6f2-8be194592ea7"
+Nampula;Lalaua;CS Meti;461;"644c303a-7b29-411c-b6bd-da085e2bfa47"
+Nampula;Lalaua;CS Muesseleque;462;cd464350-7fca-40e1-b9c8-5e90696bcd9b
+Nampula;Lalaua;CS Naquessa;459;"3fb1223f-f2e1-43aa-b5fd-796c4dde1c1f"
+Nampula;Malema;CS Chuhulo;466;"06dc8e3a-911b-44e7-830f-83cfa2dc2b3a"
+Nampula;Malema;CS Cunvarre;467;"5e40605a-0604-4942-b850-ee5643eb5ef9"
+Nampula;Malema;CS Malema;464;"0d47fce5-b019-4113-946e-522bed908689"
+Nampula;Malema;CS Murralelo;468;"084f80f6-10a5-45ff-9d2e-017dbccd47a2"
+Nampula;Malema;CS Mutuali;465;"19c31cd4-9e1c-482f-8936-a4f8ef17d1db"
+Nampula;Malema;CS Nakata;470;caddc2cd-19a9-4ae7-9b24-7c97c7377aad
+Nampula;Malema;CS Nataleia;469;"34f4114d-e901-4875-a7f3-bf0da31092f1"
+Nampula;Meconta;CS Corrane;473;c903d4e1-7d92-457d-a108-c29ee82a3b77
+Nampula;Meconta;CS Japire;475;f2fb5a5b-5773-4288-a931-4a70ea2630e9
+Nampula;Meconta;CS Meconta;477;"132096a9-1c8b-41cf-b2fd-1df36bda4f66"
+Nampula;Meconta;CS Mecua;476;"8ce2e0cd-9227-4524-888f-0f741797ae4e"
+Nampula;Meconta;CS Nacavala;474;"38b9d9b9-dcf9-435e-a974-0ce1648ed29b"
+Nampula;Meconta;CS Namialo;472;"1e9e16f5-332c-4827-ac7b-c0ee4dca944f"
+Nampula;Meconta;CS Tetererene;471;"9514378a-4a7e-4f05-88ff-9480c4b398d4"
+Nampula;Mecuburi;CS Issipe;487;"4e9734d3-271a-4d59-aead-670aeb65f597"
+Nampula;Mecuburi;CS Malithe;488;"4a2fc3ce-ade1-4d66-a22a-1534861fb0d3"
+Nampula;Mecuburi;CS Mecuburi;489;e14ced9e-c3d1-4944-bb4d-049fd5690201
+Nampula;Mecuburi;CS Mualua;480;ad1bbd92-c8a1-4dcf-b68b-5cf3e53e5f78
+Nampula;Mecuburi;CS Nahipa;484;ce52f80b-4a14-4fde-a41f-3898ffb4a16b
+Nampula;Mecuburi;CS Namina;478;"3ec06bf0-ea54-4e6f-80fc-537dd2e14e63"
+Nampula;Mecuburi;CS Nipai;481;"98d0ce07-10df-4e85-b8a2-b8c15b7b2428"
+Nampula;Mecuburi;CS Ratane;485;"2dc7364b-ed29-4f23-851e-b9a61ce0aafd"
+Nampula;Mecuburi;CS Unidade Moçambicana;486;a3be00c1-dc05-4e45-b100-4794dff1b0ce
+Nampula;Mecuburi;PS Milhana;483;dea6b253-e64d-4921-80ce-fc116fad71e1
+Nampula;Mecuburi;PS Momane;479;c53eb0ae-ae55-4473-8392-926c1205597f
+Nampula;Mecuburi;PS Popue;482;"25913609-4b15-4679-9e44-4117f85cfe9e"
+Nampula;Memba;CS Baixo Pinda;491;b05c4361-d0a5-4af3-a81f-96ccd98c2e0a
+Nampula;Memba;CS Cava;493;"5adec1e7-73e9-409e-8acc-9d6fcb2abbdd"
+Nampula;Memba;CS Chipene;494;e4046182-19c9-4099-a774-48752f92799b
+Nampula;Memba;CS Geba;492;"385c4f2f-88a0-4ebb-a1de-ec6f6c91a32f"
+Nampula;Memba;CS Mazua;496;dc9ac779-48fd-41f7-a2ff-6e079ee8be5f
+Nampula;Memba;CS Memba;499;"54bb2257-f6d4-4c43-b69d-ea6fd9a1b3b9"
+Nampula;Memba;CS Namahaca;498;"540e4d75-0522-43b7-8916-1cf4cb1f3ea2"
+Nampula;Memba;CS Namatapa;490;"97cc9970-0cb8-414b-a9ca-b2aae084326b"
+Nampula;Memba;CS Pavala;501;e6ff48e9-a1c1-4a93-8f7a-892a833bfbec
+Nampula;Memba;PS Lurio;497;"95a2f2bd-9a56-435d-8904-ed721407f7b4"
+Nampula;Memba;PS Napila;495;"2c98070b-2436-4325-b4a5-12cc2ebccbd9"
+Nampula;Memba;PS Simuco;500;cd615091-d939-40c7-a7d7-618a6e17b57b
+Nampula;Mogincual;CS Mepeone (NAKIRA);502;ae437ca4-460e-4b56-90c6-fe1ecb94899a
+Nampula;Mogincual;CS Namige;505;"0bc171f4-031b-42ef-9945-25efc9ff9466"
+Nampula;Mogincual;CS Perequexo;504;"687d84dd-c8c6-4882-aed5-add9ee8dd45f"
+Nampula;Mogincual;CS Quixaxe;506;"1a53d658-6955-4ee5-95d2-8ed13d6eeb32"
+Nampula;Mogincual;CS Xa-Momade;507;f4766183-4267-4249-9009-d56c33511848
+Nampula;Mogincual;CS Xa-Selemane;503;a3a5bfbf-ed9d-4a64-b675-320987fab9ec
+Nampula;Mogovolas;CS Calipo;512;e697c1e1-8abf-4a9c-9739-4cab236a5478
+Nampula;Mogovolas;CS iuluti;511;"25f65bc6-7514-4ac6-9b36-08a94b1dd0c2"
+Nampula;Mogovolas;CS Mecutamala;510;"6f642010-2fea-4696-8034-480acbbdb683"
+Nampula;Mogovolas;CS Muatua;514;"4e6656db-7ef6-4fc9-9702-90d08c30ae10"
+Nampula;Mogovolas;CS Murrirrimue;513;ca05e41a-10ee-4370-878c-a5ac46640de7
+Nampula;Mogovolas;CS Nametil;509;"3330e00b-022f-4c71-9c68-24265f66fbc5"
+Nampula;Mogovolas;CS Nanhupo Rio;508;"33ead388-2e2b-4b9a-8070-0150deed3cb8"
+Nampula;Moma;CS Briganha;518;"413de9b3-89e0-4a92-98c6-ae3ee85afbc2"
+Nampula;Moma;CS Chalaua;517;"933c6123-0309-4923-8f00-aeba9626f735"
+Nampula;Moma;CS Ligonha (Mucoroge);524;"8def5e54-96b2-4f50-9fca-90ce2d69b457"
+Nampula;Moma;CS Mavuco;525;"2e8cd2ca-1c78-469e-ad5c-3b5533eb3005"
+Nampula;Moma;CS Micane;523;"6722cee4-8db3-445e-9315-76767fead21c"
+Nampula;Moma;CS Pilivili;520;"23545329-e9d5-4a77-94ae-ac6f48367729"
+Nampula;Moma;CS Piqueira;519;"603c987e-d049-4365-b7f2-787be96129e1"
+Nampula;Moma;CS Uala;522;ecd3f6e9-384e-445d-b5a3-473074d394e8
+Nampula;Moma;HD Moma;516;aa8046ac-6255-4679-bcc5-be82e9c8e6f4
+Nampula;Moma;PS Metil;515;"76f36225-c8e9-41e9-bf7c-138f32478768"
+Nampula;Moma;PS Savara;521;f0842b17-825d-402e-8f7e-82e220a50331
+Nampula;Monapo;CS Carapira;528;"98464934-6382-40a9-baf7-12e244f20e72"
+Nampula;Monapo;CS Chihiri;537;f8e43d1f-3e10-470b-b87b-a49d0a5450f9
+Nampula;Monapo;CS Itocolo;527;"1f52e43d-820f-4941-b5ef-b3945ea49865"
+Nampula;Monapo;CS Maserpane;534;"3d433eb5-db91-4544-b0aa-a44f248de942"
+Nampula;Monapo;CS Mecuco;533;cc9f4072-db4d-46a6-bfbb-571455b7e27a
+Nampula;Monapo;CS Monapo;530;"70aa2ab5-dbb0-445b-a750-3885953981c0"
+Nampula;Monapo;CS Muatuca;532;ca649784-7d13-4add-b08b-4be03019db23
+Nampula;Monapo;CS Mucujua;539;"169f8d69-5942-41f3-8679-f11bee7dee9d"
+Nampula;Monapo;CS Napala;526;a952fe15-ff58-4f52-8059-96e3d80848ac
+Nampula;Monapo;CS Natete;531;d39d1db1-8d76-48cd-b6ef-85fb86bc13d3
+Nampula;Monapo;CS Netia;529;e0a6a024-9aae-44c8-b7a4-43a8913389b5
+Nampula;Monapo;CS Ramiane;536;adebbf64-278b-4a36-b7b5-906d7e774d78
+Nampula;Monapo;H.D. Monapo;538;c9f1d7b3-492c-4897-84fd-f9ea46c104ac
+Nampula;Monapo;PS Metocheria;535;"4ba818d8-aee0-4156-a623-b0831c4a6473"
+Nampula;Mossuril;CS Cabeceira Pequena;547;"66505910-241e-44a9-ac23-2ea13aeb5057"
+Nampula;Mossuril;CS Chocas Mar;542;"269838ca-7705-4a14-914b-67ce92bcb6cb"
+Nampula;Mossuril;CS Lunga;545;"0c74867e-e2a4-45a5-8d01-b251dc8df412"
+Nampula;Mossuril;CS Matibane;543;a323c25a-c809-4841-acb0-8d8af9c781eb
+Nampula;Mossuril;CS Mossuril;546;faa1ace3-9dd9-44a7-b945-4874419aab89
+Nampula;Mossuril;CS Muaualo;544;cbf4687a-7349-481e-b52e-ba77e47c957e
+Nampula;Mossuril;CS Nacucha;540;e25c3b6d-ec38-4dd6-a1eb-eca5791cb0f7
+Nampula;Mossuril;CS Namitatare;548;"783b2f72-a1b0-4cda-b5c9-62092d3e6db6"
+Nampula;Mossuril;PS Cabeceira Grande;541;"369ee13a-d9e9-441c-9aad-3881e6f2bbe6"
+Nampula;Muecate;CS Chereque;549;"7f3626b0-bf24-4106-818b-fa84d2d3c5f5"
+Nampula;Muecate;CS Gracio;555;c97ed25f-b646-45e3-a276-4097d7bb9da9
+Nampula;Muecate;CS Imala;551;dfae5e3b-aa2c-4298-8fad-62766a679587
+Nampula;Muecate;CS Kavula;553;ca69fa32-f5a7-46df-9401-047973113d84
+Nampula;Muecate;CS Muculuone;556;cc9faaab-6bb2-49ea-ba0b-56bf5c163fac
+Nampula;Muecate;CS Muecate;550;"59abfe69-24f0-4db3-9c13-e3270ab9f40f"
+Nampula;Muecate;CS Namahia;554;"1779791e-931d-4639-a1a7-38f93a114985"
+Nampula;Muecate;PS Chinamane;552;d04b97a5-2a58-4745-b77e-3a3cb071704d
+Nampula;Murrupula;CS Chinga;559;"5dc616c6-cbc7-4c8c-ba5b-9228be2b2992"
+Nampula;Murrupula;CS Gazuzu;560;c5ab5da3-14e0-46a5-8ae6-20cd7bd2b7d9
+Nampula;Murrupula;CS Murrupula;558;"7c5fbb33-bdda-4241-9cfd-0e664d48a3a4"
+Nampula;Murrupula;CS Nihessiue;562;cb5041e9-16ab-448d-b757-7f898b95fd3c
+Nampula;Murrupula;CS Tiponha;561;a86db305-d5f9-439a-9556-6ee8228ec575
+Nampula;Murrupula;CS Umuato;557;db900105-b8fc-4bc4-8c5e-d04d4f5647bb
+Nampula;Nacala Porto;CS Akumi;564;"5b0ee6ea-74f8-401e-8169-bfc54481c736"
+Nampula;Nacala Porto;CS C.A.M.I.N.A;565;"278374c1-ab62-496e-940e-db0317b74ab1"
+Nampula;Nacala Porto;CS CFM;568;"60f7a813-0807-4788-9db6-e1c882c50af5"
+Nampula;Nacala Porto;CS Cimentos;567;"0b540b07-1525-43f5-af46-d1241e6a6d4f"
+Nampula;Nacala Porto;CS Mahelene;575;d5a368c6-767c-47f2-b32f-9f8d4e76fd71
+Nampula;Nacala Porto;CS Murrupulane;563;d57150f9-9d5b-460f-adfd-47aaeaf17194
+Nampula;Nacala Porto;CS Naherengue;569;"7b14ce5f-89b8-474e-a323-cabe2ba72183"
+Nampula;Nacala Porto;CS Quissimajulo;570;"2b0e863a-f3c6-4a83-a49f-61e7cc8c27a4"
+Nampula;Nacala Porto;CS-Nacala Porto;572;"3865f4c5-a4be-466b-80d3-0935d04d3d7b"
+Nampula;Nacala Porto;HD Nacala Porto;574;"2d8acd40-fe02-48d4-a297-c6d7623ddd47"
+Nampula;Nacala Porto;PS A.D.P.P. Muzuane;573;a26c0ab2-64ca-4ace-a07e-9bff0cffa507
+Nampula;Nacala Porto;PS CIFE;566;cb55ea67-a7fb-4bf3-ad27-b8e884ad0ce8
+Nampula;Nacala Porto;PS Mathapue;571;"657b29af-e81c-40db-8969-9838c3353e66"
+Nampula;Nacala-a-velha;CS Barragem;578;"419ad53b-3c9c-46a4-8b0c-85c2dc110ea6"
+Nampula;Nacala-a-velha;CS Mueria;577;"9aba7d09-9bc7-4d3c-8fc5-4e1d5237e0c8"
+Nampula;Nacala-a-velha;CS Nacla-a-Velha;576;"9c6b43bb-942e-4485-9093-3f78a817b0a9"
+Nampula;Nacala-a-velha;CS Namalala;580;"99cf220b-053b-4eaa-b2be-8b17e88173bf"
+Nampula;Nacala-a-velha;CS Salina;579;c832df30-9286-4aa3-9e46-17fd29a250d8
+Nampula;Nacaroa;CS Mahetha;586;"1b030b52-9ad5-4167-bcc1-ab88b1c7b1ae"
+Nampula;Nacaroa;CS Muchico;583;"72a989c6-8e6f-4ec7-8828-bfcaf5c7d30b"
+Nampula;Nacaroa;CS Nacaroa;581;"4298c04b-a8ad-4f1d-b8a9-8a81ab7705c5"
+Nampula;Nacaroa;CS Nachere;582;"4387a46c-6ae2-433a-a2f1-a26a1d5b51f2"
+Nampula;Nacaroa;CS Nahadje;585;"452bb4b1-2c10-4d3b-b81f-6f8fd2394f03"
+Nampula;Nacaroa;CS Saua-Saua;584;"84f94b84-510d-4151-b085-8df3a7f0afd7"
+Nampula;Rapale;CS Caramaja;595;"7831bc6c-858b-4c4a-b047-c9621eb02d24"
+Nampula;Rapale;CS Muleheia;589;"050b8ebc-45cb-4399-b124-d974d588414f"
+Nampula;Rapale;CS Mutive;594;c0da791d-87a3-4f16-8fdd-53ad6b51ba52
+Nampula;Rapale;CS Mutovo;591;a3544659-9f96-4c52-b181-d05dec47691b
+Nampula;Rapale;CS Namaita;596;"33a141f8-ec18-471a-90da-ee3e3d8d4d79"
+Nampula;Rapale;CS Namucaua;599;d81284de-f6c4-4aa8-831b-7537d2a2165d
+Nampula;Rapale;CS Natoa;590;e8385be8-d703-426a-a566-ef9fa3ebff34
+Nampula;Rapale;CS Rapale;598;"9356c23f-ff61-41df-98bb-6722a3d31c06"
+Nampula;Ribaue;CS Chica;606;"306955db-4809-48a6-8bd6-5675d7143ec1"
+Nampula;Ribaue;CS Cunle;602;a035a88b-b137-436f-ab70-d3f95ae5507c
+Nampula;Ribaue;CS Lapala Estação;608;"70f95568-6944-4731-a36a-0fd23955b58d"
+Nampula;Ribaue;CS Lapala Monapo;601;"1f97f961-c3dd-401a-b65f-f5579abd9b76"
+Nampula;Ribaue;CS Riane;604;bbce1288-dbfb-4424-b0af-c939b4b39ebf
+Nampula;Ribaue;HR Ribaue;607;f0326252-fc1b-4a8c-bb8e-24d68af5f44f
+Nampula;Ribaue;PS ESC.BAS.AGRARIA;603;"04ac6f54-5320-4aab-a6b2-259556a2fd66"
+Nampula;Ribaue;PS Mecuasse;605;"9776c0c1-e10c-4c19-9e94-bc111566dbb8"
+Niassa;Chimbonila;CS Chala;207;c71121a0-71ec-4147-a980-2106768b3008
+Niassa;Chimbonila;CS Chimbunila;206;"1277c8bd-dbe8-4d47-be9e-8023efd33508"
+Niassa;Chimbonila;CS Cholue;209;"33c29439-004c-442b-8423-7a4dfae7858b"
+Niassa;Chimbonila;CS Colongo;202;e21b7701-51bc-4a7e-9148-95161f283719
+Niassa;Chimbonila;CS Lione;203;fad1b293-1c79-4532-b1f0-cfbef2eb46f0
+Niassa;Chimbonila;CS Machemba;208;"94783851-b7f0-421b-a357-a6a3c1f02935"
+Niassa;Chimbonila;CS Machumane;205;"684e035d-0bc7-4fd6-86bf-e223dedeffeb"
+Niassa;Chimbonila;CS Mapaco;211;cabc05f2-e5d2-406b-b34d-8f0aab6c2289
+Niassa;Chimbonila;CS Mussa;204;"4ef74936-ef95-438c-99b9-d4f3f9cc1c80"
+Niassa;Chimbonila;CS Namuanica;210;a41a8b12-9602-4bb9-ab82-4c73d7fa8eb0
+Niassa;Cuamba;CS Cuamba;180;"01e8d510-0587-466e-a931-6d8862216596"
+Niassa;Cuamba;CS Etatara;176;a71b75bf-e592-4c16-b110-13ff4bedb248
+Niassa;Cuamba;CS Lúrio;179;dc5448bd-7a20-4619-b70c-78eef46c1e60
+Niassa;Cuamba;CS Macaue II;174;"1a90728d-1065-4729-b5c5-2cadd709e241"
+Niassa;Cuamba;CS Malapa;183;"0fe4ba2c-234c-4852-9dad-145f7ad1c784"
+Niassa;Cuamba;CS Matias;185;b15015b9-2977-4161-821a-460348b0e054
+Niassa;Cuamba;CS Mepica;172;f4fd3c7e-59b9-4be1-a0f9-4d1ad3475df3
+Niassa;Cuamba;CS Meripo;173;"6d097d69-c706-49ca-92d7-0333d01f0020"
+Niassa;Cuamba;CS Mitucué;184;e2b24561-24c4-4522-8394-5cb7b341ad52
+Niassa;Cuamba;CS Muanamunepa;177;"86c86e49-7423-48d1-b927-20e5f24f784d"
+Niassa;Cuamba;CS Mucuapa;188;"462fe2ba-2c59-45ec-a110-1053de24c1b8"
+Niassa;Cuamba;CS Muitetere;187;"6804f799-a165-43ae-8d2a-744577a37f56"
+Niassa;Cuamba;CS Mujawa;178;"0c25c319-dfb8-47b1-8376-7ebaf45ad83e"
+Niassa;Cuamba;CS Namicova;186;"20d0ea08-164e-45d9-8df7-d5e2897924a9"
+Niassa;Cuamba;CS Namuntimbua;171;"95fe87c6-b0bf-4df7-aa43-bbd3c9c79112"
+Niassa;Cuamba;CS Napacala;182;"3d9e1f8d-167c-4bed-bdc4-b3309e34ed1c"
+Niassa;Cuamba;CS Titimane;175;b7f08ded-9c32-4be4-9791-69423e00cac6
+Niassa;Cuamba;HR Cuamba;181;"19dcce13-21c7-408b-a26d-b30d364d625b"
+Niassa;Distrito de Lichinga;CS Assumane;167;a46925eb-4161-49ae-ab2f-bdc4bcb1b80f
+Niassa;Distrito de Lichinga;CS Chiuaula;168;ae4336f9-e934-4c13-a1bf-7c62f543a1cd
+Niassa;Distrito de Lichinga;CS Chiulugo;165;"8fd9c41f-cab4-4ade-a402-7d479b5e1025"
+Niassa;Distrito de Lichinga;CS Lichinga;169;"7dd5fbc7-34b8-4478-9203-1d328ea83308"
+Niassa;Distrito de Lichinga;CS Lulimile;166;ccb6f228-aa50-40b9-9731-4b7abc515e86
+Niassa;Distrito de Lichinga;CS Mitava;164;ad5c9c9d-6520-4819-acce-9eadc6f36bc1
+Niassa;Distrito de Lichinga;CS Namacula;163;"91627183-20e8-41a7-9492-abd926505e11"
+Niassa;Distrito de Lichinga;CS Sambula;162;b013cc17-690e-4283-8704-8d14aa725969
+Niassa;Distrito de Lichinga;HP Lichinga;170;"8ddc2d72-1938-47b5-a96b-7f3b39871670"
+Niassa;Lago;CS Bandeze;191;"99f17e78-9a27-4856-8f11-985280f7d81e"
+Niassa;Lago;CS Cóbuè;197;d393ba07-183c-4e3f-ac5a-cc1891dca39f
+Niassa;Lago;CS Lizunga;200;d23e8abc-03f9-42d5-912d-bc9a7c9f8848
+Niassa;Lago;CS Lupilichi;190;"893cbcea-ba20-4f38-bfcb-17819b70f65e"
+Niassa;Lago;CS Maniamba;198;eef774d0-4b53-4863-b0ec-6c702b5bdb78
+Niassa;Lago;CS Mechumua;193;"5db2580c-605d-4027-aed7-98a464a6a24e"
+Niassa;Lago;CS Melulucas;192;df41aa92-dcd6-49b3-bf48-f340f3b699f8
+Niassa;Lago;CS Messumba;201;bd07e697-aeb1-41b0-ba1b-ad4a0cefe4ac
+Niassa;Lago;CS Metangula;196;"94941ea5-1beb-4f38-88d1-9569e2a2105e"
+Niassa;Lago;CS Ngofi;195;e7201346-4c62-4e89-a70d-9581895bc508
+Niassa;Lago;CS Ngôo;194;"3e54e073-66c3-4f39-803f-226da2ee1185"
+Niassa;Lago;CS Tulo;199;"06a51125-0d6e-4a54-a35b-9ec9b2037c87"
+Niassa;Lago;CS Wikihi;189;b4ec9193-1d60-48f4-90f0-2cadb82b4ab2
+Niassa;Majune;CS Lisombe;214;"01e309e3-d9c8-444e-ab0d-f2d97651dff6"
+Niassa;Majune;CS Luambala;218;"01d28cdc-4822-4861-bb30-4df76e256969"
+Niassa;Majune;CS Lugenda;215;fbfde1ae-e173-4458-bfc1-4cf936018099
+Niassa;Majune;CS Malanga;217;c3819464-d11b-433b-a796-fdb23f01249f
+Niassa;Majune;CS Mecualo;216;f435e510-70f0-4079-a845-c1890834c33a
+Niassa;Majune;CS Muaquia;219;"435b4ed4-e20c-44d1-abb2-54f69083d448"
+Niassa;Majune;CS Nairubi;212;"8c87b83c-f8df-4df0-bbb9-4ddba23722e9"
+Niassa;Majune;CS Riate;213;"68064393-6a85-42fd-9a00-3de3f9994f77"
+Niassa;Mandimba;CS Lipuzia;222;"3b47e14b-ef90-4154-b417-b5f7256787dc"
+Niassa;Mandimba;CS Lissiete;225;"81378d47-4d48-494d-b9ad-0027dd7ce371"
+Niassa;Mandimba;CS Lussangasse;224;"8f5af42a-e8f7-4db4-abef-5645ba5923c1"
+Niassa;Mandimba;CS Mandimba;220;"9c450d2f-4f6e-4d5d-a21c-c233a2380ed3"
+Niassa;Mandimba;CS Meluluca;226;"216effae-47a5-4c95-be07-992e6b54d597"
+Niassa;Mandimba;CS Mepapa;227;"444d2ea9-bd84-4cc6-9cdc-4137e44ab6e2"
+Niassa;Mandimba;CS Mississi;228;"9a91a21e-c5fd-49d8-8ad4-e299d91aca16"
+Niassa;Mandimba;CS Mitande;223;"8b045c09-753b-4fbb-9145-3a2489a953f6"
+Niassa;Mandimba;CS N'tembo;221;b910df63-fc40-4ac6-bb57-a74d560781d5
+Niassa;Mandimba;HD Mandimba;1345;"2fd2c411-5ca2-45f1-9a76-064fb9a74fe1"
+Niassa;Marrupa;CS Cumela;231;"06a9bf05-2896-435e-a281-fd059839d15e"
+Niassa;Marrupa;CS Marrangira;234;be3a9852-c67a-4132-925c-8045bc0f506d
+Niassa;Marrupa;CS Marrupa;235;d1d64397-abc6-485e-b9f0-4e8840d6d4a9
+Niassa;Marrupa;CS Mucuaiai;232;"84f591af-ec6b-46c5-ae1d-c24be4c5d45a"
+Niassa;Marrupa;CS Nungo;233;"9b01ea5d-4b37-4809-9245-b6f0d214d6e0"
+Niassa;Marrupa;CS Tumpue;236;"94b62b93-f076-4d91-863b-a3b06bb26a00"
+Niassa;Marrupa;CS Yaranca;230;"8332f886-2d31-4af1-ba88-4c19d1f75b99"
+Niassa;Marrupa;HD Marrupa;229;"7f498372-b944-40a2-a209-390dfd762b9a"
+Niassa;Maua;CS Maiaca;239;"8b8ae287-af4d-4799-b778-bf9478214427"
+Niassa;Maua;CS Maua;240;"465115fd-f666-4c23-ad19-bf8c004f848a"
+Niassa;Maua;CS Muapula;237;"9564dba8-297a-4aad-a84f-2835615b7bc9"
+Niassa;Maua;CS Mugoma;242;"4a10d5d1-22de-486d-8fde-9456c887bb8b"
+Niassa;Maua;CS Muhoco;241;cf4639c0-b54b-43c9-8d14-e5cb109a1ed2
+Niassa;Maua;CS Muloloua;238;"388597ef-5035-4f5c-a85c-eeeb3a635cfd"
+Niassa;Mavago;CS Mavago;243;b49671ec-a893-4654-a859-0e39d04c2a75
+Niassa;Mavago;CS Milepa;244;cedf609f-cacf-428e-a0df-368962292e94
+Niassa;Mavago;CS Nkalapa;246;"49525658-704a-4455-ba97-494594670428"
+Niassa;Mavago;CS Nsawize;245;"4e6bd840-cc84-4a6e-ac46-3edaaa6006ad"
+Niassa;Mecanhelas;CS Candulo;250;"6250732a-b481-4fdd-91ee-38c689b194ed"
+Niassa;Mecanhelas;CS Caronga;252;"602929e1-1c41-46b4-b1b9-8842ba1b8ce1"
+Niassa;Mecanhelas;CS Chamba;255;"73852dcf-194c-40ad-afa2-73517db4ff6c"
+Niassa;Mecanhelas;CS Chissaua;247;fcf6a0cd-6d10-4e57-9fbf-90e98c1458b0
+Niassa;Mecanhelas;CS Chiuta;254;"6f461906-b70f-430d-8da8-0eb0839c36a8"
+Niassa;Mecanhelas;CS Entre-Lagos;258;fde344cf-c51c-4a22-ac73-d2efbf631140
+Niassa;Mecanhelas;CS Kumulike;249;"9e671b97-9cb8-4a99-8f98-57c7c8a68079"
+Niassa;Mecanhelas;CS Mecanhelas;257;"44cc04e7-8561-4a76-b2fd-15f3dfc9c48d"
+Niassa;Mecanhelas;CS Mecomera;253;ebda817c-df88-4a33-b629-6fdd170f9564
+Niassa;Mecanhelas;CS Muhurune;248;"62a343eb-2f2c-4f27-8813-f7eda95eaa2d"
+Niassa;Mecanhelas;CS Nanhumba;251;a12fd2cb-0948-4633-8ef3-9a199940b9a8
+Niassa;Mecanhelas;CS Sale;256;"200e91ae-5ae5-42f7-87f2-e812bac7e6c7"
+Niassa;Mecula;CS Gomba;259;d6517a93-e8ff-4462-b4ad-c0749d1c9a97
+Niassa;Mecula;CS Macalange;261;eca793c8-b011-44ca-955e-028df0ba2767
+Niassa;Mecula;CS Matondovela;265;cec166f7-b702-487a-9828-1a395645c54a
+Niassa;Mecula;CS Mbamba;262;"6e1913ea-37f6-4faf-9150-efb6aef66528"
+Niassa;Mecula;CS Mecula;263;e736f5da-2557-4662-8e5f-4f57ea0d378c
+Niassa;Mecula;CS Naulala;260;"07745b7a-7017-4fc8-91af-52a16faa7372"
+Niassa;Mecula;CS Ntimbo;264;"2c78a752-19be-4b1e-b65b-fec5b9d76a48"
+Niassa;Metarica;CS Mepuera;268;"8ffb4a15-43fb-45a3-b17b-10ac710a1a5a"
+Niassa;Metarica;CS Metarica;270;fbede273-e0d5-471b-b8cc-d878b845ef4c
+Niassa;Metarica;CS Muhemela;266;"8ec838ee-e6dd-4a98-b892-b2d1566f5e1e"
+Niassa;Metarica;CS Nacumua;267;"3e88792d-ede6-461f-b267-908abf483946"
+Niassa;Metarica;CS Namicunde;269;"97b8084c-0aa7-4d6d-b810-5a45f9e36edb"
+Niassa;Metarica;CS Niputa;271;"458d27a1-36e9-49be-9a77-07165c49d340"
+Niassa;Muembe;CS Chiconono;275;"4bf00ce8-7637-4515-b33d-56452cf7a33e"
+Niassa;Muembe;CS Chuanjota;273;be60ba74-e6b2-4351-ad16-985a3aa3598f
+Niassa;Muembe;CS Lutuesse;276;"96c7d58f-552e-4a82-ac0e-e743eba406a2"
+Niassa;Muembe;CS Muembe;272;"930fc3db-9265-480e-99e3-d013c1f45274"
+Niassa;Muembe;CS Nzize;274;"24d3efb6-45c5-40b9-83a8-6099d031752b"
+Niassa;Ngauma;CS Chiguaja;281;"2ad0e57a-392d-4b0f-98ee-4367fe5f2ea1"
+Niassa;Ngauma;CS Chissimbir;278;a952a9a3-a995-49d7-b3d2-4f95e092a4f1
+Niassa;Ngauma;CS Itepela;279;"9f748f5d-9123-4b23-8e20-7d697f5f158e"
+Niassa;Ngauma;CS Luelele;282;"9c1e449f-cf6e-410a-9633-690cde1900cb"
+Niassa;Ngauma;CS Lupalane;280;a3278ada-5201-4b1b-bdf3-66f7258a9cec
+Niassa;Ngauma;CS Massangulo;277;c86754ec-ce75-416d-81d1-89220d487266
+Niassa;Ngauma;CS N'gauma;283;"4714a85a-6acc-42cb-a850-1fb9415c9226"
+Niassa;Nipepe;CS Cheia Cheia;288;f3e56022-781d-46d9-a81a-58c2e428c355
+Niassa;Nipepe;CS Manlia;287;"716b650d-e4d2-417c-8c8b-291e145e47bc"
+Niassa;Nipepe;CS Metarica Lurio;285;"3b345194-318e-4c97-bfe0-af0c3e213c90"
+Niassa;Nipepe;CS Muluco;286;a7b432ab-73bb-4ec4-a87b-2c1c0dcf461b
+Niassa;Nipepe;CS Napalave;284;"39f6c80f-5d78-47ac-bd62-c0b51971643d"
+Niassa;Nipepe;CS Natil;290;dde40717-cb8d-4da3-bb25-f79b4efdad7b
+Niassa;Nipepe;CS Nipepe;289;"981ae52e-01b0-4034-99c5-3b9ea0e21519"
+Niassa;Sanga;CS 7 De Setembro;293;"3d2d0fc5-d1d3-4db2-8d89-1ff2dd21db4b"
+Niassa;Sanga;CS Chitula;292;"5b1bc8bd-4488-4c7a-88e8-91f161a8a357"
+Niassa;Sanga;CS Licole;300;"0a1a8627-adbd-48fe-bfc7-af12614b6bf2"
+Niassa;Sanga;CS Lumbiza;295;"0bd01bd3-2474-4d44-ac81-963dd268dfe9"
+Niassa;Sanga;CS Macaloge;299;"6fe5e978-50bc-4994-a41c-818cff825e50"
+Niassa;Sanga;CS Madjedje (II Congresso);298;"11ed3dcf-4fba-43e2-9696-9a0a21d4226c"
+Niassa;Sanga;CS Malemia;297;ecb35e6c-0bef-444a-ac7c-241cefbc81f3
+Niassa;Sanga;CS Maumbica;296;e7750476-8a0c-4793-8525-bc2d96601223
+Niassa;Sanga;CS Mbemba;291;"60ca7934-30e6-4ebb-af49-458907174078"
+Niassa;Sanga;CS Nansinhenje;294;b4cd400f-ca9f-4819-802c-0c4b627d7a4f
+Niassa;Sanga;CS Unango-Velho;301;"8d06da25-3112-4610-9cb1-02d1e54a3e4f"
+Sofala;Beira;CS Ceramica;1000;"543796e5-142c-4ba5-b434-e76d6d1b1a4b"
+Sofala;Beira;CS Chingussura;999;"4c2e5f0d-6c82-47cd-9eac-13d39edde543"
+Sofala;Beira;CS Chota;1006;f2efbfec-0851-4205-9ec5-9311470eba32
+Sofala;Beira;CS M. Mascarenha;1004;"53a3b31a-f219-47b9-a9f5-3d03405805ac"
+Sofala;Beira;CS Macurrungo;1005;"96cf1043-313d-4899-a9ef-eebea2429216"
+Sofala;Beira;CS Manga-Loforte;996;"72afbd40-df0c-4e6f-987b-61f9bdd274aa"
+Sofala;Beira;CS Marrocanhe;997;"9711c1d4-4da3-417c-806c-0b903a02efff"
+Sofala;Beira;CS Munhava;998;"1eacf2eb-770f-4ef9-9c07-4e93282cd5c3"
+Sofala;Beira;CS Nhaconjo;1001;"6ed31faa-aaa0-45af-b071-ac8f30b81056"
+Sofala;Beira;CS Nhangau;993;d5b1fc70-0e81-46ad-9152-3d29fe7f063f
+Sofala;Beira;CS Ponta Gea;994;"606e5b3d-81da-4ecc-b7af-ecda228e4d58"
+Sofala;Beira;HC Beira;995;"97eaf4c1-1189-4962-bef0-1e31dc23d88d"
+Sofala;Beira;PS Chamba;1002;"6908cc56-b745-4832-8403-3ed6de2b9b0a"
+Sofala;Beira;PS Matadouro;1003;"7490e614-1b47-4cab-9eea-732b673a164e"
+Sofala;Buzi;CS Ampara;1013;b41ba0de-320a-4fe2-a399-4c3f97fe63c1
+Sofala;Buzi;CS Bandua;1014;a3e833ab-d1ff-4cfe-b430-35654c7d4186
+Sofala;Buzi;CS Barada;1011;"5b57fd6c-72eb-4e15-84b1-f0fc450b5dfe"
+Sofala;Buzi;CS Bura;1010;f2a57848-d26a-4ba1-9951-f6c30bafc680
+Sofala;Buzi;CS Chissinguana;1019;c8252729-6063-4464-9f5b-78a6b9d5ffe4
+Sofala;Buzi;CS Danga;1008;d16eec70-39db-4c99-ab92-c077e83c27ad
+Sofala;Buzi;CS Estaquinha;1018;"91b0ff5d-32bc-4944-b9d3-040cfca3ddae"
+Sofala;Buzi;CS Grudja;1009;"91d4b1cb-1007-4750-b759-1a991376c515"
+Sofala;Buzi;CS Guara-Guara;1007;"1390bb16-21fb-4a89-be5c-42fc755aa543"
+Sofala;Buzi;CS Inhamichindo;1012;e81a50cc-4664-411b-ac66-13fe23333ffb
+Sofala;Buzi;CS Inhavininga;1020;"99559bf2-4c21-4192-ab75-db55010f50c4"
+Sofala;Buzi;CS Marombe;1016;"253a59b1-826f-44f5-92f9-a5ebc8a8f430"
+Sofala;Buzi;HR  Buzi;1015;a1659fdb-8ced-4178-b135-7b03380e8a99
+Sofala;Buzi;PS Rio Buzi;1017;f278a648-3e1d-4c73-854d-52634ec056c8
+Sofala;Caia;CS Chatala;1021;"46e9368e-f69d-4ed4-8140-7746445d53bd"
+Sofala;Caia;CS Deve;1023;d25d7a2c-fc94-4bd5-8efa-2e412fe263a7
+Sofala;Caia;CS Kapassene;1028;eeb5ad79-511c-4d93-97cf-2fcfe172c724
+Sofala;Caia;CS Licoma;1029;"649aea6a-27f2-4a74-9762-64ae4553f8c4"
+Sofala;Caia;CS Murraça;1025;"02bed572-4a7c-4bc6-92b2-06bbe1487295"
+Sofala;Caia;CS Murrema;1026;"1491eace-ac78-4b5c-88a4-fead11fda03d"
+Sofala;Caia;CS Ndoro;1022;"5269eca3-1dbb-4fe3-97a9-8199ac7a68c6"
+Sofala;Caia;CS Ntopa;1024;"247dbd20-bfdd-446d-8e11-9bcb013158ca"
+Sofala;Caia;CS Sena;1030;"0b0bd7cb-25aa-4610-9a25-3bedd61746d2"
+Sofala;Caia;HD Caia;1027;d0763dbc-3ac4-410c-9cd9-ed0b95b2a301
+Sofala;Caia;PS Nhamatanda;1031;b0950fe2-6685-428e-8237-92dae5050e69
+Sofala;Chemba;CS 3 Fevereiro;1036;"6788239d-b9bb-4909-8810-fab4d31f3e00"
+Sofala;Chemba;CS Cado;1033;"333f986a-bb94-49ea-b5a4-db677c7d1a0f"
+Sofala;Chemba;CS Catuele;1035;"71d6cb67-eaf6-4563-a965-532438df0f9e"
+Sofala;Chemba;CS Chemba-Sede;1034;ba279de3-01b4-48b9-9efb-48669091c092
+Sofala;Chemba;CS Chiramba;1037;"31225733-6798-4e73-800e-86d280878807"
+Sofala;Chemba;CS Goe;1039;a3298c85-d5c4-4806-9f04-3a48ddd41803
+Sofala;Chemba;CS Mulima;1038;"0b2e5e3d-d101-4c2b-b0a5-167dfdd9542c"
+Sofala;Chemba;CS Senhabuzua;1032;de873328-4b93-45f6-bf31-81afa7b45155
+Sofala;Cheringoma;CS Chite;1040;"3bcd3a9f-6fcf-4e6a-b9ba-b10a4ec0331f"
+Sofala;Cheringoma;CS Inhaminga;1045;"6a3d590e-5fd0-4df3-97d5-93c69f88ce18"
+Sofala;Cheringoma;CS Inhamitanga;1041;f3e3117a-bb5f-4871-b812-46ca35ff9a32
+Sofala;Cheringoma;CS Maciaboza;1046;d731d054-8dcf-410e-b726-616ed1cb498d
+Sofala;Cheringoma;CS Mazamba;1043;"66ddc53e-fb94-4f20-995d-31a1ca88e8b0"
+Sofala;Cheringoma;CS Nhataca;1044;"6ebf774c-8f0e-4007-8f29-85153434d9de"
+Sofala;Cheringoma;CS Pungue;1042;"11211b7c-c716-4b5a-9ede-4ecb14a5c5ec"
+Sofala;Chibabava;CS Chibabava-Sede;1057;dc5340fc-16dc-40f9-8a22-d9c7b6a34faf
+Sofala;Chibabava;CS Chinhica;1056;c8a24e29-6c29-40d5-9abd-424816131d24
+Sofala;Chibabava;CS Goonda;1054;"7f901f28-bac9-4474-b982-4c0ab4553b68"
+Sofala;Chibabava;CS Hoode;1060;"8304f121-47ee-4bd9-99b2-3b16d2e5e41b"
+Sofala;Chibabava;CS Magunde;1053;e8ec7ff1-1863-4666-803b-0d6251758725
+Sofala;Chibabava;CS Mucheve;1052;"9d0a67c6-7976-4d60-be0f-90ef028eb8b2"
+Sofala;Chibabava;CS Mulingue;1048;"85af4b9c-e506-4cb2-8c59-40cf341e6bf4"
+Sofala;Chibabava;CS Mutindire;1058;e581aa83-73df-48d7-895b-8c9c065d8a77
+Sofala;Chibabava;CS Nhango;1047;"04abbcc0-5c0e-4b10-a059-aad3d66356b4"
+Sofala;Chibabava;CS Panja;1049;"5b470174-5a17-4ba6-a1b9-6bf2bc2436ee"
+Sofala;Chibabava;CS Revue;1051;"62022f25-2b86-4a02-bae4-e6e6ffeaf6fb"
+Sofala;Chibabava;CS Tronga;1050;b73bba4a-5c32-440d-9242-8da5e2127eca
+Sofala;Chibabava;HR Muxungue;1059;c924559a-c2cd-4042-b4eb-2a68a9ec7f86
+Sofala;Chibabava;PS Esperança-Berta;1055;"46bb04be-edae-4ae1-b92b-d0091fd6b04d"
+Sofala;Dondo;CS Bloco Nove;1062;"4f2943b8-edda-418b-b687-2837daa577fd"
+Sofala;Dondo;CS Canhandula;1066;a27a868c-d0f4-4da2-a5cc-468a2a7989d0
+Sofala;Dondo;CS Chibuabuabua;1064;"2f94ed54-7fcf-42ff-a596-308d06b5a277"
+Sofala;Dondo;CS Chinamacondo;1067;"5eb4e66f-0689-4a05-8077-ec0c34a5c93a"
+Sofala;Dondo;CS Dondo;1073;"204a5435-1825-4bc3-89f7-53f8bb3415e7"
+Sofala;Dondo;CS Macharote;1071;"803705dc-7559-48da-9c7a-d7178cea0da4"
+Sofala;Dondo;CS Mafambisse;1065;"116eb235-35cf-43da-b95f-3f5fa8b4cf49"
+Sofala;Dondo;CS Mutua;1070;d8a93a38-ba51-4d56-adf3-a00aaea0c4aa
+Sofala;Dondo;CS Savane;1068;"7a6ae328-9699-4175-912f-31d801bb3d35"
+Sofala;Dondo;CS Sengo;1061;afa45b2c-42d1-4cc2-8100-1ed065363358
+Sofala;Dondo;PS Igreja Baptista;1063;"1eba7ff4-5db9-490b-8046-052e4e898bab"
+Sofala;Dondo;PS Lusalite;1072;"25c21a67-c799-4af5-bfce-3f38d8abcfe3"
+Sofala;Dondo;PS Nhamainga;1069;"98195808-da03-4260-8e59-2cd13d036ab0"
+Sofala;Gorongoza;CS Canda;1086;c0e42b90-1771-4d62-8b63-e3316a09d3bc
+Sofala;Gorongoza;CS Casa Banana;1077;"44a3ac5b-aca9-4569-a97d-c4162d5d6cbd"
+Sofala;Gorongoza;CS Cudzo;1076;"45108fd3-77b7-404e-8e27-eaac4d65cc2c"
+Sofala;Gorongoza;CS Gorongoza-Sede;1080;f60ed8e0-56f5-488e-a70c-7de0bcef2760
+Sofala;Gorongoza;CS Mucodza;1079;"0b3d860c-4e8a-4494-b564-f3a2cf2b021c"
+Sofala;Gorongoza;CS Muera;1083;"3f7dec8b-dcc4-444d-ab37-cd3b6fa6d79b"
+Sofala;Gorongoza;CS Nhamissongora;1085;"9182a1e9-063c-4e7d-8d7a-4f372684c39c"
+Sofala;Gorongoza;CS Piro;1075;aed24605-a7bf-43e1-b279-3b1ca4135f7e
+Sofala;Gorongoza;CS Tsiquir;1084;"2b4f1359-5fd8-44a2-9805-50f884bac904"
+Sofala;Gorongoza;CS Vunduzi;1088;"25559dc5-d8a0-402c-82cf-d3b3fc8f4aee"
+Sofala;Gorongoza;PS Chitengo;1074;"3d4857d0-8427-4045-8753-db5636b341ce"
+Sofala;Gorongoza;PS Domba;1087;b602e2e2-c070-4d79-995f-9d7e73b14dab
+Sofala;Gorongoza;PS Jutchenge;1082;ac093406-0cc0-4118-b4dc-07c0f7351669
+Sofala;Gorongoza;PS Nhataca;1078;accb8d68-b418-4b69-bebd-30a28447fd0f
+Sofala;Gorongoza;PS Tazaronda;1081;b454719d-ae6e-4db8-a9f0-b21761c798de
+Sofala;Machanga;CS Beia-Peia;1094;a3c603d8-8bab-4e35-b657-0c1a274e5bff
+Sofala;Machanga;CS Buene;1092;"1848fd5c-46d3-4247-8944-de6a01f0451f"
+Sofala;Machanga;CS Chiloane;1096;"21f5f65f-bd73-46dd-8ace-305b73290805"
+Sofala;Machanga;CS Chinhuque;1097;"1478b504-6b9d-48d2-969c-d5f28750bf22"
+Sofala;Machanga;CS Divinhe;1098;"065ac15c-1337-4dc8-bd91-1afded7df0ed"
+Sofala;Machanga;CS Inharingue;1089;"8c7626ed-4802-4ffc-8298-5be577c067c8"
+Sofala;Machanga;CS Javane;1095;"169c3238-8fd9-4055-a461-4270f8a4088e"
+Sofala;Machanga;CS Machanga;1091;"6dcf68e6-0bee-4eb4-aaa8-750971f97002"
+Sofala;Machanga;CS Maropanhe;1093;"141220d6-b2b3-48c9-beaf-04d35fefa9a2"
+Sofala;Machanga;CS Nhamachire;1090;"42fc361d-7e4f-4ad8-b1be-2c430acaf3e8"
+Sofala;Maringue;CS Canxixe;1103;ad210ca4-6329-41a0-a9b3-ba5b55ff9560
+Sofala;Maringue;CS Gumbalatsai;1104;"2ca02188-140f-46a7-b3ae-40457cecd136"
+Sofala;Maringue;CS Marigue-Sede;1102;"12d4e4bf-214f-42e1-bc7c-0472ddf2e2c1"
+Sofala;Maringue;CS Nhamacala;1099;"006d16e0-a62c-47bf-94f7-069e0744e57f"
+Sofala;Maringue;CS Phango;1105;"6779a8ae-9124-4154-b06a-49194e58b933"
+Sofala;Maringue;CS Senga Senga;1101;"15d6cb45-b1b4-4152-a1d3-bfc27bda43a8"
+Sofala;Maringue;CS Subue;1100;"56b6c757-f4f4-4ec3-9131-f24e6d63a36f"
+Sofala;Marromeu;CS Amambos;1113;fb7d7146-efca-49d7-a31f-bd2e50133590
+Sofala;Marromeu;CS Chueza;1109;ba05718f-ab6c-4d6f-8b50-5ca1c6f34c2d
+Sofala;Marromeu;CS Chupanga;1108;"825aa647-06c5-4506-8098-c9c29565a0e7"
+Sofala;Marromeu;CS Malingapanse;1110;"0cd29ab6-48e9-46a3-b8f5-fc054de9ed34"
+Sofala;Marromeu;CS Nensa;1107;b1e244f3-e177-47ff-8f12-4a9c7acbab61
+Sofala;Marromeu;CS Salone;1111;b846bafb-e4c9-47ad-bc7a-00e963e661df
+Sofala;Marromeu;HR  MAarromeu;1112;"475ba11e-3d7b-41d1-b492-258edc52f9f0"
+Sofala;Marromeu;PS Bauaze;1106;"29d57582-8c0d-4224-b691-076eb70cac58"
+Sofala;Muanza;CS Galinha;1119;e61baed2-bbed-44fb-8811-6eed5f1a4e99
+Sofala;Muanza;CS Muanza;1116;b31cbc11-6342-419f-b3f6-e66f98e02172
+Sofala;Muanza;CS Muanza-Baixa;1115;"220ec048-6677-4dd6-a0c2-b26c90595aee"
+Sofala;Muanza;CS Nhansato;1117;"4e1e0f7a-8393-4e60-a1c6-3467ff608fea"
+Sofala;Muanza;CS Nsituculo;1118;fbba46bc-392f-4166-9e47-2c29b741e65f
+Sofala;Muanza;CS Sanguze-Muana;1114;"48258e10-325b-4955-89c2-6c3a8c46d5ed"
+Sofala;Nhamatanda;CS Chiadeia;1127;bebc295e-4c19-497d-9856-6abf370dbd22
+Sofala;Nhamatanda;CS Chirassicua;1129;"1cdcd763-a4de-4088-9587-d260317e82fc"
+Sofala;Nhamatanda;CS Chiro;1137;b97b5880-1ffb-4459-991b-14621db42279
+Sofala;Nhamatanda;CS Jasse Manguena;1120;"8fe15f44-038b-4fb5-a97f-7caa7177e392"
+Sofala;Nhamatanda;CS Lamengo;1136;a5848841-acd0-48d9-8b11-cc1deb6a156d
+Sofala;Nhamatanda;CS Macarorocho;1123;d09c54bf-a6be-411a-94b8-de6d4bf4c5c1
+Sofala;Nhamatanda;CS Mecuzi-Puazi;1131;b8b6b32f-dde4-4c59-b1c1-52fd17fcb906
+Sofala;Nhamatanda;CS Metuchira Lomaco;1135;"693fa190-4e4c-487d-88bd-10bb9cf97dc3"
+Sofala;Nhamatanda;CS Mutondo;1133;"3ce5cea6-58e9-44f9-856f-2d862f3cd2f7"
+Sofala;Nhamatanda;CS Nharchonga;1121;c097e15e-1bae-46ac-b476-0fae5a01661e
+Sofala;Nhamatanda;CS Siluvo;1122;f36fa957-c05b-4f6a-a774-792b89f28ff1
+Sofala;Nhamatanda;CS Tica;1125;c05ba3d8-eda9-498e-8b10-929f9d5721bf
+Sofala;Nhamatanda;CS Vinho;1130;ac1890ff-bbc6-4282-96ac-48cc57e0421e
+Sofala;Nhamatanda;HR Nhamatanda;1124;"30595f7e-c7ab-40d4-a452-63e5f5a26b53"
+Sofala;Nhamatanda;PS Mbimbir;1132;c6d9bedf-5b28-4eab-a4c9-1747abd24bb1
+Sofala;Nhamatanda;PS Muda;1134;"00236742-6b92-438d-befa-fdde83046015"
+Sofala;Nhamatanda;PS Nhampoca;1126;"2d235028-3a85-46be-8b96-2cc90992b21c"
+Sofala;Nhamatanda;PS Siluvo Pedreira;1128;f586cac2-bfb0-491c-9ca1-cc3c1d5f0857
+Tete;Angónia;CS Catondo;822;"79ceb8f2-abe8-4d1a-98e7-5b23219b0720"
+Tete;Angónia;CS Chimuala;816;"4ac3c0f5-6ad2-4abf-af66-03b7dea4bb6a"
+Tete;Angónia;CS Domue;815;"2af76a0e-8923-48b6-b6d4-acb40aa59cef"
+Tete;Angónia;CS Lifidzi;819;"8eb080f2-4b8d-44b7-aaae-0d86ca315d52"
+Tete;Angónia;CS Mpandula;813;"404d42c6-6c2a-4ec4-86c5-dd7edf4ef804"
+Tete;Angónia;CS Mpenha;820;"3b8b2688-d392-4b50-b860-7d5fa157e734"
+Tete;Angónia;CS Seze;817;"8aee0777-004b-46d3-8dd2-f0b60861d4ac"
+Tete;Angónia;CS Ulongue;821;"951720b8-19b6-4f5f-b6ec-04a4281b0d8e"
+Tete;Angónia;CS Vila Velha;812;a9917fd4-e8de-48df-ae98-392cfb7408da
+Tete;Angónia;HR Ulongue;814;c9344352-7a60-495a-b213-1c0417519dde
+Tete;Cahora Bassa;CS chinhanda;823;a5458810-dd0c-4748-a6e9-2aaaf92f103d
+Tete;Cahora Bassa;CS Chintholo;826;"14fb223e-f3d5-4bcc-8f8b-94231c0570c6"
+Tete;Cahora Bassa;CS Chipalapala;825;"64f66af4-5890-44d0-850b-8e5f8d36817f"
+Tete;Cahora Bassa;CS Chirodze-Ponte;830;d7577e1e-fef4-4795-820a-0be594b7fcad
+Tete;Cahora Bassa;CS Chitima;831;"175f2962-1fed-4242-8c81-291aa3ee479e"
+Tete;Cahora Bassa;CS Maroeira;827;"0c3029bd-1e6f-49b5-aba8-b52e93c9b8c7"
+Tete;Cahora Bassa;CS NhacapiririI;829;f85c82aa-b141-40c0-8cde-dfe3ad1cd80f
+Tete;Cahora Bassa;CS Nhambalo;828;"26827aeb-7b12-4079-ac8a-9b9bf1aa110b"
+Tete;Cahora Bassa;HR Songo;824;"706ce8c1-b4b5-4855-8667-9b1658098bce"
+Tete;Changara;CS Changara;840;"9811118d-9320-4cda-89d5-1962248dc8ee"
+Tete;Changara;CS Chioco;832;"8d1edeb3-a164-41ad-ab5a-1841738cdbcc"
+Tete;Changara;CS Chipembere;839;"02608d84-7e19-4f47-8f28-fce53426680f"
+Tete;Changara;CS Dzunga;841;f0ae9803-5c20-4ef9-a3ec-0ec45a8045dd
+Tete;Changara;CS Goba;838;"5f344ae1-b70c-4d5a-b2ab-485b34370696"
+Tete;Changara;CS M'palamabue;833;abec276d-8b91-4fa0-94a5-202b716e9b2c
+Tete;Changara;CS M'saua;842;d3fdee82-c63e-40f7-92d4-2c782a642be4
+Tete;Changara;CS Mazoe Ponte;837;"92365663-291b-48ec-8ce3-7a2b061da4c3"
+Tete;Changara;CS Nachinanga;836;c8c65f7a-f659-46fa-a0cf-ecd9efa69957
+Tete;Changara;CS Ntemangau;835;"7db13a2e-af7e-49fa-8aef-79e7a9e24caa"
+Tete;Chifunde;CS Chifunde;843;"15a54a2e-2615-4fd4-860a-72dc3d46701a"
+Tete;Chifunde;CS Luia;846;a6086019-3532-4bd2-a275-28aa39aa4c0e
+Tete;Chifunde;CS Nkamande;845;a8eaa1b0-5928-4534-99ad-343fb3b1d59a
+Tete;Chifunde;CS Nkantha;844;a1bbfa5b-1d7c-4273-9593-bf5d3ac1a646
+Tete;Chifunde;CS Thequesse;849;"6ea90743-0b73-4a73-9561-b9e96371f9b1"
+Tete;Chifunde;CS Tsadzo;847;fb670ad2-f225-4fb0-91de-e5a087821d9d
+Tete;Chifunde;CS Vila Mualadzi;848;ecfc8008-48c5-444c-9ee8-01b5a962bfa5
+Tete;Chiuta;CS Cazula;850;"7a768136-a831-4665-9d25-0a3f08e75452"
+Tete;Chiuta;CS Kaunda;853;"433ca9fa-d394-4491-a82b-1d9c3836c3bc"
+Tete;Chiuta;CS Manje;852;d72b7c19-d3e3-4568-88d0-20a04c1c9ddd
+Tete;Chiuta;CS Matenje;854;c91c6e96-91f0-43c3-aa21-dcc95b595e18
+Tete;Chiuta;CS Mavudzi-Ponte;851;"12b77246-33f7-4322-b2a4-c326cf36a09b"
+Tete;Macanga;CS Bawe;860;d774bcdd-7c0a-417b-92de-c7287d94d3fa
+Tete;Macanga;CS Campala;859;"33036098-b5de-4c30-94c4-d025edad689c"
+Tete;Macanga;CS Chidzolomondo;858;f4fb3e66-44ec-4c56-a10c-e6260f96e8ca
+Tete;Macanga;CS Miwanga;855;dd2ae3c3-800c-41b6-ac62-b5b25794cb11
+Tete;Macanga;CS Mutchoncho;857;"1d7cbf63-b758-41ce-97ba-489cf6eec6d9"
+Tete;Macanga;CS Namadende;856;"6700e7fd-f4f2-4560-aa81-6d298f7fe871"
+Tete;Magoe;CS Cazindira;867;"43e51a08-9623-4fae-b10f-0fbded8f7da5"
+Tete;Magoe;CS Chinthopo;861;"96631a3b-5182-4b93-a853-5982f341eea5"
+Tete;Magoe;CS Chitete;862;a9c1c809-d329-4b0a-98a4-f74a92d1775c
+Tete;Magoe;CS Daque;863;f78e7e70-399f-4c69-aa89-a39e491a84d5
+Tete;Magoe;CS Magoe;864;cf914b6a-5827-4018-a59e-27e3ce0e9f77
+Tete;Magoe;CS Mucumbura;865;aa10549b-47c5-4368-b826-9ccc7b62f5cf
+Tete;Magoe;CS Mussenguezi;866;"5169ef27-f28f-4657-8e02-6d8afb17b45d"
+Tete;Marávia;CS Chipera;873;"23b473ee-b751-46ee-be99-15d330e8a496"
+Tete;Marávia;CS Chiputo;869;"83b1327e-1df2-41fd-b9ae-c98e5cfb723a"
+Tete;Marávia;CS Fingoe;868;"7ddc9d66-3a51-487e-ac96-2ff02ee42fb7"
+Tete;Marávia;CS Kassuende;872;ce873178-bc55-456a-842d-c200088a59f0
+Tete;Marávia;CS Maloera;870;"5489a49c-4ae4-4467-b275-5a5c718d2bad"
+Tete;Marávia;CS Uncanha;871;"4b2c1eb2-73fb-4c80-ad35-629d6a91bb0d"
+Tete;Moatize;CS Benga;876;e3780e75-2af4-4a54-a87c-b89897944170
+Tete;Moatize;CS Caphirizange;874;"4098caa4-1c21-41b3-b51e-7ac213961776"
+Tete;Moatize;CS Cateme;884;"1ec81f5c-1878-45f0-a244-40d72e64f942"
+Tete;Moatize;CS Kambulatsitsi;880;d091174d-7631-4a16-ab94-960528f85502
+Tete;Moatize;CS Mameme II;882;d723960b-c23c-45e9-90b2-ea7a1a94690b
+Tete;Moatize;CS Micunga;877;"9b73a30c-a6b2-4e7e-b0df-fe07fe246853"
+Tete;Moatize;CS Moatize;881;"909530db-93d4-4d56-9606-829b4d102f52"
+Tete;Moatize;CS Mualazi;878;db9b5a3d-a051-432b-ac49-843d57398157
+Tete;Moatize;CS Nkhanga;879;cbc13d95-5626-44fe-a60c-1191b4a82536
+Tete;Moatize;CS Samoa;883;e5cf6df7-bce3-4899-bcff-125f5cd055db
+Tete;Moatize;CS Zobue;875;ddce0c16-be5b-4d9d-8047-73d3ec5610fb
+Tete;Mutarara;CS Charre;890;"7cce34ff-3fd6-467d-a03b-033ac883c19f"
+Tete;Mutarara;CS Inhangoma;889;"421aa15a-1341-4457-af1d-0e4330a419f9"
+Tete;Mutarara;CS Jardim;888;b3679fa8-4a15-40ac-b6e2-17803dce9305
+Tete;Mutarara;CS Mutarara;892;"45976672-469a-4ac4-8440-ef0f770c0dd4"
+Tete;Mutarara;CS Mutarara velha;887;"0c64ee2b-0983-4d14-9d46-e2d92e5b8798"
+Tete;Mutarara;CS Sinjal;893;e0cc2010-f0ac-4d38-b5a8-50b8dfe343e2
+Tete;Mutarara;CS Traquino;891;"7b6f89c3-8e9c-4bc6-8fff-5491d7691c4b"
+Tete;Mutarara;CS Vila Nova da Fronteira;886;"93554878-64c4-4b14-b2b4-aa08c6032916"
+Tete;Mutarara;HR Mutarara;885;"7cc4eab4-5b37-45f7-a242-4b5f72b33af1"
+Tete;Tsangano;CS Banga;834;be2e0f78-c564-42a0-ab43-0b85b63e02b8
+Tete;Tsangano;CS Chinvano;898;ff7fa55a-6679-4cde-aa2f-3f842e098183
+Tete;Tsangano;CS Fonte Boa;818;"3b016659-4226-493f-aab6-b9614d07d515"
+Tete;Tsangano;CS Kalipale;894;a1ad4a2f-7a07-472d-a83d-c395a75bc556
+Tete;Tsangano;CS Maconge;897;e7ee8b91-4a31-41b6-bc37-e23b7ae6db99
+Tete;Tsangano;CS Ntengombalame;895;"2e63e912-84eb-4fbb-8463-a2e9af8ff3d8"
+Tete;Tsangano;CS Tsangano;896;"0b03e11c-5e87-4f75-9424-bf692ffd21ca"
+Tete;Zumbo;CS Cassenga;903;"8b4e608c-5fae-4da9-91af-9b0a9b317a9d"
+Tete;Zumbo;CS Chissavo;905;"41b2944e-90e2-44a7-8b65-55bb5d49abc3"
+Tete;Zumbo;CS Mugangadze;904;"5f1f8c6d-a144-47de-84c4-e6f7126b298a"
+Tete;Zumbo;CS Muze;900;"420b0cfc-d4b8-4b4c-90b5-3ab4a3752dd7"
+Tete;Zumbo;CS Tongue;901;"58f5b7f5-9ad1-4fd2-91f4-3488fa3abb8d"
+Tete;Zumbo;CS Zambue;902;d95ec86a-73cf-4feb-a9e6-0b4132117347
+Tete;Zumbo;HD Zumbo;899;"497f64dd-d745-41cf-9db6-f4840547fb95"
+Zambezia;Alto Molocue;CS Alto Molócuè;633;"9fbf0bad-a97e-4972-a239-5a7d6e3b9d53"
+Zambezia;Alto Molocue;CS Bonifacio Groveta;623;bce9400c-90e1-4252-9476-70e63d076546
+Zambezia;Alto Molocue;CS Caiaia;634;"4b47dba9-5e47-480b-9313-6534ce353436"
+Zambezia;Alto Molocue;CS Chapala;635;bb23379d-9f6a-4655-8d0c-0fe9208b1eef
+Zambezia;Alto Molocue;CS Cololo;622;"13c3db1c-2780-4c03-9fc6-10bc14f235c8"
+Zambezia;Alto Molocue;CS Ecole;626;"96b37506-8a2e-4f7d-a0fd-791971d24365"
+Zambezia;Alto Molocue;CS Malua;620;"6fa35349-1335-41f7-ac5b-e7f61856718d"
+Zambezia;Alto Molocue;CS Mouia;624;"4594337e-b952-4d69-8380-7b5d7200baf4"
+Zambezia;Alto Molocue;CS Mugema;630;b78f44fb-532b-45c7-a591-523d39b36fa5
+Zambezia;Alto Molocue;CS Mutala;632;e8ba6151-0c5f-4ea1-b95d-09330f0ba7c7
+Zambezia;Alto Molocue;CS Nacuaca;629;ccf0f288-8406-4bdf-a31f-812617f18e15
+Zambezia;Alto Molocue;CS Nauela;628;"2dd3e071-54ec-4e35-b969-02a2028f2b9a"
+Zambezia;Alto Molocue;CS Nivava;625;f5a21c6a-04cc-49c2-ba9d-4e17519c1ebe
+Zambezia;Alto Molocue;CS Novanana;631;"963f5aa7-136b-4eed-a3f4-17273ca315e4"
+Zambezia;Alto Molocue;HD Alto Mulocue;627;ffab52dc-45f6-49b4-a7d5-cd8b42d19bdf
+Zambezia;Alto Molocue;PS Nimala;621;"610cd78a-92c5-4b5b-9ada-312469c17499"
+Zambezia;Chinde;CS Arujuane;637;"80692348-46ac-46ba-988f-a6790e4e2156"
+Zambezia;Chinde;CS Chinde - Sede;642;eda394b2-695d-4756-8916-c5a750154fa5
+Zambezia;Chinde;CS Jorge;643;fd47bc68-8d45-4181-95aa-6d365631d6f2
+Zambezia;Chinde;CS Madal;636;"5d538a49-e4f3-4290-adc6-7394ad69b0d2"
+Zambezia;Chinde;CS Matilde;638;"5f0a95f4-1dad-4202-8e5e-ea1626c7cc39"
+Zambezia;Chinde;CS Micaune;639;"183e5a1f-57e0-411a-b5c3-86dcbe4f2866"
+Zambezia;Chinde;PS Centro Educacional;641;"0f842409-0bfc-4fcc-a352-1e3b5e3da8c6"
+Zambezia;Chinde;PS Mitange;640;a7575b09-8242-4399-a9c2-bb137a15c7db
+Zambezia;Gilé;CS Alto Ligonha;647;"99b7eef3-d207-4d83-8d2e-9ffd9cf83a48"
+Zambezia;Gilé;CS Kayane;646;fa1df88b-740c-4a19-96a4-54b25080683a
+Zambezia;Gilé;CS Mamala;653;"794188ef-3f22-43e9-aee6-64ceaee36c3f"
+Zambezia;Gilé;CS Moneia;649;d85cf151-cd08-4ea2-a458-196edf2204e1
+Zambezia;Gilé;CS Muiane;650;"87bf2b8f-828f-47be-995d-88bb6b06d11c"
+Zambezia;Gilé;CS Mutequela;644;"60bd248a-ab0d-434c-a1a0-0851e494d65f"
+Zambezia;Gilé;CS Pury;645;cb1a582f-a17e-499e-9535-7b09269792a7
+Zambezia;Gilé;CS Uape;651;b0dc8b50-4f1f-43f1-892c-450060b3827f
+Zambezia;Gilé;HD Gilé;648;"7680dc87-8c5d-44e1-8f3d-fcf709f8b745"
+Zambezia;Gilé;PS Namuaca;652;daee4f62-dfb5-46e8-a147-ff0808c82188
+Zambezia;Gurué;CS Gurue;663;c7d6aa68-2737-457d-af58-e2752132ecea
+Zambezia;Gurué;CS Invinha;658;ed33b9f3-3e12-464d-8b28-68c482d1793c
+Zambezia;Gurué;CS Lioma;662;fc3095c7-537b-465e-8f38-44a1ddd90d2a
+Zambezia;Gurué;CS Macuarro;655;"3397a73e-c1f2-48cd-b7e6-bba54feaffa4"
+Zambezia;Gurué;CS Mepuagiua;661;"367e6316-14b5-4478-82a7-de6f92ddbb52"
+Zambezia;Gurué;CS Muagiua;656;"6ec23a55-9d13-423b-92dc-8848e9497da6"
+Zambezia;Gurué;CS Nintulo;666;"11766aa7-0580-4271-affd-9dc2f1013bc4"
+Zambezia;Gurué;CS Ruace;660;a2791e47-284e-4d7d-a97e-971e0578e633
+Zambezia;Gurué;CS Serra;659;c360aed9-66e5-45d0-bee2-d14b2f91658d
+Zambezia;Gurué;CS Tetete;654;"5917ce57-dba5-4650-8507-b008048723d6"
+Zambezia;Gurué;CS UP 10;657;"11947239-2e6a-46f8-80e0-1ea25abb24d0"
+Zambezia;Gurué;CS UP 4;665;c83ded9f-fc98-4c78-9b83-3f08ec982e5e
+Zambezia;Gurué;HD Gurue;664;a805da2a-fbb0-4341-a577-3b176a76a4db
+Zambezia;Ile;CS Curruane;668;d0e8f45a-8444-492c-999c-d20ca4a39efb
+Zambezia;Ile;CS ILE-Sede;669;e3b87d24-c4f5-472a-9716-ba63839a541d
+Zambezia;Ile;CS Massira;667;f653230e-891e-4c73-90ab-399e7f983cfe
+Zambezia;Ile;CS Mucuaba;677;d645243b-3a90-4075-9c9f-51a938ec43cb
+Zambezia;Ile;CS Mulequela;675;"91704569-6b67-4c74-9429-316cf741d259"
+Zambezia;Ile;CS Mungulama;674;b3935aaf-ec5d-43b9-8527-a7cf22f9f315
+Zambezia;Ile;CS Niboia;673;a130146e-8270-4ec8-9e21-a165291ef5c2
+Zambezia;Ile;CS Nipiode;671;"3c0bf207-a109-4da8-9535-68c58f6d085c"
+Zambezia;Ile;CS Phalane;670;"75604aef-0ee2-4c05-8586-e2f540f5201a"
+Zambezia;Ile;CS Socone;672;ae72cfa8-b8e3-4566-be61-8f345269e2ea
+Zambezia;Ile;CS Ualasse;676;"3777f5af-0b68-44d4-a68f-b14c00d59e4a"
+Zambezia;Inhassunge;CS Bingagira;679;"690d79eb-7d65-4716-ba1f-7d264bf5a44a"
+Zambezia;Inhassunge;CS Chirimane;682;"4575266d-411e-447e-8484-866085d15b1e"
+Zambezia;Inhassunge;CS Gonhane;681;"78d2458a-f79a-44fb-a21b-f46ae580ba53"
+Zambezia;Inhassunge;CS Ilova;683;"48107dc4-3063-49b8-8f52-2debe596ec63"
+Zambezia;Inhassunge;CS Inhassunge-Sede;680;b285e791-bba4-46ae-8871-fc4321d74d49
+Zambezia;Inhassunge;CS Olinda;678;ae3be687-6aef-4d17-9608-4bc5df2658d3
+Zambezia;Inhassunge;CS Palane-Mucula;684;c8c59882-9d73-4b81-a3e5-897eba6d0b39
+Zambezia;Lugela;CS Erurune;689;"05943731-36e9-4bc1-b82a-7ff260b2d9e5"
+Zambezia;Lugela;CS Lugela-Sede;685;"2f2b50db-595b-4b38-b425-13d476aa689c"
+Zambezia;Lugela;CS Mubanama;686;"261d5f98-f566-46bc-8051-c4bfddff210a"
+Zambezia;Lugela;CS Mucubi;692;e9fb18d2-835c-44f6-ba79-3c4474bd716d
+Zambezia;Lugela;CS Mulide;693;"105155e5-90af-4728-8809-d2f228a483d6"
+Zambezia;Lugela;CS Mungulune;691;"11a09694-7a37-4a81-86aa-c8e38df655eb"
+Zambezia;Lugela;CS Munhamade;694;b4ee92f6-2425-4689-87a3-348e0d513650
+Zambezia;Lugela;CS Namagoa;695;"502bd69c-b3f1-4f69-81cf-404cdf18467d"
+Zambezia;Lugela;CS Puthine;687;f593bd6f-d9aa-44c2-861b-bb3287ee5430
+Zambezia;Lugela;CS Tacuane;696;"413a3252-de99-4ff7-875f-79b999f4fd39"
+Zambezia;Lugela;PS Limbue;688;"64034960-b996-49a0-b34b-fd9f846b9b42"
+Zambezia;Lugela;PS Nigau;690;"5bfa9283-ccef-4a36-912c-cf970e5c1b72"
+Zambezia;Maganja da Costa;CS Alto Mutola;706;cb8dff00-37ac-4ef6-93c9-1772d283a481
+Zambezia;Maganja da Costa;CS Cariua;700;"1aaf219f-fe55-4c95-b7ba-c5ba8e49ca43"
+Zambezia;Maganja da Costa;CS Mabala;704;ad939acf-7071-40ca-9ddb-9bbe51fedfa1
+Zambezia;Maganja da Costa;CS Mapira;701;"51012b5d-39d0-4760-bfe4-07a91773586d"
+Zambezia;Maganja da Costa;CS Muloa;703;"540fd7cb-ded7-4512-85dc-2e4ebdea9f9e"
+Zambezia;Maganja da Costa;CS Muzo;707;"72c2106c-6558-4544-9db4-f2e6b1516c50"
+Zambezia;Maganja da Costa;CS Nante;702;"5bf8f7c6-ade0-46d4-91e2-68163b43862a"
+Zambezia;Maganja da Costa;HD Maganja da Costa;705;"7fb6f3a1-bf17-4656-933f-26cb9a1014ab"
+Zambezia;Maganja da Costa;PS Moneia;699;"829024e6-24fa-4417-8679-c123c53d439f"
+Zambezia;Maganja da Costa;PS Mugaua;698;"2697f58f-e38b-4935-8400-6bdb7f105234"
+Zambezia;Maganja da Costa;PS Vila Valdez;697;"6c8f8168-bdc0-4127-91ad-71474687fb47"
+Zambezia;Milange;CS Carico;711;ddb7eef8-99a2-4d07-b19c-c1df09181ccd
+Zambezia;Milange;CS Dachudua;716;"1234bbfe-0e20-4732-95d7-83b11a0023ef"
+Zambezia;Milange;CS Dulanha;719;a2092701-b5a5-4250-90b7-3490b972cb54
+Zambezia;Milange;CS Liciro;714;"5897a7b2-a96a-4cfd-adf6-b315da202f51"
+Zambezia;Milange;CS Majaua;712;f5b19a2f-eab1-411a-a7d6-efe74ff5a7df
+Zambezia;Milange;CS Milange;710;c687be7f-ddf4-4517-b0bc-91fa89665f34
+Zambezia;Milange;CS Mongue;715;"33dd2da5-a18f-4140-be88-ff0f2a254f76"
+Zambezia;Milange;CS Nambuzi;717;aa5dfe26-03ae-46d1-a2f4-fd91824966cf
+Zambezia;Milange;CS Sabelua;718;"2fc1425c-1748-47dc-b2ed-313631b6c7ba"
+Zambezia;Milange;CS Tengua;713;c6ffcdaa-87dd-4746-959e-35c4d277d205
+Zambezia;Milange;HD Milange;709;fe73ea0c-b77f-4ef4-a070-7bb57acca40e
+Zambezia;Milange;PS Vulalo;708;fb5d68c3-cbf4-405b-92e2-e95c5ab366e4
+Zambezia;Mocuba;CS 16 de Junho;731;"67e24003-7495-40f4-97f6-5202ac553f0e"
+Zambezia;Mocuba;CS Alto Benfica;728;"531a42d5-f7b9-406b-840c-e46968fc20d0"
+Zambezia;Mocuba;CS Caiave;726;"0e7b3d5f-b85a-44f3-8ca2-69f1e92b40ed"
+Zambezia;Mocuba;CS Intome;730;d57ddfb3-127c-48a9-a787-d2ae568b87f8
+Zambezia;Mocuba;CS Magogodo;734;"8145235b-2ba7-4196-8151-8f1e1ecd6c10"
+Zambezia;Mocuba;CS Mocuba;722;"1d2ca5a4-6213-4815-9c3d-2c7f5e17842c"
+Zambezia;Mocuba;CS Mocuba - Sisal;723;e6c56602-0672-4f6f-984a-6d2af49c1bce
+Zambezia;Mocuba;CS Muanaco;720;"5b4a78c9-ce17-4312-852c-d5e77fe76858"
+Zambezia;Mocuba;CS Muaquiua;729;"525d0975-d133-4270-95c7-7204e7acd7ad"
+Zambezia;Mocuba;CS Mugeba;724;f57cb1d2-3129-4201-863e-14a5c965b488
+Zambezia;Mocuba;CS Muloe;727;"7c545149-c90b-44ef-b582-6e81c01c3c39"
+Zambezia;Mocuba;CS Munhiba;733;b47a623d-c107-4e3f-a717-1e39d0bbf749
+Zambezia;Mocuba;CS Namanjavira;732;fe586491-515c-42df-b694-6ad9f53f6f1a
+Zambezia;Mocuba;CS Nhaluanda;725;"9b4e3c7f-34c4-416e-9b9a-7a7c12b4379d"
+Zambezia;Mocuba;CS P.Ucerra (Privado);721;d529381c-a9d7-4d04-98fa-ebdd97d2d7f0
+Zambezia;Mocuba;HD Mocuba;735;cc145c95-b2ae-4305-93a8-464a0caebb33
+Zambezia;Mopeia;CS 8 de Março;738;"3cca0dbe-9a83-43c5-9138-2f700e53d722"
+Zambezia;Mopeia;CS Catale;743;"1a621c8d-266e-4157-81c4-3cd21edf6e45"
+Zambezia;Mopeia;CS Chimuara;737;"2c3f0a2a-c797-47b4-92ac-a72cb4032d79"
+Zambezia;Mopeia;CS Gulamo;742;"4f9f5d3b-4f96-4fbc-905e-8a6ce8767564"
+Zambezia;Mopeia;CS Lua-Lua;744;b30da19d-28d2-4b1a-b184-c46241af641b
+Zambezia;Mopeia;CS Mopeia-Sede;741;fbf8e4ef-57f7-47ff-9a63-800aaed25056
+Zambezia;Mopeia;CS Nzanza;745;d8b5dced-d99e-482d-832f-7357ae2d7511
+Zambezia;Mopeia;CS Posto Campo;740;"781c1851-3c87-4bde-a721-275b277c4c0a"
+Zambezia;Mopeia;CS. Noere;736;"69f12804-6fb9-4936-9dba-1d013751cf04"
+Zambezia;Mopeia;PS Nhacatundo;739;f2db6d8d-db5e-4c83-93b0-90bad9913d6f
+Zambezia;Morrumbala;CS Boroma;758;"63d9c886-42ca-49ca-9ac9-4e7aa602f451"
+Zambezia;Morrumbala;CS Chilomo;756;d19e722b-f0b2-4126-9b84-caf1ae6ad7c7
+Zambezia;Morrumbala;CS Chire;750;"7af419ae-c689-4562-bc2f-3566785cbd39"
+Zambezia;Morrumbala;CS Cumbapo;760;bc6abcec-f6ed-4862-933e-cb112fb994c3
+Zambezia;Morrumbala;CS Djasse;754;"34339647-86c9-4714-9301-502163af4dcd"
+Zambezia;Morrumbala;CS Fabrica;753;"33afd85a-f10a-45f8-a525-517b03c1c678"
+Zambezia;Morrumbala;CS Gaute;761;"43c47435-88b5-41a7-a554-3f0cc0d40c1a"
+Zambezia;Morrumbala;CS Mecaula;757;"51f4a4f5-5031-41c6-b77b-e295ed2caded"
+Zambezia;Morrumbala;CS Megaza;752;"66ccd9ae-2578-4337-99d4-94de68f284ee"
+Zambezia;Morrumbala;CS Mepinha;747;"25812754-8ef6-4478-92e8-0e4e2831186c"
+Zambezia;Morrumbala;CS Morrumbala;759;"92b022ab-d625-48df-9cf1-a029d952a130"
+Zambezia;Morrumbala;CS Muandiua;746;fd9df823-5162-456c-b0cc-299cfcea7197
+Zambezia;Morrumbala;CS Muerra;755;fe1caf45-1db7-4a34-bee4-b6912e5a1a58
+Zambezia;Morrumbala;CS Pinda;748;fed86c03-928d-4bca-8612-da70e4048da6
+Zambezia;Morrumbala;CS Reis;762;"036fa79e-bd66-4c10-ad74-e5e102ede96d"
+Zambezia;Morrumbala;CS Sabe;749;"8cfc834b-11f8-4a34-a76a-df16ec1c4793"
+Zambezia;Morrumbala;HD Morrumbala;751;"040903a6-2e70-4a4f-848f-40456821c527"
+Zambezia;Namacurra;CS Macuse;771;"7e21ba31-d28f-43cf-9d9a-2fd99d967237"
+Zambezia;Namacurra;CS Malei;763;"125377eb-6bdc-48da-89d8-1be55886ce79"
+Zambezia;Namacurra;CS Mbawa;768;"5e318dd1-c031-441b-af73-d901f5ce0604"
+Zambezia;Namacurra;CS Mexixine;769;"89c87270-c5dd-4e06-9a6f-f7a2ee4631d4"
+Zambezia;Namacurra;CS Muceliua;765;"6a9cd0e3-0101-45db-bc09-4a1fb9b8e47f"
+Zambezia;Namacurra;CS Muebele;767;"0e50b477-6f27-4a6a-b0b7-6a7579deaacf"
+Zambezia;Namacurra;CS Mugubia;764;d323045c-c5c2-4804-89dc-4f66b8d49406
+Zambezia;Namacurra;CS Namacurra-Sede;773;"0cba45e5-7882-4a57-a07e-a81c45e204b3"
+Zambezia;Namacurra;PS Furquia;770;b92a65f1-c0b4-4bfc-b3e0-7b8c375b7c3c
+Zambezia;Namacurra;PS Mutange;766;"7173e5fa-8ae3-46bd-9f53-8c222cd1dc93"
+Zambezia;Namacurra;PS Naciaia;772;"5a73c647-2f34-461b-9725-74fe7f6e9a65"
+Zambezia;Namarroi;CS Lipale;778;de4927f9-2f88-4c19-864f-c276bdd331ec
+Zambezia;Namarroi;CS Marea;777;"91cff5e0-f9fc-491d-ba18-b1bb9e63a9f8"
+Zambezia;Namarroi;CS Mudine;780;"7de6791e-eb17-4ce4-a99d-32a1e3bd64e7"
+Zambezia;Namarroi;CS Mutatala;779;e2db3f7d-5106-44b0-838a-3e9eab7dd5e3
+Zambezia;Namarroi;CS Mutepua;776;"090b2b03-8f41-41ab-af0b-5330a3051325"
+Zambezia;Namarroi;CS Namarroi-Sede;775;"7de1c127-4dfc-4b2e-98e9-75466d639ffb"
+Zambezia;Namarroi;CS Regone;774;e960022a-17ba-4898-90b3-bb7a1b699841
+Zambezia;Namarroi;CS Rumala;781;f394236c-eab5-480b-9848-a4c56e80722e
+Zambezia;Nicoadala;CS Amorro;784;dc5815d1-1214-4dfb-8ce0-72e5229a0934
+Zambezia;Nicoadala;CS Domela;787;"8f84b430-842d-4b5e-a710-ac58eafc298c"
+Zambezia;Nicoadala;CS Ilalane;786;"7fbc6186-fc7a-43e9-9c79-8ec9418635a2"
+Zambezia;Nicoadala;CS Licuar;788;"8e1927e9-8cbf-4964-b769-53013fd36c2b"
+Zambezia;Nicoadala;CS Namacata;782;ec9be2ab-968b-48ea-8b22-88eb4621e50b
+Zambezia;Nicoadala;CS Nicoadala-Sede;789;"0fd1a267-21d9-4ccd-928b-14d57a63086e"
+Zambezia;Nicoadala;CS Quinta Girassol;783;"1f58dabd-50e3-4539-9277-25b7608c53f6"
+Zambezia;Nicoadala;PS Marrongane;785;"92107eb5-aaf0-4c09-8693-006662563cbd"
+Zambezia;Pebane;CS 7 de Abril;793;c842b187-80b2-46ee-9947-e74c7f5e00d7
+Zambezia;Pebane;CS Alto Maganha;796;ac306513-2810-4329-88e2-e77f8fe4f3dc
+Zambezia;Pebane;CS Impaca;794;bfc5ac6a-1cfb-4d8a-9775-82361d2d2214
+Zambezia;Pebane;CS Magiga;801;"45554b1c-3030-4368-bb53-4684f06a2eef"
+Zambezia;Pebane;CS Mulela;790;"13c67ff9-af5f-4713-8d18-134e1396fa0b"
+Zambezia;Pebane;CS Muligode;791;"76e12fe8-5edf-41ef-8900-8c0452a698a8"
+Zambezia;Pebane;CS Naburi;792;"82ac4af3-646c-498c-b2e1-b92a60087ce6"
+Zambezia;Pebane;CS Pebane-Sede;798;b57bf912-5b0d-4b3e-8055-ccda00f11b90
+Zambezia;Pebane;CS Pele-Pele;797;f0033e10-ada3-44f7-af9b-661b27347b0e
+Zambezia;Pebane;CS Tomea;795;d5ceb752-7522-4a18-9952-4bf02f9abeaa
+Zambezia;Pebane;CS Txalalane;799;aa80380c-71d3-4697-8114-3d42ee449907
+Zambezia;Pebane;PS Cutal;800;"62bd9f34-d59e-4a3b-bd99-a1336bec8fcd"
+Zambezia;Quelimane;CS 17 De Setembro;618;"0039131f-084c-4cb3-b890-a135b96f2794"
+Zambezia;Quelimane;CS 24 de Julho;617;"9999a44e-1e0d-411b-9e32-3af7d6ce4b0e"
+Zambezia;Quelimane;CS 4 de Dezembro;613;f37186ec-cb75-4523-aa02-e4d2a9568ab9
+Zambezia;Quelimane;CS Chabeco;616;"8be23b8c-ba3f-4866-ad6a-97f3fa517b1e"
+Zambezia;Quelimane;CS Coalane;614;"61ce5b92-d510-47cc-8a5b-c4165fc4b32c"
+Zambezia;Quelimane;CS Incidua;609;d6f236b3-e7a7-41b6-a96c-28b6de42f6b6
+Zambezia;Quelimane;CS Micajune;615;"20d94c1c-cf8d-41e1-8bbd-f862dbe10466"
+Zambezia;Quelimane;CS Namuinho;611;"69e63817-54c6-4f57-b704-f781694d1933"
+Zambezia;Quelimane;CS Sangarivera;610;"6aa4ec40-b136-4995-bc18-2220c25b0960"
+Zambezia;Quelimane;HC Quelimane;1522;f4e80893-fbc9-4654-be97-e33c166c049b
+Zambezia;Quelimane;HG Quelimane;619;"9d9089db-daeb-4a35-a79b-87caf5d71a87"
+Zambezia;Quelimane;PS Cadeia Civil;612;aa87bf6a-8dfb-400b-b2ac-130a104a129a

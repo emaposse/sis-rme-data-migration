@@ -1,0 +1,34 @@
+{
+  "name": "drug_order_ds_from_json",
+  "template": {
+    "fields": [
+      "order_id",
+      "drug_inventory_id",
+      "dose",
+      "as_needed",
+      "dosing_type",
+      "quantity",
+      "as_needed_condition",
+      "num_refills",
+      "dosing_instructions",
+      "duration",
+      "duration_units",
+      "quantity_units",
+      "route",
+      "dose_units",
+      "frequency",
+      "brand_name",
+      "dispense_as_written",
+      "complex",
+      "drug_id",
+      "equivalent_daily_dose",
+      "orders_id",
+      "prn",
+      "units",
+      "drug_non_coded",
+      "creator",
+      "changed_by",
+      "voided_by"
+    ]
+  }
+}

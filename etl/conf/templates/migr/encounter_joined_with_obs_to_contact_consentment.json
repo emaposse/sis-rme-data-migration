@@ -1,0 +1,128 @@
+{
+  "name": "encounter_joined_with_obs_to_contact_consentment",
+  "parameters": [
+    "aliases_prefix",
+    "concept_list",
+    "location_list",
+    "src_encounter_type_id",
+    "person_attribute_type_id",
+    "extra_condition"
+  ],
+  "template": {
+    "srcConf": {
+      "tableName": "encounter",
+      "tableAlias": "${aliases_prefix}_encounter_src_ds",
+      "extraConditionForExtract": "encounter_extra_condition_for_simple_extract.sql"
+    },
+    "dstConf": [
+      {
+        "tableName": "person_complex_attribute",
+        "tableAlias": "${aliases_prefix}_person_complex_attribute_dst_ds",
+        "onConflict": "UPDATE_EXISTING",
+        "ignorableFields": [
+          "changed_by",
+          "date_changed"
+        ],
+        "mapping": [
+          {
+            "srcField": "${aliases_prefix}_encounter_src_ds.patient_id",
+            "dstField": "person_id"
+          },
+          {
+            "dstField": "uuid",
+            "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:person_complex_attribute,lookup_condition:lookup_condition_for_person_complex_attribute.sql,person_id:${aliases_prefix}_encounter_src_ds.patient_id,date_created:${aliases_prefix}_encounter_src_ds.encounter_datetime)"
+          }
+        ]
+      }
+    ],
+    "childItemConf": [
+      {
+        "srcConf": {
+          "tableName": "encounter",
+          "tableAlias": "${aliases_prefix}_inner_encounter_src_ds"
+        },
+        "dstConf": [
+          {
+            "tableName": "person_attribute",
+            "tableAlias": "${aliases_prefix}_person_attribute_dst_ds",
+            "mapping": [
+              {
+                "srcValue": "${person_attribute_type_id}",
+                "dstField": "person_attribute_type_id"
+              },
+              {
+                "srcField": "${aliases_prefix}_person_complex_attribute_dst_ds.person_complex_attribute_id",
+                "dstField": "value"
+              },
+              {
+                "dstField": "uuid",
+                "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:person_attribute,lookup_condition:lookup_condition_for_person_attribute.sql,person_id:${aliases_prefix}_encounter_src_ds.patient_id,date_created:${aliases_prefix}_encounter_src_ds.encounter_datetime)"
+              }
+            ],
+            "ignorableFields": [
+              "changed_by",
+              "date_changed"
+            ]
+          }
+        ]
+      },
+      {
+        "srcConf": {
+          "tableName": "obs",
+          "tableAlias": "${aliases_prefix}_obs_src_ds",
+          "extraConditionForExtract": "concept_id in (@contact_concorda_concept_id,@contact_meio_contacto_concept_id) and voided = 0"
+        },
+        "dstConf": [
+          {
+            "template": {
+              "name": "dst_person_complex_attribute_detail_from_obs",
+              "parameters": {
+                "src_aliases_prefix": "${aliases_prefix}",
+                "dst_aliases_prefix": "${aliases_prefix}_consent_to_be_contacted",
+                "src_object_condition": "concept_id = @contact_concorda_concept_id",
+                "attribute_key": "patient.consent_to_be_contacted.concept.concept_id",
+                "attribute_value": "${aliases_prefix}_obs_src_ds.value_coded"
+              }
+            }
+          },
+          {
+            "template": {
+              "name": "dst_person_complex_attribute_detail_from_obs",
+              "parameters": {
+                "src_aliases_prefix": "${aliases_prefix}",
+                "dst_aliases_prefix": "${aliases_prefix}_contact_method_telephone",
+                "src_object_condition": "concept_id = @contact_meio_contacto_concept_id and value_coded = 6307",
+                "attribute_key": "patient.contact_method_telephone.concept.concept_id",
+                "attribute_value": "${aliases_prefix}_obs_src_ds.value_coded"
+              }
+            }
+          },
+          {
+            "template": {
+              "name": "dst_person_complex_attribute_detail_from_obs",
+              "parameters": {
+                "src_aliases_prefix": "${aliases_prefix}",
+                "dst_aliases_prefix": "${aliases_prefix}_contact_method_sms",
+                "src_object_condition": "concept_id = @contact_meio_contacto_concept_id and value_coded = 23719",
+                "attribute_key": "patient.contact_method_sms.concept.concept_id",
+                "attribute_value": "${aliases_prefix}_obs_src_ds.value_coded"
+              }
+            }
+          },
+          {
+            "template": {
+              "name": "dst_person_complex_attribute_detail_from_obs",
+              "parameters": {
+                "src_aliases_prefix": "${aliases_prefix}",
+                "dst_aliases_prefix": "${aliases_prefix}_contact_method_homevisit",
+                "src_object_condition": "concept_id = @contact_meio_contacto_concept_id and value_coded = 2071",
+                "attribute_key": "patient.contact_method_homevisit.concept.concept_id",
+                "attribute_value": "${aliases_prefix}_obs_src_ds.value_coded"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

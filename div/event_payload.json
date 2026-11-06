@@ -1,0 +1,769 @@
+{
+  "type": "update",
+  "table_name": "encounter_diagnosis",
+  "columns": [
+    {
+      "name": "diagnosis_id",
+      "column_type": "INT",
+      "value": 758
+    },
+    {
+      "name": "diagnosis_coded",
+      "column_type": "INT",
+      "value": 1649
+    },
+    {
+      "name": "diagnosis_non_coded",
+      "column_type": "VARCHAR",
+      "value": "Paciente Ausente"
+    },
+    {
+      "name": "diagnosis_coded_name",
+      "column_type": "INT",
+      "value": null
+    },
+    {
+      "name": "encounter_id",
+      "column_type": "INT",
+      "value": 80162
+    },
+    {
+      "name": "patient_id",
+      "column_type": "INT",
+      "value": 5068
+    },
+    {
+      "name": "condition_id",
+      "column_type": "INT",
+      "value": 768
+    },
+    {
+      "name": "certainty",
+      "column_type": "VARCHAR",
+      "value": "CONFIRMED"
+    },
+    {
+      "name": "rank",
+      "column_type": "INT",
+      "value": 1
+    },
+    {
+      "name": "uuid",
+      "column_type": "CHAR",
+      "value": "15c34998-577d-11f1-9e9b-1a4da297e2ba"
+    },
+    {
+      "name": "creator",
+      "column_type": "INT",
+      "value": 67
+    },
+    {
+      "name": "date_created",
+      "column_type": "DATETIME",
+      "value": "2018-04-25 14:08:36.000"
+    },
+    {
+      "name": "changed_by",
+      "column_type": "INT",
+      "value": null
+    },
+    {
+      "name": "date_changed",
+      "column_type": "DATETIME",
+      "value": null
+    },
+    {
+      "name": "voided",
+      "column_type": "BOOLEAN",
+      "value": 0
+    },
+    {
+      "name": "voided_by",
+      "column_type": "INT",
+      "value": 10
+    },
+    {
+      "name": "location_id",
+      "column_type": "INT",
+      "value": 900001
+    },
+    {
+      "name": "date_voided",
+      "column_type": "DATETIME",
+      "value": null
+    },
+    {
+      "name": "void_reason",
+      "column_type": "VARCHAR",
+      "value": null
+    }
+  ],
+  "parents": [
+    {
+      "table_name": "encounter",
+      "child_field": "encounter_id",
+      "columns": [
+        {
+          "name": "encounter_id",
+          "column_type": "INT",
+          "value": 80162
+        },
+        {
+          "name": "encounter_type",
+          "column_type": "INT",
+          "value": 108
+        },
+        {
+          "name": "patient_id",
+          "column_type": "INT",
+          "value": 5068
+        },
+        {
+          "name": "location_id",
+          "column_type": "INT",
+          "value": 900006
+        },
+        {
+          "name": "form_id",
+          "column_type": "INT",
+          "value": 126
+        },
+        {
+          "name": "encounter_datetime",
+          "column_type": "DATETIME",
+          "value": "2018-01-09 00:00:00"
+        },
+        {
+          "name": "creator",
+          "column_type": "INT",
+          "value": 67
+        },
+        {
+          "name": "date_created",
+          "column_type": "DATETIME",
+          "value": "2018-04-25 12:08:36"
+        },
+        {
+          "name": "voided",
+          "column_type": "BOOLEAN",
+          "value": false
+        },
+        {
+          "name": "voided_by",
+          "column_type": "INT",
+          "value": null
+        },
+        {
+          "name": "date_voided",
+          "column_type": "DATETIME",
+          "value": null
+        },
+        {
+          "name": "void_reason",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "uuid",
+          "column_type": "CHAR",
+          "value": "152d1a35-577d-11f1-9e9b-1a4da297e2ba"
+        },
+        {
+          "name": "changed_by",
+          "column_type": "INT",
+          "value": null
+        },
+        {
+          "name": "date_changed",
+          "column_type": "DATETIME",
+          "value": null
+        },
+        {
+          "name": "visit_id",
+          "column_type": "INT",
+          "value": 79928
+        }
+      ]
+    },
+    {
+      "table_name": "location",
+      "child_field": "location_id",
+      "columns": [
+        {
+          "name": "location_id",
+          "column_type": "INT",
+          "value": 900001
+        },
+        {
+          "name": "name",
+          "column_type": "VARCHAR",
+          "value": "Serviços de Urgências (EMR)"
+        },
+        {
+          "name": "description",
+          "column_type": "VARCHAR",
+          "value": "Serviços de Urgências (EMR)"
+        },
+        {
+          "name": "address1",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "address2",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "city_village",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "state_province",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "postal_code",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "country",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "latitude",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "longitude",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "creator",
+          "column_type": "INT",
+          "value": 1
+        },
+        {
+          "name": "date_created",
+          "column_type": "DATETIME",
+          "value": "2026-05-26 17:01:52"
+        },
+        {
+          "name": "county_district",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "address3",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "address6",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "address5",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "address4",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "retired",
+          "column_type": "BOOLEAN",
+          "value": false
+        },
+        {
+          "name": "retired_by",
+          "column_type": "INT",
+          "value": null
+        },
+        {
+          "name": "date_retired",
+          "column_type": "DATETIME",
+          "value": null
+        },
+        {
+          "name": "retire_reason",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "parent_location",
+          "column_type": "INT",
+          "value": 1487
+        },
+        {
+          "name": "uuid",
+          "column_type": "CHAR",
+          "value": "980c6f28-b675-44b5-aaff-eb3d1eae6232"
+        },
+        {
+          "name": "changed_by",
+          "column_type": "INT",
+          "value": null
+        },
+        {
+          "name": "date_changed",
+          "column_type": "DATETIME",
+          "value": null
+        },
+        {
+          "name": "address7",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "address8",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "address9",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "address10",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "address11",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "address12",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "address13",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "address14",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "address15",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "location_type_concept_id",
+          "column_type": "INT",
+          "value": null
+        }
+      ]
+    },
+    {
+      "table_name": "conditions",
+      "child_field": "condition_id",
+      "columns": [
+        {
+          "name": "condition_id",
+          "column_type": "INT",
+          "value": 768
+        },
+        {
+          "name": "additional_detail",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "previous_version",
+          "column_type": "INT",
+          "value": null
+        },
+        {
+          "name": "condition_coded",
+          "column_type": "INT",
+          "value": null
+        },
+        {
+          "name": "condition_non_coded",
+          "column_type": "VARCHAR",
+          "value": "Paciente Ausente"
+        },
+        {
+          "name": "condition_coded_name",
+          "column_type": "INT",
+          "value": null
+        },
+        {
+          "name": "clinical_status",
+          "column_type": "VARCHAR",
+          "value": "ACTIVE"
+        },
+        {
+          "name": "verification_status",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "onset_date",
+          "column_type": "DATETIME",
+          "value": "2018-01-09 00:00:00"
+        },
+        {
+          "name": "date_created",
+          "column_type": "DATETIME",
+          "value": "2018-04-25 12:08:36"
+        },
+        {
+          "name": "voided",
+          "column_type": "BOOLEAN",
+          "value": false
+        },
+        {
+          "name": "date_voided",
+          "column_type": "DATETIME",
+          "value": null
+        },
+        {
+          "name": "void_reason",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "uuid",
+          "column_type": "VARCHAR",
+          "value": "15bae39f-577d-11f1-9e9b-1a4da297e2ba"
+        },
+        {
+          "name": "creator",
+          "column_type": "INT",
+          "value": 67
+        },
+        {
+          "name": "voided_by",
+          "column_type": "INT",
+          "value": null
+        },
+        {
+          "name": "changed_by",
+          "column_type": "INT",
+          "value": null
+        },
+        {
+          "name": "patient_id",
+          "column_type": "INT",
+          "value": 5068
+        },
+        {
+          "name": "end_date",
+          "column_type": "DATETIME",
+          "value": null
+        },
+        {
+          "name": "date_changed",
+          "column_type": "DATETIME",
+          "value": null
+        },
+        {
+          "name": "encounter_id",
+          "column_type": "INT",
+          "value": 80162
+        },
+        {
+          "name": "form_namespace_and_path",
+          "column_type": "VARCHAR",
+          "value": null
+        }
+      ]
+    },
+    {
+      "table_name": "patient",
+      "child_field": "patient_id",
+      "columns": [
+        {
+          "name": "patient_id",
+          "column_type": "INT",
+          "value": 5068
+        },
+        {
+          "name": "dde_sync_pending",
+          "column_type": "BOOLEAN",
+          "value": false
+        },
+        {
+          "name": "creator",
+          "column_type": "INT",
+          "value": 562
+        },
+        {
+          "name": "date_created",
+          "column_type": "DATETIME",
+          "value": "2016-10-21 09:55:16"
+        },
+        {
+          "name": "changed_by",
+          "column_type": "INT",
+          "value": 68
+        },
+        {
+          "name": "date_changed",
+          "column_type": "DATETIME",
+          "value": "2018-04-02 11:41:17"
+        },
+        {
+          "name": "voided",
+          "column_type": "BOOLEAN",
+          "value": false
+        },
+        {
+          "name": "voided_by",
+          "column_type": "INT",
+          "value": null
+        },
+        {
+          "name": "date_voided",
+          "column_type": "DATETIME",
+          "value": null
+        },
+        {
+          "name": "void_reason",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "allergy_status",
+          "column_type": "VARCHAR",
+          "value": "Unknown"
+        },
+        {
+          "name": "uuid",
+          "column_type": "CHAR",
+          "value": "c8adfa2e-662d-11f1-9b5e-826968ce7eab"
+        }
+      ]
+    },
+    {
+      "table_name": "user",
+      "child_field": "creator",
+      "columns": [
+        {
+          "name": "user_id",
+          "column_type": "INT",
+          "value": 67
+        },
+        {
+          "name": "system_id",
+          "column_type": "VARCHAR",
+          "value": "{SYNCSERVERNAME}_317"
+        },
+        {
+          "name": "username",
+          "column_type": "VARCHAR",
+          "value": "Isilda"
+        },
+        {
+          "name": "password",
+          "column_type": "VARCHAR",
+          "value": "48a72f8a27c2de80ba5ee8a5112634b481312d7e574bb3a4c23d5255e83c86ac6c70fe793bb1936c57e96f543064a0a12250567c8dd1d67ad6d964a19602fc65"
+        },
+        {
+          "name": "salt",
+          "column_type": "VARCHAR",
+          "value": "bfd2345f5a4b3ac897dd73e91f2f6e4859ebbf99b48871f68c3480af8529ad9d8a587f1a46f9e879aca6ec02bb25534efc94f4c93e0cf693be62561d1e30b4c7"
+        },
+        {
+          "name": "secret_question",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "secret_answer",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "creator",
+          "column_type": "INT",
+          "value": 1
+        },
+        {
+          "name": "date_created",
+          "column_type": "DATETIME",
+          "value": "2017-08-14 12:39:56"
+        },
+        {
+          "name": "changed_by",
+          "column_type": "INT",
+          "value": 1
+        },
+        {
+          "name": "date_changed",
+          "column_type": "DATETIME",
+          "value": "2018-10-09 08:51:24"
+        },
+        {
+          "name": "person_id",
+          "column_type": "INT",
+          "value": 1
+        },
+        {
+          "name": "retired",
+          "column_type": "BOOLEAN",
+          "value": true
+        },
+        {
+          "name": "retired_by",
+          "column_type": "INT",
+          "value": 1
+        },
+        {
+          "name": "date_retired",
+          "column_type": "DATETIME",
+          "value": "2026-02-25 14:00:00"
+        },
+        {
+          "name": "retire_reason",
+          "column_type": "VARCHAR",
+          "value": "Sesp Migrated User"
+        },
+        {
+          "name": "uuid",
+          "column_type": "CHAR",
+          "value": "7decbfb9-4bb4-400c-8d1d-f786bd85daef"
+        },
+        {
+          "name": "creator_id",
+          "column_type": "BIGINT",
+          "value": null
+        },
+        {
+          "name": "activation_key",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "email",
+          "column_type": "VARCHAR",
+          "value": null
+        }
+      ]
+    },
+    {
+      "table_name": "user",
+      "child_field": "voided_by",
+      "columns": [
+        {
+          "name": "user_id",
+          "column_type": "INT",
+          "value": 10
+        },
+        {
+          "name": "system_id",
+          "column_type": "VARCHAR",
+          "value": ""
+        },
+        {
+          "name": "username",
+          "column_type": "VARCHAR",
+          "value": "cristina.singa"
+        },
+        {
+          "name": "password",
+          "column_type": "VARCHAR",
+          "value": "$2y$12$I8x9MEHlHC6ot8stX/c4g.ndVC0UkqBh8StRxdnMwG687jPRYhOxy"
+        },
+        {
+          "name": "salt",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "secret_question",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "secret_answer",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "creator",
+          "column_type": "INT",
+          "value": 1
+        },
+        {
+          "name": "date_created",
+          "column_type": "DATETIME",
+          "value": "2026-05-21 09:43:47"
+        },
+        {
+          "name": "changed_by",
+          "column_type": "INT",
+          "value": null
+        },
+        {
+          "name": "date_changed",
+          "column_type": "DATETIME",
+          "value": null
+        },
+        {
+          "name": "person_id",
+          "column_type": "INT",
+          "value": 9
+        },
+        {
+          "name": "retired",
+          "column_type": "BOOLEAN",
+          "value": false
+        },
+        {
+          "name": "retired_by",
+          "column_type": "INT",
+          "value": null
+        },
+        {
+          "name": "date_retired",
+          "column_type": "DATETIME",
+          "value": null
+        },
+        {
+          "name": "retire_reason",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "uuid",
+          "column_type": "CHAR",
+          "value": "981aa657-f4fa-4392-87eb-a75828ed011e"
+        },
+        {
+          "name": "creator_id",
+          "column_type": "BIGINT",
+          "value": null
+        },
+        {
+          "name": "activation_key",
+          "column_type": "VARCHAR",
+          "value": null
+        },
+        {
+          "name": "email",
+          "column_type": "VARCHAR",
+          "value": "piloto.sis@gmail.com"
+        }
+      ]
+    }
+  ]
+}

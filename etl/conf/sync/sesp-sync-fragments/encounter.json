@@ -1,0 +1,77 @@
+{
+  "applyCondition": "table_name='encounter'",
+  "srcConf": {
+    "template": {
+      "name": "sisrme_src_ds",
+      "parameters": {
+        "aliases_prefix": "encounter",
+        "main_output_template_name": "encounter_ds_from_json"
+      }
+    },
+    "excludedFieldsFromObjectDesc": [
+      "entity_payload"
+    ]
+  },
+  "dstConf": [
+    {
+      "template": {
+        "name": "sync_dst_encounter",
+        "parameters": {
+          "aliases_prefix": "ficha_resumo",
+          "src_encounter_type_id": 147,
+          "dst_encounter_type_id": 53,
+          "dst_db": "${dst_db}",
+          "use_existing_record_id": "FAST_SQL_TRANSFORMER(query:select encounter_id from ${dst_db}.encounter e inner join ${dst_db}.person p on p.uuid = encounter_patient_src_ds.uuid where e.encounter_type = 53 and e.patient_id  = p.person_id,onNullTransformedValue:SET_TO_NULL)"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_encounter",
+        "parameters": {
+          "aliases_prefix": "ficha_clinica",
+          "src_encounter_type_id": 6,
+          "dst_encounter_type_id": 6,
+          "dst_db": "${dst_db}",
+          "use_existing_record_id": "NULL_VALUE_TRANSFORMER()"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_encounter",
+        "parameters": {
+          "aliases_prefix": "ficha_apss",
+          "src_encounter_type_id": 35,
+          "dst_encounter_type_id": 35,
+          "dst_db": "${dst_db}",
+          "use_existing_record_id": "NULL_VALUE_TRANSFORMER()"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_encounter",
+        "parameters": {
+          "aliases_prefix": "ficha_dah",
+          "src_encounter_type_id": 90,
+          "dst_encounter_type_id": 90,
+          "dst_db": "${dst_db}",
+          "use_existing_record_id": "NULL_VALUE_TRANSFORMER()"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_encounter",
+        "parameters": {
+          "aliases_prefix": "fila",
+          "src_encounter_type_id": 17,
+          "dst_encounter_type_id": 18,
+          "dst_db": "${dst_db}",
+          "use_existing_record_id": "NULL_VALUE_TRANSFORMER()"
+        }
+      }
+    }
+  ]
+}

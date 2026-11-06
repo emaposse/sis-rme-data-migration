@@ -1,0 +1,116 @@
+{
+  "name": "estado_sorologico_hiv",
+  "parameters": [
+    "aliases_prefix",
+    "estado_sorologico_concept_id",
+    "hiv_test_result_field",
+    "hiv_test_resulte_date_field"
+  ],
+  "template": {
+    "srcConf": {
+      "tableName": "obs",
+      "tableAlias": "${aliases_prefix}_hiv_test_obs_src_ds",
+      "joinExtraCondition": "concept_id = ${estado_sorologico_concept_id}"
+    },
+    "dstConf": [
+      {
+        "tableName": "obs",
+        "tableAlias": "estado_sorologico_conhecido_dst_obs",
+        "onConflict": "UPDATE_EXISTING",
+        "ignorableFields": [
+          "obs_group_id",
+          "value_group_id",
+          "value_coded_name_id",
+          "value_drug",
+          "value_datetime",
+          "value_modifier",
+          "value_complex",
+          "previous_version",
+          "form_namespace_and_path",
+          "interpretation",
+          "order_group_id"
+        ],
+        "mapping": [
+          {
+            "srcValue": "233310",
+            "dstField": "concept_id"
+          },
+          {
+            "srcValue": "1065",
+            "dstField": "value_coded"
+          },
+          {
+            "dstField": "uuid",
+            "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:obs,lookup_condition:encounter_id=${aliases_prefix}_encounter_dst_ds.encounter_id and concept_id = 233310)"
+          }
+        ]
+      },
+      {
+        "tableName": "obs",
+        "tableAlias": "${aliases_prefix}_hiv_test_result_obs_dst_ds",
+        "unmappedFieldBehavior": "IGNORE",
+        "onConflict": "UPDATE_EXISTING",
+        "ignorableFields": [
+          "obs_group_id",
+          "value_group_id",
+          "value_coded_name_id",
+          "value_drug",
+          "value_datetime",
+          "value_modifier",
+          "value_complex",
+          "previous_version",
+          "form_namespace_and_path",
+          "interpretation",
+          "order_group_id"
+        ],
+        "mapping": [
+          {
+            "srcValue": "233306",
+            "dstField": "concept_id"
+          },
+          {
+            "srcField": "${hiv_test_result_field}",
+            "dstField": "value_coded"
+          },
+          {
+            "srcField": "${aliases_prefix}_hiv_test_obs_src_ds.uuid",
+            "dstField": "uuid"
+          }
+        ]
+      },
+      {
+        "tableName": "obs",
+        "tableAlias": "hiv_test_date_${aliases_prefix}_obs_dst_ds",
+        "unmappedFieldBehavior": "IGNORE",
+        "onConflict": "UPDATE_EXISTING",
+        "ignorableFields": [
+          "obs_group_id",
+          "value_group_id",
+          "value_coded",
+          "value_coded_name_id",
+          "value_drug",
+          "value_modifier",
+          "value_complex",
+          "previous_version",
+          "form_namespace_and_path",
+          "interpretation",
+          "order_group_id"
+        ],
+        "mapping": [
+          {
+            "srcValue": "233307",
+            "dstField": "concept_id"
+          },
+          {
+            "srcField": "${hiv_test_resulte_date_field}",
+            "dstField": "value_datetime"
+          },
+          {
+            "dstField": "uuid",
+            "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:obs,lookup_condition:encounter_id=${aliases_prefix}_encounter_dst_ds.encounter_id and concept_id = 233307)"
+          }
+        ]
+      }
+    ]
+  }
+}

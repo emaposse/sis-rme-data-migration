@@ -1,0 +1,72 @@
+{
+  "name": "obs_within_encounter_to_obs",
+  "parameters": [
+    "encounter_dst_ds_name",
+    "aliases_prefix",
+    "concept_list",
+    "grouped_concept_list",
+    "order_id_transformer"
+  ],
+  "template": {
+    "srcConf": {
+      "tableName": "obs",
+      "tableAlias": "${aliases_prefix}_obs_src_ds",
+      "joinExtraCondition": "${aliases_prefix}_obs_src_ds.concept_id in (${concept_list}) and ${aliases_prefix}_obs_src_ds.voided = 0"
+    },
+    "dstConf": [
+      {
+        "tableName": "obs",
+        "tableAlias": "${aliases_prefix}_obs_dst_ds",
+        "onConflict": "UPDATE_EXISTING",
+        "preferredDataSource": [
+          "${aliases_prefix}_obs_src_ds"
+        ],
+        "ignorableFields": [
+          "obs_group_id",
+          "previous_version",
+          "order_group_id"
+        ],
+        "mapping": [
+          {
+            "srcField": "${encounter_dst_ds_name}.location_id",
+            "dstField": "location_id"
+          },
+          {
+            "srcField": "${encounter_dst_ds_name}.encounter_id",
+            "dstField": "encounter_id"
+          },
+          {
+            "srcField": "${encounter_dst_ds_name}.patient_id",
+            "dstField": "person_id"
+          },
+          {
+            "dstField": "order_id",
+            "transformer": "${order_id_transformer}"
+          },
+          {
+            "dstField": "concept_id",
+            "relationshipResolutionStrategy": "SKIP",
+            "transformer": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sesp_value,sisrme_value,on_missing:USE_INPUT,input:concept_id,extra_condition:mapping_group=\"concept\")"
+          },
+          {
+            "dstField": "value_coded",
+            "relationshipResolutionStrategy": "SKIP",
+            "transformer": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sesp_value,sisrme_value,on_missing:USE_INPUT,input:value_coded,extra_condition:mapping_group=\"concept\")"
+          }
+        ]
+      }
+    ],
+    "childItemConf": [
+      {
+        "template": {
+          "name": "obs_joined_with_grouping_obs_to_obs",
+          "parameters": {
+            "concept_list": "${grouped_concept_list}",
+            "aliases_prefix": "${aliases_prefix}_grouped",
+            "grouping_obs_dst_ds": "${aliases_prefix}_obs_dst_ds"
+          }
+        }
+      }
+    ]
+  }
+}

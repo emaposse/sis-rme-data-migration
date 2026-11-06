@@ -1,0 +1,130 @@
+{
+  "name": "order_DstConf",
+  "parameters": [
+    "aliases_prefix",
+    "orderer",
+    "order_type_id",
+    "concept_id",
+    "value_text",
+    "patient_id",
+    "location_id",
+    "creator",
+    "order_date",
+    "dst_order_encounter_type_id",
+    "visit_type_id",
+    "program_id"
+  ],
+  "template": {
+    "tableName": "orders",
+    "tableAlias": "${aliases_prefix}_orders_dst_ds",
+    "allowDuplicateDestinationMappings": true,
+    "useAsDataSource": true,
+    "preferredDataSource": [],
+    "ignorableFields": [
+      "instructions",
+      "auto_expire_date",
+      "date_stopped",
+      "order_reason_non_coded",
+      "previous_order_id",
+      "discontinued_date",
+      "discontinued_reason_non_coded",
+      "drug_order_id",
+      "start_date",
+      "test_order_id",
+      "sort_weight",
+      "fulfiller_status"
+    ],
+    "mapping": [
+      {
+        "srcValue": "${order_type_id}",
+        "dstField": "order_type_id",
+        "dataType": "int",
+        "relationshipResolutionStrategy": "SKIP"
+      },
+      {
+        "srcField": "${concept_id}",
+        "dstField": "concept_id",
+        "relationshipResolutionStrategy": "SKIP"
+      },
+      {
+        "srcField": "${value_text}",
+        "dstField": "comment_to_fulfiller"
+      },
+      {
+        "srcValue": "ON_SCHEDULED_DATE",
+        "dstField": "urgency"
+      },
+      {
+        "srcValue": "NEW",
+        "dstField": "order_action"
+      },
+      {
+        "srcValue": "1",
+        "dstField": "care_setting",
+        "dataType": "int"
+      },
+      {
+        "srcValue": "0",
+        "dstField": "discontinued",
+        "dataType": "int"
+      },
+      {
+        "srcField": "${orderer}",
+        "defaultValue": "1",
+        "dstField": "orderer"
+      },
+      {
+        "srcField": "${patient_id}",
+        "dstField": "patient_id"
+      },
+      {
+        "dstField": "encounter_id",
+        "transformer": "PARENT_ON_DEMAND_TRANSFORMER(encounter,on_demand_check_condition:encounter_type=${dst_order_encounter_type_id} and patient_id=${patient_id} and encounter_datetime=${order_date},template_param_dst_encounter_type_id:${dst_order_encounter_type_id},template:on_demand_encounter,template_param_visit_type_id:${visit_type_id},template_param_program_id:${program_id},template_param_aliases_prefix:${aliases_prefix},template_param_dst_location_id:${location_id},template_param_patient_id:${patient_id},template_param_encounter_datetime:${order_date},template_param_creator:${creator})"
+      },
+      {
+        "dstField": "order_group_id",
+        "transformer": "PARENT_ON_DEMAND_TRANSFORMER(order_group,on_demand_check_condition:on_demand_order_group_check_condition.sql,template:on_demand_order_group,template_param_encounter_id:${aliases_prefix}_orders_dst_ds.encounter_id,template_param_patient_id:${patient_id})"
+      },
+      {
+        "dstField": "order_number",
+        "transformer": "STRING_TRANSFORMER((${concept_id}).concat(-).concat(@encounter_id))"
+      },
+      {
+        "srcValue": "Migrado do SESP",
+        "dstField": "fulfiller_comment"
+      },
+      {
+        "srcField": "${order_date}",
+        "dstField": "date_activated"
+      },
+      {
+        "srcField": "${order_date}",
+        "dstField": "scheduled_date"
+      },
+      {
+        "dstField": "uuid",
+        "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:orders,lookup_condition:lookup_condition_for_orders.sql,table_alias:${aliases_prefix}_on_demand_orders_uuid,order_type_id:${order_type_id},concept_id:${concept_id},patient_id:${patient_id},encounter_type:${dst_order_encounter_type_id},encounter_datetime:${order_date}, encounter_id:${aliases_prefix}_orders_dst_ds.encounter_id)"
+      },
+      {
+        "srcValue": "234062",
+        "dstField": "order_reason",
+        "applyCondition": "${concept_id} in (856, 1305)"
+      },
+      {
+        "srcValue": "730",
+        "dstField": "order_reason",
+        "applyCondition": "${concept_id} in (234068, 234067)"
+      },
+      {
+        "srcValue": "1695",
+        "dstField": "order_reason",
+        "applyCondition": "${concept_id} in (234066, 234065)"
+      },
+      {
+        "srcValue": "23951",
+        "dstField": "order_reason",
+        "applyCondition": "${concept_id} in (23951, 165185)"
+      }      
+    ]
+  }
+}

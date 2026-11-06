@@ -1,0 +1,86 @@
+{
+  "name": "encounter_joined_with_obs_to_encounter_and_vital_signs",
+  "extends": {
+    "name": "encounter_joined_with_obs_to_encounter",
+    "parameters": {
+      "aliases_prefix": "${aliases_prefix}",
+      "patient_id": "0",
+      "encounter_filter_obs_concept_list": "5088,5085,5086",
+      "location_list": "@location_list",
+      "src_encounter_type_id": "@src_encounter_type_id",
+      "dst_location_id": "${dst_location_id}",
+      "dst_encounter_type_id": "${dst_encounter_type_id}",
+      "visit_type_id": "${visit_type_id}",
+      "program_id": "${program_id}",
+      "ignore_patient_id": true,
+      "ignore_location_list": false,
+      "ignore_src_encounter_type_id": false,
+      "ignore_encounter_filter_obs_concept_list": false,
+      "limitToOneResult": false,
+      "extra_condition": "${extra_condition}"
+    }
+  },
+  "parameters": [
+    "aliases_prefix",
+    "src_encounter_type_id",
+    "dst_encounter_type_id",
+    "visit_type_id",
+    "program_id",
+    "location_list",
+    "dst_location_id",
+    "extra_condition"
+  ],
+  "template": {
+    "childItemConf": [
+      {
+        "srcConf": {
+          "tableName": "encounter",
+          "tableAlias": "${aliases_prefix}_inner_encounter_src_ds",
+          "joinFields": [
+            {
+              "srcField": "encounter_id",
+              "dstField": "encounter_id"
+            }
+          ],
+          "extraQueryDataSource": [
+            {
+              "name": "${aliases_prefix}_src_ds",
+              "script": "vital_signs.sql",
+              "required": true,
+              "dynamicElements": [
+                "${aliases_prefix}_encounter_src_ds.encounter_id"
+              ]
+            }
+          ]
+        },
+        "dstConf": [
+          {
+            "tableName": "vital_signs",
+            "tableAlias": "${aliases_prefix}_dst_ds",
+            "onConflict": "UPDATE_EXISTING",
+            "inconsistencyBehavior": "MARK_RECORD_AS_FAILED",
+            "preferredDataSource": [
+              "${aliases_prefix}_encounter_dst_ds",
+              "${aliases_prefix}_src_ds"
+            ],
+            "mapping": [
+              {
+                "dstField": "uuid",
+                "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:vital_signs,lookup_condition:encounter_id = ${aliases_prefix}_encounter_dst_ds.encounter_id)"
+              }
+            ],
+            "ignorableFields": [
+              "heart_rate",
+              "respiratory_rate",
+              "oxygen_saturation",
+              "pulse_type",
+              "pulse_bpm",
+              "pulse_state",
+              "pulse_amplitude"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "patient_identifier_ds_from_json",
+  "template": {
+    "fields": [
+      "patient_identifier_id",
+      "patient_id",
+      "identifier",
+      "identifier_type",
+      "preferred",
+      "location_id",
+      "creator",
+      "date_created",
+      "voided",
+      "voided_by",
+      "date_voided",
+      "void_reason",
+      "uuid",
+      "date_changed",
+      "changed_by",
+      "patient_program_id"
+    ]
+  }
+}

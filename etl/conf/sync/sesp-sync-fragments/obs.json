@@ -1,0 +1,327 @@
+{
+  "applyCondition": "table_name='obs'",
+  "srcConf": {
+    "template": {
+      "name": "sisrme_src_ds",
+      "parameters": {
+        "aliases_prefix": "obs",
+        "main_output_template_name": "obs_ds_from_json"
+      }
+    },
+    "excludedFieldsFromObjectDesc": [
+      "entity_payload"
+    ]
+  },
+  "dstConf": [
+    {
+      "template": {
+        "name": "sync_back_to_obs",
+        "parameters": {
+          "src_aliases_prefix": "obs",
+          "dst_aliases_prefix": "lab",
+          "encounter_type_id": "6",
+          "filter_condition": " obs_src_ds.concept_id in (234065, 234068, 856, 165515, 1305, 1692,1694,1693,887,1011,1299,23723,23774,165349,23951,23952,165520,307,165185,12,2094,703,1649,165362, 165390)",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()"
+        }
+      },
+      "comments": {
+        "cd4_absoluto": "234065",
+        "cd4_percentual": "234068",
+        "hiv_carga_viral_quantitativa": "856",
+        "cd4_semi_quantitativo": "165515",
+        "hiv_carga_viral_quanlitativa": "1305",
+        "outros_exames": "1692,1694,1693,887,1011,1299,23723,23774,165349,23951,165185,23952,165520,307,165185,12,2094,703,1649"
+      }
+    },
+    {
+      "template": {
+        "name": "sync_back_to_obs",
+        "parameters": {
+          "src_aliases_prefix": "obs",
+          "dst_aliases_prefix": "lab_no_inicio_tarv",
+          "encounter_type_id": "53",
+          "filter_condition": "obs_src_ds.concept_id in (23896, 165359,165519)",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()"
+        }
+      },
+      "comments": {
+        "cd4_absoluto_no_inicio_tarv": "23896",
+        "cd4_percentual_no_inicio_tarv": "165359",
+        "cd4_semi_quantitativo_no_inicio_tarv": "165519"
+      }
+    },
+    {
+      "template": {
+        "name": "sync_back_to_obs",
+        "parameters": {
+          "src_aliases_prefix": "obs",
+          "dst_aliases_prefix": "ficha_resumo_non_grouped",
+          "encounter_type_id": "53",
+          "filter_condition": "obs_encounter_src_ds.encounter_type = 147 and obs_src_ds.obs_group_id = null and obs_src_ds.concept_id in (23884, 23891,23985,165308,5706,6413,23895,1504,1190,23893,23811,1982,5356,23898,165235,23808,165236,23899)",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()"
+        }
+      }
+    },
+    {
+      "identifiedRecordAction": "PATCH_UPDATE",
+      "patchFields": [
+        "value_coded",
+        "obs_datetime"
+      ],
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "obs",
+          "src_patient_uuid": "obs_patient_src_ds.uuid",
+          "dst_aliases_prefix": "tipo_test_hiv",
+          "concept_id": "22772",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:obs_src_ds.value_coded,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "obs_src_ds.obs_datetime",
+          "date_created": "obs_src_ds.date_created",
+          "voided": "obs_src_ds.voided",
+          "date_voided": "obs_src_ds.date_voided",
+          "void_reason": "obs_src_ds.void_reason",
+          "uuid": "obs_src_ds.uuid",
+          "location_id": "obs_location_dst_ds.location_id",
+          "encounter_type_id": "53",
+          "filter_condition": "obs_encounter_src_ds.encounter_type = 147 and obs_src_ds.concept_id = 22772",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()"
+        },
+        "override": [
+          {
+            "path": "mapping",
+            "type": "ADD_TO_LIST",
+            "value": {
+              "dstField": "obs_id",
+              "transformer": "COALESCE_TRANSFORMER(FAST_SQL_TRANSFORMER(query:select obs_id from ${dst_db}.obs ob where ob.uuid = obs_src_ds.uuid,onNullTransformedValue:SET_TO_NULL), FAST_SQL_TRANSFORMER(query:select obs_id from ${dst_db}.obs ob where ob.encounter_id = tipo_test_hiv_obs_dst_ds.encounter_id and ob.concept_id = 22772 limit 1,onNullTransformedValue:SET_TO_NULL))",
+              "nullValueBehavior": "IGNORE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "identifiedRecordAction": "PATCH_UPDATE",
+      "patchFields": [
+        "value_datetime"
+      ],
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "obs",
+          "src_patient_uuid": "obs_patient_src_ds.uuid",
+          "dst_aliases_prefix": "data_teste_hiv",
+          "concept_id": "22772",
+          "value_field": "value_datetime",
+          "value": "obs_src_ds.value_datetime",
+          "obs_datetime": "obs_src_ds.obs_datetime",
+          "date_created": "obs_src_ds.date_created",
+          "voided": "obs_src_ds.voided",
+          "date_voided": "obs_src_ds.date_voided",
+          "void_reason": "obs_src_ds.void_reason",
+          "uuid": "obs_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "53",
+          "filter_condition": "obs_encounter_src_ds.encounter_type = 147 and obs_src_ds.concept_id = 233943",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()"
+        },
+        "override": [
+          {
+            "path": "mapping",
+            "type": "ADD_TO_LIST",
+            "value": {
+              "dstField": "obs_id",
+              "transformer": "COALESCE_TRANSFORMER(FAST_SQL_TRANSFORMER(query:select obs_id from ${dst_db}.obs ob where ob.encounter_id = data_teste_hiv_obs_dst_ds.encounter_id and ob.concept_id = 22772 and value_coded is not null limit 1,onNullTransformedValue:SET_TO_NULL), FAST_SQL_TRANSFORMER(query:select obs_id from ${dst_db}.obs ob where ob.uuid = obs_src_ds.uuid,onNullTransformedValue:SET_TO_NULL))",
+              "nullValueBehavior": "IGNORE"
+            }
+          },
+          {
+            "path": "mapping",
+            "type": "UPDATE_ON_LIST",
+            "match": {
+              "dstField": "uuid"
+            },
+            "value": {
+              "dstField": "uuid",
+              "transformer": "COALESCE_TRANSFORMER(FAST_SQL_TRANSFORMER(query:select uuid from ${dst_db}.obs ob where ob.encounter_id = data_teste_hiv_obs_dst_ds.encounter_id and ob.concept_id = 22772 and value_coded is not null limit 1,onNullTransformedValue:SET_TO_NULL), obs_src_ds.uuid)",
+              "nullValueBehavior": "IGNORE"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "template": {
+        "name": "sync_back_to_obs",
+        "parameters": {
+          "src_aliases_prefix": "obs",
+          "dst_aliases_prefix": "ficha_resumo_grouped",
+          "encounter_type_id": "53",
+          "filter_condition": "obs_encounter_src_ds.encounter_type = 147 and obs_src_ds.obs_group_id != null and obs_src_ds.concept_id in (21190,1792,21187,1792,21188,1792,6272,6193) and obs_src_ds.value_coded not in (233866)",
+          "obs_group_id_transformer": "PARENT_ON_DEMAND_TRANSFORMER(obs,on_demand_check_condition:uuid=obs_obs_group_src_ds.uuid, template:on_demand_sync_simple_obs, template_param_main_src_aliases_prefix:obs, template_param_src_patient_uuid:obs_patient_src_ds.uuid, template_param_main_dst_aliases_prefix:ficha_resumo_grouped,template_param_aliases_prefix:ficha_resumo_grouping, template_param_concept_id:obs_obs_group_src_ds.concept_id, template_param_obs_datetime:obs_obs_group_src_ds.obs_datetime, template_param_location_id:obs_location_dst_ds.location_id, template_param_encounter_type_id:6, template_param_uuid:obs_obs_group_src_ds.uuid)"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_back_to_obs",
+        "parameters": {
+          "src_aliases_prefix": "obs",
+          "dst_aliases_prefix": "saude_reprodutiva",
+          "encounter_type_id": "6",
+          "filter_condition": "obs_src_ds.concept_id in (1465,5272,6332,374,23728) and obs_encounter_src_ds.encounter_type = 6",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()"
+        }
+      },
+      "comments": {
+        "data_ultima_menstrucao": "1465",
+        "gravida": "5272->1982",
+        "lactante": "6332",
+        "planeamento_familiar": "374,23728"
+      }
+    },
+    {
+      "template": {
+        "name": "sync_back_to_obs_with_dynamic_values",
+        "parameters": {
+          "src_aliases_prefix": "obs",
+          "dst_aliases_prefix": "tb_sintomas",
+          "encounter_type_id": "6",
+          "concept_id": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:obs_src_ds.concept_id,extra_condition:mapping_group=\"concept\")",
+          "value_coded": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:obs_src_ds.value_coded,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "obs_src_ds.obs_datetime",
+          "filter_condition": "obs_src_ds.concept_id in (23758) and obs_encounter_src_ds.encounter_type = 129",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()"
+        }
+      },
+      "comments": {
+        "sintomas_tb": "23758"
+      }
+    },
+    {
+      "template": {
+        "name": "sync_back_to_obs_with_dynamic_values",
+        "parameters": {
+          "src_aliases_prefix": "obs",
+          "dst_aliases_prefix": "tb_observacao",
+          "encounter_type_id": "6",
+          "concept_id": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:obs_src_ds.concept_id,extra_condition:mapping_group=\"concept\")",
+          "value_coded": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:obs_src_ds.value_coded,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "obs_src_ds.obs_datetime",
+          "filter_condition": "obs_src_ds.concept_id in (1766)  and obs_encounter_src_ds.encounter_type = 129",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()"
+        }
+      },
+      "comments": {
+        "observacao_tb": "1766"
+      }
+    },
+    {
+      "template": {
+        "name": "sync_back_to_obs",
+        "parameters": {
+          "src_aliases_prefix": "obs",
+          "dst_aliases_prefix": "rastreio_its",
+          "encounter_type_id": "6",
+          "filter_condition": "obs_src_ds.concept_id in (6258) and obs_encounter_src_ds.encounter_type = 180",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()"
+        }
+      },
+      "comments": {
+        "rastreio_its": "6258"
+      }
+    },
+    {
+      "template": {
+        "name": "sync_back_to_obs",
+        "parameters": {
+          "src_aliases_prefix": "obs",
+          "dst_aliases_prefix": "its_diagnostico",
+          "encounter_type_id": "6",
+          "filter_condition": "obs_src_ds.concept_id in (6258) and obs_encounter_src_ds.encounter_type = 180",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()"
+        }
+      },
+      "comments": {
+        "rastreio_its": "6258"
+      }
+    },
+    {
+      "template": {
+        "name": "sync_back_to_obs",
+        "parameters": {
+          "src_aliases_prefix": "obs",
+          "dst_aliases_prefix": "adesao_e_oms",
+          "encounter_type_id": "6",
+          "filter_condition": "obs_src_ds.concept_id in (6223,5356) and obs_encounter_src_ds.encounter_type = 6",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()"
+        }
+      },
+      "comments": {
+        "adesao": "6223",
+        "oms": "5356"
+      }
+    },
+    {
+      "template": {
+        "name": "sync_back_to_obs",
+        "parameters": {
+          "src_aliases_prefix": "obs",
+          "dst_aliases_prefix": "oms_grouped",
+          "encounter_type_id": "6",
+          "filter_condition": "obs_encounter_src_ds.encounter_type = 6 and obs_src_ds.obs_group_id != null and obs_src_ds.concept_id in (165174,165322)",
+          "obs_group_id_transformer": "PARENT_ON_DEMAND_TRANSFORMER(obs,on_demand_check_condition:uuid=obs_obs_group_src_ds.uuid, template:on_demand_sync_simple_obs, template_param_main_src_aliases_prefix:obs, template_param_src_patient_uuid:obs_patient_src_ds.uuid, template_param_main_dst_aliases_prefix:oms_grouped,template_param_aliases_prefix:convset_mdc, template_param_concept_id:obs_obs_group_src_ds.concept_id, template_param_obs_datetime:obs_obs_group_src_ds.obs_datetime, template_param_location_id:obs_location_dst_ds.location_id, template_param_encounter_type_id:6, template_param_uuid:obs_obs_group_src_ds.uuid)"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_back_to_obs",
+        "parameters": {
+          "src_aliases_prefix": "obs",
+          "dst_aliases_prefix": "mdc_grouping_obs",
+          "encounter_type_id": "6",
+          "filter_condition": "obs_encounter_src_ds.encounter_type = 6 and obs_src_ds.obs_group_id = null and obs_src_ds.concept_id in (165323)",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_back_to_obs",
+        "parameters": {
+          "src_aliases_prefix": "obs",
+          "dst_aliases_prefix": "dah",
+          "encounter_type_id": "90",
+          "filter_condition": "obs_encounter_src_ds.encounter_type = 90 and obs_src_ds.concept_id in (507 ,165378 ,1413 ,165386 ,165405 ,165379 ,165380 ,165406 ,165407 ,165408 ,165409 ,165410 ,165411 ,165412 ,165413)",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_back_to_obs",
+        "parameters": {
+          "src_aliases_prefix": "obs",
+          "dst_aliases_prefix": "ficha_apss_ap",
+          "encounter_type_id": "35",
+          "filter_condition": "obs_encounter_src_ds.encounter_type = 35 and obs_src_ds.concept_id in (6340,6193,6317,6318,6319,6320,5271,6321,6322,23887,23704,23709,979,23716,6223,165463,6315) and FAST_SQL_TRANSFORMER(query:select cc.concept_id from  ${dst_db}.concept cc where cc.concept_id = obs_src_ds.value_coded,onNullTransformedValue:SET_TO_NULL) != null",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_back_to_obs",
+        "parameters": {
+          "src_aliases_prefix": "obs",
+          "dst_aliases_prefix": "fila",
+          "encounter_type_id": "18",
+          "filter_condition": "obs_encounter_src_ds.encounter_type = 17 and obs_src_ds.concept_id in (1088,165174,5096)",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()"
+        }
+      }
+    }
+  ]
+}

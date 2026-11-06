@@ -1,0 +1,35 @@
+{
+  "name": "dst_person_complex_attribute_detail",
+  "parameters": [
+    "aliases_prefix",
+    "src_object_condition",
+    "attribute_key",
+    "attribute_value",
+    "person_attribute_type_id",
+    "person_id",
+    "person_attribute_date_created"
+  ],
+  "template": {
+    "tableName": "person_complex_attribute_detail",
+    "tableAlias": "${aliases_prefix}_person_complex_attribute_detail_dst_ds",
+    "applyCondition": "${src_object_condition}",
+    "mapping": [
+      {
+        "srcValue": "${attribute_key}",
+        "dstField": "attribute_key"
+      },
+      {
+        "srcField": "${attribute_value}",
+        "dstField": "attribute_value"
+      },
+      {
+        "dstField": "uuid",
+        "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:person_complex_attribute_detail,lookup_condition:lookup_condition_for_person_complex_attribute_detail.sql,date_created:${person_attribute_date_created})"
+      }
+    ],
+    "ignorableFields": [
+      "changed_by",
+      "date_changed"
+    ]
+  }
+}

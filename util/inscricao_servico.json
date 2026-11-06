@@ -1,0 +1,138 @@
+{
+  "patient_id": 72,
+  "encounters": [
+    {
+      "patient_id": 72,
+      "visit_id": 81,
+      "encounter_type_uuid": "admission.encounter_type.uuid",
+      "encounter_datetime": "2026-05-22",
+      "obs": []
+    }
+  ],
+  "patient_program": {
+    "service_id": 87,
+    "start_date": "2026-05-21",
+    "program_workflow_state_uuid": "d02b5482-f380-4b5f-94f0-30a436248c0b",
+    "tarv_transferred_in_transferred": 1065,
+    "transferred_from_location_uuid": "d8ba7e92-32c7-4251-a5fe-2f3e95c21654",
+    "transfer_date": "2026-05-01"
+  },
+  "person_attribute": [
+    {
+      "person_attribute_type_uuid": "24be8e61-1d29-4a4d-a13e-68aa723339b5",
+      "value": [
+        {
+          "attribute_key": "patient.consent_to_be_contacted.concept.concept_id",
+          "attribute_value": "1065"
+        },
+        {
+          "attribute_key": "patient.contact_method_sms.concept.concept_id",
+          "attribute_value": "23719"
+        },
+        {
+          "attribute_key": "patient.contact_method_telephone.concept.concept_id",
+          "attribute_value": "6307"
+        },
+        {
+          "attribute_key": "patient.contact_method_homevisit.concept.concept_id",
+          "attribute_value": "2071"
+        }
+      ]
+    },
+    {
+      "person_attribute_type_gp": "reference_contact_information.person_attribute_type.uuid",
+      "value": [
+        {
+          "attribute_key": "sisrme.reference_contact_information.full_name.text",
+          "attribute_value": "New Confidente"
+        },
+        {
+          "attribute_key": "sisrme.reference_contact_information.relationship_type.concept.concept_id",
+          "attribute_value": "1930"
+        },
+        {
+          "attribute_key": "sisrme.reference_contact_information.address.text",
+          "attribute_value": "Address line two"
+        },
+        {
+          "attribute_key": "sisrme.reference_contact_information.phone_number.numeric",
+          "attribute_value": "8568974357"
+        },
+        {
+          "attribute_key": "sisrme.reference_contact_information.type_of_contact_person.concept.concept_id",
+          "attribute_value": "2033"
+        },
+        {
+          "attribute_key": "sisrme.reference_contact_information.age.numeric",
+          "attribute_value": "56"
+        },
+        {
+          "attribute_key": "sisrme.reference_contact_information.sex.text",
+          "attribute_value": "M"
+        },
+        {
+          "attribute_key": "sisrme.reference_contact_information.sms_contact_method.concept.concept_id",
+          "attribute_value": "23719"
+        },
+        {
+          "attribute_key": "sisrme.reference_contact_information.telephone_contact_method.concept.concept_id",
+          "attribute_value": "6307"
+        },
+        {
+          "attribute_key": "sisrme.reference_contact_information.homevisit_contact_method.concept.concept_id",
+          "attribute_value": "2071"
+        },
+        {
+          "attribute_key": "sisrme.reference_contact_information.consent_contact.concept.concept_id",
+          "attribute_value": "1065"
+        }
+      ]
+    },
+    {
+      "person_attribute_type_gp": "family_situation_contact_information.person_attribute_type.uuid",
+      "value": [
+        {
+          "attribute_key": "contact_situation.name.text",
+          "attribute_value": "SITUACAO"
+        },
+        {
+          "attribute_key": "contact_situation.surname.text",
+          "attribute_value": "CONTACTOS"
+        },
+        {
+          "attribute_key": "contact_situation.gender.text",
+          "attribute_value": "M"
+        },
+        {
+          "attribute_key": "contact_situation.age.numeric",
+          "attribute_value": "34"
+        },
+        {
+          "attribute_key": "contact_situation.relationship_type.concept.concept_id",
+          "attribute_value": "970"
+        },
+        {
+          "attribute_key": "contact_situation.hiv_status.concept.concept_id",
+          "attribute_value": "231287"
+        },
+        {
+          "attribute_key": "contact_situation.nid.text",
+          "attribute_value": "234234234234"
+        },
+        {
+          "attribute_key": "contact_situation.consent_test.concept.concept_id",
+          "attribute_value": "1065"
+        },
+        {
+          "attribute_key": "contact_situation.testing_preferred_location.concept.concept_id",
+          "attribute_value": "21154"
+        },
+        {
+          "attribute_key": "contact_situation.expected_testing_date.date",
+          "attribute_value": "2026-08-20"
+        }
+      ]
+    }
+  ],
+  "service_id": 87
+}

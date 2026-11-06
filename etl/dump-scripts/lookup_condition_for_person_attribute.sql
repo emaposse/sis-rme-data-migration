@@ -1,0 +1,1 @@
+person_attribute_id = (select pa.person_attribute_id from person_attribute pa where pa.person_id = ${person_id}  and pa.person_attribute_type_id = ${person_attribute_type_id} and pa.date_created = ${date_created})

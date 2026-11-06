@@ -1,0 +1,379 @@
+{
+  "applyCondition": "table_name='person_attribute'",
+  "srcConf": {
+    "onConflict": "UPDATE_EXISTING",
+    "template": {
+      "name": "sisrme_src_ds",
+      "parameters": {
+        "aliases_prefix": "person_attribute",
+        "main_output_template_name": "person_attribute_ds_from_json"
+      }
+    },
+    "excludedFieldsFromObjectDesc": [
+      "entity_payload"
+    ]
+  },
+  "dstConf": [
+    {
+      "tableName": "person_attribute",
+      "ignoreNoDstIssue": true,
+      "applyCondition": "person_attribute_src_ds.person_attribute_type_id in (3,4,9,12,30) ",
+      "preferredDataSource": [
+        "person_attribute_src_ds"
+      ],
+      "mapping": [
+        {
+          "template": {
+            "name": "dst_person_mapped_to_person_placeholder",
+            "parameters": {
+              "dst_person_field": "person_id",
+              "src_person_uuid": "person_attribute_person_src_ds.uuid"
+            }
+          }
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "creator",
+              "src_user_uuid": "person_attribute_creator_src_ds.uuid",
+              "src_username": "person_attribute_creator_src_ds.username",
+              "apply_condition": ""
+            }
+          }
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "changed_by",
+              "src_user_uuid": "person_attribute_changed_by_src_ds.uuid",
+              "src_username": "person_attribute_changed_by_src_ds.username",
+              "apply_condition": "person_attribute_src_ds.changed_by != null"
+            }
+          }
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "voided_by",
+              "src_user_uuid": "person_attribute_voided_by_src_ds.uuid",
+              "src_username": "person_attribute_voided_by_src_ds.username",
+              "apply_condition": "person_attribute_src_ds.voided_by != null"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tableName": "person_attribute",
+      "ignoreNoDstIssue": true,
+      "applyCondition": "person_attribute_src_ds.person_attribute_type_id in (2)",
+      "preferredDataSource": [
+        "person_attribute_src_ds"
+      ],
+      "mapping": [
+        {
+          "srcField": "person_attribute_location_src_ds.name",
+          "dstField": "value"
+        },
+        {
+          "template": {
+            "name": "dst_person_mapped_to_person_placeholder",
+            "parameters": {
+              "dst_person_field": "person_id",
+              "src_person_uuid": "person_attribute_person_src_ds.uuid"
+            }
+          }
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "creator",
+              "src_user_uuid": "person_attribute_creator_src_ds.uuid",
+              "src_username": "person_attribute_creator_src_ds.username",
+              "apply_condition": ""
+            }
+          }
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "changed_by",
+              "src_user_uuid": "person_attribute_changed_by_src_ds.uuid",
+              "src_username": "person_attribute_changed_by_src_ds.username",
+              "apply_condition": "person_attribute_src_ds.changed_by != null"
+            }
+          }
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "voided_by",
+              "src_user_uuid": "person_attribute_voided_by_src_ds.uuid",
+              "src_username": "person_attribute_voided_by_src_ds.username",
+              "apply_condition": "person_attribute_src_ds.voided_by != null"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_attribute",
+          "src_patient_uuid": "person_attribute_person_src_ds.uuid",
+          "dst_aliases_prefix": "key_pop_lubricant_offer",
+          "concept_id": "23771",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:1065,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "person_attribute_src_ds.date_created",
+          "date_created": "person_attribute_src_ds.date_created",
+          "voided": "person_attribute_src_ds.voided",
+          "void_reason": "person_attribute_src_ds.void_reason",
+          "uuid": "person_attribute_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "35",
+          "filter_condition": "person_attribute_src_ds.person_attribute_type_id = 113",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_attribute_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_attribute",
+          "src_patient_uuid": "person_attribute_person_src_ds.uuid",
+          "dst_aliases_prefix": "prosissao",
+          "concept_id": "1459",
+          "value_field": "value_text",
+          "value": "person_attribute_src_ds.value",
+          "obs_datetime": "person_attribute_src_ds.date_created",
+          "date_created": "person_attribute_src_ds.date_created",
+          "voided": "person_attribute_src_ds.voided",
+          "void_reason": "person_attribute_src_ds.void_reason",
+          "uuid": "person_attribute_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "53",
+          "filter_condition": "person_attribute_src_ds.person_attribute_type_id = 55",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_attribute_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_attribute",
+          "src_patient_uuid": "person_attribute_person_src_ds.uuid",
+          "dst_aliases_prefix": "key_pop_93",
+          "concept_id": "23753",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:person_attribute_src_ds.value,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "person_attribute_src_ds.date_created",
+          "date_created": "person_attribute_src_ds.date_created",
+          "voided": "person_attribute_src_ds.voided",
+          "void_reason": "person_attribute_src_ds.void_reason",
+          "uuid": "person_attribute_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "6",
+          "filter_condition": "person_attribute_src_ds.person_attribute_type_id = 93",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_attribute_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_attribute",
+          "src_patient_uuid": "person_attribute_person_src_ds.uuid",
+          "dst_aliases_prefix": "key_pop_94",
+          "concept_id": "23755",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:person_attribute_src_ds.value,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "person_attribute_src_ds.date_created",
+          "date_created": "person_attribute_src_ds.date_created",
+          "voided": "person_attribute_src_ds.voided",
+          "void_reason": "person_attribute_src_ds.void_reason",
+          "uuid": "person_attribute_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "6",
+          "filter_condition": "person_attribute_src_ds.person_attribute_type_id = 94",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_attribute_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_attribute",
+          "src_patient_uuid": "person_attribute_person_src_ds.uuid",
+          "dst_aliases_prefix": "key_pop_95",
+          "concept_id": "23757",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:person_attribute_src_ds.value,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "person_attribute_src_ds.date_created",
+          "date_created": "person_attribute_src_ds.date_created",
+          "voided": "person_attribute_src_ds.voided",
+          "void_reason": "person_attribute_src_ds.void_reason",
+          "uuid": "person_attribute_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "6",
+          "filter_condition": "person_attribute_src_ds.person_attribute_type_id = 95",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_attribute_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_attribute",
+          "src_patient_uuid": "person_attribute_person_src_ds.uuid",
+          "dst_aliases_prefix": "key_pop_96",
+          "concept_id": "23759",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:person_attribute_src_ds.value,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "person_attribute_src_ds.date_created",
+          "date_created": "person_attribute_src_ds.date_created",
+          "voided": "person_attribute_src_ds.voided",
+          "void_reason": "person_attribute_src_ds.void_reason",
+          "uuid": "person_attribute_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "6",
+          "filter_condition": "person_attribute_src_ds.person_attribute_type_id = 96",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_attribute_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_attribute",
+          "src_patient_uuid": "person_attribute_person_src_ds.uuid",
+          "dst_aliases_prefix": "key_pop_97",
+          "concept_id": "23772",
+          "value_field": "value_text",
+          "value": "person_attribute_src_ds.value",
+          "obs_datetime": "person_attribute_src_ds.date_created",
+          "date_created": "person_attribute_src_ds.date_created",
+          "voided": "person_attribute_src_ds.voided",
+          "void_reason": "person_attribute_src_ds.void_reason",
+          "uuid": "person_attribute_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "6",
+          "filter_condition": "person_attribute_src_ds.person_attribute_type_id = 97",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_attribute_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_attribute",
+          "src_patient_uuid": "person_attribute_person_src_ds.uuid",
+          "dst_aliases_prefix": "key_pop_98",
+          "concept_id": "24031",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:person_attribute_src_ds.value,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "person_attribute_src_ds.date_created",
+          "date_created": "person_attribute_src_ds.date_created",
+          "voided": "person_attribute_src_ds.voided",
+          "void_reason": "person_attribute_src_ds.void_reason",
+          "uuid": "person_attribute_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "6",
+          "filter_condition": "person_attribute_src_ds.person_attribute_type_id = 98",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_attribute_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_attribute",
+          "src_patient_uuid": "person_attribute_person_src_ds.uuid",
+          "dst_aliases_prefix": "key_pop_99",
+          "concept_id": "165324",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:person_attribute_src_ds.value,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "person_attribute_src_ds.date_created",
+          "date_created": "person_attribute_src_ds.date_created",
+          "voided": "person_attribute_src_ds.voided",
+          "void_reason": "person_attribute_src_ds.void_reason",
+          "uuid": "person_attribute_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "6",
+          "filter_condition": "person_attribute_src_ds.person_attribute_type_id = 99",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_attribute_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_attribute",
+          "src_patient_uuid": "person_attribute_person_src_ds.uuid",
+          "dst_aliases_prefix": "key_pop_100",
+          "concept_id": "165325",
+          "value_field": "value_coded",
+          "value": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:person_attribute_src_ds.value,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "person_attribute_src_ds.date_created",
+          "date_created": "person_attribute_src_ds.date_created",
+          "voided": "person_attribute_src_ds.voided",
+          "void_reason": "person_attribute_src_ds.void_reason",
+          "uuid": "person_attribute_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "6",
+          "filter_condition": "person_attribute_src_ds.person_attribute_type_id = 100",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_attribute_src_ds.date_voided"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_dst_obs",
+        "parameters": {
+          "src_aliases_prefix": "person_attribute",
+          "src_patient_uuid": "person_attribute_person_src_ds.uuid",
+          "dst_aliases_prefix": "inicio_tarv",
+          "concept_id": "1190",
+          "value_field": "value_datetime",
+          "value": "DATE_TRANSFORMER(input:person_attribute_src_ds.value,operation:PARSE)",
+          "obs_datetime": "person_attribute_src_ds.date_created",
+          "date_created": "person_attribute_src_ds.date_created",
+          "voided": "person_attribute_src_ds.voided",
+          "void_reason": "person_attribute_src_ds.void_reason",
+          "uuid": "person_attribute_src_ds.uuid",
+          "location_id": "@dst_location_id",
+          "encounter_type_id": "53",
+          "filter_condition": "person_attribute_src_ds.person_attribute_type_id = 111",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "date_voided": "person_attribute_src_ds.date_voided"
+        }
+      }
+    }
+  ]
+}

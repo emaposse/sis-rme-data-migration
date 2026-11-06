@@ -1,0 +1,60 @@
+{
+  "name": "on_demand_sync_simple_obs",
+  "parameters": [
+    "aliases_prefix",
+    "main_src_aliases_prefix",
+    "src_patient_uuid",
+    "main_dst_aliases_prefix",
+    "concept_id",
+    "obs_datetime",
+    "location_id",
+    "encounter_type_id",
+    "uuid"
+  ],
+  "template": {
+    "srcConf": {
+      "tableName": "sis_rme_sync_msg",
+      "tableAlias": "${aliases_prefix}_sync_msg_for_simple_obs_src_ds",
+      "extraConditionForExtract": "id=-1",
+      "limitToOneResult": true,
+      "doNotUseAsDatasource": true
+    },
+    "dstConf": [
+      {
+        "template": {
+          "name": "sync_dst_obs",
+          "parameters": {
+            "filter_condition": "",
+            "src_aliases_prefix": "${main_src_aliases_prefix}",
+            "src_patient_uuid": "${src_patient_uuid}",
+            "dst_aliases_prefix": "${main_dst_aliases_prefix}",
+            "concept_id": "${concept_id}",
+            "value_field": "",
+            "value": "",
+            "obs_datetime": "${obs_datetime}",
+            "date_created": "${obs_datetime}",
+            "location_id": "${location_id}",
+            "encounter_type_id": "${encounter_type_id}",
+            "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()",
+            "voided": "0",
+            "date_voided": "NULL_VALUE_TRANSFORMER()",
+            "void_reason": "NULL_VALUE_TRANSFORMER()",
+            "uuid": "${uuid}"
+          },
+          "override": [
+            {
+              "path": "ignorableFields",
+              "type": "ADD_ALL_TO_LIST",
+              "value": [
+                "value_coded",
+                "value_datetime",
+                "value_numeric",
+                "value_drug"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

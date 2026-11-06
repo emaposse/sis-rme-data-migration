@@ -1,0 +1,71 @@
+{
+  "name": "encounter_joined_with_obs_to_person_complex_attribute_and_person_attribute",
+  "parameters": [
+    "aliases_prefix",
+    "concept_list",
+    "location_list",
+    "src_encounter_type_id",
+    "person_attribute_type_id",
+    "extra_condition"
+  ],
+  "template": {
+    "srcConf": {
+      "tableName": "encounter",
+      "tableAlias": "${aliases_prefix}_encounter_src_ds",
+      "extraConditionForExtract": "encounter_extra_condition_for_simple_extract.sql"
+    },
+    "dstConf": [
+      {
+        "tableName": "person_complex_attribute",
+        "tableAlias": "${aliases_prefix}_person_complex_attribute_dst_ds",
+        "onConflict": "UPDATE_EXISTING",
+        "ignorableFields": [
+          "changed_by",
+          "date_changed"
+        ],
+        "mapping": [
+          {
+            "srcField": "${aliases_prefix}_encounter_src_ds.patient_id",
+            "dstField": "person_id"
+          },
+          {
+            "dstField": "uuid",
+            "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:person_complex_attribute,lookup_condition:lookup_condition_for_person_complex_attribute.sql,person_id:${aliases_prefix}_encounter_src_ds.patient_id,date_created:${aliases_prefix}_encounter_src_ds.encounter_datetime)"
+          }
+        ]
+      }
+    ],
+    "childItemConf": [
+      {
+        "srcConf": {
+          "tableName": "encounter",
+          "tableAlias": "${aliases_prefix}_inner_encounter_src_ds"
+        },
+        "dstConf": [
+          {
+            "tableName": "person_attribute",
+            "tableAlias": "${aliases_prefix}_person_attribute_dst_ds",
+            "mapping": [
+              {
+                "srcValue": "${person_attribute_type_id}",
+                "dstField": "person_attribute_type_id"
+              },
+              {
+                "srcField": "${aliases_prefix}_person_complex_attribute_dst_ds.person_complex_attribute_id",
+                "dstField": "value"
+              },
+              {
+                "dstField": "uuid",
+                "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:person_attribute,lookup_condition:lookup_condition_for_person_attribute.sql,person_id:${aliases_prefix}_encounter_src_ds.patient_id,date_created:${aliases_prefix}_encounter_src_ds.encounter_datetime)"
+              }
+            ],
+            "ignorableFields": [
+              "changed_by",
+              "date_changed"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

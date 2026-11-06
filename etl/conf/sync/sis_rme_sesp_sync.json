@@ -1,0 +1,135 @@
+{
+  "originAppLocationCode": "${location_name}",
+  "etlRootDirectory": "${etl_root_dir}",
+  "syncStageSchema": "${src_db}",
+  "templatesDir": "templates/sync/*.json",
+  "mainConnInfo": {
+    "dataBaseUserName": "${srcUserName}",
+    "dataBaseUserPassword": "${srcUserPassword}",
+    "connectionURI": "${srcConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "srcConnInfo": {
+    "dataBaseUserName": "${srcUserName}",
+    "dataBaseUserPassword": "${srcUserPassword}",
+    "connectionURI": "${srcConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "maxActiveConnections": "${maxActiveConnections}",
+    "maxIdleConnections": "${maxIdleConnections}",
+    "minIdleConnections": "${minIdleConnections}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "dstConnInfo": {
+    "dataBaseUserName": "${dstUserName}",
+    "dataBaseUserPassword": "${dstUserPassword}",
+    "connectionURI": "${dstConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "databaseSchemaPath": "sis-rme-empty-db.sql",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "maxActiveConnections": "${maxActiveConnections}",
+    "maxIdleConnections": "${maxIdleConnections}",
+    "minIdleConnections": "${minIdleConnections}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "ignorableStartupScripts": [
+    "prepare_schema.sql"
+  ],
+  "dataModel": {
+    "template": {
+      "name": "data_model_for_${dataModelType}_objects"
+    }
+  },
+  "ignoreAllStartupScripts": "${ignoreAllStartupScripts}",
+  "operations": [
+    {
+      "operationType": "ETL",
+      "processingBatch": "${processingBatch}",
+      "processingMode": "SERIAL",
+      "processorFullClassName": "org.openmrs.module.epts.etl.openmrs.processor.OpenMrsInternalIndexUpdateProcessor",
+      "parallelProcessingStrategy": "SINGLE_THREAD",
+      "disableMultithreadingSearch": true,
+      "skipFinalDataVerification": true,
+      "finishOnNoRemainRecordsToProcess": true,
+      "totalCountStrategy": "COUNT_ALWAYS",
+      "mustRestartInTheEnd": true,
+      "afterEtlActionType": "DELETE",
+      "disabled": false,
+      "etlItemConfigCodeWhiteList": [
+        "sesp_sisrme_index_update_staging_to_openmrs_search_index"
+      ]
+    },
+    {
+      "template": {
+        "name": "etl_operations_for_${dataModelType}_datamodel"
+      }
+    }
+  ],
+  "params": {
+    "dst_db": "${dst_db}",
+    "dst_location_id": "${sync_destination_location_id}",
+    "excluded_concept_id": "233866",
+    "data_proxima_consulta_concept_id": "1410",
+    "prep_data_proxima_consulta_concept_id": "165228",
+    "tarv_service_concept_id": "6274",
+    "prep_service_concept_id": "23894",
+    "ccr_service_concept_id": "1872",
+    "defaultUserId": "${defaultUserId}"
+  },
+  "defaultExceptionBehavior": "${defaultExceptionBehavior}",
+  "defaultInconsistencyBehavior": "${defaultInconsistencyBehavior}",
+  "doNotWarnOnNoDstObjectFound": true,
+  "relationshipResolutionStrategy": "VALIDATE_ONLY",
+  "stageRecordIssueBehavior": "IGNORE",
+  "comments": {
+    "defaultInconsistencyBehavior": "MARK_RECORD_AS_FAILED",
+    "defaultInconsistencyBehavior_": "ABORT_PROCESS"
+  },
+  "defaultFieldValues": {
+    "voided": 1,
+    "date_voided": "1975-01-01",
+    "date_created": "1975-01-01",
+    "void_reason": "Default Record",
+    "retired": 1,
+    "date_retired": "1975-01-01",
+    "retire_reason": "Default Record",
+    "gender": "M"
+  },
+  "defaultSourceTable": "sis_rme_sync_msg",
+  "etlItemConfiguration": [
+    {
+      "configCode": "sesp_sisrme_index_update_staging_to_openmrs_search_index",
+      "srcConf": {
+        "tableName": "${dst_db}.sesp_sisrme_index_update_staging"
+      },
+      "dstConf": {
+        "tableName": "${dst_db}.sesp_sisrme_index_update_staging"
+      }
+    },
+    {
+      "srcConf": {
+        "tableName": "sis_rme_sync_msg",
+        "tableAlias": "sync_msg_src_ds",
+        "extraConditionForExtract": "operation in ('I','U') and ${extra_condition}",
+        "trackProcessingState": true,
+        "excludedFieldsFromObjectDesc": [
+          "entity_payload"
+        ]
+      },
+      "dstConf": [
+        {
+          "disabled": true,
+          "tableName": "openmrs_event_receiver_mgt.sis_rme_sync_msg"
+        }
+      ],
+      "include": [
+        {
+          "target": "childItemConf",
+          "srcPath": "${sync_fragments}"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,229 @@
+{
+  "formatVersion" : 2,
+  "key" : {
+    "logicalDatabaseId" : "openmrs_2_6_sesp",
+    "databaseDialect" : "",
+    "catalog" : "",
+    "schema" : "",
+    "tableName" : "encounter"
+  },
+  "columns" : [ {
+    "name" : "encounter_id",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : true,
+    "timestamp" : false
+  }, {
+    "name" : "encounter_type",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "patient_id",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "location_id",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "form_id",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "encounter_datetime",
+    "dataType" : "DATETIME",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "creator",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "date_created",
+    "dataType" : "DATETIME",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "voided",
+    "dataType" : "BIT",
+    "length" : 1,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "voided_by",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "date_voided",
+    "dataType" : "DATETIME",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "void_reason",
+    "dataType" : "VARCHAR",
+    "length" : 255,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "uuid",
+    "dataType" : "CHAR",
+    "length" : 38,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "changed_by",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "date_changed",
+    "dataType" : "DATETIME",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "visit_id",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  } ],
+  "primaryKey" : {
+    "name" : "pk",
+    "columns" : [ {
+      "name" : "encounter_id",
+      "dataType" : "INT"
+    } ],
+    "manuallyConfigured" : true
+  },
+  "uniqueKeys" : [ {
+    "name" : "encounter_uuid_index",
+    "columns" : [ {
+      "name" : "uuid",
+      "dataType" : "CHAR"
+    } ],
+    "manuallyConfigured" : false
+  } ],
+  "importedForeignKeys" : [ {
+    "name" : "encounter_type_id",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "encounter_type",
+    "mappings" : [ {
+      "childColumn" : "encounter_type",
+      "parentColumn" : "encounter_type_id"
+    } ]
+  }, {
+    "name" : "encounter_form",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "form",
+    "mappings" : [ {
+      "childColumn" : "form_id",
+      "parentColumn" : "form_id"
+    } ]
+  }, {
+    "name" : "encounter_location",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "location",
+    "mappings" : [ {
+      "childColumn" : "location_id",
+      "parentColumn" : "location_id"
+    } ]
+  }, {
+    "name" : "encounter_patient",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "patient",
+    "mappings" : [ {
+      "childColumn" : "patient_id",
+      "parentColumn" : "patient_id"
+    } ]
+  }, {
+    "name" : "encounter_changed_by",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "users",
+    "mappings" : [ {
+      "childColumn" : "changed_by",
+      "parentColumn" : "user_id"
+    } ]
+  }, {
+    "name" : "encounter_ibfk_1",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "users",
+    "mappings" : [ {
+      "childColumn" : "creator",
+      "parentColumn" : "user_id"
+    } ]
+  }, {
+    "name" : "user_who_voided_encounter",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "users",
+    "mappings" : [ {
+      "childColumn" : "voided_by",
+      "parentColumn" : "user_id"
+    } ]
+  }, {
+    "name" : "encounter_visit_id_fk",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "visit",
+    "mappings" : [ {
+      "childColumn" : "visit_id",
+      "parentColumn" : "visit_id"
+    } ]
+  } ],
+  "exportedForeignKeys" : [ ]
+}

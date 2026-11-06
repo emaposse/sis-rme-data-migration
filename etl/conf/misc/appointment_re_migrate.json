@@ -1,0 +1,191 @@
+{
+  "originAppLocationCode": "${location_name}",
+  "etlRootDirectory": "${etl_root_dir}",
+  "syncStageSchema": "data_migration_stage_area",
+  "templatesDir": "templates/migr/*.json",
+  "mainConnInfo": {
+    "dataBaseUserName": "${srcUserName}",
+    "dataBaseUserPassword": "${srcUserPassword}",
+    "connectionURI": "${srcConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "srcConnInfo": {
+    "dataBaseUserName": "${srcUserName}",
+    "dataBaseUserPassword": "${srcUserPassword}",
+    "connectionURI": "${srcConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "maxActiveConnections": "${maxActiveConnections}",
+    "maxIdleConnections": "${maxIdleConnections}",
+    "minIdleConnections": "${minIdleConnections}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "dstConnInfo": {
+    "dataBaseUserName": "${dstUserName}",
+    "dataBaseUserPassword": "${dstUserPassword}",
+    "connectionURI": "${dstConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "databaseSchemaPath": "sis-rme-empty-db.sql",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "maxActiveConnections": "${maxActiveConnections}",
+    "maxIdleConnections": "${maxIdleConnections}",
+    "minIdleConnections": "${minIdleConnections}",
+    "defaultAutoCommit": "${autoCommit}"
+  },
+  "validators": [
+    {
+      "name": "dst_location_is_smi_department",
+      "connectionToUse": "dstConnInfo",
+      "value": {
+        "name": "hiv_destination_location_id",
+        "dataType": "int",
+        "transformer": "FAST_SQL_TRANSFORMER(select service_concept_id from ${dst_db}.clinical_service where location_id = ${hiv_destination_location_id} and service_concept_id = 6274)"
+      },
+      "rule": {
+        "type": "EQUALS",
+        "expectedValue": 6274
+      },
+      "message": "The provided destination location ${hiv_destination_location_id} does not represent a valid hiv  department",
+      "phase": "BEFORE_LOAD",
+      "behavior": "ABORT_PROCESS"
+    },
+    {
+      "name": "dst_tarv_service",
+      "connectionToUse": "dstConnInfo",
+      "value": {
+        "name": "dst_tarv_service_id",
+        "dataType": "int",
+        "transformer": "FAST_SQL_TRANSFORMER(select service_concept_id from ${dst_db}.clinical_service where clinical_service_id = ${dst_tarv_service_id} and location_id = ${hiv_destination_location_id})"
+      },
+      "rule": {
+        "type": "EQUALS",
+        "expectedValue": 6274
+      },
+      "message": "The provided dst_tarv_service_id ${dst_tarv_service_id} does not represent a valid tarv service with department ${hiv_destination_location_id}",
+      "phase": "BEFORE_LOAD",
+      "behavior": "ABORT_PROCESS"
+    }
+  ],
+  "dataModel": {
+    "template": {
+      "name": "data_model_for_${dataModelType}_objects"
+    }
+  },
+  "ignoreAllStartupScripts": "${ignoreAllStartupScripts}",
+  "ignorableStartupScripts": [
+    "delete_duplicated_encounters.sql",
+    "delete_invalid_patient_identifiers.sql",
+    "move_sync_msg_delete_operation.sql",
+    "sync_data_structure.sql"
+  ],
+  "operations": [
+    {
+      "template": {
+        "name": "etl_operations_for_${dataModelType}_datamodel"
+      }
+    }
+  ],
+  "params": {
+    "dst_db": "${dst_db}",
+    "location_to_migrate": "${src_location_list}",
+    "dst_location_id": "${hiv_destination_location_id}",
+    "src_encounter_type_id": "6",
+    "keypop_concept_id": "23703",
+    "keypop_other_concept_id": "5622",
+    "data_abertura_ficha_concept_id": "23891",
+    "medidas_antropometricas_concept_list": "5089,5090,1343,1342,23738,6336,2152,6374",
+    "tb_condition_concept_id": "23761",
+    "tb_concept_list": "23758,1766",
+    "its_screening_concept_list": "6258",
+    "conditions_concept_list": "174,1406",
+    "conditions_other_concept_id": "1649",
+    "lab_test_request_concept_list": "23722,23860",
+    "lab_test_concept_list": "856,1305,1695,730,165515,1692,1694,1693,887,1011,1299,23723,23774,165349,23951,165185,23952,165520,307,12,2094,703,1649",
+    "gaac_criancas_reveladas_concept_id": "23753",
+    "gaac_pais_e_cuidadores_concept_id": "23755",
+    "gaac_adolescentes_revelados_concept_id": "23757",
+    "gaac_mae_para_mae_concept_id": "23759",
+    "gaac_mae_mentora_concept_id": "24031",
+    "gaac_adolescente_e_jovem_mentor_concept_id": "165324",
+    "gaac_homem_campeao_concept_id": "165325",
+    "gaac_outro_grupo_de_apoio_concept_id": "23772",
+    "estadio_oms_actual_concept_id": "5356",
+    "estado_mdc_concept_id": "165323",
+    "modo_dispensa_estado_mdc_concept_id": "165174",
+    "estado_do_mdc_estado_mdc_concept_id": "165322",
+    "rapid_test_concept_id": "1040",
+    "lactante_concept_id": "6332",
+    "gravida_concept_id": "1982",
+    "data_da_ultima_mestruacao_concept_id": "1465",
+    "data_da_gravidez_concept_id": "1600",
+    "data_data_proxima_consulta_concept_id": "1410",
+    "tarv_service_id": "${dst_tarv_service_id}",
+    "admission_reason_other_concept_id": "202208",
+    "default_provider_id": "1",
+    "default_medical_speciality_concept_id": "233552",
+    "cd4_absoluto_concept_id": "1695",
+    "cd4_quantitativo_concept_id": "730",
+    "cd4_semi_quantitativo_concept_id": "165515",
+    "cd4_absoluto_no_inicio_concept_id": "23896",
+    "cd4_quantitativo_no_inicio_concept_id": "165359",
+    "cd4_semi_quantitativo_no_inicio_concept_id": "165519",
+    "planeamento_familiar_concept_id": "374",
+    "adesao_ao_tratamento_id": "6223"
+  },
+  "defaultSourceTable": "person",
+  "defaultExceptionBehavior": "${defaultExceptionBehavior}",
+  "defaultInconsistencyBehavior": "${defaultInconsistencyBehavior}",
+  "stageRecordIssueBehavior": "${stageRecordIssueBehavior}",
+  "relatedEtlSrcTables": [
+    "person",
+    "patient",
+    "users",
+    "provider",
+    "location"
+  ],
+  "etlItemConfiguration": [
+    {
+      "template": {
+        "name": "encounter_joined_with_obs_to_encounter_and_obs",
+        "parameters": {
+          "visit_type_id": "48",
+          "program_id": "${tarv_program_id}",
+          "aliases_prefix": "ficha_clinica",
+          "concept_list": "0",
+          "encounter_filter_obs_concept_list": "@estadio_oms_actual_concept_id,@estado_mdc_concept_id,@lactante_concept_id,@data_da_ultima_mestruacao_concept_id,@data_da_gravidez_concept_id,@planeamento_familiar_concept_id,@adesao_ao_tratamento_id",
+          "location_list": "@location_to_migrate",
+          "dst_location_id": "@dst_location_id",
+          "src_encounter_type_id": "@src_encounter_type_id",
+          "dst_encounter_type_id": "6",
+          "order_id_transformer": "NULL_VALUE_TRANSFORMER()",
+          "grouped_concept_list": "@modo_dispensa_estado_mdc_concept_id,@estado_do_mdc_estado_mdc_concept_id",
+          "extra_condition": "true"
+        },
+        "override": [
+          {
+            "path": "dstConf.mapping",
+            "type": "DELETE_ON_LIST",
+            "match": {
+              "dstField": "uuid"
+            }
+          }
+        ]
+      },
+      "childItemConf": [
+        {
+          "template": {
+            "name": "obs_next_consultation_date_to_appointment",
+            "parameters": {
+              "parent_aliases_prefix": "ficha_clinica",
+              "next_consultation_date_concept_id": "@data_data_proxima_consulta_concept_id",
+              "service_id": "@tarv_service_id",
+              "extra_condition": "${included_person_extra_condition}"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

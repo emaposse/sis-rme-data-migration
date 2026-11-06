@@ -1,0 +1,265 @@
+{
+  "applyCondition": "table_name='test_result'",
+  "srcConf": {
+    "template": {
+      "name": "sisrme_src_ds",
+      "parameters": {
+        "aliases_prefix": "test_result",
+        "main_output_template_name": "test_result_ds_from_json"
+      }
+    },
+    "excludedFieldsFromObjectDesc": [
+      "entity_payload"
+    ]
+  },
+  "dstConf": [
+    {
+      "template": {
+        "name": "sync_back_to_obs_with_dynamic_values",
+        "parameters": {
+          "src_aliases_prefix": "test_result",
+          "dst_aliases_prefix": "hemograma_lab_result",
+          "encounter_type_id": "13",
+          "concept_id": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:test_result_src_ds.concept_id,extra_condition:mapping_group=\"concept\")",
+          "value_coded": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:test_result_src_ds.value_coded,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "test_result_src_ds.date_created",
+          "filter_condition": "test_result_src_ds.concept_id in (21,299,300,678,679,729,851,855,952,1015,1016,1017,1018,1021,1022,1023,1024,1025,1307,1330,1331,1332,1333) and test_result_encounter_src_ds.encounter_type != 147",
+          "obs_group_id_transformer": "PARENT_ON_DEMAND_TRANSFORMER(obs,on_demand_check_condition:concept_id=1723 and encounter_id=hemograma_lab_result_obs_dst_ds.encounter_id and obs_datetime=date(test_result_src_ds.date_created), template:on_demand_sync_simple_obs, template_param_main_src_aliases_prefix:test_result, template_param_src_patient_uuid:test_result_patient_src_ds.uuid, template_param_main_dst_aliases_prefix:hemograma_lab_result,template_param_aliases_prefix:hemograma_obs_group, template_param_concept_id:1723, template_param_obs_datetime:test_result_src_ds.date_created, template_param_location_id:hemograma_lab_result_obs_dst_ds.location_id, template_param_encounter_type_id:13, template_param_uuid:FAST_SQL_TRANSFORMER(select uuid()))"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_back_to_obs_with_dynamic_values",
+        "parameters": {
+          "src_aliases_prefix": "test_result",
+          "dst_aliases_prefix": "bioquimica_lab_result",
+          "encounter_type_id": "13",
+          "concept_id": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:test_result_src_ds.concept_id,extra_condition:mapping_group=\"concept\")",
+          "value_coded": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:test_result_src_ds.value_coded,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "test_result_src_ds.date_created",
+          "filter_condition": "test_result_src_ds.concept_id in (653,654,655,717,785,790,848,857,887,1006,1007,1008,1009,1011,1012,1013,1014,1132,1133,1134,1297,1299,1520,2077) and test_result_encounter_src_ds.encounter_type != 147",
+          "obs_group_id_transformer": "PARENT_ON_DEMAND_TRANSFORMER(obs,on_demand_check_condition:concept_id=1633 and encounter_id=bioquimica_lab_result_obs_dst_ds.encounter_id and obs_datetime=date(test_result_src_ds.date_created), template:on_demand_sync_simple_obs, template_param_main_src_aliases_prefix:test_result, template_param_src_patient_uuid:test_result_patient_src_ds.uuid, template_param_main_dst_aliases_prefix:bioquimica_lab_result,template_param_aliases_prefix:bioquimica_obs_group, template_param_concept_id:1633, template_param_obs_datetime:test_result_src_ds.date_created, template_param_location_id:bioquimica_lab_result_obs_dst_ds.location_id, template_param_encounter_type_id:13, template_param_uuid:FAST_SQL_TRANSFORMER(select uuid()))"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_back_to_obs_with_dynamic_values",
+        "parameters": {
+          "src_aliases_prefix": "test_result",
+          "dst_aliases_prefix": "virologia_lab_result",
+          "encounter_type_id": "13",
+          "concept_id": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:test_result_src_ds.concept_id,extra_condition:mapping_group=\"concept\")",
+          "value_coded": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:test_result_src_ds.value_coded,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "test_result_src_ds.date_created",
+          "filter_condition": "test_result_src_ds.concept_id in (1655) and test_result_encounter_src_ds.encounter_type != 147",
+          "obs_group_id_transformer": "PARENT_ON_DEMAND_TRANSFORMER(obs,on_demand_check_condition:concept_id=1639 and encounter_id=virologia_lab_result_obs_dst_ds.encounter_id and obs_datetime=date(test_result_src_ds.date_created), template:on_demand_sync_simple_obs, template_param_main_src_aliases_prefix:test_result, template_param_src_patient_uuid:test_result_patient_src_ds.uuid, template_param_main_dst_aliases_prefix:virologia_lab_result,template_param_aliases_prefix:virologia_obs_group, template_param_concept_id:1639, template_param_obs_datetime:test_result_src_ds.date_created, template_param_location_id:virologia_lab_result_obs_dst_ds.location_id, template_param_encounter_type_id:13, template_param_uuid:FAST_SQL_TRANSFORMER(select uuid()))"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_back_to_obs_with_dynamic_values",
+        "parameters": {
+          "src_aliases_prefix": "test_result",
+          "dst_aliases_prefix": "bk_nivel_positividade_lab_result",
+          "encounter_type_id": "13",
+          "concept_id": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:test_result_src_ds.concept_id,extra_condition:mapping_group=\"concept\")",
+          "value_coded": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:test_result_src_ds.value_coded,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "test_result_src_ds.date_created",
+          "filter_condition": "test_result_src_ds.concept_id in (307,165185) and test_result_encounter_src_ds.encounter_type != 147",
+          "obs_group_id_transformer": "PARENT_ON_DEMAND_TRANSFORMER(obs,on_demand_check_condition:concept_id=165520 and encounter_id=bk_nivel_positividade_lab_result_obs_dst_ds.encounter_id and obs_datetime=date(test_result_src_ds.date_created), template:on_demand_sync_simple_obs, template_param_main_src_aliases_prefix:test_result, template_param_src_patient_uuid:test_result_patient_src_ds.uuid, template_param_main_dst_aliases_prefix:bk_nivel_positividade_lab_result,template_param_aliases_prefix:bk_nivel_positividade_obs_group, template_param_concept_id:165520, template_param_obs_datetime:test_result_src_ds.date_created, template_param_location_id:bk_nivel_positividade_lab_result_obs_dst_ds.location_id, template_param_encounter_type_id:13, template_param_uuid:FAST_SQL_TRANSFORMER(select uuid()))"
+        }
+      }
+    },
+    {
+      "template": {
+        "name": "sync_back_to_obs_with_dynamic_values",
+        "parameters": {
+          "src_aliases_prefix": "test_result",
+          "dst_aliases_prefix": "non_grouped_lab_result",
+          "encounter_type_id": "13",
+          "concept_id": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:test_result_src_ds.concept_id,extra_condition:mapping_group=\"concept\")",
+          "value_coded": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:test_result_src_ds.value_coded,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "test_result_src_ds.date_created",
+          "filter_condition": "test_result_src_ds.concept_id in (1030,1632,1633,1639,23723,23774,165192,165347,165502,165520,165586,165588,165589,165590,165591,165592) and test_result_encounter_src_ds.encounter_type != 147",
+          "obs_group_id_transformer": ""
+        }
+      }
+    },
+    {
+      "tableName": "encounter",
+      "tableAlias": "lab_encounter_dst_ds",
+      "useAsDataSource": true,
+      "ignoreNoDstIssue": true,
+      "identifiedRecordAction": "PATCH_UPDATE",
+      "applyCondition": "test_result_src_ds.concept_id in (21,299,300,653,654,655,678,679,717,729,785,790,848,851,855,857,952,1006,1007,1008,1009,1012,1013,1014,1015,1016,1017,1018,1021,1022,1023,1024,1025,1030,1132,1133,1134,1297,1307,1330,1331,1332,1333,1520,1655,2077,165192,165347,165502,165586,165588,165589,165590,165591,165592) and test_result_encounter_src_ds.encounter_type != 147",
+      "mappingResolutionStrategy": "MANUAL_ONLY",
+      "patchFields": [
+        "location_id",
+        "form_id",
+        "creator",
+        "date_created",
+        "voided",
+        "visit_id",
+        "voided_by",
+        "date_voided",
+        "void_reason",
+        "changed_by",
+        "date_changed"
+      ],
+      "mapping": [
+        {
+          "srcField": "COALESCE_TRANSFORMER(hemograma_lab_result_obs_dst_ds.encounter_id,bioquimica_lab_result_obs_dst_ds.encounter_id,virologia_lab_result_obs_dst_ds.encounter_id,bk_nivel_positividade_lab_result_obs_dst_ds.encounter_id,non_grouped_lab_result_obs_dst_ds.encounter_id)",
+          "dstField": "encounter_id"
+        },
+        {
+          "srcField": "COALESCE_TRANSFORMER(hemograma_lab_result_obs_dst_ds.person_id,bioquimica_lab_result_obs_dst_ds.person_id,virologia_lab_result_obs_dst_ds.person_id,bk_nivel_positividade_lab_result_obs_dst_ds.person_id,non_grouped_lab_result_obs_dst_ds.person_id)",
+          "dstField": "patient_id"
+        },
+        {
+          "srcField": "COALESCE_TRANSFORMER(hemograma_lab_result_obs_dst_ds.obs_datetime,bioquimica_lab_result_obs_dst_ds.obs_datetime,virologia_lab_result_obs_dst_ds.obs_datetime,bk_nivel_positividade_lab_result_obs_dst_ds.obs_datetime,non_grouped_lab_result_obs_dst_ds.obs_datetime)",
+          "dstField": "encounter_datetime"
+        },
+        {
+          "srcValue":"13",
+          "dstField":"encounter_type"
+        },
+        {
+          "srcField": "test_result_location_dst_ds.location_id",
+          "dstField": "location_id"
+        },
+        {
+          "srcValue": "106",
+          "dstField": "form_id"
+        },
+        {
+          "template": {
+            "name": "dst_user_mapped_to_user_placeholder",
+            "parameters": {
+              "dst_user_field": "creator",
+              "src_user_uuid": "test_result_creator_src_ds.uuid",
+              "src_username": "test_result_creator_src_ds.username",
+              "apply_condition": ""
+            }
+          }
+        },
+        {
+          "dstField": "visit_id",
+          "transformer": "PARENT_ON_DEMAND_TRANSFORMER(visit,on_demand_check_condition:patient_id=lab_encounter_dst_ds.patient_id and date_started = date(lab_encounter_dst_ds.encounter_datetime),template:on_demand_visit,template_param_location_id:lab_encounter_dst_ds.location_id,template_param_visit_date:lab_encounter_dst_ds.encounter_datetime,template_param_patient_id:lab_encounter_dst_ds.patient_id,template_param_visit_type_id:7,template_param_creator:lab_encounter_dst_ds.creator)"
+        },
+        {
+          "srcField": "test_result_src_ds.date_created",
+          "dstField": "date_created"
+        },
+        {
+          "srcValue": "0",
+          "dstField": "voided"
+        },
+        {
+          "dstField": "voided_by",
+          "transformer": "NULL_VALUE_TRANSFORMER()"
+        },
+        {
+          "dstField": "date_voided",
+          "transformer": "NULL_VALUE_TRANSFORMER()"
+        },
+        {
+          "dstField": "void_reason",
+          "transformer": "NULL_VALUE_TRANSFORMER()"
+        },
+        {
+          "dstField": "changed_by",
+          "transformer": "NULL_VALUE_TRANSFORMER()"
+        },
+        {
+          "dstField": "date_changed",
+          "transformer": "NULL_VALUE_TRANSFORMER()"
+        },
+        {
+          "dstField":"uuid",
+          "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:encounter,lookup_condition:encounter_type=13 and patient_id = lab_encounter_dst_ds.patient_id and encounter_datetime = DATE_TRANSFORMER(input:lab_encounter_dst_ds.encounter_datetime,operation:START_OF_DAY))"
+        }        
+      ]
+    },
+    {
+      "template": {
+        "name": "sync_back_to_obs_with_dynamic_values",
+        "parameters": {
+          "src_aliases_prefix": "test_result",
+          "dst_aliases_prefix": "ficha_clinica_lab_result",
+          "encounter_type_id": "6",
+          "concept_id": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:test_result_src_ds.concept_id,extra_condition:mapping_group=\"concept\")",
+          "value_coded": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:test_result_src_ds.value_coded,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "test_result_src_ds.date_created",
+          "filter_condition": "test_result_src_ds.concept_id in (12,307,703,856,887,1011,1299,1305,1649,1692,1693,1694,2094,23723,23774,23951,23952,165185,165362,165390,165515,165520,234065,234068) and test_result_encounter_src_ds.encounter_type != 147",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()"
+        }
+      },
+      "comments": {
+        "cd4_absoluto": "234065",
+        "cd4_percentual": "234068",
+        "hiv_carga_viral_quantitativa": "856",
+        "cd4_semi_quantitativo": "165515",
+        "hiv_carga_viral_quanlitativa": "1305",
+        "outros_exames": "1692,1694,1693,887,1011,1299,23723,23774,165349,23951,165185,23952,165520,307,165185,12,2094,703,1649"
+      }
+    },
+    {
+      "template": {
+        "name": "sync_back_to_obs_with_dynamic_values",
+        "parameters": {
+          "src_aliases_prefix": "test_result",
+          "dst_aliases_prefix": "ficha_clinica_lab_result_tb_lam",
+          "encounter_type_id": "6",
+          "concept_id": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:test_result_src_ds.concept_id,extra_condition:mapping_group=\"concept\")",
+          "value_coded": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:test_result_src_ds.value_coded,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "test_result_src_ds.date_created",
+          "filter_condition": "test_result_src_ds.concept_id in (234012,165185)",
+          "obs_group_id_transformer": "PARENT_ON_DEMAND_TRANSFORMER(obs,on_demand_check_condition:concept_id=165349 and encounter_id=ficha_clinica_lab_result_tb_lam_obs_dst_ds.encounter_id and obs_datetime=date(test_result_src_ds.date_created), template:on_demand_sync_simple_obs, template_param_main_src_aliases_prefix:test_result, template_param_src_patient_uuid:test_result_patient_src_ds.uuid, template_param_main_dst_aliases_prefix:ficha_clinica_lab_result_tb_lam,template_param_aliases_prefix:ficha_clinica_lab_result_tb_lam_obs_group, template_param_concept_id:165349, template_param_obs_datetime:test_result_src_ds.date_created, template_param_location_id:ficha_clinica_lab_result_tb_lam_obs_dst_ds.location_id, template_param_encounter_type_id:6, template_param_uuid:FAST_SQL_TRANSFORMER(select uuid()))"
+        }
+      },
+      "comments": {
+        "sis-rme-tb_lam_urina": "234012",
+        "sis-rme-tb_lam_nivel_positividade": "165185",
+        "sesp-tb-lam-and-nivel-positividade":"165349"
+      }
+    },
+    {
+      "template": {
+        "name": "sync_back_to_obs_with_dynamic_values",
+        "parameters": {
+          "src_aliases_prefix": "test_result",
+          "dst_aliases_prefix": "ficha_clinica_lab_result_crag",
+          "encounter_type_id": "6",
+          "concept_id": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:test_result_src_ds.concept_id,extra_condition:mapping_group=\"concept\")",
+          "value_coded": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:test_result_src_ds.value_coded,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "test_result_src_ds.date_created",
+          "filter_condition": "test_result_src_ds.concept_id in (1040, 165361)",
+          "obs_group_id_transformer": "PARENT_ON_DEMAND_TRANSFORMER(obs,on_demand_check_condition:concept_id=165390 and encounter_id=ficha_clinica_lab_result_crag_obs_dst_ds.encounter_id and obs_datetime=date(test_result_src_ds.date_created), template:on_demand_sync_simple_obs, template_param_main_src_aliases_prefix:test_result, template_param_src_patient_uuid:test_result_patient_src_ds.uuid, template_param_main_dst_aliases_prefix:ficha_clinica_lab_result_crag,template_param_aliases_prefix:ficha_clinica_lab_result_crag_obs_group, template_param_concept_id:165390, template_param_obs_datetime:test_result_src_ds.date_created, template_param_location_id:ficha_clinica_lab_result_crag_obs_dst_ds.location_id, template_param_encounter_type_id:6, template_param_uuid:FAST_SQL_TRANSFORMER(select uuid()))"
+        }
+      },
+      "comments": {
+        "sis-rme-crag": "165361",
+        "sesp-crag": "23952",
+        "sesp-crag-lab-set":"165390"
+      }
+    },            
+    {
+      "template": {
+        "name": "sync_back_to_obs_with_dynamic_values",
+        "parameters": {
+          "src_aliases_prefix": "test_result",
+          "dst_aliases_prefix": "ficha_resumo_lab_result",
+          "encounter_type_id": "53",
+          "concept_id": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:test_result_src_ds.concept_id,extra_condition:mapping_group=\"concept\")",
+          "value_coded": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sisrme_value,sesp_value,on_missing:USE_INPUT,input:test_result_src_ds.value_coded,extra_condition:mapping_group=\"concept\")",
+          "obs_datetime": "test_result_src_ds.date_created",
+          "filter_condition": "test_result_src_ds.concept_id in (1040, 234065, 234068, 856, 165515, 1305, 1692,1694,1693,887,1011,1299,23723,23774,23951,23952,165520,307,165185,12,2094,703,1649,165362, 165390) and test_result_encounter_src_ds.encounter_type = 147",
+          "obs_group_id_transformer": "NULL_VALUE_TRANSFORMER()"
+        }
+      }
+    }
+  ]
+}

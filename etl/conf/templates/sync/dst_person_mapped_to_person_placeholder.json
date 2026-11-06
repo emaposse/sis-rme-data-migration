@@ -1,0 +1,11 @@
+{
+  "name": "dst_person_mapped_to_person_placeholder",
+  "parameters": [
+    "dst_person_field",
+    "src_person_uuid"
+  ],
+  "template": {
+    "dstField": "${dst_person_field}",
+    "transformer": "PARENT_ON_DEMAND_LOAD_WITH_DEFAULTS_TRANSFORMER(person,on_demand_check_condition:uuid = ${src_person_uuid}, uuid:${src_person_uuid})"
+  }
+}

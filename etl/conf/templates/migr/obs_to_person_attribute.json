@@ -1,0 +1,64 @@
+{
+  "name": "obs_to_person_attribute",
+  "parameters": [
+    "concept_list",
+    "aliases_prefix",
+    "location_list",
+    "person_attribute_type_id",
+    "src_encounter_type_id",
+    "value",
+    "value_field_is_date",
+    "extra_condition"
+  ],
+  "template": {
+    "srcConf": {
+      "tableName": "obs",
+      "tableAlias": "${aliases_prefix}_obs_src_ds",
+      "extraConditionForExtract": "concept_id in (${concept_list}) and voided = 0 and location_id in (${location_list}) and ${extra_condition}",
+      "auxExtractTable": [
+        {
+          "tableName": "encounter",
+          "tableAlias": "${aliases_prefix}_aux_extract_encounter_within_obs_src_ds",
+          "joinExtraCondition": "encounter.encounter_type = ${src_encounter_type_id} and encounter.voided = 0",
+          "joinType": "INNER"
+        }
+      ]
+    },
+    "dstConf": [
+      {
+        "tableName": "person_attribute",
+        "tableAlias": "${aliases_prefix}_person_attribute_dst_ds",
+        "onConflict": "UPDATE_EXISTING",
+        "allowDuplicateDestinationMappings": true,
+        "ignorableFields": [
+          "changed_by",
+          "date_changed"
+        ],
+        "mapping": [
+          {
+            "srcField": "person_id",
+            "dstField": "person_id"
+          },
+          {
+            "srcValue": "${person_attribute_type_id}",
+            "dstField": "person_attribute_type_id"
+          },
+          {
+            "srcField": "${value}",
+            "dstField": "value"
+          },
+          {
+            "dstField": "uuid",
+            "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:person_attribute,lookup_condition:person_attribute_type_id=${person_attribute_type_id} and person_id = ${aliases_prefix}_obs_src_ds.person_id and value = ${value})",
+            "applyCondition": "${value_field_is_date} = false"
+          },
+          {
+            "dstField": "uuid",
+            "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:person_attribute,lookup_condition:person_attribute_type_id=${person_attribute_type_id} and person_id = ${aliases_prefix}_obs_src_ds.person_id and date(value) = date(${value}))",
+            "applyCondition": "${value_field_is_date} = true"
+          }
+        ]
+      }
+    ]
+  }
+}

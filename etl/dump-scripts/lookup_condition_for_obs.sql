@@ -1,0 +1,1 @@
+${table_alias}.obs_id = (select existing_rec.obs_id from obs existing_rec where existing_rec.concept_id = ${concept_id} and existing_rec.encounter_id = ${encounter_id} and existing_rec.${value_field} = ${value} and existing_rec.obs_datetime = ${obs_datetime} limit 1)

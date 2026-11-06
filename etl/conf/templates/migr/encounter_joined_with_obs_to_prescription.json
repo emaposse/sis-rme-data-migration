@@ -1,0 +1,343 @@
+{
+  "name": "encounter_joined_with_obs_to_prescription",
+  "extends": {
+    "name": "encounter_joined_with_obs_to_encounter_and_obs",
+    "parameters": {
+      "concept_list": "${concept_list}",
+      "encounter_filter_obs_concept_list": "${concept_list}",
+      "location_list": "${location_list}",
+      "aliases_prefix": "${aliases_prefix}",
+      "src_encounter_type_id": "${src_encounter_type_id}",
+      "dst_encounter_type_id": "${dst_encounter_type_id}",
+      "visit_type_id": "${visit_type_id}",
+      "program_id": "${program_id}",
+      "dst_location_id": "${dst_location_id}",
+      "grouped_concept_list": "0",
+      "order_id_transformer": "NULL_VALUE_TRANSFORMER()",
+      "extra_condition": "${extra_condition}"
+    },
+    "override": [
+      {
+        "path": "srcConf.extraQueryDataSource",
+        "type": "ADD_TO_LIST",
+        "value": {
+          "name": "${aliases_prefix}_header_data_src_ds",
+          "script": "${prescription_header_script}",
+          "dynamicElements": [
+            "${aliases_prefix}_encounter_src_ds.encounter_id"
+          ],
+          "onMultipleSrcObjectsFound": "USE_LAST",
+          "required": true
+        }
+      },
+      {
+        "path": "dstConf.mapping",
+        "type": "UPDATE_ON_LIST",
+        "match": {
+          "dstField": "uuid"
+        },
+        "value": {
+          "srcField": "${encounter_uuid}",
+          "dstField": "uuid"
+        }
+      }
+    ]
+  },
+  "parameters": [
+    "aliases_prefix",
+    "concept_list",
+    "location_list",
+    "src_encounter_type_id",
+    "dst_encounter_type_id",
+    "visit_type_id",
+    "program_id",
+    "dst_location_id",
+    "order_type_id",
+    "prescription_header_script",
+    "prescription_item_script",
+    "encounter_uuid",
+    "extra_condition",
+    "main_prescription_obs_condition"
+  ],
+  "template": {
+    "childItemConf": [
+      {
+        "comments": "Estamos a adicionar um filho a  configuracao encounter_joined_with_obs_to_encounter_and_obs, o order_group!",
+        "template": {
+          "name": "on_demand_order_group",
+          "parameters": {
+            "patient_id": "${aliases_prefix}_encounter_dst_ds.patient_id",
+            "encounter_id": "${aliases_prefix}_encounter_dst_ds.encounter_id"
+          },
+          "override": [
+            {
+              "path": "dstConf.mapping",
+              "type": "UPDATE_ON_LIST",
+              "match": {
+                "dstField": "encounter_id"
+              },
+              "value": {
+                "srcField": "${aliases_prefix}_encounter_dst_ds.encounter_id",
+                "dstField": "encounter_id"
+              }
+            }
+          ]
+        },
+        "childItemConf": [
+          {
+            "comments": "filho de order_group, que configura a transformacao  da obs medicamento e quantidade (concept_id = 165252) da prescricao para o orders",
+            "srcConf": {
+              "tableName": "obs",
+              "tableAlias": "${aliases_prefix}_groupping_obs_ds",
+              "joinExtraCondition": "${main_prescription_obs_condition}",
+              "missingRequiredObjectBehavior": "MARK_RECORD_AS_FAILED",
+              "joinFields": [
+                {
+                  "srcField": "encounter_id",
+                  "dstField": "encounter_id"
+                }
+              ],
+              "extraQueryDataSource": [
+                {
+                  "name": "${aliases_prefix}_item_data_src_ds",
+                  "script": "${prescription_item_script}",
+                  "dynamicElements": [
+                    "${aliases_prefix}_groupping_obs_ds.obs_id",
+                    "${aliases_prefix}_header_data_src_ds.next_pickup_date"
+                  ],
+                  "required": true,
+                  "onMultipleSrcObjectsFound": "USE_LAST"
+                },
+                {
+                  "name": "${aliases_prefix}_sisrme_drug_ds",
+                  "script": "sesp_sisrme_drug_mapping.sql",
+                  "dynamicElements": [
+                    "${aliases_prefix}_item_data_src_ds.value_drug"
+                  ],
+                  "relationshipResolutionStrategy": "SKIP"
+                }
+              ]
+            },
+            "dstConf": [
+              {
+                "onConflict": "UPDATE_EXISTING",
+                "template": {
+                  "name": "order_DstConf",
+                  "parameters": {
+                    "aliases_prefix": "${aliases_prefix}",
+                    "patient_id": "${aliases_prefix}_encounter_dst_ds.patient_id",
+                    "location_id": "${aliases_prefix}_encounter_dst_ds.location_id",
+                    "orderer": "${aliases_prefix}_encounter_provider_src_ds.provider_id",
+                    "concept_id": "${aliases_prefix}_sisrme_drug_ds.concept_id",
+                    "value_text": "NULL_VALUE_TRANSFORMER()",
+                    "order_type_id": "${order_type_id}",
+                    "dst_order_encounter_type_id": "${dst_encounter_type_id}",
+                    "visit_type_id": "${visit_type_id}",
+                    "program_id": "${program_id}",
+                    "order_date": "${aliases_prefix}_encounter_src_ds.encounter_datetime",
+                    "creator": "${aliases_prefix}_encounter_dst_ds.creator"
+                  },
+                  "override": [
+                    {
+                      "path": "mapping",
+                      "type": "UPDATE_ON_LIST",
+                      "match": {
+                        "dstField": "encounter_id"
+                      },
+                      "value": {
+                        "srcField": "${aliases_prefix}_encounter_dst_ds.encounter_id",
+                        "dstField": "encounter_id"
+                      }
+                    },
+                    {
+                      "path": "mapping",
+                      "type": "UPDATE_ON_LIST",
+                      "match": {
+                        "dstField": "order_group_id"
+                      },
+                      "value": {
+                        "srcField": "order_id",
+                        "dstField": "order_group_id"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "childItemConf": [
+              {
+                "comments": "filho da orders, que configura a migracao da obs para drug_order",
+                "srcConf": {
+                  "tableName": "obs",
+                  "tableAlias": "${aliases_prefix}_inner_order_obs_for_drug_src_ds",
+                  "joinFields": [
+                    {
+                      "srcField": "obs_id",
+                      "dstField": "obs_id"
+                    }
+                  ]
+                },
+                "dstConf": [
+                  {
+                    "tableName": "drug_order",
+                    "onConflict": "UPDATE_EXISTING",
+                    "ignorableFields": [
+                      "drug_inventory_id",
+                      "dosing_type",
+                      "as_needed_condition",
+                      "num_refills",
+                      "dosing_instructions",
+                      "duration",
+                      "duration_units",
+                      "quantity_units",
+                      "route",
+                      "dose_units",
+                      "brand_name",
+                      "dispense_as_written",
+                      "equivalent_daily_dose",
+                      "orders_id",
+                      "units",
+                      "drug_non_coded"
+                    ],
+                    "mapping": [
+                      {
+                        "transformer": "COALESCE_TRANSFORMER(${aliases_prefix}_item_data_src_ds.specified_qty, ${aliases_prefix}_item_data_src_ds.calculated_qty)",
+                        "dstField": "quantity"
+                      },
+                      {
+                        "srcField": "${aliases_prefix}_sisrme_drug_ds.drug_id",
+                        "dstField": "drug_id"
+                      },
+                      {
+                        "srcValue": false,
+                        "dstField": "as_needed"
+                      },
+                      {
+                        "srcValue": false,
+                        "dstField": "prn"
+                      },
+                      {
+                        "srcValue": false,
+                        "dstField": "complex"
+                      },
+                      {
+                        "dstField": "dose",
+                        "transformer": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sesp_value,sisrme_value,on_missing:SET_TO_NULL,input:${aliases_prefix}_item_data_src_ds.posologia,extra_condition:mapping_group=\"dosing_dose\")"
+                      },
+                      {
+                        "dstField": "frequency",
+                        "transformer": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sesp_value,sisrme_value,on_missing:SET_TO_NULL,input:${aliases_prefix}_item_data_src_ds.posologia,extra_condition:mapping_group=\"dosing_frequency\")"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "comments": "filho da orders, que configura a migracao da obs para pharmacy_package",
+                "srcConf": {
+                  "tableName": "obs",
+                  "tableAlias": "${aliases_prefix}_inner_order_obs_for_pharmacy_package_src_ds",
+                  "joinFields": [
+                    {
+                      "srcField": "obs_id",
+                      "dstField": "obs_id"
+                    }
+                  ]
+                },
+                "dstConf": [
+                  {
+                    "tableName": "pharmacy_package",
+                    "tableAlias": "${aliases_prefix}_pharmacy_package_dst_ds",
+                    "onConflict": "UPDATE_EXISTING",
+                    "ignorableFields": [
+                      "updated_at",
+                      "created_at"
+                    ],
+                    "mapping": [
+                      {
+                        "srcField": "${aliases_prefix}_location_src_ds.location_id",
+                        "dstField": "location_id"
+                      },
+                      {
+                        "srcField": "${aliases_prefix}_orders_dst_ds.encounter_id",
+                        "dstField": "prescription_encounter_id"
+                      },
+                      {
+                        "srcField": "${aliases_prefix}_encounter_src_ds.encounter_datetime",
+                        "dstField": "package_datetime"
+                      },
+                      {
+                        "srcField": "${aliases_prefix}_header_data_src_ds.next_pickup_date",
+                        "dstField": "next_pickup_date"
+                      },
+                      {
+                        "srcField": "${aliases_prefix}_header_data_src_ds.dispense_mode_id",
+                        "relationshipResolutionStrategy": "SKIP",
+                        "dstField": "dispense_mode_id"
+                      },
+                      {
+                        "srcValue": "Migrado do SESP",
+                        "dstField": "notes"
+                      },
+                      {
+                        "dstField": "uuid",
+                        "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:pharmacy_package,lookup_condition:prescription_encounter_id=${aliases_prefix}_orders_dst_ds.encounter_id)"
+                      }
+                    ]
+                  }
+                ],
+                "childItemConf": [
+                  {
+                    "srcConf": {
+                      "tableName": "obs",
+                      "tableAlias": "${aliases_prefix}_pharmacy_packaged_drug_src_ds",
+                      "joinFields": [
+                        {
+                          "srcField": "obs_id",
+                          "dstField": "obs_id"
+                        }
+                      ]
+                    },
+                    "dstConf": [
+                      {
+                        "tableName": "pharmacy_packaged_drug",
+                        "tableAlias": "${aliases_prefix}_pharmacy_packaged_drug_dst_ds",
+                        "onConflict": "KEEP_EXISTING",
+                        "preferredDataSource": [
+                          "${aliases_prefix}_pharmacy_package_dst_ds"
+                        ],
+                        "ignorableFields": [
+                          "updated_at",
+                          "created_at"
+                        ],
+                        "mapping": [
+                          {
+                            "srcField": "${aliases_prefix}_orders_dst_ds.order_id",
+                            "dstField": "order_id"
+                          },
+                          {
+                            "transformer": "COALESCE_TRANSFORMER(${aliases_prefix}_item_data_src_ds.specified_qty, ${aliases_prefix}_item_data_src_ds.calculated_qty)",
+                            "dstField": "quantity_dispensed"
+                          },
+                          {
+                            "dstField": "pharmacy_transaction_id",
+                            "transformer": "PARENT_ON_DEMAND_TRANSFORMER(pharmacy_transaction,on_demand_check_condition:pharmacy_transaction_id < 0,template:pharmacy_transaction_on_demand,template_param_aliases_prefix:${aliases_prefix})",
+                            "nullValueBehavior": "MARK_RECORD_AS_FAILED"
+                          },
+                          {
+                            "dstField": "uuid",
+                            "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:pharmacy_packaged_drug,lookup_condition:order_id=${aliases_prefix}_orders_dst_ds.order_id)"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

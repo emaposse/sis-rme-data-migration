@@ -1,0 +1,404 @@
+{
+  "formatVersion" : 2,
+  "entries" : [ {
+    "metadataKey" : "openmrs_2_6_sesp|||.appointment",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.AppointmentVO",
+    "metadataFingerprint" : "9a7e7acc9807a0de4c02343122b6e5c1f61211c7868fab7bae2f69f6a9dd0590"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.care_setting",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.CareSettingVO",
+    "metadataFingerprint" : "4d7fadc627f65254dec3221bce315eb96e3ec84e5eeb06a00e02d7bbfa289012"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.concept",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.ConceptVO",
+    "metadataFingerprint" : "88390ee8c58a7ce1f2429e7e9090dc99c29d2c889ea89a10f714c21f5c75df6b"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.concept_class",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.ConceptClassVO",
+    "metadataFingerprint" : "c433fccd18c0b8a636e0f8a56e0dcf071fe218c1ad1bf109f53dfa27b64cabfc"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.concept_datatype",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.ConceptDatatypeVO",
+    "metadataFingerprint" : "fe946844cd0968aed743b606da2f47e64f5511215b6d7b10835eb575fb72f773"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.concept_name",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.ConceptNameVO",
+    "metadataFingerprint" : "e89434eb0d690ae2f6febe1e737fa2b85a853e1260d47c168746b73b88d60eb9"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.drug",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.DrugVO",
+    "metadataFingerprint" : "54799ad90030dc2cdd0f155f8c19a6c0d26d54680d3a212e0f817963d82ae7fd"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.encounter",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.EncounterVO",
+    "metadataFingerprint" : "b31892f1c3562148bd7aa1b5e76286a34fe480441a1ea014bde78be74dd91839"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.encounter_provider",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.EncounterProviderVO",
+    "metadataFingerprint" : "d6832a79899efb0088165e4ce38744bc86c5b289f361579b5646a7bba01ec962"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.encounter_role",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.EncounterRoleVO",
+    "metadataFingerprint" : "be4daa7c0b255c98ba46dff7d5eed410fd4400ed21add53f260631e2d4295d0b"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.encounter_type",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.EncounterTypeVO",
+    "metadataFingerprint" : "da698cee2174c3717efb837102e2295b32f82bd9f238a972630559fcff53562e"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.form",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.FormVO",
+    "metadataFingerprint" : "dab706204949b27eb248beec0414f7022c1aed31dc2ba68bd46e6abe230217c1"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.location",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.LocationVO",
+    "metadataFingerprint" : "b4fcc8c27ce8517d415235aae532c0c2b2012b15ea5c1b2297e7cf39d47415e3"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.obs",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.ObsVO",
+    "metadataFingerprint" : "03a3b99c30f9ec8f6f1ec24e6ee05780abc3ce0a1d528f3eb64b6a2f2200a721"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.order_frequency",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.OrderFrequencyVO",
+    "metadataFingerprint" : "a90fca0f287ed12d33af6af028d15f740bbdc87b964494ae5eadc0c0803e1893"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.order_group",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.OrderGroupVO",
+    "metadataFingerprint" : "8adb36651579e29229e2e3c5cfd7c78c9e0a952fe92338c809f3585597cced5b"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.order_set",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.OrderSetVO",
+    "metadataFingerprint" : "bcd908d7caaa9e5f11787b8e6aeda5b8670c72df2506c87749ec50984d154ca7"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.order_type",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.OrderTypeVO",
+    "metadataFingerprint" : "030f1a7ee84eb75bf1d0398c9fe759defc9e6bd980b4c03ebc4f54945f87e0f7"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.orders",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.OrdersVO",
+    "metadataFingerprint" : "8bfe182c482608cc4c406951bdb207e014b9dbab829940ec24f9b76c77991852"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.patient",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.PatientVO",
+    "metadataFingerprint" : "a158cbac273d94031d955f2e02c09af6a25acb8f0f13f14b6eff191da94f1072"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.patient_identifier",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.PatientIdentifierVO",
+    "metadataFingerprint" : "2f743e3d51777f20c2aae8ae2c3a4b5a7e3248399fcf3fcedd3e629f4d2da115"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.patient_identifier_type",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.PatientIdentifierTypeVO",
+    "metadataFingerprint" : "bae8dc0bcf3b46ada4ebbb52422a268a47a15aaf0a93ee032ee74cb4c80cad8f"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.patient_program",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.PatientProgramVO",
+    "metadataFingerprint" : "bef7b3911be21abf48664f5f7f3c107bba392cdeaf05ce1627dfd7c92fb7cf52"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.patient_state",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.PatientStateVO",
+    "metadataFingerprint" : "36c020407081a1981a5f75cb46e7c892821d55e4b7eb838d86833cbbea953842"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.person",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.PersonVO",
+    "metadataFingerprint" : "fda2dfe93793e2d408cb69ea5ec8d180a84df6d84096de4c23b709e4711358bd"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.person_address",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.PersonAddressVO",
+    "metadataFingerprint" : "e8c7dc667d0f65cf7c3d8075fff2a223b75d18b80c9a598677386aa76055e323"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.person_attribute",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.PersonAttributeVO",
+    "metadataFingerprint" : "448c443ff3c2e6bbec1943866c0d302647d46aa022fbe013a7aafe997aef4249"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.person_attribute_type",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.PersonAttributeTypeVO",
+    "metadataFingerprint" : "c67bb5bac9e743e3a21293d71d11f9a4330c0d82bf8bbc9b43b66d089d156566"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.person_name",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.PersonNameVO",
+    "metadataFingerprint" : "fe5d754d729061e8c83cd79f78f50dfbd9dae6098ee5e4ee0201b822507faeca"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.privilege",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.PrivilegeVO",
+    "metadataFingerprint" : "cae7e1c6f96ad9e30789a85c78adca63835b2f511d1ada545fb3c2aa0e391fbb"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.program",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.ProgramVO",
+    "metadataFingerprint" : "545a78163d310442f9eefe70b49291b7c5cafd8e0c24d2b65e5e1b00284a4c22"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.program_workflow",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.ProgramWorkflowVO",
+    "metadataFingerprint" : "b93355eb3945e1bb3dcad52f001e88c2a8b1d61559dc9eb0eaac082c750f69ee"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.program_workflow_state",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.ProgramWorkflowStateVO",
+    "metadataFingerprint" : "fa28c9ebcd34bc2c1aec99e0a5a471c9eb1ad07af825782babfc49bf19215b6e"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.provider",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.ProviderVO",
+    "metadataFingerprint" : "eccbbaa79aaac8ba78a874092b2e25d2dd704509cc24b1c711e03f7a1157d88f"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.providermanagement_provider_role",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.ProvidermanagementProviderRoleVO",
+    "metadataFingerprint" : "7ea23725be320f58e2fb59bd63a173f28fe8302f8c20a85d7e2d9b1ecfd558d1"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.relationship",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.RelationshipVO",
+    "metadataFingerprint" : "56a25dca62708450f3b65e271678e42fb07ba5b234c1e29d5ae9c2f20bced6f5"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.relationship_type",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.RelationshipTypeVO",
+    "metadataFingerprint" : "78b2a3d856a3930ea8d1ea1068cb4ce3c84e5a6df4ed131c518c4c7193b4dbe0"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.test_order",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.TestOrderVO",
+    "metadataFingerprint" : "b87471e48dc7a24c4635ce8636effb68a73e5f01b042e798c4eabb3fed3d4489"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.users",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.UsersVO",
+    "metadataFingerprint" : "942497b4d1dae20eb7cebdd2132f93b9e27cf2e5d29fecc5eddcaab00ebfeabf"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.visit",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.VisitVO",
+    "metadataFingerprint" : "59c810f812bdcbe831f6490027f919b0a1eeedfdb1de9cc8f0d3b73b3f3ee296"
+  }, {
+    "metadataKey" : "openmrs_2_6_sesp|||.visit_type",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sesp.VisitTypeVO",
+    "metadataFingerprint" : "14e194c492f5765918cfada50453eae693923af7c39851c140b81e670f0579ac"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.allergy",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.AllergyVO",
+    "metadataFingerprint" : "0635174b5bdffde7e2a2a1dc835c0d44313993eb3039a23bb3665236c48cdd84"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.appointment",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.AppointmentVO",
+    "metadataFingerprint" : "939a837488ec439c9eab598315d3cc69578112f19877535851a6c08f4e161be4"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.care_setting",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.CareSettingVO",
+    "metadataFingerprint" : "8cf7c8448af708fc298a2eb51937881da31da9d21e45417783fa50cf3f928942"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.clinical_service",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.ClinicalServiceVO",
+    "metadataFingerprint" : "b5d8c221ef50ef19811125eeea93f1a3ff54223e4f43ddda9ee7a469b1e10323"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.concept",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.ConceptVO",
+    "metadataFingerprint" : "e04ac9f9c19c2425c5cee8d26f88cab98e245acc89b9bcb037d0cea8a76d37f2"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.concept_class",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.ConceptClassVO",
+    "metadataFingerprint" : "1352bf446a41d5257a20e1c3da6fc75266b361d1b24953b40bbf0bf0925c089d"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.concept_datatype",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.ConceptDatatypeVO",
+    "metadataFingerprint" : "4e36b8d5e91bd362a013b39e18988e3560bae45465350fbd0d8955bf6af880f7"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.concept_name",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.ConceptNameVO",
+    "metadataFingerprint" : "c97e1ef2ecd118a23bc5d0fe8221370a11d7f4670f0d30f93f1760c5db986130"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.conditions",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.ConditionsVO",
+    "metadataFingerprint" : "c255195814f051e4f519714c4e45d5b24b63916413b0ab909e830af8c23683c5"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.drug",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.DrugVO",
+    "metadataFingerprint" : "a859e3040848cf0ac344eb8cd2358d171251b8ce65cfc2cfe9d28f38c0bbc29a"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.drug_order",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.DrugOrderVO",
+    "metadataFingerprint" : "7eec5b820bb68cddad01ae6dfa0e649a4e9c0b46959b170aa2ce6a21e4facccb"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.encounter",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.EncounterVO",
+    "metadataFingerprint" : "9db6a99e509396375bc4d88d563646df8f09232f579c290ef13987044470307d"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.encounter_diagnosis",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.EncounterDiagnosisVO",
+    "metadataFingerprint" : "e949812e58c2771b77162a770a985f9dd550a528c69792ddfe9b211d94ea76b6"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.encounter_program",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.EncounterProgramVO",
+    "metadataFingerprint" : "7c9e88eb09ba9f6ae867d815c8e6dd701c6a76238d713cc17b17a04873e80252"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.encounter_provider",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.EncounterProviderVO",
+    "metadataFingerprint" : "179feea95a639681a33a8b147a2c2bfcc4f875f905e3ac3f613656dfd4a0aab4"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.encounter_role",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.EncounterRoleVO",
+    "metadataFingerprint" : "43ebe7298af8deaa0d6ac5fb69c9a982c34a1dbac9630a051c7da76c65e1811e"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.encounter_type",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.EncounterTypeVO",
+    "metadataFingerprint" : "0f1d9f79f761462e1c66b157b381a10c109ca27763d552c71cfbbcb93cf1ee6b"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.location",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.LocationVO",
+    "metadataFingerprint" : "2d01e7c69d0dc260f1bf144f5d700f1bf329917ef4a342dbb92a43fd872b7919"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.obs",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.ObsVO",
+    "metadataFingerprint" : "15596b188ae026885b94fab22a3b8eeb3f345f4bd9f07c23f8a000a80e58264e"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.order_frequency",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.OrderFrequencyVO",
+    "metadataFingerprint" : "3f5bdd09ab317e8b315e01ee5774ead8898c64807b5649d8461358adc7b6cef3"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.order_group",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.OrderGroupVO",
+    "metadataFingerprint" : "e7ea430c59c840188c02eea0709f346832748c1154e849a4045925849c21f7f5"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.order_set",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.OrderSetVO",
+    "metadataFingerprint" : "01c799848629941fe78cdceaa6db04cd0c6dbcc7a2f4d70bb502c7837115e062"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.order_type",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.OrderTypeVO",
+    "metadataFingerprint" : "f5bcc9e0c73b6e9b3c15321d14c392515d61cb007f516d39519f5afdde25b752"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.orders",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.OrdersVO",
+    "metadataFingerprint" : "1961a910d2336d312a54c4cacb6fcad6369f488b5854beb347a12361d4701768"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.patient",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.PatientVO",
+    "metadataFingerprint" : "cc637f9c4ee25a74c4fccd67cefb6fcd472c8f82ecfc2164833571a9a1f721a1"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.patient_identifier",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.PatientIdentifierVO",
+    "metadataFingerprint" : "f8b9d2b0d4e4689b253f0df3027ef8d71a1a7aea461d82a363193adbeb4b4b23"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.patient_identifier_type",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.PatientIdentifierTypeVO",
+    "metadataFingerprint" : "d9d5b3353f1c9a209cf51798131a8092c519a85d6dc0912020b42826fbfc5127"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.patient_program",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.PatientProgramVO",
+    "metadataFingerprint" : "7466614c1bd8784f0461b31d5592403afff12f5a3123e4e8352a519fe7de4b80"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.patient_state",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.PatientStateVO",
+    "metadataFingerprint" : "91fcc676e0d75c2c8ac18f4c1f368c53a91c2fa2cf203c545687e52dc85bfe9e"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.person",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.PersonVO",
+    "metadataFingerprint" : "036ee9e0e9926ea48cccf15adf372a291465933e7732b8e4e474a2c4e603f6e5"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.person_address",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.PersonAddressVO",
+    "metadataFingerprint" : "4b01fa2e5401de88a2d4d702af2b4cea43bd63a51d47342878e1fd8a97e46602"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.person_attribute",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.PersonAttributeVO",
+    "metadataFingerprint" : "5af415496b89fb8e1488048d0edc44db5390311cdf0fc2aa36634821a5b473e5"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.person_attribute_type",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.PersonAttributeTypeVO",
+    "metadataFingerprint" : "58cc898a733d533713e047dd550fbe02346358f9e78d20c998dcb60ac3945da9"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.person_complex_attribute",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.PersonComplexAttributeVO",
+    "metadataFingerprint" : "3db30cb37a7eb821698aa669efe2e7dd04b92b85e20b9bf2860b6b3cef30544f"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.person_complex_attribute_detail",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.PersonComplexAttributeDetailVO",
+    "metadataFingerprint" : "f0e1e22a97d5c7b87c1cbecada29bc5d41a66f9f3fbcb9ca9915f9c3b4b1c013"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.person_name",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.PersonNameVO",
+    "metadataFingerprint" : "b6873b8200dfa8b4d1715d41ef68625bc1b993c30ef31e0349640dc7046d71ce"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.pharmacy_batch",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.PharmacyBatchVO",
+    "metadataFingerprint" : "bbb15a5bc736d110d256c7854459f81a7a29a450f16f414bde963c07ed6a76c3"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.pharmacy_delivery_note",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.PharmacyDeliveryNoteVO",
+    "metadataFingerprint" : "1ae4d395dab9d8dcbab7cb4e0fa93c6453235c13f6e8d01a08059a1357ba99f3"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.pharmacy_package",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.PharmacyPackageVO",
+    "metadataFingerprint" : "ceb1621581fae8b8fa738c193e59ed1b9854b5a476322dabbd243ca10511c0e9"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.pharmacy_packaged_drug",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.PharmacyPackagedDrugVO",
+    "metadataFingerprint" : "8c103c642bff57d52e5e4fe9911d3c251af6c769612544552112cfa190c91411"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.pharmacy_transaction",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.PharmacyTransactionVO",
+    "metadataFingerprint" : "23817bb7d11a29b5e27a0715731fc0f4b5236c77b5df2e8d21151e571240b61f"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.privilege",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.PrivilegeVO",
+    "metadataFingerprint" : "994482e844ebfc2d723aebd3ed9cda4e35b2923dbb1e42c239b711e121178499"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.program",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.ProgramVO",
+    "metadataFingerprint" : "ed8eea26c8313ff4ae7dcd9cea3388240a4257ff6c6bb34c16241d9ce3cf1b39"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.program_workflow",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.ProgramWorkflowVO",
+    "metadataFingerprint" : "e026619946035dab662fc0860b0155839cfa0ad94762e9be4e54ffc1afb17e10"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.program_workflow_state",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.ProgramWorkflowStateVO",
+    "metadataFingerprint" : "bdb1da86d37321a78cb89f18fcba0804a901cc5ff296f8e2687086800ff7cccf"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.provider",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.ProviderVO",
+    "metadataFingerprint" : "a277b909657f35e137af07ca6c65be05700cc1f9a35f03af61d971b268498f84"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.providermanagement_provider_role",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.ProvidermanagementProviderRoleVO",
+    "metadataFingerprint" : "17f030f4a966c6aed6e65f43a82e8c003afd1e33dfbeaea26851dc24a85bd61b"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.relationship",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.RelationshipVO",
+    "metadataFingerprint" : "ea0a4e6150c1e2d0787e416fe784928b47d921ed1b4551d6095bab9bd9979492"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.relationship_type",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.RelationshipTypeVO",
+    "metadataFingerprint" : "3df8d088f0c164b3ec66459a6360df6faf7eb7438fe6e7373d69cf2682a63fde"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.test_order",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.TestOrderVO",
+    "metadataFingerprint" : "0dcc1bd839085db7304c1059217641c6c719f2c40331e5ee0735c14e5e73818a"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.test_result",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.TestResultVO",
+    "metadataFingerprint" : "fb3d8cfc3c25d062a2dc01b1e1e5618ad0ae7a05cf2cd346a4a3bfb7185fb02d"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.users",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.UsersVO",
+    "metadataFingerprint" : "738a96956db83b703b1a55c81fa11716aa0d646054749bc3e40a9f851b17cba5"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.visit",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.VisitVO",
+    "metadataFingerprint" : "88515e9933ce0dfdc2733b2bccfe20d357f7cbd269ebd9784f049af3d8eb0717"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.visit_type",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.VisitTypeVO",
+    "metadataFingerprint" : "657f3e25d82a1f599c857f9129feffecd24ec8078922f67fdc15b3677aa77f8d"
+  }, {
+    "metadataKey" : "openmrs_2_6_sisrme|||.vital_signs",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.VitalSignsVO",
+    "metadataFingerprint" : "e69840f8a31aeca7589fac7316f8fa6f3aaad2039d6e250a1c21746e486cfc39"
+  }, {
+    "metadataKey" : "sisrme_sync_src_db|||.sis_rme_sync_msg",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.openmrs_2_6.sisrme.sync.SisRmeSyncMsgVO",
+    "metadataFingerprint" : "aadbc342777276b3c7521dcb6846e4cfb95d1952b534b6047dbce05dee5200f7"
+  }, {
+    "metadataKey" : "testing_etl_dst|||.person_data",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.testing.etl_dst.PersonDataVO",
+    "metadataFingerprint" : "501ebcec1ac6f75cf60220f5e15cb4d6ef906bd4af1a6386e521e5f98b078e68"
+  }, {
+    "metadataKey" : "testing_etl_src|||.address",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.testing.etl_src.AddressVO",
+    "metadataFingerprint" : "99ff146a838766623f37064b52dc55c92cf07df2a59b54e175a202dcb224346f"
+  }, {
+    "metadataKey" : "testing_etl_src|||.person",
+    "generatedClassName" : "org.openmrs.module.epts.etl.model.pojo.testing.etl_src.PersonVO",
+    "metadataFingerprint" : "4d403258232ed2012dad829f69172ece584a3565987d033bf0ce8999bf5cacf5"
+  } ]
+}

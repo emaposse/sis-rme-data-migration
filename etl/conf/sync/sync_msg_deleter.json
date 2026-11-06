@@ -1,0 +1,72 @@
+{
+  "originAppLocationCode": "${location_name}",
+  "etlRootDirectory": "${etl_root_dir}",
+  "syncStageSchema": "${src_db}",
+  "templatesDir": "templates/sync/*.json",
+  "mainConnInfo": {
+    "dataBaseUserName": "${srcUserName}",
+    "dataBaseUserPassword": "${srcUserPassword}",
+    "connectionURI": "${srcConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "isolationLevel": "${connectionIsolationLevel}"
+  },
+  "srcConnInfo": {
+    "dataBaseUserName": "${srcUserName}",
+    "dataBaseUserPassword": "${srcUserPassword}",
+    "connectionURI": "${srcConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "maxActiveConnections": "${maxActiveConnections}",
+    "maxIdleConnections": "${maxIdleConnections}",
+    "minIdleConnections": "${minIdleConnections}"
+  },
+  "dstConnInfo": {
+    "dataBaseUserName": "${dstUserName}",
+    "dataBaseUserPassword": "${dstUserPassword}",
+    "connectionURI": "${dstConnectionURI}",
+    "driveClassName": "${driveClassName}",
+    "databaseSchemaPath": "sis-rme-empty-db.sql",
+    "isolationLevel": "${connectionIsolationLevel}",
+    "maxActiveConnections": "${maxActiveConnections}",
+    "maxIdleConnections": "${maxIdleConnections}",
+    "minIdleConnections": "${minIdleConnections}"
+  },
+  "ignorableStartupScripts": [
+    "prepare_schema.sql"
+  ],
+  "ignoreAllStartupScripts": "${ignoreAllStartupScripts}",
+  "operations": [
+    {
+      "operationType": "ETL",
+      "processingBatch": "${processingBatch}",
+      "processingMode": "SERIAL",
+      "parallelProcessingStrategy": "${parallelProcessingStrategy}",
+      "finishOnNoRemainRecordsToProcess": true,
+      "skipFinalDataVerification": true,
+      "totalCountStrategy": "USE_MAX_RECORD_ID_AS_COUNT",
+      "actionType": "DELETE",
+      "doNotWriteOperationHistory": true,
+      "maxSupportedProcessors": "${maxSupportedProcessors}"
+    }
+  ],
+  "params": {
+    "dst_db": "${dst_db}",
+    "dst_location_id": "${sync_destination_location_id}",
+    "excluded_concept_id": "233866"
+  },
+  "defaultExceptionBehavior": "${defaultExceptionBehavior}",
+  "etlItemConfiguration": {
+    "srcConf": {
+      "tableName": "sis_rme_sync_msg",
+      "extraConditionForExtract": "table_name = 'patient' and operation = 'U'",
+      "excludedFieldsFromObjectDesc": [
+        "entity_payload"
+      ]
+    },
+    "dstConf": [
+      {
+        "tableName": "openmrs_event_receiver_mgt.sis_rme_sync_msg"
+      }
+    ]
+  }
+}

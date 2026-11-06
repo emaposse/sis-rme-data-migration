@@ -1,0 +1,95 @@
+{
+  "name": "sync_dst_encounter",
+  "parameters": [
+    "aliases_prefix",
+    "src_encounter_type_id",
+    "dst_encounter_type_id",
+    "dst_db",
+    "use_existing_record_id"
+  ],
+  "template": {
+    "tableName": "encounter",
+    "tableAlias": "${aliases_prefix}_encounter_dst_ds",
+    "onConflict": "UPDATE_EXISTING",
+    "applyCondition": "encounter_src_ds.encounter_type = ${src_encounter_type_id}",
+    "useAsDataSource": true,
+    "ignoreNoDstIssue": true,
+    "identifiedRecordAction": "UPDATE",
+    "preferredDataSource": [
+      "encounter_src_ds"
+    ],
+    "mapping": [
+      {
+        "srcValue": "DATE_TRANSFORMER(input:encounter_src_ds.encounter_datetime,operation:START_OF_DAY)",
+        "dstField": "encounter_datetime"
+      },
+      {
+        "srcField": "encounter_location_dst_ds.location_id",
+        "dstField": "location_id"
+      },
+      {
+        "srcField": "FAST_SQL_TRANSFORMER(SELECT form_id FROM ${dst_db}.form fo where fo.encounter_type = ${dst_encounter_type_id} and fo.retired = 0)",
+        "dstField": "form_id",
+        "relationshipResolutionStrategy": "SKIP"
+      },
+      {
+        "template": {
+          "name": "dst_patient_mapped_to_patient_placeholder",
+          "parameters": {
+            "dst_patient_field": "patient_id",
+            "src_patient_uuid": "encounter_patient_src_ds.uuid"
+          }
+        }
+      },
+      {
+        "srcValue": "${dst_encounter_type_id}",
+        "dstField": "encounter_type"
+      },
+      {
+        "template": {
+          "name": "dst_user_mapped_to_user_placeholder",
+          "parameters": {
+            "dst_user_field": "creator",
+            "src_user_uuid": "encounter_creator_src_ds.uuid",
+            "src_username": "encounter_creator_src_ds.username",
+            "apply_condition": ""
+          }
+        }
+      },
+      {
+        "template": {
+          "name": "dst_user_mapped_to_user_placeholder",
+          "parameters": {
+            "dst_user_field": "voided_by",
+            "src_user_uuid": "encounter_voided_by_src_ds.uuid",
+            "src_username": "encounter_voided_by_src_ds.username",
+            "apply_condition": "encounter_src_ds.voided = 1"
+          }
+        }
+      },
+      {
+        "template": {
+          "name": "dst_user_mapped_to_user_placeholder",
+          "parameters": {
+            "dst_user_field": "changed_by",
+            "src_user_uuid": "encounter_changed_by_src_ds.uuid",
+            "src_username": "encounter_changed_by_src_ds.username",
+            "apply_condition": "encounter_src_ds.changed_by != null"
+          }
+        }
+      }, 
+      {
+        "dstField": "visit_id",
+        "transformer": "PARENT_ON_DEMAND_TRANSFORMER(visit,on_demand_check_condition:patient_id=${aliases_prefix}_encounter_dst_ds.patient_id and date_started = date(encounter_src_ds.encounter_datetime),template:on_demand_visit,template_param_location_id:${aliases_prefix}_encounter_dst_ds.location_id,template_param_visit_date:DATE_TRANSFORMER(input:encounter_src_ds.encounter_datetime,operation:START_OF_DAY),template_param_patient_id:${aliases_prefix}_encounter_dst_ds.patient_id,template_param_visit_type_id:12,template_param_creator:${aliases_prefix}_encounter_dst_ds.creator)"
+      },
+      {
+        "dstField":"uuid",
+        "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:encounter,lookup_condition:encounter_type=${dst_encounter_type_id} and patient_id = ${aliases_prefix}_encounter_dst_ds.patient_id and encounter_datetime = DATE_TRANSFORMER(input:${aliases_prefix}_encounter_dst_ds.encounter_datetime,operation:START_OF_DAY))"
+      },
+      {
+        "srcValue": "${use_existing_record_id}",
+        "dstField": "encounter_id"
+      }
+    ]
+  }
+}

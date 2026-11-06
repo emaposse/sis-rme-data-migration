@@ -1,0 +1,19 @@
+{
+  "name": "orders_frequency_ds_from_json",
+  "template": {
+    "fields": [
+      "order_frequency_id",
+      "concept_id",
+      "frequency_per_day",
+      "creator",
+      "date_created",
+      "retired",
+      "retired_by",
+      "date_retired",
+      "retire_reason",
+      "changed_by",
+      "date_changed",
+      "uuid"
+    ]
+  }
+}

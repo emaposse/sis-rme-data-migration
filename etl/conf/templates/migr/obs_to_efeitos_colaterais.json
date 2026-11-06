@@ -1,0 +1,186 @@
+{
+  "name": "obs_to_efeitos_colaterais",
+  "parameters": [
+    "parent_aliases_prefix"
+  ],
+  "template": {
+    "srcConf": {
+      "tableName": "obs",
+      "tableAlias": "${parent_aliases_prefix}_efeitos_colaterais_obs_src_ds",
+      "joinExtraCondition": "concept_id = 2015",
+      "joinFields": [
+        {
+          "srcField": "encounter_id",
+          "dstField": "encounter_id"
+        }
+      ]
+    },
+    "dstConf": [
+      {
+        "tableName": "obs",
+        "tableAlias": "${parent_aliases_prefix}_efeitos_colaterais_dst_groupping_obs_ds",
+        "onConflict": "UPDATE_EXISTING",
+        "preferredDataSource": [
+          "${parent_aliases_prefix}_encounter_dst_ds",
+          "${parent_aliases_prefix}_efeitos_colaterais_obs_src_ds"
+        ],
+        "ignorableFields": [
+          "obs_group_id",
+          "accession_number",
+          "value_group_id",
+          "value_coded",
+          "value_coded_name_id",
+          "value_drug",
+          "value_datetime",
+          "value_numeric",
+          "value_modifier",
+          "value_text",
+          "value_complex",
+          "previous_version",
+          "form_namespace_and_path",
+          "interpretation",
+          "order_group_id"
+        ],
+        "mapping": [
+          {
+            "comments": "Efeitos Secundários aos Medicamentos (MedSet)",
+            "srcValue": "233766",
+            "dstField": "concept_id",
+            "relationshipResolutionStrategy": "SKIP"
+          },
+          {
+            "srcField": "${parent_aliases_prefix}_encounter_dst_ds.patient_id",
+            "dstField": "person_id"
+          },
+          {
+            "srcValue": "Criado na migracao de dados",
+            "dstField": "comments"
+          },
+          {
+            "dstField": "uuid",
+            "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:obs,lookup_condition:lookup_condition_for_obs.sql,table_alias:${parent_aliases_prefix}_on_demand_obs_uuid,concept_id:233766,encounter_id:${parent_aliases_prefix}_encounter_dst_ds.encounter_id,obs_datetime:${parent_aliases_prefix}_efeitos_colaterais_dst_groupping_obs_ds.obs_datetime,value_field:concept_id,value:233766)"
+          },
+          {
+            "srcValue": "FINAL",
+            "dstField": "status"
+          }
+        ]
+      }
+    ],
+    "childItemConf": [
+      {
+        "srcConf": {
+          "tableName": "obs",
+          "tableAlias": "${parent_aliases_prefix}_inner_efeitos_colaterais_medicamento_obs_src_ds",
+          "joinFields": [
+            {
+              "srcField": "obs_id",
+              "dstField": "obs_id"
+            }
+          ]
+        },
+        "dstConf": [
+          {
+            "tableName": "obs",
+            "tableAlias": "${parent_aliases_prefix}_efeitos_colaterais_medicamento_obs_dst_ds",
+            "onConflict": "UPDATE_EXISTING",
+            "preferredDataSource": [
+              "${parent_aliases_prefix}_encounter_dst_ds",
+              "${parent_aliases_prefix}_efeitos_colaterais_obs_src_ds"
+            ],
+            "ignorableFields": [
+              "accession_number",
+              "value_group_id",
+              "value_coded_name_id",
+              "value_drug",
+              "value_datetime",
+              "value_numeric",
+              "value_modifier",
+              "value_text",
+              "value_complex",
+              "previous_version",
+              "form_namespace_and_path",
+              "interpretation",
+              "order_group_id"
+            ],
+            "mapping": [
+              {
+                "srcField": "${parent_aliases_prefix}_encounter_dst_ds.patient_id",
+                "dstField": "person_id"
+              },
+              {
+                "comments": "Medicamento",
+                "srcValue": "233767",
+                "dstField": "concept_id",
+                "relationshipResolutionStrategy": "SKIP"
+              },
+              {
+                "comments": "Medicamento Generico",
+                "srcValue": "5424",
+                "dstField": "value_coded",
+                "relationshipResolutionStrategy": "SKIP"
+              },
+              {
+                "srcField": "${parent_aliases_prefix}_efeitos_colaterais_dst_groupping_obs_ds.obs_id",
+                "dstField": "obs_group_id"
+              },
+              {
+                "dstField": "uuid",
+                "transformer": "UUID_ON_DEMAND_TRANSFORMER(table_name:obs,lookup_condition:lookup_condition_for_obs.sql,table_alias:${parent_aliases_prefix}_on_demand_obs_uuid,encounter_id:${parent_aliases_prefix}_encounter_dst_ds.encounter_id,concept_id:233767,person_id:${parent_aliases_prefix}_encounter_dst_ds.patient_id,obs_datetime:${parent_aliases_prefix}_efeitos_colaterais_dst_groupping_obs_ds.obs_datetime,value_field:value_coded,value:5424)"
+              }
+            ]
+          },
+          {
+            "tableName": "obs",
+            "tableAlias": "${parent_aliases_prefix}_efeitos_colaterais_efeito_obs_dst_ds",
+            "onConflict": "UPDATE_EXISTING",
+            "preferredDataSource": [
+              "${parent_aliases_prefix}_encounter_dst_ds",
+              "${parent_aliases_prefix}_efeitos_colaterais_obs_src_ds"
+            ],
+            "ignorableFields": [
+              "accession_number",
+              "value_group_id",
+              "value_coded_name_id",
+              "value_drug",
+              "value_datetime",
+              "value_numeric",
+              "value_modifier",
+              "value_text",
+              "value_complex",
+              "previous_version",
+              "form_namespace_and_path",
+              "interpretation",
+              "order_group_id"
+            ],
+            "mapping": [
+              {
+                "srcField": "${parent_aliases_prefix}_encounter_dst_ds.patient_id",
+                "dstField": "person_id"
+              },
+              {
+                "comments": "Efeitos Secundarios",
+                "srcValue": "2015",
+                "dstField": "concept_id",
+                "relationshipResolutionStrategy": "SKIP"
+              },
+              {
+                "dstField": "value_coded",
+                "relationshipResolutionStrategy": "SKIP",
+                "transformer": "MAPPING_TRANSFORMER(sesp_sisrme_metadata_mapping,sesp_value,sisrme_value,on_missing:USE_INPUT,input:${parent_aliases_prefix}_efeitos_colaterais_obs_src_ds.value_coded,extra_condition:mapping_group=\"concept\")"
+              },
+              {
+                "srcField": "${parent_aliases_prefix}_efeitos_colaterais_dst_groupping_obs_ds.obs_id",
+                "dstField": "obs_group_id"
+              },
+              {
+                "srcField": "${parent_aliases_prefix}_efeitos_colaterais_obs_src_ds.uuid",
+                "dstField": "uuid"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

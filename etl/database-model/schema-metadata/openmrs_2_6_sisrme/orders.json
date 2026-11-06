@@ -1,0 +1,429 @@
+{
+  "formatVersion" : 2,
+  "key" : {
+    "logicalDatabaseId" : "openmrs_2_6_sisrme",
+    "databaseDialect" : "",
+    "catalog" : "",
+    "schema" : "",
+    "tableName" : "orders"
+  },
+  "columns" : [ {
+    "name" : "order_id",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : true,
+    "timestamp" : false
+  }, {
+    "name" : "order_type_id",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "concept_id",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "orderer",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "encounter_id",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "instructions",
+    "dataType" : "TEXT",
+    "length" : 21845,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "date_activated",
+    "dataType" : "DATETIME",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "auto_expire_date",
+    "dataType" : "DATETIME",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "date_stopped",
+    "dataType" : "DATETIME",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "order_reason",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "creator",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "date_created",
+    "dataType" : "DATETIME",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "voided",
+    "dataType" : "BIT",
+    "length" : 1,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "voided_by",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "date_voided",
+    "dataType" : "DATETIME",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "void_reason",
+    "dataType" : "VARCHAR",
+    "length" : 255,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "patient_id",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "accession_number",
+    "dataType" : "VARCHAR",
+    "length" : 255,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "uuid",
+    "dataType" : "CHAR",
+    "length" : 38,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "order_reason_non_coded",
+    "dataType" : "VARCHAR",
+    "length" : 255,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "urgency",
+    "dataType" : "VARCHAR",
+    "length" : 50,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "order_number",
+    "dataType" : "VARCHAR",
+    "length" : 50,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "previous_order_id",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "order_action",
+    "dataType" : "VARCHAR",
+    "length" : 50,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "comment_to_fulfiller",
+    "dataType" : "VARCHAR",
+    "length" : 1024,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "care_setting",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "scheduled_date",
+    "dataType" : "DATETIME",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "discontinued",
+    "dataType" : "BIT",
+    "length" : 1,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "discontinued_date",
+    "dataType" : "DATETIME",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "discontinued_reason_non_coded",
+    "dataType" : "VARCHAR",
+    "length" : 255,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "drug_order_id",
+    "dataType" : "BIGINT",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "start_date",
+    "dataType" : "DATETIME",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "test_order_id",
+    "dataType" : "BIGINT",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "order_group_id",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "sort_weight",
+    "dataType" : "DOUBLE",
+    "length" : 22,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "fulfiller_comment",
+    "dataType" : "VARCHAR",
+    "length" : 1024,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "fulfiller_status",
+    "dataType" : "VARCHAR",
+    "length" : 50,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  } ],
+  "primaryKey" : {
+    "name" : "pk",
+    "columns" : [ {
+      "name" : "order_id",
+      "dataType" : "INT"
+    } ],
+    "manuallyConfigured" : true
+  },
+  "uniqueKeys" : [ {
+    "name" : "drug_order_id",
+    "columns" : [ {
+      "name" : "drug_order_id",
+      "dataType" : "BIGINT"
+    } ],
+    "manuallyConfigured" : false
+  }, {
+    "name" : "orders_uuid_index",
+    "columns" : [ {
+      "name" : "uuid",
+      "dataType" : "CHAR"
+    } ],
+    "manuallyConfigured" : false
+  }, {
+    "name" : "test_order_id",
+    "columns" : [ {
+      "name" : "test_order_id",
+      "dataType" : "BIGINT"
+    } ],
+    "manuallyConfigured" : false
+  } ],
+  "importedForeignKeys" : [ {
+    "name" : "orders_care_setting",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "care_setting",
+    "mappings" : [ {
+      "childColumn" : "care_setting",
+      "parentColumn" : "care_setting_id"
+    } ]
+  }, {
+    "name" : "discontinued_because",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "concept",
+    "mappings" : [ {
+      "childColumn" : "order_reason",
+      "parentColumn" : "concept_id"
+    } ]
+  }, {
+    "name" : "FKC3DF62E5ED53318F",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "concept",
+    "mappings" : [ {
+      "childColumn" : "concept_id",
+      "parentColumn" : "concept_id"
+    } ]
+  }, {
+    "name" : "orders_in_encounter",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "encounter",
+    "mappings" : [ {
+      "childColumn" : "encounter_id",
+      "parentColumn" : "encounter_id"
+    } ]
+  }, {
+    "name" : "orders_order_group_id_fk",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "order_group",
+    "mappings" : [ {
+      "childColumn" : "order_group_id",
+      "parentColumn" : "order_group_id"
+    } ]
+  }, {
+    "name" : "type_of_order",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "order_type",
+    "mappings" : [ {
+      "childColumn" : "order_type_id",
+      "parentColumn" : "order_type_id"
+    } ]
+  }, {
+    "name" : "previous_order_id_order_id",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "orders",
+    "mappings" : [ {
+      "childColumn" : "previous_order_id",
+      "parentColumn" : "order_id"
+    } ]
+  }, {
+    "name" : "order_for_patient",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "patient",
+    "mappings" : [ {
+      "childColumn" : "patient_id",
+      "parentColumn" : "patient_id"
+    } ]
+  }, {
+    "name" : "order_creator",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "users",
+    "mappings" : [ {
+      "childColumn" : "creator",
+      "parentColumn" : "user_id"
+    } ]
+  }, {
+    "name" : "user_who_voided_order",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "users",
+    "mappings" : [ {
+      "childColumn" : "voided_by",
+      "parentColumn" : "user_id"
+    } ]
+  } ],
+  "exportedForeignKeys" : [ ]
+}

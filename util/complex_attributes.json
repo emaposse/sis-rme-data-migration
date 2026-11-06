@@ -1,0 +1,134 @@
+[
+  {
+    "person_attribute_type_uuid": "meio.de.contacto",
+    "value": [
+      {
+        "attribute_key": "patient.consent_to_be_contacted.concept.concept_id",
+        "attribute_value": "1065"
+      },
+      {
+        "attribute_key": "patient.contact_method_sms.concept.concept_id",
+        "attribute_value": "23719"
+      },
+      {
+        "attribute_key": "patient.contact_method_telephone.concept.concept_id",
+        "attribute_value": "6307"
+      },
+      {
+        "attribute_key": "patient.contact_method_homevisit.concept.concept_id",
+        "attribute_value": "2071"
+      }
+    ]
+  },
+  {
+    "person_attribute_type_gp": "reference_contact_information.person_attribute_type.uuid",
+    "value": [
+      {
+        "attribute_key": "sisrme.reference_contact_information.full_name.text",
+        "attribute_value": "CONFIDANT NAME"
+      },
+      {
+        "attribute_key": "sisrme.reference_contact_information.relationship_type.concept.concept_id",
+        "attribute_value": "973"
+      },
+      {
+        "attribute_key": "sisrme.reference_contact_information.address.text",
+        "attribute_value": "ADDRESS LINE TWO"
+      },
+      {
+        "attribute_key": "sisrme.reference_contact_information.phone_number.numeric",
+        "attribute_value": "8755555555"
+      },
+      {
+        "attribute_key": "sisrme.reference_contact_information.phone_number2.numeric",
+        "attribute_value": "8755555551"
+      },
+      {
+        "attribute_key": "sisrme.reference_contact_information.type_of_contact_person.concept.concept_id",
+        "attribute_value": "2033"
+      },
+      {
+        "attribute_key": "sisrme.reference_contact_information.age.numeric",
+        "attribute_value": "45"
+      },
+      {
+        "attribute_key": "sisrme.reference_contact_information.sex.text",
+        "attribute_value": "M"
+      },
+      {
+        "attribute_key": "sisrme.reference_contact_information.homevisit_contact_method.concept.concept_id",
+        "attribute_value": "2071"
+      },
+      {
+        "attribute_key": "sisrme.reference_contact_information.telephone_contact_method.concept.concept_id",
+        "attribute_value": "6307"
+      },
+      {
+        "attribute_key": "sisrme.reference_contact_information.sms_contact_method.concept.concept_id",
+        "attribute_value": "23719"
+      },
+      {
+        "attribute_key": "sisrme.reference_contact_information.consent_contact.concept.concept_id",
+        "attribute_value": "1065"
+      }
+    ]
+  },
+  {
+    "person_attribute_type_gp": "family_situation_contact_information.person_attribute_type.uuid",
+    "value": [
+      {
+        "attribute_key": "contact_situation.name.text",
+        "attribute_value": "SITUACAO"
+      },
+      {
+        "attribute_key": "contact_situation.surname.text",
+        "attribute_value": "CONTACTOS"
+      },
+      {
+        "attribute_key": "contact_situation.gender.text",
+        "attribute_value": "F"
+      },
+      {
+        "attribute_key": "contact_situation.age.numeric",
+        "attribute_value": "23"
+      },
+      {
+        "attribute_key": "contact_situation.relationship_type.concept.concept_id",
+        "attribute_value": "972"
+      },
+      {
+        "attribute_key": "contact_situation.hiv_status.concept.concept_id",
+        "attribute_value": "231287"
+      },
+      {
+        "attribute_key": "contact_situation.nid.text",
+        "attribute_value": "DASDASDASDASD"
+      },
+      {
+        "attribute_key": "contact_situation.consent_test.concept.concept_id",
+        "attribute_value": "1065"
+      },
+      {
+        "attribute_key": "contact_situation.testing_preferred_location.concept.concept_id",
+        "attribute_value": "6403"
+      },
+      {
+        "attribute_key": "contact_situation.expected_testing_date.date",
+        "attribute_value": "2026-02-25T22:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "person_attribute_type_uuid": "populacao_chave",
+    "value": [
+      {
+        "attribute_key": "key_pop.hsh.concept.concept_id",
+        "attribute_value": "1377"
+      },
+      {
+        "attribute_key": "key_pop.druguser.concept.concept_id",
+        "attribute_value": "20454"
+      }
+    ]
+  }
+]

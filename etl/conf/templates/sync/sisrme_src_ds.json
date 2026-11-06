@@ -1,0 +1,214 @@
+{
+  "name": "sisrme_src_ds",
+  "parameters": [
+    "aliases_prefix",
+    "main_output_template_name"
+  ],
+  "template": {
+    "tableName": "sis_rme_sync_msg",
+    "tableAlias": "${aliases_prefix}_sis_rme_sync_msg",
+    "joinFields": [
+      {
+        "srcField": "id",
+        "dstField": "id"
+      }
+    ],
+    "extraJsonDataSource": [
+      {
+        "name": "${aliases_prefix}_sisrme_event",
+        "payload": "@entity_payload",
+        "outputDataSource": {
+          "name": "${aliases_prefix}_src_ds",
+          "template": {
+            "name": "${main_output_template_name}"
+          },
+          "parentOutputDataSource": [
+            {
+              "name": "${aliases_prefix}_patient_src_ds",
+              "childField": "patient_id",
+              "template": {
+                "name": "patient_ds_from_json"
+              }
+            },
+            {
+              "name": "${aliases_prefix}_creator_src_ds",
+              "childField": "creator",
+              "template": {
+                "name": "users_ds_from_json"
+              }
+            },
+            {
+              "name": "${aliases_prefix}_changed_by_src_ds",
+              "childField": "changed_by",
+              "template": {
+                "name": "users_ds_from_json"
+              }
+            },
+            {
+              "name": "${aliases_prefix}_voided_by_src_ds",
+              "childField": "voided_by",
+              "template": {
+                "name": "users_ds_from_json"
+              }
+            },
+            {
+              "name": "${aliases_prefix}_visit_src_ds",
+              "childField": "visit_id",
+              "template": {
+                "name": "visit_ds_from_json"
+              }
+            },
+            {
+              "name": "${aliases_prefix}_encounter_src_ds",
+              "childField": "encounter_id",
+              "template": {
+                "name": "encounter_ds_from_json"
+              }
+            },
+            {
+              "name": "${aliases_prefix}_drug_src_ds",
+              "childField": "drug_id",
+              "template": {
+                "name": "drug_ds_from_json"
+              }
+            },
+            {
+              "name": "${aliases_prefix}_orders_src_ds",
+              "childField": "order_id",
+              "template": {
+                "name": "orders_ds_from_json"
+              }
+            },
+            {
+              "name": "${aliases_prefix}_order_frequency_src_ds",
+              "childField": "frequency",
+              "template": {
+                "name": "orders_frequency_ds_from_json"
+              }
+            },
+            {
+              "name": "${aliases_prefix}_location_src_ds",
+              "childField": "location_id",
+              "template": {
+                "name": "location_ds_from_json"
+              }
+            },
+            {
+              "name": "${aliases_prefix}_county_district_src_ds",
+              "childField": "county_district",
+              "template": {
+                "name": "location_ds_from_json"
+              }
+            },
+            {
+              "name": "${aliases_prefix}_country_src_ds",
+              "childField": "country",
+              "template": {
+                "name": "location_ds_from_json"
+              }
+            },
+            {
+              "name": "${aliases_prefix}_state_province_src_ds",
+              "childField": "state_province",
+              "template": {
+                "name": "location_ds_from_json"
+              }
+            },
+            {
+              "name": "${aliases_prefix}_obs_group_src_ds",
+              "childField": "obs_group_id",
+              "template": {
+                "name": "obs_ds_from_json"
+              }
+            },
+            {
+              "name": "${aliases_prefix}_orders_src_ds",
+              "childField": "order_id",
+              "template": {
+                "name": "orders_ds_from_json"
+              }
+            },
+            {
+              "name": "${aliases_prefix}_person_src_ds",
+              "childField": "person_id",
+              "template": {
+                "name": "person_ds_from_json"
+              }
+            },
+            {
+              "name": "${aliases_prefix}_person_complex_attribute_src_ds",
+              "childField": "person_complex_attribute_id",
+              "template": {
+                "name": "person_complex_attribute_ds_from_json"
+              }
+            },
+            {
+              "name": "${aliases_prefix}_person_attribute_src_ds",
+              "childField": "person_attribute_id",
+              "template": {
+                "name": "person_attribute_ds_from_json"
+              }
+            },
+            {
+              "name": "${aliases_prefix}_provider_src_ds",
+              "childField": "provider_id",
+              "template": {
+                "name": "provider_ds_from_json"
+              }
+            },
+            {
+              "name": "${aliases_prefix}_provider_src_ds",
+              "childField": "provider_id",
+              "template": {
+                "name": "provider_ds_from_json"
+              }
+            },
+            {
+              "name": "${aliases_prefix}_patient_program_src_ds",
+              "childField": "patient_program_id",
+              "template": {
+                "name": "patient_program_ds_from_json"
+              }
+            },
+            {
+              "name": "${aliases_prefix}_patient_identifier_type_src_ds",
+              "childField": "patient_identifier_type_id",
+              "template": {
+                "name": "patient_identifier_type_ds_from_json"
+              }
+            },
+            {
+              "name": "${aliases_prefix}_person_a_src_ds",
+              "childField": "person_a",
+              "template": {
+                "name": "person_ds_from_json"
+              }
+            },
+            {
+              "name": "${aliases_prefix}_person_b_src_ds",
+              "childField": "person_b",
+              "template": {
+                "name": "person_ds_from_json"
+              }
+            },
+            {
+              "name": "${aliases_prefix}_clinical_service_src_ds",
+              "childField": "service_id",
+              "template": {
+                "name": "clinical_service_ds_from_json"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "extraQueryDataSource": [
+      {
+        "name": "${aliases_prefix}_location_dst_ds",
+        "script": "sesp_location_query.sql",
+        "applyCondition": "ETL_CONF_CHECK(conf_name:${aliases_prefix}_src_ds,operation:HAS_FIELD,field:location_id) and ${aliases_prefix}_src_ds.location_id != null",
+        "relationshipResolutionStrategy": "SKIP"
+      }
+    ]
+  }
+}

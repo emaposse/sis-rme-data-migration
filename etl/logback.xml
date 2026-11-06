@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+    <property
+        name="ETL_LOG_LEVEL"
+        value="${log.level:-INFO}" />
+
+    <property
+    	name="ETL_CONFIGURATION_LOG_LEVEL"
+    	value="${log.level.configuration:-${ETL_LOG_LEVEL}}" />
+
+    <property
+        name="CONTROLLER_LOG_LEVEL"
+        value="${log.level.controller:-${ETL_LOG_LEVEL}}" />
+
+    <property
+        name="ENGINE_LOG_LEVEL"
+        value="${log.level.engine:-${ETL_LOG_LEVEL}}" />
+
+    <property
+        name="PROCESSOR_LOG_LEVEL"
+        value="${log.level.processor:-${ETL_LOG_LEVEL}}" />
+
+    <property
+        name="DAO_LOG_LEVEL"
+        value="${log.level.dao:-${ETL_LOG_LEVEL}}" />
+
+    <property
+        name="DB_CONNECTION_LOG_LEVEL"
+        value="${log.level.connection:-${ETL_LOG_LEVEL}}" />
+
+    <property
+        name="LOGS_PATTERN"
+        value="%-5level %date [%thread] %logger{48}:%line %msg%n" />
+
+    <appender
+        name="CONSOLE"
+        class="ch.qos.logback.core.ConsoleAppender">
+
+        <encoder>
+            <pattern>${LOGS_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <logger
+        name="org.openmrs.module.epts.etl"
+        level="${ETL_LOG_LEVEL}" />
+
+    <logger
+    	name="org.openmrs.module.epts.etl.conf.AbstractBaseConfiguration"
+	level="${ETL_CONFIGURATION_LOG_LEVEL}" />
+
+    <logger
+        name="org.openmrs.module.epts.etl.controller"
+        level="${CONTROLLER_LOG_LEVEL}" />
+
+    <logger
+        name="org.openmrs.module.epts.etl.controller"
+        level="${ENGINE_LOG_LEVEL}" />
+
+    <logger
+        name="org.openmrs.module.epts.etl.processor.TaskProcessor"
+        level="${PROCESSOR_LOG_LEVEL}" />
+
+    <logger
+        name="org.openmrs.module.epts.etl.model"
+        level="${DAO_LOG_LEVEL}" />
+
+    <logger
+    	name="org.openmrs.module.epts.etl.utilities.db.conn.DBConnectionInfo"
+        level="${DB_CONNECTION_LOG_LEVEL}" />
+	    
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+    </root>
+
+</configuration>

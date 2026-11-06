@@ -1,0 +1,26 @@
+{
+  "name": "patient_identifier_type_ds_from_json",
+  "template": {
+    "fields": [
+      "patient_identifier_type_id",
+      "name",
+      "description",
+      "format",
+      "check_digit",
+      "creator",
+      "date_created",
+      "required",
+      "format_description",
+      "validator",
+      "retired",
+      "retired_by",
+      "date_retired",
+      "retire_reason",
+      "uuid",
+      "location_behavior",
+      "uniqueness_behavior",
+      "date_changed",
+      "changed_by"
+    ]
+  }
+}

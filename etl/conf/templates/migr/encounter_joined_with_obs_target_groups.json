@@ -1,0 +1,47 @@
+{
+  "name": "encounter_joined_with_obs_target_groups",
+  "extends": {
+    "name": "encounter_joined_with_obs_to_person_complex_attribute_and_person_attribute",
+    "parameters": {
+      "aliases_prefix": "${aliases_prefix}",
+      "concept_list": "${concept_list}",
+      "location_list": "${location_list}",
+      "src_encounter_type_id": "${src_encounter_type_id}",
+      "person_attribute_type_id": "${person_attribute_type_id}",
+      "extra_condition": "${extra_condition}"
+    }
+  },
+  "parameters": [
+    "aliases_prefix",
+    "concept_list",
+    "location_list",
+    "src_encounter_type_id",
+    "person_attribute_type_id",
+    "extra_condition"
+  ],
+  "template": {
+    "childItemConf": [
+      {
+        "srcConf": {
+          "tableName": "obs",
+          "tableAlias": "${aliases_prefix}_concept_obs_src_ds",
+          "extraConditionForExtract": "concept_id in (165196) and voided = 0"
+        },
+        "dstConf": [
+          {
+            "template": {
+              "name": "dst_person_complex_attribute_detail_from_obs",
+              "parameters": {
+                "src_aliases_prefix": "${aliases_prefix}_concept",
+                "dst_aliases_prefix": "${aliases_prefix}_concept",
+                "src_object_condition": "",
+                "attribute_key": "target_group.concept.concept_id",
+                "attribute_value": "${aliases_prefix}_concept_obs_src_ds.value_coded"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

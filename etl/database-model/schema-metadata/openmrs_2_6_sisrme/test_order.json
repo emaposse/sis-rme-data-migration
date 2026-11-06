@@ -1,0 +1,141 @@
+{
+  "formatVersion" : 2,
+  "key" : {
+    "logicalDatabaseId" : "openmrs_2_6_sisrme",
+    "databaseDialect" : "",
+    "catalog" : "",
+    "schema" : "",
+    "tableName" : "test_order"
+  },
+  "columns" : [ {
+    "name" : "order_id",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "specimen_source",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "laterality",
+    "dataType" : "VARCHAR",
+    "length" : 20,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "clinical_history",
+    "dataType" : "TEXT",
+    "length" : 65535,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "frequency",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "number_of_repeats",
+    "dataType" : "INT",
+    "length" : 10,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "concept_id",
+    "dataType" : "BIGINT",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : false,
+    "autoIncrement" : false,
+    "timestamp" : false
+  }, {
+    "name" : "orders_id",
+    "dataType" : "BIGINT",
+    "length" : 19,
+    "decimalDigits" : 0,
+    "nullable" : true,
+    "autoIncrement" : false,
+    "timestamp" : false
+  } ],
+  "primaryKey" : {
+    "name" : "pk",
+    "columns" : [ {
+      "name" : "order_id",
+      "dataType" : "INT"
+    } ],
+    "manuallyConfigured" : true
+  },
+  "uniqueKeys" : [ {
+    "name" : "orders_id",
+    "columns" : [ {
+      "name" : "orders_id",
+      "dataType" : "BIGINT"
+    } ],
+    "manuallyConfigured" : false
+  }, {
+    "name" : "drug_order_id",
+    "columns" : [ {
+      "name" : "drug_order_id",
+      "dataType" : "BIGINT"
+    } ],
+    "manuallyConfigured" : false
+  }, {
+    "name" : "orders_uuid_index",
+    "columns" : [ {
+      "name" : "uuid",
+      "dataType" : "CHAR"
+    } ],
+    "manuallyConfigured" : false
+  }, {
+    "name" : "test_order_id",
+    "columns" : [ {
+      "name" : "test_order_id",
+      "dataType" : "BIGINT"
+    } ],
+    "manuallyConfigured" : false
+  } ],
+  "importedForeignKeys" : [ {
+    "name" : "test_order_specimen_source_fk",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "concept",
+    "mappings" : [ {
+      "childColumn" : "specimen_source",
+      "parentColumn" : "concept_id"
+    } ]
+  }, {
+    "name" : "test_order_frequency_fk",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "order_frequency",
+    "mappings" : [ {
+      "childColumn" : "frequency",
+      "parentColumn" : "order_frequency_id"
+    } ]
+  }, {
+    "name" : "test_order_order_id_fk",
+    "referencedCatalog" : "",
+    "referencedSchema" : "",
+    "referencedTable" : "orders",
+    "mappings" : [ {
+      "childColumn" : "order_id",
+      "parentColumn" : "order_id"
+    } ]
+  } ],
+  "exportedForeignKeys" : [ ]
+}
